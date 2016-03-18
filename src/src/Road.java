@@ -17,7 +17,7 @@ public class Road extends Field {
      * @param player
      */
     public void onStep(Player player) {
-        GameEngine.print("Road.onStep - onStep called on player");
+        GameEngine.print("Road.onStep - onStep called on Player");
         // TODO implement here
     }
 
