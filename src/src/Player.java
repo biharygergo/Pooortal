@@ -56,7 +56,7 @@ public class Player {
      */
     public Bullet shootBlue() {
         // TODO implement here
-        GameEngine.print("Player.shootBlue - Blue bullet shooted");
+        GameEngine.print("Player.shootBlue - Blue bullet shot");
         return null;
     }
 
@@ -65,7 +65,7 @@ public class Player {
      */
     public Bullet shootYellow() {
         // TODO implement here
-        GameEngine.print("Player.shootYellow - Yellow bullet shooted");
+        GameEngine.print("Player.shootYellow - Yellow bullet shot");
         return null;
     }
 
