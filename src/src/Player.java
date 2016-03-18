@@ -45,6 +45,8 @@ public class Player {
      */
     public Box dropBox() {
         // TODO implement here
+
+        System.out.println(GameEngine.tab);
         return null;
     }
 

@@ -5,10 +5,13 @@ package src;
  */
 public class GameEngine {
 
+    static int tab;
+
     /**
      * Default constructor
      */
     public GameEngine() {
+        GameEngine.tab=2;
     }
 
     /**
@@ -60,7 +63,9 @@ public class GameEngine {
 
     public static void main(String[] args){
         System.out.println("It Works!");
-
+        tab++;
+        Player p= new Player();
+        p.dropBox();
     }
 
 }
