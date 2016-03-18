@@ -42,19 +42,17 @@ public class Wall extends Field {
 
     /**
      * @return
-     */
+
     public Map<Dir, Field> getSides() {
         // TODO implement here
         GameEngine.print("Wall.getSides - Returned neighboring fields");
         return null;
     }
 
-    /**
-     * @param Map
-     * @return
-     */
+
     public void setSides(Map<Dir, Field> map) {
         // TODO implement here
         GameEngine.print("Wall.setSides - Neighboring fields set");
     }
+    */
 }
