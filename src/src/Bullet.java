@@ -9,6 +9,8 @@ public class Bullet{
      * Default constructor
      */
     public Bullet() {
+        GameEngine.print("Bullet.() - new Bullet is created");
+
     }
 
     /**
@@ -36,7 +38,7 @@ public class Bullet{
     /**
      * 
      */
-    public GameEngine currentBullets;
+   // public GameEngine currentBullets;
 
 
 
@@ -49,6 +51,8 @@ public class Bullet{
      */
     public Color getColor() {
         // TODO implement here
+        GameEngine.print("Bullet.getColor - returned Bullet's color");
+
         return null;
     }
 
@@ -57,6 +61,8 @@ public class Bullet{
      * @return
      */
     public void setColor(Color color) {
+        GameEngine.print("Bullet.setColor - set Bullet's color");
+
         // TODO implement here
 
     }
@@ -65,6 +71,8 @@ public class Bullet{
      * @return
      */
     public Dir getDir() {
+        GameEngine.print("Bullet.getDir - returned Bullet's dir");
+
         // TODO implement here
         return null;
     }
@@ -74,6 +82,8 @@ public class Bullet{
      * @return
      */
     public void setDir(Dir dir) {
+        GameEngine.print("Bullet.setDir - set Bullet's dir");
+
         // TODO implement here
 
     }
@@ -83,6 +93,8 @@ public class Bullet{
      * @return
      */
     public void setField(Field f) {
+        GameEngine.print("Bullet.setField - set Bullet's current Field");
+
         // TODO implement here
 
     }
@@ -91,6 +103,8 @@ public class Bullet{
      * @return
      */
     public void getField() {
+        GameEngine.print("Bullet.getField - returned Bullet's current Field");
+
         // TODO implement here
 
     }
@@ -99,6 +113,8 @@ public class Bullet{
      * @return
      */
     public boolean isActive() {
+        GameEngine.print("Bullet.isActive - returned boolean active");
+
         // TODO implement here
         return false;
     }
@@ -108,6 +124,8 @@ public class Bullet{
      * @return
      */
     public void setActive(boolean act) {
+        GameEngine.print("Bullet.setActive - set Bullet as active or inactive");
+
         // TODO implement here
 
     }
