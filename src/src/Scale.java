@@ -1,46 +1,60 @@
-import src.Field;
+package src;
 
 import java.util.*;
 
 /**
  * 
  */
-public class Door extends Field {
+public class Scale extends Field {
 
     /**
      * Default constructor
      */
-    public Door() {
+    public Scale() {
     }
+
 
     /**
      * 
      */
-    private boolean open;
+    private boolean weight;
 
+
+    /**
+     * 
+     */
+    private Door door;
 
     /**
      * @return
      */
-    public boolean isOpen() {
+    public Door getDoor() {
+        // TODO implement here
+        return null;
+    }
+
+    /**
+     * @param door 
+     * @return
+     */
+    public void setDoor(Door door) {
+        // TODO implement here
+
+    }
+
+    /**
+     * @return
+     */
+    public boolean getWeight() {
         // TODO implement here
         return false;
     }
 
     /**
-     * @param open 
+     * @param weight 
      * @return
      */
-    public void setOpen(boolean open) {
-        // TODO implement here
-
-    }
-
-    /**
-     * @param player 
-     * @return
-     */
-    public void onStep(Player player) {
+    public void setWeight(boolean weight) {
         // TODO implement here
 
     }
@@ -51,6 +65,15 @@ public class Door extends Field {
     public boolean steppable() {
         // TODO implement here
         return false;
+    }
+
+    /**
+     * @param player 
+     * @return
+     */
+    public void onStep(Player player) {
+        // TODO implement here
+
     }
 
     /**
@@ -66,20 +89,20 @@ public class Door extends Field {
     /**
      * @return
      */
+
     public Map<Dir, Field> getSides() {
         // TODO implement here
         return null;
     }
 
     /**
-     * @param Map 
+     * @param Map
      * @return
      */
     public void setSides(Map<Dir, Field> map) {
         // TODO implement here
 
     }
-
 
 
 }

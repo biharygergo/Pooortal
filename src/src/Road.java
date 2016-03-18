@@ -1,43 +1,42 @@
+package src;
+
 import java.util.*;
 
 /**
  * 
  */
-public abstract class Field {
+public class Road extends Field {
 
     /**
      * Default constructor
      */
-    public Field() {
+    public Road() {
+    }
+
+    /**
+     * @param player
+     */
+    public void onStep(Player player) {
+        // TODO implement here
     }
 
     /**
      * 
      */
-    protected Map<Dir, Field> sides;
-
-
-
-
-
-
-    /**
-     * @return
-     */
-    public abstract boolean steppable();
-
-    /**
-     * @param player 
-     * @return
-     */
-    public abstract void onStep(Player player);
+    public boolean steppable() {
+        // TODO implement here
+        return false;
+    }
 
     /**
      * @param bullet 
      * @param wormHole 
      * @return
      */
-    public abstract void onShoot(Bullet bullet, Wormhole wormHole);
+    public void onShoot(Bullet bullet, Wormhole wormHole) {
+        // TODO implement here
+
+    }
 
     /**
      * @return
@@ -55,5 +54,10 @@ public abstract class Field {
         // TODO implement here
 
     }
+
+    /**
+     * @return
+     */
+
 
 }

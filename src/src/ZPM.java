@@ -1,25 +1,34 @@
-import java.util.*;
+package src;
 
 /**
  * 
  */
-public abstract class Item {
+public class ZPM extends Modules {
 
     /**
      * Default constructor
      */
-    public Item() {
+    public ZPM() {
+    }
+
+
+    /**
+     * @param player 
+     * @return
+     */
+    public void onUse(Player player) {
+        // TODO implement here
+
     }
 
     /**
-     * 
+     * @param player 
+     * @return
      */
-    protected Field field;
+    public void onStep(Player player) {
+        // TODO implement here
 
-
-
-
-
+    }
 
     /**
      * @return
@@ -37,17 +46,5 @@ public abstract class Item {
         // TODO implement here
 
     }
-
-    /**
-     * @param player 
-     * @return
-     */
-    public abstract void onStep(Player player);
-
-    /**
-     * @param player 
-     * @return
-     */
-    public abstract void onUse(Player player);
 
 }

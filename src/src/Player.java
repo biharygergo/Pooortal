@@ -1,25 +1,16 @@
-import java.util.*;
+package src;//import src.Field;
+//package src;
 
 /**
  * 
  */
-public class Bullet{
+public class Player {
 
     /**
      * Default constructor
      */
-    public Bullet() {
+    public Player() {
     }
-
-    /**
-     * 
-     */
-    private Color color;
-
-    /**
-     * 
-     */
-    private Dir dir;
 
     /**
      * 
@@ -29,34 +20,63 @@ public class Bullet{
     /**
      * 
      */
-    private boolean active;
+    private Dir dir;
 
+    /**
+     * 
+     */
+
+    private boolean alive;
+
+    /**
+     * 
+     */
+    int collectedZPMs;
 
 
     /**
      * 
      */
-    public GameEngine currentBullets;
-
-
-
-
-
+    private Box box;
 
 
     /**
      * @return
      */
-    public Color getColor() {
+    public Box dropBox() {
         // TODO implement here
         return null;
     }
 
     /**
-     * @param color 
      * @return
      */
-    public void setColor(Color color) {
+    public Bullet shootBlue() {
+        // TODO implement here
+        return null;
+    }
+
+    /**
+     * @return
+     */
+    public Bullet shootYellow() {
+        // TODO implement here
+        return null;
+    }
+
+    /**
+     * @return
+     */
+    public Field getField() {
+        // TODO implement here
+        return null;
+    }
+
+    /**
+     * @param field 
+     * @return
+     */
+    public void setField(Field field) {
         // TODO implement here
 
     }
@@ -79,10 +99,18 @@ public class Bullet{
     }
 
     /**
-     * @param f 
      * @return
      */
-    public void setField(Field f) {
+    public Box getBox() {
+        // TODO implement here
+        return null;
+    }
+
+    /**
+     * @param box 
+     * @return
+     */
+    public void setBox(Box box) {
         // TODO implement here
 
     }
@@ -90,32 +118,26 @@ public class Bullet{
     /**
      * @return
      */
-    public void getField() {
-        // TODO implement here
-
-    }
-
-    /**
-     * @return
-     */
-    public boolean isActive() {
+    public boolean isAlive() {
         // TODO implement here
         return false;
     }
 
     /**
-     * @param act 
+     * @param alive 
      * @return
      */
-    public void setActive(boolean act) {
+    public void setAlive(boolean alive) {
         // TODO implement here
 
     }
 
     /**
-     * @param player
      * @return
      */
-
+    public Field getNextField() {
+        // TODO implement here
+        return null;
+    }
 
 }

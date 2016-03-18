@@ -1,3 +1,5 @@
+package src;
+
 import java.util.*;
 
 /**
@@ -19,7 +21,7 @@ public class Modules {
     /**
      * 
      */
-    private List< Box> boxes;
+    private List<Box> boxes;
 
     /**
      * 

@@ -1,40 +1,45 @@
+package src;
+
 import java.util.*;
 
 /**
  * 
  */
-public class Wall extends Field {
+public abstract class Field {
 
     /**
      * Default constructor
      */
-    public Wall() {
-    }
-
-    /**
-     * @param player
-     */
-    public void onStep(Player player) {
-        // TODO implement here
+    public Field() {
     }
 
     /**
      * 
      */
-    public boolean steppable() {
-        // TODO implement here
-        return false;
-    }
+    protected Map<Dir, Field> sides;
+
+
+
+
+
+
+    /**
+     * @return
+     */
+    public abstract boolean steppable();
+
+    /**
+     * @param player 
+     * @return
+     */
+    public abstract void onStep(Player player);
 
     /**
      * @param bullet 
      * @param wormHole 
      * @return
      */
-    public void onShoot(Bullet bullet, Wormhole wormHole) {
-        // TODO implement here
-
-    }
+    public abstract void onShoot(Bullet bullet, Wormhole wormHole);
 
     /**
      * @return
@@ -45,11 +50,12 @@ public class Wall extends Field {
     }
 
     /**
-     * @param Map
+     * @param Map 
      * @return
      */
     public void setSides(Map<Dir, Field> map) {
         // TODO implement here
 
     }
+
 }

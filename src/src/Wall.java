@@ -1,14 +1,16 @@
+package src;
+
 import java.util.*;
 
 /**
  * 
  */
-public class Road extends Field {
+public class Wall extends Field {
 
     /**
      * Default constructor
      */
-    public Road() {
+    public Wall() {
     }
 
     /**
@@ -45,17 +47,11 @@ public class Road extends Field {
     }
 
     /**
-     * @param Map 
+     * @param Map
      * @return
      */
     public void setSides(Map<Dir, Field> map) {
         // TODO implement here
 
     }
-
-    /**
-     * @return
-     */
-
-
 }
