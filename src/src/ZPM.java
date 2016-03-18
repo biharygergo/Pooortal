@@ -9,6 +9,7 @@ public class ZPM extends Modules {
      * Default constructor
      */
     public ZPM() {
+        GameEngine.print("ZPM() - New ZPM created");
     }
 
 

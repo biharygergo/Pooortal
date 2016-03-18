@@ -11,6 +11,7 @@ public class Scale extends Field {
      * Default constructor
      */
     public Scale() {
+        GameEngine.print("Scale() - New Scale created");
     }
 
 

@@ -9,6 +9,7 @@ public class Wormhole {
      * Default constructor
      */
     public Wormhole() {
+        GameEngine.print("Wormhole() - New Wormhole created");
     }
 
     /**

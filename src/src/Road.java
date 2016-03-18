@@ -11,6 +11,7 @@ public class Road extends Field {
      * Default constructor
      */
     public Road() {
+        GameEngine.print("Road() - New Road created");
     }
 
     /**

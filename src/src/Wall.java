@@ -11,6 +11,7 @@ public class Wall extends Field {
      * Default constructor
      */
     public Wall() {
+        GameEngine.print("Wall() - New Wall created");
     }
 
     /**

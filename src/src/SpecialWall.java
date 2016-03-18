@@ -11,6 +11,7 @@ public class SpecialWall extends Wall {
      * Default constructor
      */
     public SpecialWall() {
+        GameEngine.print("SpecialWall() - New SpecialWall created");
     }
 
 
