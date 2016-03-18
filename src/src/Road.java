@@ -42,24 +42,21 @@ public class Road extends Field {
 
     /**
      * @return
-     */
+     *
     public Map<Dir, Field> getSides() {
         // TODO implement here
         GameEngine.print("Road.getSides - Returned neighboring fields");
         return null;
     }
 
-    /**
-     * @param Map 
-     * @return
-     */
+
     public void setSides(Map<Dir, Field> map) {
         // TODO implement here
         GameEngine.print("Road.setSides - Neighboring fields set");
 
     }
 
-    /**
+
      * @return
      */
 
