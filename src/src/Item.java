@@ -9,6 +9,8 @@ public abstract class Item {
      * Default constructor
      */
     public Item() {
+        GameEngine.print("Item.() - new Item was created");
+
     }
 
     /**
@@ -26,6 +28,8 @@ public abstract class Item {
      */
     public Field getField() {
         // TODO implement here
+        GameEngine.print("Item.getField - returns item's current Field");
+
         return null;
     }
 
@@ -34,6 +38,8 @@ public abstract class Item {
      * @return
      */
     public void setField(Field field) {
+        GameEngine.print("Item.getField - sets item's current Field");
+
         // TODO implement here
 
     }
