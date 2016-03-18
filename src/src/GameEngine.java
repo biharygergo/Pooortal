@@ -62,7 +62,11 @@ public class GameEngine {
         // TODO implement here
 
     }
-
+    public static void print(String s){
+        for(int i=0;i<tab;i++)
+            System.out.print("\t");
+        System.out.println(s);
+    }
     public static void main(String[] args){
 
         String input = "0";
