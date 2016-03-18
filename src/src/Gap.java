@@ -11,6 +11,7 @@ public class Gap extends Field {
      * Default constructor
      */
     public Gap() {
+
     }
 
     /**
