@@ -11,6 +11,8 @@ public class Door extends Field {
      * Default constructor
      */
     public Door() {
+        GameEngine.print("Door.() - new Door was created");
+
     }
 
     /**
@@ -24,6 +26,8 @@ public class Door extends Field {
      */
     public boolean isOpen() {
         // TODO implement here
+        GameEngine.print("Door.isOpen - returned open attribute");
+
         return false;
     }
 
@@ -32,6 +36,8 @@ public class Door extends Field {
      * @return
      */
     public void setOpen(boolean open) {
+        GameEngine.print("Door.setOpen - set open attribute");
+
         // TODO implement here
 
     }
@@ -41,6 +47,8 @@ public class Door extends Field {
      * @return
      */
     public void onStep(Player player) {
+        GameEngine.print("Door.onStep - Door was stepped on by player");
+
         // TODO implement here
 
     }
@@ -49,6 +57,8 @@ public class Door extends Field {
      * @return
      */
     public boolean steppable() {
+        GameEngine.print("Door.steppable - returned whether door is steppable");
+
         // TODO implement here
         return false;
     }
@@ -59,6 +69,8 @@ public class Door extends Field {
      * @return
      */
     public void onShoot(Bullet bullet, Wormhole wormHole) {
+        GameEngine.print("Door.onShoot - defines what happens when Door is shot");
+
         // TODO implement here
 
     }
@@ -68,6 +80,7 @@ public class Door extends Field {
      */
     public Map<Dir, Field> getSides() {
         // TODO implement here
+
         return null;
     }
 
