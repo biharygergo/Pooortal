@@ -1,11 +1,7 @@
-/**
- * Created by Gergo on 18/03/16.
- */
-package src;
 import java.util.*;
 
 /**
- *
+ * 
  */
 public class GameEngine {
 
@@ -16,27 +12,27 @@ public class GameEngine {
     }
 
     /**
-     *
+     * 
      */
-   // private Player oNeill;
+    private Player oNeill;
 
     /**
-     *
+     * 
      */
-    //private Modules activeModules;
+    private Modules activeModules;
 
     /**
-     *
+     * 
      */
-   // private FieldMap map;
+    private FieldMap map;
 
     /**
-     *
+     * 
      */
-   // private Wormhole wormhole;
+    private Wormhole wormhole;
 
     /**
-     *
+     * 
      */
 
 
