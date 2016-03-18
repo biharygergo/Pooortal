@@ -46,7 +46,7 @@ public class Player {
     public Box dropBox() {
         // TODO implement here
 
-        GameEngine.print("dropBox - Box dropped");
+        GameEngine.print("Player.dropBox - Box dropped");
 
         return null;
     }
@@ -56,7 +56,7 @@ public class Player {
      */
     public Bullet shootBlue() {
         // TODO implement here
-        GameEngine.print("shootBlue - Blue bullet shooted");
+        GameEngine.print("Player.shootBlue - Blue bullet shooted");
         return null;
     }
 
@@ -65,7 +65,7 @@ public class Player {
      */
     public Bullet shootYellow() {
         // TODO implement here
-        GameEngine.print("shootYellow - Yellow bullet shooted");
+        GameEngine.print("Player.shootYellow - Yellow bullet shooted");
         return null;
     }
 
@@ -74,7 +74,7 @@ public class Player {
      */
     public Field getField() {
         // TODO implement here
-        GameEngine.print("getField - Returned field");
+        GameEngine.print("Player.getField - Returned field");
 
         return null;
     }
@@ -85,7 +85,7 @@ public class Player {
      */
     public void setField(Field field) {
         // TODO implement here
-        GameEngine.print("setField - Field set");
+        GameEngine.print("Player.setField - Field set");
     }
 
     /**
@@ -93,7 +93,7 @@ public class Player {
      */
     public Dir getDir() {
         // TODO implement here
-        GameEngine.print("getDir - Returned direction");
+        GameEngine.print("Player.getDir - Returned direction");
         return null;
     }
 
@@ -103,7 +103,7 @@ public class Player {
      */
     public void setDir(Dir dir) {
         // TODO implement here
-        GameEngine.print("setDir - Direction set");
+        GameEngine.print("Player.setDir - Direction set");
     }
 
     /**
@@ -111,7 +111,7 @@ public class Player {
      */
     public Box getBox() {
         // TODO implement here
-        GameEngine.print("getBox - Returned box");
+        GameEngine.print("Player.getBox - Returned box");
         return null;
     }
 
@@ -121,7 +121,7 @@ public class Player {
      */
     public void setBox(Box box) {
         // TODO implement here
-        GameEngine.print("setBox - Box set");
+        GameEngine.print("Player.setBox - Box set");
     }
 
     /**
@@ -129,7 +129,7 @@ public class Player {
      */
     public boolean isAlive() {
         // TODO implement here
-        GameEngine.print("isAlive - Returned player state");
+        GameEngine.print("Player.isAlive - Returned player state");
         return false;
     }
 
@@ -139,7 +139,7 @@ public class Player {
      */
     public void setAlive(boolean alive) {
         // TODO implement here
-        GameEngine.print("setAlive - Player state set");
+        GameEngine.print("Player.setAlive - Player state set");
     }
 
     /**
@@ -147,7 +147,7 @@ public class Player {
      */
     public Field getNextField() {
         // TODO implement here
-        GameEngine.print("getNextField - Returned next field");
+        GameEngine.print("Player.getNextField - Returned next field");
         return null;
     }
 
