@@ -30,6 +30,7 @@ public class Scale extends Field {
      */
     public Door getDoor() {
         // TODO implement here
+        GameEngine.print("Scale.getDoor - Returned current Door for Scale");
         return null;
     }
 
@@ -39,7 +40,7 @@ public class Scale extends Field {
      */
     public void setDoor(Door door) {
         // TODO implement here
-
+        GameEngine.print("Scale.setDoor - Current Door for Scale set");
     }
 
     /**
@@ -47,6 +48,7 @@ public class Scale extends Field {
      */
     public boolean getWeight() {
         // TODO implement here
+        GameEngine.print("Scale.getWeight - Returned current weight on Scale");
         return false;
     }
 
@@ -56,6 +58,7 @@ public class Scale extends Field {
      */
     public void setWeight(boolean weight) {
         // TODO implement here
+        GameEngine.print("Scale.setWeight - Current weight on Scale set");
 
     }
 
@@ -64,6 +67,7 @@ public class Scale extends Field {
      */
     public boolean steppable() {
         // TODO implement here
+        GameEngine.print("Scale.steppable - Field's state returned");
         return false;
     }
 
@@ -73,6 +77,7 @@ public class Scale extends Field {
      */
     public void onStep(Player player) {
         // TODO implement here
+        GameEngine.print("Scale.onStep - Onstep called on Player");
 
     }
 
@@ -83,26 +88,25 @@ public class Scale extends Field {
      */
     public void onShoot(Bullet bullet, Wormhole wormHole) {
         // TODO implement here
+        GameEngine.print("SpecialWall.onShoot - Called on SpecialWall");
 
     }
 
     /**
      * @return
-     */
+     *
 
     public Map<Dir, Field> getSides() {
         // TODO implement here
         return null;
     }
 
-    /**
-     * @param Map
-     * @return
-     */
+
     public void setSides(Map<Dir, Field> map) {
         // TODO implement here
 
     }
+    */
 
 
 }
