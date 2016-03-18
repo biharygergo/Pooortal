@@ -1,5 +1,7 @@
 package src;
 
+import java.util.Scanner;
+
 /**
  * 
  */
@@ -62,10 +64,38 @@ public class GameEngine {
     }
 
     public static void main(String[] args){
-        System.out.println("It Works!");
-        tab++;
-        Player p= new Player();
-        p.dropBox();
+
+        String input = "0";
+        Scanner scan= new Scanner(System.in);
+
+        while (true){
+            switch (input){
+                case "0":
+                   // input=scan.nextLine();
+                    System.out.println("1.Játék indítása");
+                    System.out.println("2.Mezőre lépés");
+                    System.out.println("3.Szakadékba lépés");
+                    System.out.println("4.Falra lövés");
+                    System.out.println("5.Specfalra lövés");
+                    System.out.println("6.Doboz felvétele");
+                    System.out.println("7.Doboz lerakása");
+                    System.out.println("8.Doboz szakadékba esik");
+                    System.out.println("9.ZPM felvétele");
+                    System.out.println("11.Ajtó nyitása");
+                    System.out.println("12.Féregjáraton átjárás");
+                    System.out.println("13.Kilépés");
+                    System.out.println("14.Játék indítása");
+
+                    input=scan.nextLine();
+
+                    break;
+                case "2":
+                    break;
+                case "3":
+                    break;
+            }
+
+      }
     }
 
 }
