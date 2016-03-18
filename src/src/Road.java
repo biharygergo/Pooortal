@@ -37,7 +37,7 @@ public class Road extends Field {
      */
     public void onShoot(Bullet bullet, Wormhole wormHole) {
         // TODO implement here
-        GameEngine.print("Road.onShoot - called on Road");
+        GameEngine.print("Road.onShoot - Called on Road");
     }
 
     /**

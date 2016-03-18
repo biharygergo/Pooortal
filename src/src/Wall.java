@@ -18,6 +18,7 @@ public class Wall extends Field {
      */
     public void onStep(Player player) {
         // TODO implement here
+        GameEngine.print("Wall.onStep - Onstep called on Player");
     }
 
     /**
@@ -25,6 +26,7 @@ public class Wall extends Field {
      */
     public boolean steppable() {
         // TODO implement here
+        GameEngine.print("Wall.steppable - Field's state returned");
         return false;
     }
 
@@ -35,7 +37,7 @@ public class Wall extends Field {
      */
     public void onShoot(Bullet bullet, Wormhole wormHole) {
         // TODO implement here
-
+        GameEngine.print("Wall.onShoot - Called on Wall");
     }
 
     /**
@@ -43,6 +45,7 @@ public class Wall extends Field {
      */
     public Map<Dir, Field> getSides() {
         // TODO implement here
+        GameEngine.print("Wall.getSides - Returned neighboring fields");
         return null;
     }
 
@@ -52,6 +55,6 @@ public class Wall extends Field {
      */
     public void setSides(Map<Dir, Field> map) {
         // TODO implement here
-
+        GameEngine.print("Wall.setSides - Neighboring fields set");
     }
 }
