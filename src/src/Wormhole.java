@@ -30,6 +30,7 @@ public class Wormhole {
      */
     public boolean checkPass() {
         // TODO implement here
+        GameEngine.print("Wormhole.checkPass - Returned possibility of passing trough wormhole");
         return false;
     }
 
@@ -38,6 +39,7 @@ public class Wormhole {
      */
     public SpecialWall getBlue() {
         // TODO implement here
+        GameEngine.print("Wormhole.getBlue - Returned blue end of wormhole");
         return null;
     }
 
@@ -47,7 +49,7 @@ public class Wormhole {
      */
     public void setBlue(SpecialWall specWall) {
         // TODO implement here
-
+        GameEngine.print("Wormhole.setBlue - Blue end of wormhole set");
     }
 
     /**
@@ -55,6 +57,7 @@ public class Wormhole {
      */
     public SpecialWall getYellow() {
         // TODO implement here
+        GameEngine.print("Wormhole.getYellow - Returned yellow end of wormhole");
         return null;
     }
 
@@ -64,6 +67,7 @@ public class Wormhole {
      */
     public void setYellow(SpecialWall specWall) {
         // TODO implement here
+        GameEngine.print("Wormhole.setYellow - Yellow end of wormhole set");
     }
 
 }
