@@ -100,7 +100,7 @@ public class GameEngine {
 
                     Field f=p.getField();
                     Dir dir=p.getDir();
-                     f=p.getNextField();
+                    f=p.getNextField();
 
                     if( f.steppable()){
                         Modules mod=new Modules();
