@@ -97,7 +97,7 @@ public class Player {
     public Dir getDir() {
         // TODO implement here
         GameEngine.print("Player.getDir - Returned direction");
-        return null;
+        return Dir.Down;
     }
 
     /**
@@ -107,6 +107,7 @@ public class Player {
     public void setDir(Dir dir) {
         // TODO implement here
         GameEngine.print("Player.setDir - Direction set");
+
     }
 
     /**
@@ -115,6 +116,15 @@ public class Player {
     public Box getBox() {
         // TODO implement here
         GameEngine.print("Player.getBox - Returned box");
+        GameEngine.print("Van a játékosnál doboz? ");
+        Scanner scan=new Scanner(System.in);
+        String input=scan.nextLine();
+
+        if(input.equals("Y")){
+            Box box=new Box();
+            return box;
+        }
+
         return null;
     }
 

@@ -97,25 +97,27 @@ public class GameEngine {
 
                     break;
                 case "7":
-                    Field f=p.getNextField();
+
+                    Field f=p.getField();
+                    Dir dir=p.getDir();
+                     f=p.getNextField();
 
                     if( f.steppable()){
                         Modules mod=new Modules();
                         Item m=mod.searchModule(f);
 
-                        ans=scan.nextLine();
-                        if(ans.equals("Y")){
-                            System.out.println("Van a játékosnál doboz?");
-                            ans=scan.nextLine();
-                            if(ans.equals("Y")){
+                        if(m!=null){
+                            Box pBox=p.getBox();
+                            if(pBox!=null){
                                 Box b=p.dropBox();
+
                             }
                         }
                     }
                     else{
                         break;
                     }
-
+                    input="0";
                     break;
                 case "3":
                     break;
