@@ -48,7 +48,7 @@ public class Player {
         // TODO implement here
 
         GameEngine.print("Player.dropBox - Box dropped");
-
+        box=null;
         return null;
     }
 

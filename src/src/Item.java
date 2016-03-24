@@ -9,7 +9,7 @@ public abstract class Item {
      * Default constructor
      */
     public Item() {
-        GameEngine.print("Item.() - new Item was created");
+      //  GameEngine.print("Item.() - new Item was created");
 
     }
 

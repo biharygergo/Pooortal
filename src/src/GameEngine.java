@@ -70,6 +70,8 @@ public class GameEngine {
     }
     public static void main(String[] args){
 
+        Player p=new Player();
+
         String input = "0";
         Scanner scan= new Scanner(System.in);
 
@@ -94,8 +96,29 @@ public class GameEngine {
                     input=scan.nextLine();
 
                     break;
-                case "1":
+                case "5":
+                    p.setField(new Road());
+                    Field f=p.getNextField();
+                    System.out.println("Lehet a következő mezőre lépni?");
+                    String ans=scan.nextLine();
+                    f.steppable();
+                    if(ans.equals("Y")){
+                        System.out.println("Következő mezőn van doboz?");
+                        Modules mod=new Modules();
+                        Item m=mod.searchModule(f);
 
+                        ans=scan.nextLine();
+                        if(ans.equals("Y")){
+                            System.out.println("Van a játékosnál doboz?");
+                            ans=scan.nextLine();
+                            if(ans.equals("Y")){
+                                Box b=p.dropBox();
+                            }
+                        }
+                    }
+                    else{
+                        break;
+                    }
 
                     break;
                 case "3":
