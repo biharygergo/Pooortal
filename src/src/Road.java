@@ -28,7 +28,7 @@ public class Road extends Field {
     public boolean steppable() {
         // TODO implement here
         GameEngine.print("Road.steppable - Field's state returned");
-        return false;
+        return true;
     }
 
     /**

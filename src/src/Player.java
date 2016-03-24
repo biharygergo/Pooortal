@@ -1,6 +1,8 @@
 package src;//import src.Field;
 //package src;
 
+import java.util.Scanner;
+
 /**
  * 
  */
@@ -76,8 +78,8 @@ public class Player {
     public Field getField() {
         // TODO implement here
         GameEngine.print("Player.getField - Returned field");
-
-        return null;
+        Field f=new Road();
+        return f;
     }
 
     /**
@@ -149,7 +151,17 @@ public class Player {
     public Field getNextField() {
         // TODO implement here
         GameEngine.print("Player.getNextField - Returned next field");
-        return null;
+        GameEngine.print("Lehet a következő mezőre lépni?");
+        Scanner scan=new Scanner(System.in);
+       String input= scan.nextLine();
+        if(input.equals("Y")) {
+            Road r=new Road();
+            return r;
+        }
+        else {
+            Wall r=new Wall();
+                    return r;
+        }
     }
 
 }

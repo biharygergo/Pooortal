@@ -96,14 +96,10 @@ public class GameEngine {
                     input=scan.nextLine();
 
                     break;
-                case "5":
-                    p.setField(new Road());
+                case "7":
                     Field f=p.getNextField();
-                    System.out.println("Lehet a következő mezőre lépni?");
-                    String ans=scan.nextLine();
-                    f.steppable();
-                    if(ans.equals("Y")){
-                        System.out.println("Következő mezőn van doboz?");
+
+                    if( f.steppable()){
                         Modules mod=new Modules();
                         Item m=mod.searchModule(f);
 

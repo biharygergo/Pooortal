@@ -4,7 +4,7 @@ import java.util.*;
 /**
  *
  */
-public class Box extends Modules {
+public class Box extends Item {
 
     /**
      * Default constructor

@@ -42,6 +42,15 @@ public class Modules {
     public Item searchModule(Field field) {
         // TODO implement here
         GameEngine.print("Modules.searchModule - Returned Module on Field");
+        GameEngine.print("Következő mezőn van doboz?");
+        Scanner scan=new Scanner(System.in);
+        String ans=scan.nextLine();
+
+        if(ans.equals("Y")){
+            Box box=new Box();
+            return box;
+        }
+
         return null;
     }
 
