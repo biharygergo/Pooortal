@@ -96,6 +96,23 @@ public class GameEngine {
                     input=scan.nextLine();
 
                     break;
+                case "1":
+                    FieldMap map= new FieldMap();
+                    Modules modules = new Modules();
+                    Field startField;
+                    print("Van beolvasható térképfájl?");
+                    String line=scan.nextLine();
+                    if(line.equals("Y")) {
+                        map.create("proba.txt");
+                        startField = map.getstartField();
+                        modules.initializeModules("proba.txt", startField);
+                        Player p1 = new Player();
+                        Wormhole wormhole = new Wormhole();
+                        p1.setField(startField);
+                    }
+                    input="0";
+                    break;
+                case "2"
                 case "7":
 
                     Field f=p.getField();
