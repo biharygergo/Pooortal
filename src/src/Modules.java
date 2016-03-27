@@ -7,26 +7,15 @@ import java.util.*;
  */
 public class Modules {
 
-    /**
-     * Default constructor
-     */
+
     public Modules() {
 
     }
 
-    /**
-     * 
-     */
     private List<ZPM> ZPMs;
 
-    /**
-     * 
-     */
     private List<Box> boxes;
 
-    /**
-     * 
-     */
     private List<Bullet> bullets;
 
 

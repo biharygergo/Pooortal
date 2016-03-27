@@ -1,5 +1,7 @@
 package src;
 
+import java.util.HashMap;
+
 /**
  * 
  */
@@ -8,7 +10,8 @@ public class FieldMap {
     /**
      * Default constructor
      */
-    public FieldMap() {
+    public FieldMap(String s) {
+        create(s);
     }
 
     /**
@@ -29,7 +32,6 @@ public class FieldMap {
      */
     public void create(String string) {
         // TODO implement here
-        GameEngine.print("FieldMap.create - created a new Map");
 
     }
 
