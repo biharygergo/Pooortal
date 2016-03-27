@@ -40,7 +40,9 @@ public class Wormhole {
      */
     public SpecialWall getBlue() {
         // TODO implement here
+        GameEngine.tab++;
         GameEngine.print("Wormhole.getBlue - Returned blue end of wormhole");
+        GameEngine.tab--;
         return null;
     }
 

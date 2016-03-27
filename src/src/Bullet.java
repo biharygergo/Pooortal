@@ -124,8 +124,9 @@ public class Bullet{
      * @return
      */
     public void setActive(boolean act) {
+        GameEngine.tab++;
         GameEngine.print("Bullet.setActive - set Bullet as active or inactive");
-
+        GameEngine.tab--;
         // TODO implement here
 
     }

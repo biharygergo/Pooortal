@@ -55,7 +55,7 @@ public class SpecialWall extends Wall {
      */
     public void setColor(Color color) {
         // TODO implement here
-        GameEngine.tab++
+        GameEngine.tab++;
         GameEngine.print("SpecialWall.setColor - New color set");
         GameEngine.tab--;
     }
