@@ -69,6 +69,7 @@ public class GameEngine {
         System.out.println(s);
     }
     public static void main(String[] args){
+        Modules modules = new Modules();
 
         Player p=new Player();
 
@@ -98,10 +99,12 @@ public class GameEngine {
                     break;
                 case "1":
                     FieldMap map= new FieldMap();
-                    Modules modules = new Modules();
+
                     Field startField;
+
                     print("Van beolvasható térképfájl?");
                     String line=scan.nextLine();
+
                     if(line.equals("Y")) {
                         map.create("proba.txt");
                         startField = map.getstartField();
@@ -110,20 +113,43 @@ public class GameEngine {
                         Wormhole wormhole = new Wormhole();
                         p1.setField(startField);
                     }
+
                     input="0";
                     break;
-                case "2"
+                case "2":
+                    Field f2=p.getField();
+                    Dir dir2=p.getDir();
+
+                    Field nextField=p.getNextField();
+
+                    Item m=modules.searchModule(nextField);
+
+                    if(m==null){
+                        if(nextField.steppable()) {
+                            p.setField(nextField);
+                            nextField.onStep(p);
+                        }
+                        else{
+                            p.setField(f2);
+                            nextField.onStep(p);
+                        }
+                    }
+                    else{
+                        m.onStep(p);
+                    }
+                    input="0";
+                    break;
                 case "7":
 
                     Field f=p.getField();
                     Dir dir=p.getDir();
                     f=p.getNextField();
 
-                    if( f.steppable()){
+                    if(f.steppable()){
                         Modules mod=new Modules();
-                        Item m=mod.searchModule(f);
+                        Item m7=mod.searchModule(f);
 
-                        if(m!=null){
+                        if(m7!=null){
                             Box pBox=p.getBox();
                             if(pBox!=null){
                                 Box b=p.dropBox();
