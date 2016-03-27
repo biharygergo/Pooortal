@@ -11,9 +11,7 @@ public class Door extends Field {
      * Default constructor
      */
     public Door() {
-        GameEngine.tab++;
-        GameEngine.print("Door.() - new Door was created");
-        GameEngine.tab--;
+
     }
 
     /**

@@ -11,7 +11,7 @@ public class Scale extends Field {
      * Default constructor
      */
     public Scale() {
-        GameEngine.print("Scale() - New Scale created");
+
     }
 
 
@@ -31,7 +31,9 @@ public class Scale extends Field {
      */
     public Door getDoor() {
         // TODO implement here
+        GameEngine.tab++;
         GameEngine.print("Scale.getDoor - Returned current Door for Scale");
+        GameEngine.tab--;
         return null;
     }
 
@@ -41,7 +43,9 @@ public class Scale extends Field {
      */
     public void setDoor(Door door) {
         // TODO implement here
+        GameEngine.tab++;
         GameEngine.print("Scale.setDoor - Current Door for Scale set");
+        GameEngine.tab--;
     }
 
     /**
@@ -49,7 +53,9 @@ public class Scale extends Field {
      */
     public boolean getWeight() {
         // TODO implement here
+        GameEngine.tab++;
         GameEngine.print("Scale.getWeight - Returned current weight on Scale");
+        GameEngine.tab--;
         return false;
     }
 
@@ -59,7 +65,9 @@ public class Scale extends Field {
      */
     public void setWeight(boolean weight) {
         // TODO implement here
+        GameEngine.tab++;
         GameEngine.print("Scale.setWeight - Current weight on Scale set");
+        GameEngine.tab--;
 
     }
 
@@ -68,7 +76,9 @@ public class Scale extends Field {
      */
     public boolean steppable() {
         // TODO implement here
+        GameEngine.tab++;
         GameEngine.print("Scale.steppable - Field's state returned");
+        GameEngine.tab--;
         return false;
     }
 
@@ -78,8 +88,9 @@ public class Scale extends Field {
      */
     public void onStep(Player player) {
         // TODO implement here
+        GameEngine.tab++;
         GameEngine.print("Scale.onStep - Onstep called on Player");
-
+        GameEngine.tab--;
     }
 
     /**
@@ -89,8 +100,9 @@ public class Scale extends Field {
      */
     public void onShoot(Bullet bullet, Wormhole wormHole) {
         // TODO implement here
+        GameEngine.tab++;
         GameEngine.print("SpecialWall.onShoot - Called on SpecialWall");
-
+        GameEngine.tab--;
     }
 
     /**

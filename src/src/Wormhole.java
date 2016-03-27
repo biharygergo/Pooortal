@@ -11,7 +11,7 @@ public class Wormhole {
      * Default constructor
      */
     public Wormhole() {
-        GameEngine.print("Wormhole() - New Wormhole created");
+
     }
 
     /**
@@ -33,7 +33,9 @@ public class Wormhole {
      */
     public boolean checkPass() {
         // TODO implement here
+        GameEngine.tab++;
         GameEngine.print("Wormhole.checkPass - Returned possibility of passing trough wormhole");
+        GameEngine.tab--;
         return false;
     }
 

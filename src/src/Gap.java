@@ -19,9 +19,9 @@ public class Gap extends Field {
      * @param player
      */
     public void onStep(Player player) {
-
-        GameEngine.print("Gap.onStep - Gap was stepped on by player");
         GameEngine.tab++;
+        GameEngine.print("Gap.onStep - Gap was stepped on by player");
+
         player.setAlive(false);
         GameEngine.tab--;
         // TODO implement here
@@ -32,8 +32,9 @@ public class Gap extends Field {
      */
     public boolean steppable() {
         // TODO implement here
+        GameEngine.tab++;
         GameEngine.print("Gap.steppable - returns true for Gap");
-
+        GameEngine.tab--;
         return false;
     }
 
@@ -43,8 +44,9 @@ public class Gap extends Field {
      * @return
      */
     public void onShoot(Bullet bullet, Wormhole wormHole) {
+        GameEngine.tab++;
         GameEngine.print("Gap.onShoot - defines what happens when bullet is shot on this Gap");
-
+        GameEngine.tab--;
         // TODO implement here
 
     }

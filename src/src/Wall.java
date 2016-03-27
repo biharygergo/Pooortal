@@ -11,7 +11,7 @@ public class Wall extends Field {
      * Default constructor
      */
     public Wall() {
-        GameEngine.print("Wall() - New Wall created");
+
     }
 
     /**
@@ -19,7 +19,9 @@ public class Wall extends Field {
      */
     public void onStep(Player player) {
         // TODO implement here
+        GameEngine.tab++;
         GameEngine.print("Wall.onStep - Onstep called on Player");
+        GameEngine.tab--;
     }
 
     /**
@@ -27,7 +29,9 @@ public class Wall extends Field {
      */
     public boolean steppable() {
         // TODO implement here
+        GameEngine.tab++;
         GameEngine.print("Wall.steppable - Field's state returned");
+        GameEngine.tab--;
         return false;
     }
 
@@ -38,8 +42,8 @@ public class Wall extends Field {
      */
     public void onShoot(Bullet bullet, Wormhole wormHole) {
         // TODO implement here
-        GameEngine.print("Wall.onShoot - Called on Wall");
         GameEngine.tab++;
+        GameEngine.print("Wall.onShoot - Called on Wall");
         bullet.setActive(false);
         GameEngine.tab--;
     }

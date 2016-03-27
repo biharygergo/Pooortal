@@ -114,7 +114,7 @@ public class GameEngine {
                     input="0";
                     break;
                 case "3":
-                    GameEngine.tab++;
+
 
                     Gap gap = new Gap();
                     player.setField(gap);
@@ -124,17 +124,17 @@ public class GameEngine {
 
                     input="0";
 
-                    GameEngine.tab--;
+
                     break;
 
                 case "4":
-                    GameEngine.tab++;
+
 
                     Bullet bullet4=new Bullet();
                     Wall wall=new Wall();
                     wall.onShoot(bullet4, new Wormhole());
 
-                    GameEngine.tab--;
+
                     input="0";
                     break;
                 case "5":

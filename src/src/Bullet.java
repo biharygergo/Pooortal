@@ -9,10 +9,6 @@ public class Bullet{
      * Default constructor
      */
     public Bullet() {
-        GameEngine.tab++;
-        GameEngine.print("Bullet.() - new Bullet is created");
-        GameEngine.tab--;
-
     }
 
     /**

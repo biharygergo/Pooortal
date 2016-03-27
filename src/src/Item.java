@@ -28,7 +28,9 @@ public abstract class Item {
      */
     public Field getField() {
         // TODO implement here
+        GameEngine.tab++;
         GameEngine.print("Item.getField - returns item's current Field");
+        GameEngine.tab--;
 
         return null;
     }
@@ -38,8 +40,9 @@ public abstract class Item {
      * @return
      */
     public void setField(Field field) {
+        GameEngine.tab++;
         GameEngine.print("Item.getField - sets item's current Field");
-
+        GameEngine.tab--;
         // TODO implement here
 
     }

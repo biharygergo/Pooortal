@@ -11,7 +11,7 @@ public class SpecialWall extends Wall {
      * Default constructor
      */
     public SpecialWall() {
-        GameEngine.print("SpecialWall() - New SpecialWall created");
+
     }
 
 
@@ -60,6 +60,7 @@ public class SpecialWall extends Wall {
             setColor(Color.Yellow);
             wormHole.setYellow(this);
         }
+        GameEngine.tab--;
     }
 
     /**
@@ -78,7 +79,9 @@ public class SpecialWall extends Wall {
      */
     public boolean steppable() {
         // TODO implement here
+        GameEngine.tab++;
         GameEngine.print("SpecialWall.steppable - Field's state returned");
+        GameEngine.tab--;
         return false;
     }
 
@@ -87,7 +90,9 @@ public class SpecialWall extends Wall {
      */
     public void onStep(Player player) {
         // TODO implement here
+        GameEngine.tab++;
         GameEngine.print("SpecialWall.onStep - Onstep called on Player");
+        GameEngine.tab--;
     }
 
     /**
@@ -95,7 +100,9 @@ public class SpecialWall extends Wall {
      */
     public Color getColor() {
         // TODO implement here
+        GameEngine.tab++;
         GameEngine.print("SpecialWall.getColor - Returned actual color");
+        GameEngine.tab--;
         return null;
     }
 

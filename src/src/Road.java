@@ -10,15 +10,16 @@ public class Road extends Field {
     /**
      * Default constructor
      */
-    public Road() {
-        GameEngine.print("Road() - New Road created");
+    public Road() {;
     }
 
     /**
      * @param player
      */
     public void onStep(Player player) {
+        GameEngine.tab++;
         GameEngine.print("Road.onStep - onStep called on Player");
+        GameEngine.tab--;
         // TODO implement here
     }
 
@@ -27,7 +28,9 @@ public class Road extends Field {
      */
     public boolean steppable() {
         // TODO implement here
+        GameEngine.tab++;
         GameEngine.print("Road.steppable - Field's state returned");
+        GameEngine.tab--;
         return true;
     }
 
@@ -38,7 +41,9 @@ public class Road extends Field {
      */
     public void onShoot(Bullet bullet, Wormhole wormHole) {
         // TODO implement here
+        GameEngine.tab++;
         GameEngine.print("Road.onShoot - Called on Road");
+        GameEngine.tab--;
     }
 
     /**

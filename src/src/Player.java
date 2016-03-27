@@ -11,8 +11,7 @@ public class Player {
     /**
      * Default constructor
      */
-    public Player() {
-        GameEngine.print("Player() - New Player created");
+    public Player(){
     }
 
     /**
@@ -48,9 +47,10 @@ public class Player {
      */
     public Box dropBox() {
         // TODO implement here
-
+        GameEngine.tab++;
         GameEngine.print("Player.dropBox - Box dropped");
         box = null;
+        GameEngine.tab--;
         return null;
     }
 
@@ -59,7 +59,9 @@ public class Player {
      */
     public Bullet shootBlue() {
         // TODO implement here
+        GameEngine.tab++;
         GameEngine.print("Player.shootBlue - Blue bullet shot");
+        GameEngine.tab--;
         return null;
     }
 
@@ -68,7 +70,9 @@ public class Player {
      */
     public Bullet shootYellow() {
         // TODO implement here
+        GameEngine.tab--;
         GameEngine.print("Player.shootYellow - Yellow bullet shot");
+        GameEngine.tab--;
         return null;
     }
 
@@ -77,8 +81,9 @@ public class Player {
      */
     public Field getField() {
         // TODO implement here
-        GameEngine.print("Player.getField - Returned field");
         GameEngine.tab++;
+        GameEngine.print("Player.getField - Returned field");
+
         Field f=new Road();
         GameEngine.tab--;
         return f;
@@ -90,7 +95,9 @@ public class Player {
      */
     public void setField(Field field) {
         // TODO implement here
+        GameEngine.tab++;
         GameEngine.print("Player.setField - Field set");
+        GameEngine.tab--;
     }
 
     /**
@@ -98,7 +105,9 @@ public class Player {
      */
     public Dir getDir() {
         // TODO implement here
+        GameEngine.tab++;
         GameEngine.print("Player.getDir - Returned direction");
+        GameEngine.tab--;
         return Dir.Down;
     }
 
@@ -108,7 +117,9 @@ public class Player {
      */
     public void setDir(Dir dir) {
         // TODO implement here
+        GameEngine.tab++;
         GameEngine.print("Player.setDir - Direction set");
+        GameEngine.tab--;
 
     }
 
@@ -117,11 +128,12 @@ public class Player {
      */
     public Box getBox() {
         // TODO implement here
+        GameEngine.tab++;
         GameEngine.print("Player.getBox - Returned box");
         GameEngine.print("Van a játékosnál doboz? ");
         Scanner scan=new Scanner(System.in);
         String input=scan.nextLine();
-        GameEngine.tab++;
+
         if(input.equals("Y")){
             Box box=new Box();
             GameEngine.tab--;
@@ -137,7 +149,9 @@ public class Player {
      */
     public void setBox(Box box) {
         // TODO implement here
+        GameEngine.tab++;
         GameEngine.print("Player.setBox - Box set");
+        GameEngine.tab--;
     }
 
     /**
@@ -145,7 +159,9 @@ public class Player {
      */
     public boolean isAlive() {
         // TODO implement here
+        GameEngine.tab++;
         GameEngine.print("Player.isAlive - Returned player state");
+        GameEngine.tab--;
         return false;
     }
 
@@ -155,7 +171,9 @@ public class Player {
      */
     public void setAlive(boolean alive) {
         // TODO implement here
+        GameEngine.tab++;
         GameEngine.print("Player.setAlive - Player state set");
+        GameEngine.tab--;
     }
 
     /**
@@ -163,9 +181,9 @@ public class Player {
      */
     public Field getNextField() {
         // TODO implement here
-
-        GameEngine.print("Player.getNextField - Returned next field");
         GameEngine.tab++;
+        GameEngine.print("Player.getNextField - Returned next field");
+
         GameEngine.print("Lehet a következő mezőre lépni? Y / N");
         Scanner scan=new Scanner(System.in);
 
