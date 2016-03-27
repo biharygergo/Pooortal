@@ -30,8 +30,9 @@ public class Modules {
      */
     public Item searchModule(Field field) {
         // TODO implement here
-        GameEngine.print("Modules.searchModule - Returned Module on Field");
         GameEngine.tab++;
+        GameEngine.print("Modules.searchModule - Returned Module on Field");
+
         GameEngine.print("Következő mezőn van doboz? Y / N");
         Scanner scan=new Scanner(System.in);
         String ans=scan.nextLine();
@@ -52,7 +53,9 @@ public class Modules {
      */
     public void initializeModules(String string, Field startField) {
         // TODO implement here
+        GameEngine.tab++;
         GameEngine.print("Modules.initializeModules - Modules initialized from file input");
+        GameEngine.tab--;
     }
 
     /**
@@ -61,7 +64,9 @@ public class Modules {
      */
     public void addBullet(Bullet bullet) {
         // TODO implement here
+        GameEngine.tab++;
         GameEngine.print("Modules.addBullet - New Bullet added to active bullets");
+        GameEngine.tab--;
     }
 
     /**
@@ -70,7 +75,9 @@ public class Modules {
      */
     public void removeBullet(Bullet bullet) {
         // TODO implement here
+        GameEngine.tab++;
         GameEngine.print("Modules.removeBullet - Bullet removed from active bullets");
+        GameEngine.tab--;
     }
 
     /**
@@ -79,7 +86,9 @@ public class Modules {
      */
     public void removeZPM(ZPM zpm) {
         // TODO implement here
+        GameEngine.tab++;
         GameEngine.print("Modules.removeZPM - ZPM removed from active ZPMs");
+        GameEngine.tab--;
     }
 
     /**
@@ -88,7 +97,9 @@ public class Modules {
      */
     public void removeBox(Box box) {
         // TODO implement here
+        GameEngine.tab++;
         GameEngine.print("Modules.removeBox - Box deleted");
+        GameEngine.tab--;
     }
 
     /**
@@ -96,7 +107,9 @@ public class Modules {
      */
     public List<Bullet> getBullets() {
         // TODO implement here
+        GameEngine.tab++;
         GameEngine.print("Modules.getBullets - Returned active bullets");
+        GameEngine.tab--;
         return bullets;
     }
 

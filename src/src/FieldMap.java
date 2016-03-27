@@ -31,8 +31,9 @@ public class FieldMap {
      * @return
      */
     public void create(String string) {
+        GameEngine.tab++;
         // TODO implement here
-
+        GameEngine.tab--;
     }
 
     /**
@@ -40,8 +41,9 @@ public class FieldMap {
      */
     public Field getstartField() {
         // TODO implement here
+        GameEngine.tab++;
         GameEngine.print("FieldMap.getstartField - returned first Field of the Map");
-
+        GameEngine.tab--;
 
         return null;
     }
@@ -51,8 +53,9 @@ public class FieldMap {
      * @return
      */
     public void setstartField(Field field) {
+        GameEngine.tab++;
         GameEngine.print("FieldMap.getstartField - set first Field of the Map");
-
+        GameEngine.tab--;
         // TODO implement here
 
     }

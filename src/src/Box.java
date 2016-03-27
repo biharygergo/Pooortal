@@ -19,8 +19,9 @@ public class Box extends Item {
      * @return
      */
     public void onUse(Player player) {
+        GameEngine.tab++;
         GameEngine.print("Box.onUse - Box is being used");
-
+        GameEngine.tab--;
         // TODO implement here
 
     }
@@ -30,8 +31,9 @@ public class Box extends Item {
      * @return
      */
     public void onStep(Player player) {
+        GameEngine.tab++;
         GameEngine.print("Box.onStep - onStep executed on player");
-
+        GameEngine.tab--;
         // TODO implement here
 
     }
@@ -41,8 +43,9 @@ public class Box extends Item {
      */
     public Field getField() {
         // TODO implement here
+        GameEngine.tab++;
         GameEngine.print("Box.getField - returned current Field");
-
+        GameEngine.tab--;
         return null;
     }
 
@@ -52,8 +55,9 @@ public class Box extends Item {
      */
     public void setField(Field field) {
         // TODO implement here
+        GameEngine.tab++;
         GameEngine.print("Box.setField - current Field reset to new field");
-
+        GameEngine.tab--;
 
     }
 

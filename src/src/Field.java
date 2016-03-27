@@ -46,8 +46,9 @@ public abstract class Field {
      */
     public Map<Dir, Field> getSides() {
         // TODO implement here
+        GameEngine.tab++;
         GameEngine.print("Field.getSides - returned Field's neighbours");
-
+        GameEngine.tab--;
         return null;
     }
 
@@ -57,8 +58,9 @@ public abstract class Field {
      */
     public void setSides(Map<Dir, Field> map) {
         // TODO implement here
+        GameEngine.tab++;
         GameEngine.print("Field.setSides - set Field's neighbours");
-
+        GameEngine.tab--;
 
     }
 

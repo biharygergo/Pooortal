@@ -88,7 +88,7 @@ public class GameEngine {
                     input="0";
                     break;
                 case "2":
-                    tab++;
+
                     Field f2 = player.getField();
 
                     Dir dir2 = player.getDir();
@@ -110,7 +110,7 @@ public class GameEngine {
                     else{
                         m.onStep(player);
                     }
-                    tab--;
+
                     input="0";
                     break;
                 case "3":
