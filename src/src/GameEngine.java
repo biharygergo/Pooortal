@@ -139,6 +139,17 @@ public class GameEngine {
                     }
                     input="0";
                     break;
+                case "3":
+                    Gap gap=new Gap();
+                    p.setField(gap);
+                    gap.onStep(p);
+
+                    p.isAlive();
+
+                    input="0";
+                    break;
+
+                case "4":
                 case "7":
 
                     Field f=p.getField();
@@ -162,8 +173,7 @@ public class GameEngine {
                     }
                     input="0";
                     break;
-                case "3":
-                    break;
+
             }
 
       }
