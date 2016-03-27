@@ -19,9 +19,9 @@ public class Gap extends Field {
      * @param player
      */
     public void onStep(Player player) {
-        GameEngine.tab++;
-        GameEngine.print("Gap.onStep - Gap was stepped on by player");
 
+        GameEngine.print("Gap.onStep - Gap was stepped on by player");
+        GameEngine.tab++;
         player.setAlive(false);
         GameEngine.tab--;
         // TODO implement here

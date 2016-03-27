@@ -31,15 +31,17 @@ public class Modules {
     public Item searchModule(Field field) {
         // TODO implement here
         GameEngine.print("Modules.searchModule - Returned Module on Field");
-        GameEngine.print("Következő mezőn van doboz?");
+        GameEngine.tab++;
+        GameEngine.print("Következő mezőn van doboz? Y / N");
         Scanner scan=new Scanner(System.in);
         String ans=scan.nextLine();
 
         if(ans.equals("Y")){
             Box box=new Box();
+            GameEngine.tab--;
             return box;
         }
-
+        GameEngine.tab--;
         return null;
     }
 

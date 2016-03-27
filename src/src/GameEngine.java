@@ -42,7 +42,7 @@ public class GameEngine {
     public static void main(String[] args){
         Modules modules = new Modules();
 
-        Player p=new Player();
+        Player player=new Player();
 
         String input = "0";
         Scanner scan= new Scanner(System.in);
@@ -88,43 +88,53 @@ public class GameEngine {
                     input="0";
                     break;
                 case "2":
-                    Field f2=p.getField();
-                    Dir dir2=p.getDir();
+                    tab++;
+                    Field f2 = player.getField();
 
-                    Field nextField=p.getNextField();
+                    Dir dir2 = player.getDir();
 
-                    Item m=modules.searchModule(nextField);
+                    Field nextField = player.getNextField();
+
+                    Item m = modules.searchModule(nextField);
 
                     if(m==null){
                         if(nextField.steppable()) {
-                            p.setField(nextField);
-                            nextField.onStep(p);
+                            player.setField(nextField);
+                            nextField.onStep(player);
                         }
                         else{
-                            p.setField(f2);
-                            nextField.onStep(p);
+                            player.setField(f2);
+                            nextField.onStep(player);
                         }
                     }
                     else{
-                        m.onStep(p);
+                        m.onStep(player);
                     }
+                    tab--;
                     input="0";
                     break;
                 case "3":
-                    Gap gap=new Gap();
-                    p.setField(gap);
-                    gap.onStep(p);
+                    GameEngine.tab++;
 
-                    p.isAlive();
+                    Gap gap = new Gap();
+                    player.setField(gap);
+                    gap.onStep(player);
+
+                    player.isAlive();
 
                     input="0";
+
+                    GameEngine.tab--;
                     break;
 
                 case "4":
+                    GameEngine.tab++;
+
                     Bullet bullet4=new Bullet();
                     Wall wall=new Wall();
                     wall.onShoot(bullet4, new Wormhole());
 
+                    GameEngine.tab--;
                     input="0";
                     break;
                 case "5":
@@ -137,18 +147,18 @@ public class GameEngine {
 
                 case "7":
 
-                    Field f=p.getField();
-                    Dir dir=p.getDir();
-                    f=p.getNextField();
+                    Field f=player.getField();
+                    Dir dir=player.getDir();
+                    f=player.getNextField();
 
                     if(f.steppable()){
                         Modules mod=new Modules();
                         Item m7=mod.searchModule(f);
 
                         if(m7!=null){
-                            Box pBox=p.getBox();
+                            Box pBox=player.getBox();
                             if(pBox!=null){
-                                Box b=p.dropBox();
+                                Box b=player.dropBox();
 
                             }
                         }

@@ -50,7 +50,7 @@ public class Player {
         // TODO implement here
 
         GameEngine.print("Player.dropBox - Box dropped");
-        box=null;
+        box = null;
         return null;
     }
 
@@ -78,7 +78,9 @@ public class Player {
     public Field getField() {
         // TODO implement here
         GameEngine.print("Player.getField - Returned field");
+        GameEngine.tab++;
         Field f=new Road();
+        GameEngine.tab--;
         return f;
     }
 
@@ -119,12 +121,13 @@ public class Player {
         GameEngine.print("Van a játékosnál doboz? ");
         Scanner scan=new Scanner(System.in);
         String input=scan.nextLine();
-
+        GameEngine.tab++;
         if(input.equals("Y")){
             Box box=new Box();
+            GameEngine.tab--;
             return box;
         }
-
+        GameEngine.tab--;
         return null;
     }
 
@@ -160,18 +163,24 @@ public class Player {
      */
     public Field getNextField() {
         // TODO implement here
+
         GameEngine.print("Player.getNextField - Returned next field");
-        GameEngine.print("Lehet a következő mezőre lépni?");
+        GameEngine.tab++;
+        GameEngine.print("Lehet a következő mezőre lépni? Y / N");
         Scanner scan=new Scanner(System.in);
+
        String input= scan.nextLine();
         if(input.equals("Y")) {
             Road r=new Road();
+            GameEngine.tab--;
             return r;
         }
         else {
             Wall r=new Wall();
-                    return r;
+            GameEngine.tab--;
+            return r;
         }
+
     }
 
 }
