@@ -150,6 +150,9 @@ public class GameEngine {
                     break;
 
                 case "4":
+
+                    input="0";
+                    break;
                 case "7":
 
                     Field f=p.getField();
