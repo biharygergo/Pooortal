@@ -39,6 +39,9 @@ public class Wall extends Field {
     public void onShoot(Bullet bullet, Wormhole wormHole) {
         // TODO implement here
         GameEngine.print("Wall.onShoot - Called on Wall");
+        GameEngine.tab++;
+        bullet.setActive(false);
+        GameEngine.tab--;
     }
 
     /**

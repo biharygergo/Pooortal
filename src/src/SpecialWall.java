@@ -37,7 +37,16 @@ public class SpecialWall extends Wall {
      */
     public void onShoot(Bullet bullet, Wormhole wormHole) {
         // TODO implement here
+        GameEngine.tab++;
+
         GameEngine.print("SpecialWall.onShoot - Called on SpecialWall");
+        bullet.setActive(false);
+        SpecialWall blueWall=wormHole.getBlue();
+        if(blueWall!=null){
+            blueWall.setColor(Color.Empty);
+        }
+        setColor(Color.Blue);
+        wormHole.setBlue(this);
     }
 
     /**
@@ -46,7 +55,9 @@ public class SpecialWall extends Wall {
      */
     public void setColor(Color color) {
         // TODO implement here
+        GameEngine.tab++
         GameEngine.print("SpecialWall.setColor - New color set");
+        GameEngine.tab--;
     }
 
     /**

@@ -150,7 +150,16 @@ public class GameEngine {
                     break;
 
                 case "4":
+                    Bullet bullet4=new Bullet();
+                    Wall wall=new Wall();
+                    wall.onShoot(bullet4, new Wormhole());
 
+                    input="0";
+                    break;
+                case "5":
+                    Bullet bullet5=new Bullet();
+                    SpecialWall specialWall=new SpecialWall();
+                    specialWall.onShoot(bullet5, new Wormhole());
                     input="0";
                     break;
                 case "7":

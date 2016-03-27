@@ -50,7 +50,9 @@ public class Wormhole {
      */
     public void setBlue(SpecialWall specWall) {
         // TODO implement here
+        GameEngine.tab++;
         GameEngine.print("Wormhole.setBlue - Blue end of wormhole set");
+        GameEngine.tab--;
     }
 
     /**
