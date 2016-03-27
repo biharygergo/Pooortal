@@ -1,5 +1,7 @@
 package src;
 
+import java.util.Scanner;
+
 /**
  * 
  */
@@ -42,7 +44,12 @@ public class Wormhole {
         // TODO implement here
         GameEngine.tab++;
         GameEngine.print("Wormhole.getBlue - Returned blue end of wormhole");
+        GameEngine.print("Van már ilyen színű lövedék?");
+        Scanner scan=new Scanner(System.in);
+        String inp=scan.nextLine();
         GameEngine.tab--;
+        if(inp.equals("Y"))
+            return new SpecialWall();
         return null;
     }
 
@@ -62,7 +69,9 @@ public class Wormhole {
      */
     public SpecialWall getYellow() {
         // TODO implement here
+        GameEngine.tab++;
         GameEngine.print("Wormhole.getYellow - Returned yellow end of wormhole");
+        GameEngine.tab--;
         return null;
     }
 
@@ -72,7 +81,9 @@ public class Wormhole {
      */
     public void setYellow(SpecialWall specWall) {
         // TODO implement here
+        GameEngine.tab++;
         GameEngine.print("Wormhole.setYellow - Yellow end of wormhole set");
+        GameEngine.tab--;
     }
 
 }

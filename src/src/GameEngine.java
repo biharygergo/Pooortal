@@ -162,6 +162,8 @@ public class GameEngine {
                     specialWall.onShoot(bullet5, new Wormhole());
                     input="0";
                     break;
+                case "6":
+
                 case "7":
 
                     Field f=p.getField();

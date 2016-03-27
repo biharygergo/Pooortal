@@ -41,12 +41,25 @@ public class SpecialWall extends Wall {
 
         GameEngine.print("SpecialWall.onShoot - Called on SpecialWall");
         bullet.setActive(false);
-        SpecialWall blueWall=wormHole.getBlue();
-        if(blueWall!=null){
-            blueWall.setColor(Color.Empty);
+        GameEngine.print("Milyen színű a lövedék?(B/Y)");
+        Scanner scan=new Scanner(System.in);
+        String line=scan.nextLine();
+        if(line.equals("B")) {
+            SpecialWall blueWall = wormHole.getBlue();
+            if (blueWall != null) {
+                blueWall.setColor(Color.Empty);
+            }
+            setColor(Color.Blue);
+            wormHole.setBlue(this);
         }
-        setColor(Color.Blue);
-        wormHole.setBlue(this);
+        else if (line.equals("Y")){
+            SpecialWall yellowWall = wormHole.getYellow();
+            if (yellowWall != null) {
+                yellowWall.setColor(Color.Empty);
+            }
+            setColor(Color.Yellow);
+            wormHole.setYellow(this);
+        }
     }
 
     /**
