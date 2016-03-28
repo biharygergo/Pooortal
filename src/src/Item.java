@@ -1,7 +1,7 @@
 package src;
 
 /**
- * 
+ * Represents the items on the map (ZPM, box)
  */
 public abstract class Item {
 
@@ -14,7 +14,7 @@ public abstract class Item {
     }
 
     /**
-     * 
+     * The field which the item stands on
      */
     protected Field field;
 
@@ -24,7 +24,7 @@ public abstract class Item {
 
 
     /**
-     * @return
+     * @return The field which the item stands on
      */
     public Field getField() {
         // TODO implement here
@@ -36,8 +36,7 @@ public abstract class Item {
     }
 
     /**
-     * @param field 
-     * @return
+     * @param field The field to be set for the item
      */
     public void setField(Field field) {
         GameEngine.tab++;
@@ -48,14 +47,12 @@ public abstract class Item {
     }
 
     /**
-     * @param player 
-     * @return
+     * @param player the player who wants to step on the item
      */
     public abstract void onStep(Player player);
 
     /**
-     * @param player 
-     * @return
+     * @param player the player who wants to use the item
      */
     public abstract void onUse(Player player);
 
