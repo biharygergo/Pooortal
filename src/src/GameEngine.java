@@ -181,8 +181,22 @@ public class GameEngine {
                     input="0";
                     break;
                 case "8":
+                    Field f8=player.getField();
+                    Dir dir8=player.getDir();
+
+                    Field nextf8=new Gap();
+                    Box hasBox=player.getBox();
+                    //Nincs jobb ötletem: a szakadékra úgy teszünk, mintha rálépnénk
+                    nextf8.onStep(player);
+                    //if(player.getBox())
+
+                    modules.removeBox(hasBox);
+                   // Box b8=player.dropBox();
 
 
+
+                    input="0";
+                    break;
             }
 
       }

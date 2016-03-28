@@ -11,7 +11,6 @@ public class Gap extends Field {
      * Default constructor
      */
     public Gap() {
-        GameEngine.print("Gap.() - new Gap was created");
 
     }
 
@@ -22,7 +21,16 @@ public class Gap extends Field {
         GameEngine.tab++;
         GameEngine.print("Gap.onStep - Gap was stepped on by player");
 
-        player.setAlive(false);
+        if(player.getField()!=this){
+            player.dropBox();
+            GameEngine.tab--;
+
+            return;
+        }
+
+            player.setAlive(false);
+
+
         GameEngine.tab--;
         // TODO implement here
     }

@@ -49,6 +49,7 @@ public class Player {
         // TODO implement here
         GameEngine.tab++;
         GameEngine.print("Player.dropBox - Box dropped");
+        //Box box=new Box();
         box = null;
         GameEngine.tab--;
         return null;
