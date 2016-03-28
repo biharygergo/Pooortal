@@ -53,7 +53,7 @@ public class Wormhole {
         // TODO implement here
         GameEngine.tab++;
         GameEngine.print("Wormhole.getBlue - Returned blue end of wormhole");
-        GameEngine.print("Van már ilyen színű bejárat? Y/N");
+        GameEngine.print("Van már ilyen színű bejárat? Y / N");
         Scanner scan=new Scanner(System.in);
         String inp=scan.nextLine();
         GameEngine.tab--;

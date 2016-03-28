@@ -74,7 +74,7 @@ public class GameEngine {
 
                     Field startField;
 
-                    print("Van beolvasható térképfájl? Y/N");
+                    print("Van beolvasható térképfájl? Y / N");
                     String line=scan.nextLine();
 
                     if(line.equals("Y")) {
@@ -236,7 +236,7 @@ public class GameEngine {
 
                 case "13":
 
-                    GameEngine.print("Kilépést nyomtunk? Y/N");
+                    GameEngine.print("Kilépést nyomtunk? Y / N");
                     Scanner scan13 = new Scanner(System.in);
                     String line13 = scan.nextLine();
 

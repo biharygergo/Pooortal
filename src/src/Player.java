@@ -133,7 +133,7 @@ public class Player {
         // TODO implement here
         GameEngine.tab++;
         GameEngine.print("Player.getBox - Returned box");
-        GameEngine.print("Van a játékosnál doboz? Y/N");
+        GameEngine.print("Van a játékosnál doboz? Y / N");
         Scanner scan=new Scanner(System.in);
         String input=scan.nextLine();
 
