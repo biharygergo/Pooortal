@@ -70,7 +70,7 @@ public class GameEngine {
 
                     break;
                 case "1":
-                    FieldMap map = new FieldMap(null);
+                    FieldMap map = new FieldMap("proba.txt");
 
                     Field startField;
 
@@ -78,7 +78,6 @@ public class GameEngine {
                     String line=scan.nextLine();
 
                     if(line.equals("Y")) {
-                        map.create("proba.txt");
                         startField = map.getstartField();
                         modules.initializeModules("proba.txt", startField);
                         Player p1 = new Player();
