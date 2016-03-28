@@ -98,6 +98,7 @@ public class Modules {
     public void removeBox(Box box) {
         // TODO implement here
         GameEngine.tab++;
+
         GameEngine.print("Modules.removeBox - Box deleted");
         GameEngine.tab--;
     }
