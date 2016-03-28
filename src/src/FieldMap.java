@@ -1,7 +1,7 @@
 package src;
 
 /**
- * 
+ * Represents the map
  */
 public class FieldMap {
 
@@ -13,18 +13,13 @@ public class FieldMap {
     }
 
     /**
-     * 
+     * The player is put on this field at the beginning
      */
     private Field startField;
 
     /**
-     * 
-     */
-    private Field fields;
-
-    /**
-     * @param string 
-     * @return
+     * Creates the map with fields and items and the player
+     * @param string the path to the file which describes the map
      */
     public void create(String string) {
         GameEngine.tab++;
@@ -33,7 +28,7 @@ public class FieldMap {
     }
 
     /**
-     * @return
+     * @return Returns the start field
      */
     public Field getstartField() {
         // TODO implement here
@@ -45,8 +40,8 @@ public class FieldMap {
     }
 
     /**
-     * @param field 
-     * @return
+     * Sets the start field
+     * @param field the field where the start field should be
      */
     public void setstartField(Field field) {
         GameEngine.tab++;
