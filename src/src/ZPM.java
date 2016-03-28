@@ -1,7 +1,7 @@
 package src;
 
 /**
- * Represents a ZPM on a given field
+ * Represents a ZPM on a given field (road)
  */
 public class ZPM extends Item {
 
