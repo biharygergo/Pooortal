@@ -91,7 +91,7 @@ public class Scale extends Field {
         GameEngine.tab++;
         GameEngine.print("Scale.onStep - Onstep called on Player");
         Field playerField=player.getField();
-        if (playerField==this){
+        if (playerField == this){
             door.setOpen(true);
         }
         else{
@@ -99,10 +99,11 @@ public class Scale extends Field {
             GameEngine.print("Van súly a mérlegen? I/N");
             Scanner scanner=new Scanner(System.in);
             String ans=scanner.nextLine();
+            door = new Door();
             if(ans.equals("I")){
                 setWeight(true);
                 //Inicializalunk itt egy ajtot
-                door=new Door();
+
                 door.setOpen(true);
             }
             else{
