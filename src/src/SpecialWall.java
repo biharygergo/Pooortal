@@ -41,7 +41,7 @@ public class SpecialWall extends Wall {
 
         GameEngine.print("SpecialWall.onShoot - Called on SpecialWall");
         bullet.setActive(false);
-        GameEngine.print("Milyen színű a lövedék?(B/Y)");
+        GameEngine.print("Milyen színű a lövedék? [Most blue!] (B/Y)");
         Scanner scan=new Scanner(System.in);
         String line=scan.nextLine();
         if(line.equals("B")) {
