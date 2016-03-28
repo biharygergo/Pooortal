@@ -73,7 +73,7 @@ public class GameEngine {
 
                     Field startField;
 
-                    print("Van beolvasható térképfájl?");
+                    print("Van beolvasható térképfájl? (Y/N");
                     String line=scan.nextLine();
 
                     if(line.equals("Y")) {
