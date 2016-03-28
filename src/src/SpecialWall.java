@@ -43,7 +43,7 @@ public class SpecialWall extends Wall {
         bullet.setActive(false);
         GameEngine.print("Milyen színű a lövedék? [Most blue!] (B / Y)");
         Scanner scan=new Scanner(System.in);
-        String line=scan.nextLine();
+        String line=scan.nextLine().toUpperCase();
         if(line.equals("B")) {
             SpecialWall blueWall = wormHole.getBlue();
             if (blueWall != null) {

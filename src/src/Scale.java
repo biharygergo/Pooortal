@@ -98,7 +98,7 @@ public class Scale extends Field {
             //Akkor fogjuk használni, ha a player lemászott a mérlegről
             GameEngine.print("Van súly a mérlegen? Y / N");
             Scanner scanner=new Scanner(System.in);
-            String ans=scanner.nextLine();
+            String ans=scanner.nextLine().toUpperCase();
             door = new Door();
             if(ans.equals("Y")){
                 setWeight(true);

@@ -75,7 +75,7 @@ public class GameEngine {
                     Field startField;
 
                     print("Van beolvasható térképfájl? Y / N");
-                    String line=scan.nextLine();
+                    String line=scan.nextLine().toUpperCase();
 
                     if(line.equals("Y")) {
                         startField = map.getstartField();
@@ -238,7 +238,7 @@ public class GameEngine {
 
                     GameEngine.print("Kilépést nyomtunk? Y / N");
                     Scanner scan13 = new Scanner(System.in);
-                    String line13 = scan.nextLine();
+                    String line13 = scan.nextLine().toUpperCase();
 
                     if (line13.equals("Y"))
                         GameEngine.endGame();

@@ -35,7 +35,7 @@ public class Modules {
 
         GameEngine.print("Következő mezőn van doboz? Y / N");
         Scanner scan=new Scanner(System.in);
-        String ans=scan.nextLine();
+        String ans=scan.nextLine().toUpperCase();
 
         if(ans.equals("Y")){
             Box box=new Box();
@@ -44,7 +44,7 @@ public class Modules {
         }
 
         GameEngine.print("Következő mezőn van ZPM? (Csak a 9-es esetben igaz!) Y / N");
-        ans= scan.nextLine();
+        ans= scan.nextLine().toUpperCase();
         if(ans.equals("Y")){
             ZPM zpm=new ZPM();
             removeZPM(zpm);

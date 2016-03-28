@@ -135,7 +135,7 @@ public class Player {
         GameEngine.print("Player.getBox - Returned box");
         GameEngine.print("Van a játékosnál doboz? Y / N");
         Scanner scan=new Scanner(System.in);
-        String input=scan.nextLine();
+        String input=scan.nextLine().toUpperCase();
 
         if(input.equals("Y")){
             Box box=new Box();
@@ -166,7 +166,7 @@ public class Player {
         GameEngine.print("Player.isAlive - Returned player state");
         GameEngine.print("Meghaltunk? Y/N");
         Scanner scan=new Scanner(System.in);
-        String line=scan.nextLine();
+        String line=scan.nextLine().toUpperCase();
 
         GameEngine.tab--;
         if (line.equals("Y"))
@@ -199,7 +199,7 @@ public class Player {
         GameEngine.print("Lehet a következő mezőre lépni? Y / N");
         Scanner scan=new Scanner(System.in);
 
-       String input= scan.nextLine();
+       String input= scan.nextLine().toUpperCase();
         if(input.equals("Y")) {
             Road r=new Road();
             GameEngine.tab--;

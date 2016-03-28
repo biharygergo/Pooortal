@@ -37,7 +37,7 @@ public class Wormhole {
         GameEngine.print("Wormhole.checkPass - Returned possibility of passing trough wormhole");
         GameEngine.print("Átjárható a féregjárat? Y/N");
         Scanner scan=new Scanner(System.in);
-        String inp=scan.nextLine();
+        String inp=scan.nextLine().toUpperCase();
         GameEngine.tab--;
         if(inp.equals("Y"))
             return true;
@@ -55,7 +55,7 @@ public class Wormhole {
         GameEngine.print("Wormhole.getBlue - Returned blue end of wormhole");
         GameEngine.print("Van már ilyen színű bejárat? Y / N");
         Scanner scan=new Scanner(System.in);
-        String inp=scan.nextLine();
+        String inp=scan.nextLine().toUpperCase();
         GameEngine.tab--;
         if(inp.equals("Y"))
             return new SpecialWall();
