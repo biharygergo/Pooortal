@@ -1,7 +1,7 @@
 package src;
 
 /**
- * 
+ * Represents a ZPM on a given field (road)
  */
 public class ZPM extends Item {
 
@@ -14,8 +14,8 @@ public class ZPM extends Item {
 
 
     /**
-     * @param player 
-     * @return
+     * What happens when the player wants to use the field which has the ZPM on it
+     * @param player
      */
     public void onUse(Player player) {
         // TODO implement here
@@ -26,8 +26,8 @@ public class ZPM extends Item {
     }
 
     /**
-     * @param player 
-     * @return
+     * What happens when the player steps on it
+     * @param player
      */
     public void onStep(Player player) {
         GameEngine.tab++;
@@ -39,7 +39,7 @@ public class ZPM extends Item {
     }
 
     /**
-     * @return
+     * @return Returns the field on which the ZPM stands
      */
     public Field getField() {
         // TODO implement here
@@ -50,8 +50,7 @@ public class ZPM extends Item {
     }
 
     /**
-     * @param field 
-     * @return
+     * @param field Sets the new field
      */
     public void setField(Field field) {
         // TODO implement here
