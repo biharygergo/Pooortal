@@ -144,16 +144,18 @@ public class GameEngine {
                     input="0";
                     break;
                 case "6":
-                    Box box6=player.getBox();
                     Field f6=player.getField();
                     Dir dir6=player.getDir();
                     Field nextf6=player.getNextField();
+                    Box box6=player.getBox();
 
-                   Item m6= modules.searchModule(nextf6);
+                    if(box6==null) {
+                        Item m6 = modules.searchModule(nextf6);
 
-                    if(m6!=null){
-                        m6.onUse(player);
+                        if (m6 != null) {
+                            m6.onUse(player);
 
+                        }
                     }
                     input="0";
                     break;
