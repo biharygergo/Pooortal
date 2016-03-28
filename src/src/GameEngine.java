@@ -210,10 +210,12 @@ public class GameEngine {
                     Dir dir9=player.getDir();
                     Field nextf9=player.getNextField();
 
-                    Item m9=modules.searchModule(nextf9);
-                    if(m9!=null){
-                        player.setField(nextf9);
-                        m9.onStep(player);
+                    if(nextf9.steppable()) {
+                        Item m9 = modules.searchModule(nextf9);
+                        if (m9 != null) {
+                            player.setField(nextf9);
+                            m9.onStep(player);
+                        }
                     }
                     input="0";
                     break;
