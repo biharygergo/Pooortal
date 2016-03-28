@@ -3,7 +3,7 @@ package src;
 import java.util.Scanner;
 
 /**
- * 
+ * Represents a wormhole between two special wall
  */
 public class Wormhole {
 
@@ -15,12 +15,12 @@ public class Wormhole {
     }
 
     /**
-     * 
+     * This is the yellow portal
      */
     private SpecialWall yellowPortal;
 
     /**
-     * 
+     * This is the blue portal
      */
     private SpecialWall bluePortal;
 
@@ -29,7 +29,8 @@ public class Wormhole {
 
 
     /**
-     * @return
+     * Returns whether the wormhole is passable or not
+     * @return The boolean which represents that the wormhole is passable or not
      */
     public boolean checkPass() {
         // TODO implement here
@@ -47,7 +48,8 @@ public class Wormhole {
     }
 
     /**
-     * @return
+     * Returns the blue portal
+     * @return The blue portal of the wormhole
      */
     public SpecialWall getBlue() {
         // TODO implement here
@@ -63,8 +65,8 @@ public class Wormhole {
     }
 
     /**
-     * @param specWall 
-     * @return
+     * Setting the blue portal to the wormhole
+     * @param specWall The special wall that represents the blue portal of the wormhole
      */
     public void setBlue(SpecialWall specWall) {
         // TODO implement here
@@ -74,7 +76,8 @@ public class Wormhole {
     }
 
     /**
-     * @return
+     * Returns the yellow portal
+     * @return The yellow portal of the wormhole
      */
     public SpecialWall getYellow() {
         // TODO implement here
@@ -85,8 +88,8 @@ public class Wormhole {
     }
 
     /**
-     * @param specWall 
-     * @return
+     * Setting the yellow portal to the wormhole
+     * @param specWall The special wall that represents the yellow portal of the wormhole
      */
     public void setYellow(SpecialWall specWall) {
         // TODO implement here
