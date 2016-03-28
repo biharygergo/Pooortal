@@ -15,7 +15,7 @@ public class ZPM extends Item {
 
     /**
      * What happens when the player wants to use the field which has the ZPM on it
-     * @param player
+     * @param player the player who wants to use the ZPM
      */
     public void onUse(Player player) {
         // TODO implement here
@@ -27,7 +27,7 @@ public class ZPM extends Item {
 
     /**
      * What happens when the player steps on it
-     * @param player
+     * @param player the player who wants to step on the field with ZPM on it
      */
     public void onStep(Player player) {
         GameEngine.tab++;
@@ -39,6 +39,7 @@ public class ZPM extends Item {
     }
 
     /**
+     * Returns the field on which the ZPM stands
      * @return Returns the field on which the ZPM stands
      */
     public Field getField() {
@@ -50,7 +51,8 @@ public class ZPM extends Item {
     }
 
     /**
-     * @param field Sets the new field
+     * Sets the new field of the ZPM
+     * @param field The new field
      */
     public void setField(Field field) {
         // TODO implement here
