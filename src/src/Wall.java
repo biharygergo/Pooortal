@@ -3,7 +3,7 @@ package src;
 import java.util.*;
 
 /**
- * 
+ * Represents the wall field, which is not steppable
  */
 public class Wall extends Field {
 
@@ -15,7 +15,8 @@ public class Wall extends Field {
     }
 
     /**
-     * @param player
+     * What happens when the player steps on it
+     * @param player the player who wants to step on the wall
      */
     public void onStep(Player player) {
         // TODO implement here
@@ -25,7 +26,8 @@ public class Wall extends Field {
     }
 
     /**
-     * 
+     * Returns that the wall is steppable or not
+     * @return The boolean whether the wall is steppable or not
      */
     public boolean steppable() {
         // TODO implement here
@@ -36,9 +38,9 @@ public class Wall extends Field {
     }
 
     /**
-     * @param bullet 
-     * @param wormHole 
-     * @return
+     * What happens when the player shoots on the wall
+     * @param bullet The bullet which the player shoots on the wall
+     * @param wormHole The wormhole on the wall
      */
     public void onShoot(Bullet bullet, Wormhole wormHole) {
         // TODO implement here
