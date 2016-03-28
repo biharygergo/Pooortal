@@ -169,7 +169,7 @@ public class GameEngine {
                         Modules mod=new Modules();
                         Item m7=mod.searchModule(f);
 
-                        if(m7!=null){
+                        if(m7==null){
                             Box pBox=player.getBox();
                             if(pBox!=null){
                                 Box b=player.dropBox();
