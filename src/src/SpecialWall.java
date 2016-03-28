@@ -3,7 +3,7 @@ package src;
 import java.util.*;
 
 /**
- * 
+ * Represents a special wall, which extends from the wall
  */
 public class SpecialWall extends Wall {
 
@@ -16,12 +16,12 @@ public class SpecialWall extends Wall {
 
 
     /**
-     * 
+     * The color of the special wall when there is a portal on it
      */
     private Color color;
 
     /**
-     * 
+     * The wormhole on the special wall
      */
     private Wormhole wormHole;
 
@@ -31,9 +31,9 @@ public class SpecialWall extends Wall {
 
 
     /**
-     * @param bullet 
-     * @param wormHole 
-     * @return
+     * What happens when the player shoots on the special wall
+     * @param bullet The bullet which the player shoots on the special wall
+     * @param wormHole The wormhole on the special wall
      */
     public void onShoot(Bullet bullet, Wormhole wormHole) {
         // TODO implement here
@@ -64,8 +64,8 @@ public class SpecialWall extends Wall {
     }
 
     /**
-     * @param color 
-     * @return
+     * Setting the color of the special wall
+     * @param color The color to be set for the special wall
      */
     public void setColor(Color color) {
         // TODO implement here
@@ -75,7 +75,8 @@ public class SpecialWall extends Wall {
     }
 
     /**
-     * 
+     * Returns that the special wall is steppable or not
+     * @return The boolean whether the special wall is steppable or not
      */
     public boolean steppable() {
         // TODO implement here
@@ -88,7 +89,8 @@ public class SpecialWall extends Wall {
     }
 
     /**
-     * @param player
+     * What happens when the player wants to step on it
+     * @param player the player who wants to step
      */
     public void onStep(Player player) {
         // TODO implement here
@@ -100,7 +102,8 @@ public class SpecialWall extends Wall {
     }
 
     /**
-     * @return
+     * Returns the color of the special wall
+     * @return The color of the special wall
      */
     public Color getColor() {
         // TODO implement here
