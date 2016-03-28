@@ -35,7 +35,7 @@ public class Wormhole {
         // TODO implement here
         GameEngine.tab++;
         GameEngine.print("Wormhole.checkPass - Returned possibility of passing trough wormhole");
-        GameEngine.print("Átjárható a féregjárat? (Y/N)");
+        GameEngine.print("Átjárható a féregjárat? Y/N");
         Scanner scan=new Scanner(System.in);
         String inp=scan.nextLine();
         GameEngine.tab--;

@@ -96,11 +96,11 @@ public class Scale extends Field {
         }
         else{
             //Akkor fogjuk használni, ha a player lemászott a mérlegről
-            GameEngine.print("Van súly a mérlegen? I/N");
+            GameEngine.print("Van súly a mérlegen? Y/N");
             Scanner scanner=new Scanner(System.in);
             String ans=scanner.nextLine();
             door = new Door();
-            if(ans.equals("I")){
+            if(ans.equals("Y")){
                 setWeight(true);
                 //Inicializalunk itt egy ajtot
 
