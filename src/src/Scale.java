@@ -3,7 +3,7 @@ package src;
 import java.util.*;
 
 /**
- * 
+ * Represents the scale on the map
  */
 public class Scale extends Field {
 
@@ -16,18 +16,18 @@ public class Scale extends Field {
 
 
     /**
-     * 
+     * The weight of the scale (True or False)
      */
     private boolean weight;
 
 
     /**
-     * 
+     * The door which is connected to the scale
      */
     private Door door;
 
     /**
-     * @return
+     * @return The door which is connected to the scale
      */
     public Door getDoor() {
         // TODO implement here
@@ -38,8 +38,7 @@ public class Scale extends Field {
     }
 
     /**
-     * @param door 
-     * @return
+     * @param door The door to be set for the scale
      */
     public void setDoor(Door door) {
         // TODO implement here
@@ -49,7 +48,7 @@ public class Scale extends Field {
     }
 
     /**
-     * @return
+     * @return Whether there is weight on the scale or not
      */
     public boolean getWeight() {
         // TODO implement here
@@ -60,8 +59,7 @@ public class Scale extends Field {
     }
 
     /**
-     * @param weight 
-     * @return
+     * @param weight The weight to be set on the scale
      */
     public void setWeight(boolean weight) {
         // TODO implement here
@@ -72,7 +70,7 @@ public class Scale extends Field {
     }
 
     /**
-     * @return
+     * @return Whether it's steppable or not
      */
     public boolean steppable() {
         // TODO implement here
@@ -83,8 +81,7 @@ public class Scale extends Field {
     }
 
     /**
-     * @param player 
-     * @return
+     * @param player the player who wants to step on the field where the scale is
      */
     public void onStep(Player player) {
         // TODO implement here
@@ -119,9 +116,9 @@ public class Scale extends Field {
     }
 
     /**
-     * @param bullet 
-     * @param wormHole 
-     * @return
+     * What happens when the player shoots on the scale
+     * @param bullet The bullet which the player shoots on the scale
+     * @param wormHole The wormhole
      */
     public void onShoot(Bullet bullet, Wormhole wormHole) {
         // TODO implement here
