@@ -1,7 +1,5 @@
 package src;
 
-import java.util.*;
-
 /**
  * Represents the road field, which is always steppable if nothing stands on it
  */
@@ -45,26 +43,5 @@ public class Road extends Field {
         GameEngine.print("Road.onShoot - Called on Road");
         GameEngine.tab--;
     }
-
-    /**
-     * @return
-     *
-    public Map<Dir, Field> getSides() {
-        // TODO implement here
-        GameEngine.print("Road.getSides - Returned neighboring fields");
-        return null;
-    }
-
-
-    public void setSides(Map<Dir, Field> map) {
-        // TODO implement here
-        GameEngine.print("Road.setSides - Neighboring fields set");
-
-    }
-
-
-     * @return
-     */
-
 
 }

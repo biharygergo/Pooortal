@@ -7,7 +7,6 @@ import java.util.*;
  */
 public class Modules {
 
-
     public Modules() {
 
     }
@@ -17,12 +16,6 @@ public class Modules {
     private List<Box> boxes;
 
     private List<Bullet> bullets;
-
-
-
-
-
-
 
     /**
      * @param field The field we want to search for item

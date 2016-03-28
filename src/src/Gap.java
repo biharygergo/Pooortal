@@ -1,7 +1,5 @@
 package src;
 
-import java.util.*;
-
 /**
  * Represents the gap on the map
  */
@@ -58,23 +56,4 @@ public class Gap extends Field {
         // TODO implement here
 
     }
-
-    /**
-     * @return
-     */
-//    public Map<Dir, Field> getSides() {
-//        // TODO implement here
-//        return null;
-//    }
-//
-//    /**
-//     * @param Map
-//     * @return
-//     */
-//    public void setSides(Map<Dir, Field> map) {
-//        // TODO implement here
-//
-//    }
-
-
 }

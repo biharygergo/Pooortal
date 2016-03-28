@@ -18,11 +18,6 @@ public abstract class Item {
      */
     protected Field field;
 
-
-
-
-
-
     /**
      * @return The field which the item stands on
      */

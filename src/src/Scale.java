@@ -14,12 +14,10 @@ public class Scale extends Field {
 
     }
 
-
     /**
      * The weight of the scale (True or False)
      */
     private boolean weight;
-
 
     /**
      * The door which is connected to the scale
@@ -126,22 +124,5 @@ public class Scale extends Field {
         GameEngine.print("SpecialWall.onShoot - Called on SpecialWall");
         GameEngine.tab--;
     }
-
-    /**
-     * @return
-     *
-
-    public Map<Dir, Field> getSides() {
-        // TODO implement here
-        return null;
-    }
-
-
-    public void setSides(Map<Dir, Field> map) {
-        // TODO implement here
-
-    }
-    */
-
 
 }

@@ -1,5 +1,4 @@
-package src;//import src.Field;
-//package src;
+package src;
 
 import java.util.Scanner;
 
@@ -35,7 +34,6 @@ public class Player {
      * The number of ZPMs the player has collected so far
      */
     int collectedZPMs;
-
 
     /**
      * The box which the player has picked up
