@@ -196,7 +196,7 @@ public class Player {
         GameEngine.tab++;
         GameEngine.print("Player.getNextField - Returned next field");
 
-        GameEngine.print("Lehet a következő mezőre lépni? Y/N");
+        GameEngine.print("Lehet a következő mezőre lépni? Y / N");
         Scanner scan=new Scanner(System.in);
 
        String input= scan.nextLine();
