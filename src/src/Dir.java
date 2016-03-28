@@ -1,7 +1,7 @@
 package src;
 
 /**
- * Dir enum represents the dir of the player
+ * Dir enum represents the direction of the player
  */
 public enum Dir {
     Up,
