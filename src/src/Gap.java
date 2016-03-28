@@ -3,7 +3,7 @@ package src;
 import java.util.*;
 
 /**
- * 
+ * Represents the gap on the map
  */
 public class Gap extends Field {
 
@@ -15,7 +15,7 @@ public class Gap extends Field {
     }
 
     /**
-     * @param player
+     * @param player the player who wants to step on the gap
      */
     public void onStep(Player player) {
         GameEngine.tab++;
@@ -36,7 +36,7 @@ public class Gap extends Field {
     }
 
     /**
-     * 
+     * @return Whether the gap is steppable or not
      */
     public boolean steppable() {
         // TODO implement here
@@ -47,9 +47,9 @@ public class Gap extends Field {
     }
 
     /**
-     * @param bullet 
-     * @param wormHole 
-     * @return
+     * What happens when the player shoots on the gap
+     * @param bullet The bullet which the player shoots on the gap
+     * @param wormHole The wormhole
      */
     public void onShoot(Bullet bullet, Wormhole wormHole) {
         GameEngine.tab++;
