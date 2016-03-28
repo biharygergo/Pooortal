@@ -164,14 +164,14 @@ public class Player {
         // TODO implement here
         GameEngine.tab++;
         GameEngine.print("Player.isAlive - Returned player state");
-        GameEngine.print("Meghaltunk vagy megnyertük D/W");
+        GameEngine.print("Meghaltunk? Y/N");
         Scanner scan=new Scanner(System.in);
         String line=scan.nextLine();
 
         GameEngine.tab--;
-        if (line.equals("W"))
-            return true;
-        else return false;
+        if (line.equals("Y"))
+            return false;
+        else return true;
 
 
 
