@@ -24,10 +24,6 @@ public class Wormhole {
      */
     private SpecialWall bluePortal;
 
-
-
-
-
     /**
      * Returns whether the wormhole is passable or not
      * @return The boolean which represents that the wormhole is passable or not
@@ -43,8 +39,6 @@ public class Wormhole {
         if(inp.equals("Y"))
             return true;
         return false;
-
-
     }
 
     /**

@@ -1,5 +1,7 @@
 package src;
 
+import java.util.Map;
+
 /**
  * Abstract class representing the fields on the map
  */

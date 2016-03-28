@@ -14,7 +14,6 @@ public class SpecialWall extends Wall {
 
     }
 
-
     /**
      * The color of the special wall when there is a portal on it
      */
@@ -24,11 +23,6 @@ public class SpecialWall extends Wall {
      * The wormhole on the special wall
      */
     private Wormhole wormHole;
-
-
-
-
-
 
     /**
      * What happens when the player shoots on the special wall
@@ -113,20 +107,4 @@ public class SpecialWall extends Wall {
         return null;
     }
 
-    /**
-     * @return
-
-    public Map<Dir, Field> getSides() {
-        // TODO implement here
-        return null;
-    }
-
-    /**
-     * @param Map
-     * @return
-
-    public void setSides(Map<Dir, Field> map) {
-        // TODO implement here
-
-    }*/
 }

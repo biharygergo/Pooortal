@@ -1,7 +1,5 @@
 package src;
 
-import java.util.*;
-
 /**
  * Represents the wall field, which is not steppable
  */
@@ -49,20 +47,4 @@ public class Wall extends Field {
         bullet.setActive(false);
         GameEngine.tab--;
     }
-
-    /**
-     * @return
-
-    public Map<Dir, Field> getSides() {
-        // TODO implement here
-        GameEngine.print("Wall.getSides - Returned neighboring fields");
-        return null;
-    }
-
-
-    public void setSides(Map<Dir, Field> map) {
-        // TODO implement here
-        GameEngine.print("Wall.setSides - Neighboring fields set");
-    }
-    */
 }
