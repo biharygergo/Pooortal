@@ -80,9 +80,11 @@ public class SpecialWall extends Wall {
     public boolean steppable() {
         // TODO implement here
         GameEngine.tab++;
+        wormHole = new Wormhole();
         GameEngine.print("SpecialWall.steppable - Field's state returned");
+        boolean pass = wormHole.checkPass();
         GameEngine.tab--;
-        return false;
+        return pass;
     }
 
     /**
@@ -92,6 +94,8 @@ public class SpecialWall extends Wall {
         // TODO implement here
         GameEngine.tab++;
         GameEngine.print("SpecialWall.onStep - Onstep called on Player");
+        SpecialWall other = wormHole.getYellow();
+        player.setField(other);
         GameEngine.tab--;
     }
 

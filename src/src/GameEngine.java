@@ -207,6 +207,17 @@ public class GameEngine {
                     Scale scale = new Scale();
                     scale.onStep(player);
                     input="0";
+                    break;
+                case "12":
+                    SpecialWall sw = new SpecialWall();
+
+                    if (sw.steppable())
+                        sw.onStep(player);
+
+
+                    input="0";
+                    break;
+
             }
 
       }
