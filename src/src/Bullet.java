@@ -89,12 +89,12 @@ public class Bullet{
     /**
      * @return Returns the actual field of the bullet
      */
-    public void getField() {
+    public Field getField() {
         GameEngine.tab++;
         GameEngine.print("Bullet.getField - returned Bullet's current Field");
         GameEngine.tab--;
         // TODO implement here
-
+        return null;
     }
 
     /**

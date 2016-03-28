@@ -7,6 +7,7 @@ public class FieldMap {
 
     /**
      * Default constructor
+     * @param s calls the create function
      */
     public FieldMap(String s) {
         create(s);
