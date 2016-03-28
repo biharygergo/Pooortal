@@ -191,14 +191,15 @@ public class GameEngine {
                     //Nincs jobb ötletem: a szakadékra úgy teszünk, mintha rálépnénk,
                     //szakadékban ledobjuk a dobozt, ha a player nem rajta áll
                     //a korábban megkérdezett dobozt pedig szépen kitöröljük a listából
-                    nextf8.onStep(player);
-                    //if(player.getBox())
+                    if(hasBox!=null) {
+                        nextf8.onStep(player);
+                        //if(player.getBox())
 
-                    modules.removeBox(hasBox);
-                   // Box b8=player.dropBox();
+                        modules.removeBox(hasBox);
+                        // Box b8=player.dropBox();
 
 
-
+                    }
                     input="0";
                     break;
 
