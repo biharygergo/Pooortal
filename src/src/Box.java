@@ -32,7 +32,6 @@ public class Box extends Item {
     }
 
     /**
-     * Returns the current field on which the box stands
      * @return Returns the current field on which the box stands
      */
     public Field getField() {
