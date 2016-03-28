@@ -1,7 +1,7 @@
 package src;
 
 /**
- * 
+ * Represents a bullet in a given color
  */
 public class Bullet{
 
@@ -12,40 +12,27 @@ public class Bullet{
     }
 
     /**
-     * 
+     * Color of the bullet
      */
     private Color color;
 
     /**
-     * 
+     * Dir of the bullet
      */
     private Dir dir;
 
     /**
-     * 
+     * Current field of the bullet
      */
     private Field field;
 
     /**
-     * 
+     * Status of the bullet
      */
     private boolean active;
 
-
-
     /**
-     * 
-     */
-   // public GameEngine currentBullets;
-
-
-
-
-
-
-
-    /**
-     * @return
+     * @return Returns the color of the bullet
      */
     public Color getColor() {
         // TODO implement here
@@ -56,8 +43,7 @@ public class Bullet{
     }
 
     /**
-     * @param color 
-     * @return
+     * @param color Color of the bullet
      */
     public void setColor(Color color) {
         GameEngine.tab++;
@@ -68,7 +54,7 @@ public class Bullet{
     }
 
     /**
-     * @return
+     * @return Returns the dir of the bullet
      */
     public Dir getDir() {
         GameEngine.tab++;
@@ -79,8 +65,7 @@ public class Bullet{
     }
 
     /**
-     * @param dir 
-     * @return
+     * @param dir Dir of the bullet
      */
     public void setDir(Dir dir) {
         GameEngine.tab++;
@@ -91,10 +76,9 @@ public class Bullet{
     }
 
     /**
-     * @param f 
-     * @return
+     * @param field Bullet's actual field
      */
-    public void setField(Field f) {
+    public void setField(Field field) {
         GameEngine.tab++;
         GameEngine.print("Bullet.setField - set Bullet's current Field");
         GameEngine.tab--;
@@ -103,7 +87,7 @@ public class Bullet{
     }
 
     /**
-     * @return
+     * @return Returns the actual field of the bullet
      */
     public void getField() {
         GameEngine.tab++;
@@ -114,7 +98,7 @@ public class Bullet{
     }
 
     /**
-     * @return
+     * @return true, if the bullet is active, otherwise false
      */
     public boolean isActive() {
         GameEngine.tab++;
@@ -125,21 +109,13 @@ public class Bullet{
     }
 
     /**
-     * @param act 
-     * @return
+     * @param active Sets the bullet status
      */
-    public void setActive(boolean act) {
+    public void setActive(boolean active) {
         GameEngine.tab++;
         GameEngine.print("Bullet.setActive - set Bullet as active or inactive");
         GameEngine.tab--;
         // TODO implement here
 
     }
-
-    /**
-     * @param player
-     * @return
-     */
-
-
 }
