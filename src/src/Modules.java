@@ -43,9 +43,9 @@ public class Modules {
             return box;
         }
 
-        GameEngine.print("Következő mezőn van ZPM? I/N");
+        GameEngine.print("Következő mezőn van ZPM? (Csak a 9-es esetben igaz!) Y / N");
         ans= scan.nextLine();
-        if(ans.equals("I")){
+        if(ans.equals("Y")){
             ZPM zpm=new ZPM();
             removeZPM(zpm);
             GameEngine.tab--;
