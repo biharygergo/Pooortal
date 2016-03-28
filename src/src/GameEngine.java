@@ -70,7 +70,7 @@ public class GameEngine {
 
                     break;
                 case "1":
-                    FieldMap map= new FieldMap(null);
+                    FieldMap map = new FieldMap(null);
 
                     Field startField;
 

@@ -32,7 +32,7 @@ public class FieldMap {
      */
     public void create(String string) {
         GameEngine.tab++;
-        // TODO implement here
+        GameEngine.print("FieldMap.create - FieldMap created");
         GameEngine.tab--;
     }
 
