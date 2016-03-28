@@ -4,7 +4,7 @@ package src;//import src.Field;
 import java.util.Scanner;
 
 /**
- * 
+ * Represents the player on the map
  */
 public class Player {
 
@@ -16,35 +16,35 @@ public class Player {
     }
 
     /**
-     * 
+     * The field which the player currently stands on
      */
     private Field field;
 
     /**
-     * 
+     * The direction of the player
      */
     private Dir dir;
 
     /**
-     * 
+     * Is the player alive or dead?
      */
 
     private boolean alive;
 
     /**
-     * 
+     * The number of ZPMs the player has collected so far
      */
     int collectedZPMs;
 
 
     /**
-     * 
+     * The box which the player has picked up
      */
     private Box box;
 
 
     /**
-     * @return
+     * @return The box which the player has dropped
      */
     public Box dropBox() {
         // TODO implement here
@@ -57,7 +57,7 @@ public class Player {
     }
 
     /**
-     * @return
+     * @return the bullet which the player shot
      */
     public Bullet shootBlue() {
         // TODO implement here
@@ -68,7 +68,7 @@ public class Player {
     }
 
     /**
-     * @return
+     * @return The yellow bullet
      */
     public Bullet shootYellow() {
         // TODO implement here
@@ -79,7 +79,7 @@ public class Player {
     }
 
     /**
-     * @return
+     * @return The field which the player currently stands on
      */
     public Field getField() {
         // TODO implement here
@@ -92,8 +92,7 @@ public class Player {
     }
 
     /**
-     * @param field 
-     * @return
+     * @param field The field to be set for the player
      */
     public void setField(Field field) {
         // TODO implement here
@@ -104,7 +103,7 @@ public class Player {
     }
 
     /**
-     * @return
+     * @return The direction of the player
      */
     public Dir getDir() {
         // TODO implement here
@@ -115,8 +114,7 @@ public class Player {
     }
 
     /**
-     * @param dir 
-     * @return
+     * @param dir The direction to be set for the player
      */
     public void setDir(Dir dir) {
         // TODO implement here
@@ -127,7 +125,7 @@ public class Player {
     }
 
     /**
-     * @return
+     * @return The box which the player has picked up
      */
     public Box getBox() {
         // TODO implement here
@@ -147,8 +145,7 @@ public class Player {
     }
 
     /**
-     * @param box 
-     * @return
+     * @param box The box to be set for the player
      */
     public void setBox(Box box) {
         // TODO implement here
@@ -158,7 +155,7 @@ public class Player {
     }
 
     /**
-     * @return
+     * @return Whether the player is alive or not
      */
     public boolean isAlive() {
         // TODO implement here
@@ -178,8 +175,7 @@ public class Player {
     }
 
     /**
-     * @param alive 
-     * @return
+     * @param alive Set if the player is alive or dead
      */
     public void setAlive(boolean alive) {
         // TODO implement here
@@ -189,7 +185,7 @@ public class Player {
     }
 
     /**
-     * @return
+     * @return The next field
      */
     public Field getNextField() {
         // TODO implement here
