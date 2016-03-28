@@ -98,6 +98,7 @@ public class Player {
         // TODO implement here
         GameEngine.tab++;
         GameEngine.print("Player.setField - Field set");
+        this.field=field;
         GameEngine.tab--;
     }
 
