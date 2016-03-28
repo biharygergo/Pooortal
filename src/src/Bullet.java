@@ -17,7 +17,7 @@ public class Bullet{
     private Color color;
 
     /**
-     * Dir of the bullet
+     * Direction of the bullet
      */
     private Dir dir;
 
@@ -54,7 +54,7 @@ public class Bullet{
     }
 
     /**
-     * @return Returns the dir of the bullet
+     * @return Returns the direction of the bullet
      */
     public Dir getDir() {
         GameEngine.tab++;
@@ -65,7 +65,7 @@ public class Bullet{
     }
 
     /**
-     * @param dir Dir of the bullet
+     * @param dir Direction of the bullet
      */
     public void setDir(Dir dir) {
         GameEngine.tab++;

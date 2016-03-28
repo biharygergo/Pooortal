@@ -3,7 +3,7 @@ package src;
 import java.util.*;
 
 /**
- * 
+ * Represents a door on a given field
  */
 public class Door extends Field {
 
@@ -15,13 +15,13 @@ public class Door extends Field {
     }
 
     /**
-     * 
+     * Status of the door
      */
     private boolean open;
 
 
     /**
-     * @return
+     * @return Returns true if the door is open, false otherwise
      */
     public boolean isOpen() {
         // TODO implement here
@@ -32,8 +32,7 @@ public class Door extends Field {
     }
 
     /**
-     * @param open 
-     * @return
+     * @param open Status of the door
      */
     public void setOpen(boolean open) {
         GameEngine.tab++;
@@ -44,8 +43,8 @@ public class Door extends Field {
     }
 
     /**
-     * @param player 
-     * @return
+     * If open, the player steps on it, and automatically steps on the next field in the given direction
+     * @param player the player stepped on the door
      */
     public void onStep(Player player) {
         GameEngine.tab++;
@@ -56,7 +55,7 @@ public class Door extends Field {
     }
 
     /**
-     * @return
+     * @return Returns true if open, false otherwise
      */
     public boolean steppable() {
         GameEngine.tab++;
@@ -67,9 +66,9 @@ public class Door extends Field {
     }
 
     /**
-     * @param bullet 
-     * @param wormHole 
-     * @return
+     * If the door is closed, changes the bullet status to false. If open, the bullet flies through the given field
+     * @param bullet the bullet hitting, or flying across the door
+     * @param wormHole The wormhole in the map
      */
     public void onShoot(Bullet bullet, Wormhole wormHole) {
         GameEngine.tab++;
@@ -80,7 +79,7 @@ public class Door extends Field {
     }
 
     /**
-     * @return
+     * @return Returns the neighbouring fields in a given direction
      */
     public Map<Dir, Field> getSides() {
         // TODO implement here
@@ -89,14 +88,11 @@ public class Door extends Field {
     }
 
     /**
-     * @param Map 
-     * @return
+     * Sets the new neighbours
+     * @param map the neighbours of the door in the specified direction
      */
     public void setSides(Map<Dir, Field> map) {
         // TODO implement here
 
     }
-
-
-
 }
