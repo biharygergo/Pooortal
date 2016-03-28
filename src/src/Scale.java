@@ -107,8 +107,11 @@ public class Scale extends Field {
                 door.setOpen(true);
             }
             else{
-                //Ha nincs súly és nincs rajta, akkor csukjuk be
-                door.setOpen(false);
+                //Ha nincs súly és nincs rajta, akkor rá akarunk rakni
+                Box b=player.dropBox();
+                b.setField(this);
+                setWeight(true);
+                door.setOpen(true);
             }
 
         }
