@@ -2,9 +2,8 @@ package src;
 
 import java.util.Scanner;
 
-
 /**
- * 
+ * The engine of the game. Creeates the map with list of items, handles the player movement.
  */
 public class GameEngine {
 
@@ -14,21 +13,37 @@ public class GameEngine {
         GameEngine.tab=0;
     }
 
+    /**
+     * The player in the game
+     */
     private Player oNeill;
 
+    /**
+     * The list items in the game
+     */
     private Modules activeModules;
 
+    /**
+     * Reference to the map
+     */
     private FieldMap map;
 
+    /**
+     * The wormhole in the game
+     */
     private Wormhole wormhole;
 
+    /**
+     * Creeates the map and starts to run the program
+     */
     public void start() {
         // TODO implement here
 
-
-
     }
 
+    /**
+     * Ends the game
+     */
     public static void endGame() {
         // TODO implement here
         GameEngine.print("GameEngine.endGame - Game has ended");
