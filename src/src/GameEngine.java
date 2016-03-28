@@ -204,22 +204,8 @@ public class GameEngine {
 
 
                 case "11":
-                    Field f11=player.getField();
-                    Dir dir11=player.getDir();
-                    Door door = new Door();
                     Scale scale = new Scale();
-
-                    GameEngine.print("Van súly az ajtóhoz tartozó mérlegen? Y/N");
-                    Scanner scan11 = new Scanner(System.in);
-                    String ans=scan.nextLine();
-
-                    if(ans.equals("N")){
-                       player.dropBox();
-                       scale.setWeight(true);
-                       door.setOpen(true);
-                    }
-
-                    ans = "0";
+                    scale.onStep(player);
                     input="0";
             }
 
