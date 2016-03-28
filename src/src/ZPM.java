@@ -3,7 +3,7 @@ package src;
 /**
  * 
  */
-public class ZPM extends Modules {
+public class ZPM extends Item {
 
     /**
      * Default constructor
@@ -32,6 +32,7 @@ public class ZPM extends Modules {
     public void onStep(Player player) {
         GameEngine.tab++;
         GameEngine.print("ZPM.onStep - onStep called on Player");
+        player.collectedZPMs++;
         GameEngine.tab--;
         // TODO implement here
 

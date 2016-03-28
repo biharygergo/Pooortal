@@ -202,8 +202,19 @@ public class GameEngine {
                     break;
 
 
+                case "9":
 
+                    Field f9=player.getField();
+                    Dir dir9=player.getDir();
+                    Field nextf9=player.getNextField();
 
+                    Item m9=modules.searchModule(nextf9);
+                    if(m9!=null){
+                        player.setField(nextf9);
+                        m9.onStep(player);
+                    }
+                    input="0";
+                    break;
                 case "11":
                     Scale scale = new Scale();
                     scale.onStep(player);

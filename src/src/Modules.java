@@ -42,6 +42,15 @@ public class Modules {
             GameEngine.tab--;
             return box;
         }
+
+        GameEngine.print("Következő mezőn van ZPM? I/N");
+        ans= scan.nextLine();
+        if(ans.equals("I")){
+            ZPM zpm=new ZPM();
+            removeZPM(zpm);
+            GameEngine.tab--;
+            return zpm;
+        }
         GameEngine.tab--;
         return null;
     }
