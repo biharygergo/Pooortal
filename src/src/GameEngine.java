@@ -186,7 +186,9 @@ public class GameEngine {
 
                     Field nextf8=new Gap();
                     Box hasBox=player.getBox();
-                    //Nincs jobb ötletem: a szakadékra úgy teszünk, mintha rálépnénk
+                    //Nincs jobb ötletem: a szakadékra úgy teszünk, mintha rálépnénk,
+                    //szakadékban ledobjuk a dobozt, ha a player nem rajta áll
+                    //a korábban megkérdezett dobozt pedig szépen kitöröljük a listából
                     nextf8.onStep(player);
                     //if(player.getBox())
 

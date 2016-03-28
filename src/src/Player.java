@@ -52,7 +52,7 @@ public class Player {
         //Box box=new Box();
         box = null;
         GameEngine.tab--;
-        return null;
+        return new Box();
     }
 
     /**
