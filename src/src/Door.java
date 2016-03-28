@@ -37,7 +37,7 @@ public class Door extends Field {
      */
     public void setOpen(boolean open) {
         GameEngine.tab++;
-        GameEngine.print("Door.setOpen - set open attribute");
+        GameEngine.print("Door.setOpen - set open attribute " + open);
         GameEngine.tab--;
         // TODO implement here
 
