@@ -61,10 +61,10 @@ public class GameEngine {
                     System.out.println("7. Doboz lerakása");
                     System.out.println("8. Doboz szakadékba esik");
                     System.out.println("9. ZPM felvétele");
-                    System.out.println("11. Ajtó nyitása");
-                    System.out.println("12. Féregjáraton átjárás");
-                    System.out.println("13. Kilépés");
-                    System.out.println("14. Játék indítása");
+                    System.out.println("10. Ajtó nyitása");
+                    System.out.println("11. Féregjáraton átjárás");
+                    System.out.println("12. Kilépés");
+
 
                     input=scan.nextLine();
 
@@ -219,12 +219,12 @@ public class GameEngine {
                     }
                     input="0";
                     break;
-                case "11":
+                case "10":
                     Scale scale = new Scale();
                     scale.onStep(player);
                     input="0";
                     break;
-                case "12":
+                case "11":
                     SpecialWall sw = new SpecialWall();
 
                     if (sw.steppable())
@@ -234,7 +234,7 @@ public class GameEngine {
                     input="0";
                     break;
 
-                case "13":
+                case "12":
 
                     GameEngine.print("Kilépést nyomtunk? Y / N");
                     Scanner scan13 = new Scanner(System.in);
