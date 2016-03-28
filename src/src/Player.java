@@ -162,8 +162,17 @@ public class Player {
         // TODO implement here
         GameEngine.tab++;
         GameEngine.print("Player.isAlive - Returned player state");
+        GameEngine.print("Meghaltunk vagy megnyertük D/W");
+        Scanner scan=new Scanner(System.in);
+        String line=scan.nextLine();
+
         GameEngine.tab--;
-        return false;
+        if (line.equals("W"))
+            return true;
+        else return false;
+
+
+
     }
 
     /**

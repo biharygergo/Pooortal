@@ -30,8 +30,9 @@ public class GameEngine {
 
     }
 
-    public void endGame() {
+    public static void endGame() {
         // TODO implement here
+        GameEngine.print("GameEngine.endGame - Game has ended");
 
     }
     public static void print(String s){
@@ -226,6 +227,21 @@ public class GameEngine {
                         sw.onStep(player);
 
 
+                    input="0";
+                    break;
+
+                case "13":
+
+                    GameEngine.print("Kilépést nyomtunk? Y/N");
+                    Scanner scan13 = new Scanner(System.in);
+                    String line13 = scan.nextLine();
+
+                    if (line13.equals("Y"))
+                        GameEngine.endGame();
+                    else {
+                        player.isAlive();
+                        GameEngine.endGame();
+                    }
                     input="0";
                     break;
 
