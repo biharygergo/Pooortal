@@ -3,7 +3,7 @@ package src;
 import java.util.*;
 
 /**
- * 
+ * Contains the different modules on the map: ZPMs, boxes and bullets
  */
 public class Modules {
 
@@ -25,8 +25,8 @@ public class Modules {
 
 
     /**
-     * @param field 
-     * @return
+     * @param field The field we want to search for item
+     * @return The item on the given field
      */
     public Item searchModule(Field field) {
         // TODO implement here
@@ -56,9 +56,8 @@ public class Modules {
     }
 
     /**
-     * @param string 
-     * @param startField 
-     * @return
+     * @param string String for initialization
+     * @param startField The player starts from this field
      */
     public void initializeModules(String string, Field startField) {
         // TODO implement here
@@ -68,8 +67,7 @@ public class Modules {
     }
 
     /**
-     * @param bullet 
-     * @return
+     * @param bullet The bullet to be added
      */
     public void addBullet(Bullet bullet) {
         // TODO implement here
@@ -79,8 +77,7 @@ public class Modules {
     }
 
     /**
-     * @param bullet 
-     * @return
+     * @param bullet The bullet to be removed
      */
     public void removeBullet(Bullet bullet) {
         // TODO implement here
@@ -90,8 +87,7 @@ public class Modules {
     }
 
     /**
-     * @param zpm 
-     * @return
+     * @param zpm The ZPM to be removed
      */
     public void removeZPM(ZPM zpm) {
         // TODO implement here
@@ -101,8 +97,7 @@ public class Modules {
     }
 
     /**
-     * @param box 
-     * @return
+     * @param box The box to be removed
      */
     public void removeBox(Box box) {
         // TODO implement here
@@ -113,7 +108,7 @@ public class Modules {
     }
 
     /**
-     * @return
+     * @return The list of bullets
      */
     public List<Bullet> getBullets() {
         // TODO implement here
