@@ -7,7 +7,7 @@ public class Box extends Item {
 
      /**
       * Handles the pick up and drop of the box
-      * @param player
+      * @param player the player who wants to use the box
      */
     public void onUse(Player player) {
         GameEngine.tab++;
@@ -21,7 +21,7 @@ public class Box extends Item {
 
     /**
      * What to do if the player want to step on a field which has a box on it
-     * @param player
+     * @param player the player who wants to step on the field
      */
     public void onStep(Player player) {
         GameEngine.tab++;
@@ -32,7 +32,8 @@ public class Box extends Item {
     }
 
     /**
-     * @return current field on which the box stands
+     * Returns the current field on which the box stands
+     * @return Returns the current field on which the box stands
      */
     public Field getField() {
         // TODO implement here
@@ -43,7 +44,8 @@ public class Box extends Item {
     }
 
     /**
-     * @param field sets the new field
+     * Sets the new field for the box
+     * @param field The new field
      */
     public void setField(Field field) {
         // TODO implement here
