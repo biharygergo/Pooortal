@@ -12,6 +12,7 @@ public class Player {
      * Default constructor
      */
     public Player(){
+        field=new Road();
     }
 
     /**
@@ -85,9 +86,9 @@ public class Player {
         GameEngine.tab++;
         GameEngine.print("Player.getField - Returned field");
 
-        Field f=new Road();
+
         GameEngine.tab--;
-        return f;
+        return field;
     }
 
     /**
