@@ -1,22 +1,13 @@
 package src;
-import java.util.*;
 
 /**
- *
+ * Represents a box on a given field
  */
 public class Box extends Item {
 
-    /**
-     * Default constructor
-     * /
-     public Box() {
-     }
-
-
-
      /**
-     * @param player
-     * @return
+      * Handles the pick up and drop of the box
+      * @param player
      */
     public void onUse(Player player) {
         GameEngine.tab++;
@@ -29,8 +20,8 @@ public class Box extends Item {
     }
 
     /**
+     * What to do if the player want to step on a field which has a box on it
      * @param player
-     * @return
      */
     public void onStep(Player player) {
         GameEngine.tab++;
@@ -41,7 +32,7 @@ public class Box extends Item {
     }
 
     /**
-     * @return
+     * @return current field on which the box stands
      */
     public Field getField() {
         // TODO implement here
@@ -52,8 +43,7 @@ public class Box extends Item {
     }
 
     /**
-     * @param field
-     * @return
+     * @param field sets the new field
      */
     public void setField(Field field) {
         // TODO implement here
