@@ -3,7 +3,7 @@ package src;
 import java.util.*;
 
 /**
- * 
+ * Represents the road field, which is always steppable if nothing stands on it
  */
 public class Road extends Field {
 
@@ -14,7 +14,7 @@ public class Road extends Field {
     }
 
     /**
-     * @param player
+     * @param player the player who wants to step on it
      */
     public void onStep(Player player) {
         GameEngine.tab++;
@@ -24,7 +24,7 @@ public class Road extends Field {
     }
 
     /**
-     * 
+     * @return The boolean whether the road is steppable or not
      */
     public boolean steppable() {
         // TODO implement here
@@ -35,9 +35,9 @@ public class Road extends Field {
     }
 
     /**
-     * @param bullet 
-     * @param wormHole 
-     * @return
+     * What happens when the player shoots on the road
+     * @param bullet The bullet which the player shoots on the road
+     * @param wormHole The wormhole
      */
     public void onShoot(Bullet bullet, Wormhole wormHole) {
         // TODO implement here
