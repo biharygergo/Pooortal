@@ -144,7 +144,19 @@ public class GameEngine {
                     input="0";
                     break;
                 case "6":
+                    Box box6=player.getBox();
+                    Field f6=player.getField();
+                    Dir dir6=player.getDir();
+                    Field nextf6=player.getNextField();
 
+                   Item m6= modules.searchModule(nextf6);
+
+                    if(m6!=null){
+                        m6.onUse(player);
+
+                    }
+                    input="0";
+                    break;
                 case "7":
 
                     Field f=player.getField();
@@ -168,6 +180,8 @@ public class GameEngine {
                     }
                     input="0";
                     break;
+                case "8":
+
 
             }
 

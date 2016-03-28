@@ -21,6 +21,8 @@ public class Box extends Item {
     public void onUse(Player player) {
         GameEngine.tab++;
         GameEngine.print("Box.onUse - Box is being used");
+        player.setBox(this);
+        setField(player.getField());
         GameEngine.tab--;
         // TODO implement here
 
