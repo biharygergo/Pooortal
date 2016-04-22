@@ -5,6 +5,8 @@ package src;
  */
 public class FieldMap {
 
+    private int xSize = 4, ySize = 4;
+
     /**
      * Default constructor
      * @param s calls the create function
@@ -53,6 +55,18 @@ public class FieldMap {
     }
 
     public void listFields(){
+        Field current = startField, first = startField; //current: actual field, first: first field of current row
+        for (int i = 0; i < ySize; i++) {
+
+            for (int j = 0; j < xSize ; j++) {
+                current.listField(i*xSize+j);
+                current = current.getSide(Dir.Right);
+            }
+
+            current = first.getSide(Dir.Down);
+            first = first.getSide(Dir.Down); //go one field down
+        }
+
     }
 
     public void listScalesDoors(){}

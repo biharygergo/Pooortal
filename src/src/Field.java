@@ -7,6 +7,9 @@ import java.util.Map;
  */
 public abstract class Field {
 
+    private String description;
+    private int xPos, yPos;
+
     /**
      * Default constructor
      */
@@ -48,6 +51,11 @@ public abstract class Field {
         return null;
     }
 
+    //TODO: insert into document
+    public Field getSide(Dir dir){
+        return sides.get(dir);
+    }
+
     /**
      * Sets the new neighbours
      * @param map the neighbours of the door in the specified direction* @param map
@@ -73,4 +81,7 @@ public abstract class Field {
         return null;
     }
 
+    public void listField(int num){
+        System.out.println(num +". (" + xPos + ","+ yPos + ") " + description);
+    }
 }
