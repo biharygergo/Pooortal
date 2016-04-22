@@ -102,4 +102,6 @@ public class Replicator {
     public void randomizeReplicator(boolean value){
 
     }
+
+    public void listReplicator(){}
 }

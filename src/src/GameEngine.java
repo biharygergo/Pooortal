@@ -139,10 +139,10 @@ public class GameEngine {
                     case "oNeilShootBullet":
                         switch (elements[1]){
                             case "B":
-                                oNeill.shootBlue(); //TODO: replace with color1
+                                oNeill.shootColor1();
                                 break;
                             case "Y":
-                                oNeill.shootYellow(); //TODO: replace with color2
+                                oNeill.shootColor2();
                                 break;
                             default:
                                 System.out.println("Incorrect color parameter for oNeill. Valid parameters are 'B' or 'Y'");
@@ -153,10 +153,10 @@ public class GameEngine {
                     case "JaffaShootBullet":
                         switch (elements[1]){
                             case "R":
-                                Jaffa.shootBlue(); //TODO: replace with color1
+                                Jaffa.shootColor1();
                                 break;
                             case "G":
-                                Jaffa.shootYellow(); //TODO: replace with color2
+                                Jaffa.shootColor2();
                                 break;
                             default:
                                 System.out.println("Incorrect color parameter for Jaffa. Valid parameters are 'R' or 'G'");
@@ -218,10 +218,12 @@ public class GameEngine {
                         break;
 
                     case "listPlayers":
-
+                        oNeill.listPlayer();
+                        Jaffa.listPlayer();
                         break;
 
                     case "listReplicator":
+                        replicator.listReplicator();
                         break;
 
                     default:
