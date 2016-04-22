@@ -106,6 +106,12 @@ public class Player {
      * @param field The field to be set for the player
      */
     public void setField(Field field) {
+        if(onThisScale!=null){
+            onThisScale.currentWeight-=weight;
+            if(onThisScale.currentWeight<onThisScale.minWeight){
+                onThisScale.getDoor().setOpen(false);
+            }
+        }
         this.field=field;
     }
 

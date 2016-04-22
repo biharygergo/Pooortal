@@ -48,42 +48,29 @@ public class Scale extends Field {
      * @return The door which is connected to the scale
      */
     public Door getDoor() {
-        // TODO implement here
-        GameEngine.tab++;
-        GameEngine.print("Scale.getDoor - Returned current Door for Scale");
-        GameEngine.tab--;
-        return null;
+       return door;
     }
 
     /**
      * @param door The door to be set for the scale
      */
     public void setDoor(Door door) {
-        // TODO implement here
-        GameEngine.tab++;
-        GameEngine.print("Scale.setDoor - Current Door for Scale set");
-        GameEngine.tab--;
+        this.door = door;
     }
 
     /**
      * @return Whether there is weight on the scale or not
      */
     public boolean getWeight() {
-        // TODO implement here
-        GameEngine.tab++;
-        GameEngine.print("Scale.getWeight - Returned current weight on Scale");
-        GameEngine.tab--;
-        return false;
+
+        return weight;
     }
 
     /**
      * @param weight The weight to be set on the scale
      */
     public void setWeight(boolean weight) {
-        // TODO implement here
-        GameEngine.tab++;
-        GameEngine.print("Scale.setWeight - Current weight on Scale set");
-        GameEngine.tab--;
+       this.weight = weight;
 
     }
 
@@ -91,10 +78,10 @@ public class Scale extends Field {
      * @return Whether it's steppable or not
      */
     public boolean steppable() {
-        // TODO implement here
-        GameEngine.tab++;
-        GameEngine.print("Scale.steppable - Field's state returned");
-        GameEngine.tab--;
+        //Ha vannak rajta dobozok, ne lehessen rálépni - > ledől a doboztorony :)
+      if(boxes.size()==0)
+          return true;
+
         return false;
     }
 
@@ -102,35 +89,17 @@ public class Scale extends Field {
      * @param player the player who wants to step on the field where the scale is
      */
     public void onStep(Player player) {
-        // TODO implement here
-        GameEngine.tab++;
-        GameEngine.print("Scale.onStep - Onstep called on Player");
-        Field playerField=player.getField();
-        if (playerField == this){
+
+        player.onThisScale = this;
+        //Kell ez?!
+        player.setField(this);
+
+        currentWeight+=player.weight;
+
+        if(currentWeight>=minWeight){
             door.setOpen(true);
         }
-        else{
-            //Akkor fogjuk használni, ha a player lemászott a mérlegről
-            GameEngine.print("Van súly a mérlegen? Y / N");
-            Scanner scanner=new Scanner(System.in);
-            String ans=scanner.nextLine().toUpperCase();
-            door = new Door();
-            if(ans.equals("Y")){
-                setWeight(true);
-                //Inicializalunk itt egy ajtot
 
-                door.setOpen(true);
-            }
-            else{
-                //Ha nincs súly és nincs rajta, akkor rá akarunk rakni
-                Box b=player.dropBox();
-                b.setField(this);
-                setWeight(true);
-                door.setOpen(true);
-            }
-
-        }
-        GameEngine.tab--;
     }
 
     /**
@@ -139,10 +108,7 @@ public class Scale extends Field {
      * @param colonelHole The wormhole
      */
     public void onShoot(Bullet bullet, Wormhole colonelHole, Wormhole jaffaHole) {
-        // TODO implement here
-        GameEngine.tab++;
-        GameEngine.print("SpecialWall.onShoot - Called on SpecialWall");
-        GameEngine.tab--;
+       bullet.setField(this);
     }
 
     /**
@@ -166,6 +132,7 @@ public class Scale extends Field {
      * @param replicator this is the replicator
      */
     public void onReplicatorStep(Replicator replicator){
+        replicator.setField(this);
 
     }
 
