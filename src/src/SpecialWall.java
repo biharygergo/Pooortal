@@ -11,7 +11,7 @@ public class SpecialWall extends Wall {
      * Default constructor
      */
     public SpecialWall() {
-
+        description = "SpecialWall";
     }
 
     /**

@@ -11,7 +11,7 @@ public class Door extends Field {
      * Default constructor
      */
     public Door() {
-
+        description = "Door";
     }
 
     /**

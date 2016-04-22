@@ -9,7 +9,7 @@ public class Wall extends Field {
      * Default constructor
      */
     public Wall() {
-
+        description = "Wall";
     }
 
     /**

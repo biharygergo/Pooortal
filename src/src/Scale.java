@@ -11,7 +11,7 @@ public class Scale extends Field {
      * Default constructor
      */
     public Scale() {
-
+        description = "Scale";
     }
 
     /**

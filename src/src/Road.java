@@ -8,7 +8,8 @@ public class Road extends Field {
     /**
      * Default constructor
      */
-    public Road() {;
+    public Road() {
+        description = "Road";
     }
 
     /**
