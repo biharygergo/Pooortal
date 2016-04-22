@@ -68,14 +68,13 @@ public class GameEngine {
 
         try(
             BufferedReader br = new BufferedReader(new FileReader(filename))) {
-                String line = br.readLine();
+                String line = " ";
 
-                while (line != null) { //végig a sorokon
-                    System.out.println(line);
+                while (currentRow < ySize) { //végig a sorokon
+
                     line = br.readLine();
+                    System.out.println(line);
                     cells = line.split(";");
-
-
 
                     for (int i = 0; i < xSize; i++) { // végig az oszlopokon
                         switch (cells[i]){
@@ -112,8 +111,7 @@ public class GameEngine {
                     }
 
                     for (int i = 0; i < xSize; i++) {
-                        System.out.println(i);
-                        Field forSet = second.get(i);
+                        sides.clear();
                         sides.put(Dir.Up, first.get(i));
 
                         sides.put(Dir.Down, null);
@@ -128,13 +126,30 @@ public class GameEngine {
                         else
                             sides.put(Dir.Right, null);
 
-                        if (first.get(i) != null)
+                        if (first.get(i) != null) {
                             first.get(i).setSide(Dir.Down, current);
+                        }
+                        second.get(i).setPos(currentRow, i);
+                        second.get(i).setSides(sides);
                     }
 
+                    if (currentRow >0)
+                        System.out.println(first.get(0).getSides());
+
                     currentRow++;
-                    first = second;
+
+                    first.clear();
+
+                    for (int i = 0; i < second.size(); i++) {
+                        first.add(second.get(i));
+                    }
+
+                    System.out.println(second.get(0));
+                    System.out.println(second.get(0).getSides());
+                    System.out.println();
+
                     second.clear();
+
                 }
 
         } catch (IOException e) {
@@ -158,10 +173,10 @@ public class GameEngine {
 
         while (true){
 
-            //line = scan.nextLine();
+            line = scan.nextLine();
             elements = line.split(" ");
 
-            //try {
+            try {
                 switch (elements[0]) {
                     case "loadMap":
                        elements[1] = "src/map.csv"; //TODO: ez majd kiszedhető, csak akkor nem kell mindig beírni
@@ -332,9 +347,9 @@ public class GameEngine {
                     default:
                         System.out.println("Not a valid statement.");
                 }
-            //}catch (Exception e){
-            //    System.out.println("Error in statement: " + e);
-            //}
+            }catch (Exception e){
+                System.out.println("Error in statement: " + e);
+            }
 
         }
     }

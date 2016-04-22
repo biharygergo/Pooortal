@@ -1,5 +1,6 @@
 package src;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -19,7 +20,7 @@ public abstract class Field {
     /**
      * The neighbouring fields
      */
-    protected Map<Dir, Field> sides;
+    protected Map<Dir, Field> sides = new HashMap<Dir, Field>();
 
     /**
      * @return true if the player can step on it, false otherwise
@@ -63,8 +64,11 @@ public abstract class Field {
      * @param map the neighbours of the door in the specified direction* @param map
      */
     public void setSides(Map<Dir, Field> map) {
-       sides=map;
-
+       //sides = map;
+        sides.put(Dir.Up, map.get(Dir.Up));
+        sides.put(Dir.Down, map.get(Dir.Down));
+        sides.put(Dir.Left, map.get(Dir.Left));
+        sides.put(Dir.Right, map.get(Dir.Right));
     }
     /**
      * what happens on replicator step
@@ -96,4 +100,10 @@ public abstract class Field {
     public int getyPos() {
         return yPos;
     }
+
+    public void setPos(int xPos, int yPos) {
+        this.xPos = xPos;
+        this.yPos = yPos;
+    }
+
 }

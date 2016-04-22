@@ -47,11 +47,12 @@ public class FieldMap {
 
     public void listFields(){
         Field current = startField, first = startField; //current: actual field, first: first field of current row
-        int number = 0;
+        int number = 1;
 
         for (int i = 0; i < ySize; i++) {
 
             for (int j = 0; j < xSize ; j++) {
+                //System.out.println(current.getSides());
                 current.listField(number);
                 current = current.getSide(Dir.Right);
                 number++;
