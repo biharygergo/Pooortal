@@ -17,10 +17,7 @@ public class Wall extends Field {
      * @param player the player who wants to step on the wall
      */
     public void onStep(Player player) {
-        // TODO implement here
-        GameEngine.tab++;
-        GameEngine.print("Wall.onStep - Onstep called on Player");
-        GameEngine.tab--;
+       //Ez nem hivodik meg sosem
     }
 
     /**
@@ -28,10 +25,7 @@ public class Wall extends Field {
      * @return The boolean whether the wall is steppable or not
      */
     public boolean steppable() {
-        // TODO implement here
-        GameEngine.tab++;
-        GameEngine.print("Wall.steppable - Field's state returned");
-        GameEngine.tab--;
+
         return false;
     }
 
@@ -41,11 +35,7 @@ public class Wall extends Field {
      * @param colonelHole The wormhole on the wall
      */
     public void onShoot(Bullet bullet, Wormhole colonelHole, Wormhole jaffaHole) {
-        // TODO implement here
-        GameEngine.tab++;
-        GameEngine.print("Wall.onShoot - Called on Wall");
-        bullet.setActive(false);
-        GameEngine.tab--;
+       bullet.setActive(false);
     }
 
     /**
@@ -53,6 +43,6 @@ public class Wall extends Field {
      * @param replicator this is the replicator
      */
     public void onReplicatorStep(Replicator replicator){
-
+        //Ez sem hivodik meg sosem!
     }
 }
