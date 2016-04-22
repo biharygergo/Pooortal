@@ -17,10 +17,7 @@ public class ZPM extends Item {
      * @param player the player who wants to use the ZPM
      */
     public void onUse(Player player) {
-        // TODO implement here
-        GameEngine.tab++;
-        GameEngine.print("ZPM.onUse - onUse called on Player");
-        GameEngine.tab--;
+     //Itt nem történik semmi ha minden igaz
 
     }
 
@@ -29,11 +26,11 @@ public class ZPM extends Item {
      * @param player the player who wants to step on the field with ZPM on it
      */
     public void onStep(Player player) {
-        GameEngine.tab++;
-        GameEngine.print("ZPM.onStep - onStep called on Player");
-        player.collectedZPMs++;
-        GameEngine.tab--;
-        // TODO implement here
+       player.collectedZPMs++;
+        player.setField(this.field); //max ennyi
+
+        //Itt még mi történik?
+
 
     }
 
@@ -42,11 +39,7 @@ public class ZPM extends Item {
      * @return Returns the field on which the ZPM stands
      */
     public Field getField() {
-        // TODO implement here
-        GameEngine.tab++;
-        GameEngine.print("ZPM.getField - Returned ZPM's current Field");
-        GameEngine.tab--;
-        return null;
+      return this.field;
     }
 
     /**
@@ -54,10 +47,7 @@ public class ZPM extends Item {
      * @param field The new field
      */
     public void setField(Field field) {
-        // TODO implement here
-        GameEngine.tab++;
-        GameEngine.print("ZPM.setField - Current Field set");
-        GameEngine.tab--;
+       this.field = field;
     }
 
 }

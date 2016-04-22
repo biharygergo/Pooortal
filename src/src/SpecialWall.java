@@ -33,6 +33,8 @@ public class SpecialWall extends Wall {
 
         Color bulletColor = bullet.getColor();
 
+        bullet.setActive(false);
+
         if(color == bulletColor)
             return;
         //Megnezzuk, hogy melyik lyukhoz tartozik!
