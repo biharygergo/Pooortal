@@ -1,7 +1,4 @@
 package src;
-
-import com.sun.tools.doclets.formats.html.SourceToHTMLConverter;
-
 import java.util.Scanner;
 
 /**
@@ -19,6 +16,8 @@ public class GameEngine {
      * The player in the game
      */
     private Player oNeill;
+    private Player Jaffa;
+    private Replicator replicator;
 
     /**
      * The list items in the game
@@ -51,6 +50,11 @@ public class GameEngine {
         GameEngine.print("GameEngine.endGame - Game has ended");
 
     }
+
+    public static void loadMap(String filename) {
+
+
+    }
     public static void print(String s){
         for(int i=0;i<tab;i++)
             System.out.print("\t");
@@ -74,8 +78,7 @@ public class GameEngine {
             try {
                 switch (elements[0]) {
                     case "loadMap":
-                        System.out.println("loadmap");
-                        System.out.println(elements[1]);
+                       loadMap(elements[1]);
                         break;
 
                     case "randomizeReplicator":
