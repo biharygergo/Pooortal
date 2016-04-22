@@ -47,13 +47,24 @@ public class Gap extends Field {
     /**
      * What happens when the player shoots on the gap
      * @param bullet The bullet which the player shoots on the gap
-     * @param wormHole The wormhole
+     * @param jaffaHole The wormhole of Jaffa
+     * @param colonelHole colonel's hole
      */
-    public void onShoot(Bullet bullet, Wormhole wormHole) {
+    public void onShoot(Bullet bullet, Wormhole colonelHole, Wormhole jaffaHole) {
         GameEngine.tab++;
         GameEngine.print("Gap.onShoot - defines what happens when bullet is shot on this Gap");
         GameEngine.tab--;
         // TODO implement here
 
     }
+
+    /**
+     * What happens on replicator step: the gap is closed and becomes a road
+     * @param replicator this is the replicator
+     */
+    public void onReplicatorStep(Replicator replicator) {
+
+    }
+
+
 }
