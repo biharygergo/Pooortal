@@ -76,7 +76,7 @@ public class Player {
         bullet.setField(field);
         bullet.setDir(dir);
         bullet.setActive(true);
-
+        bullet.primaryColor = primaryColor;
         return bullet;
     }
 
@@ -90,6 +90,7 @@ public class Player {
         bullet.setField(field);
         bullet.setDir(dir);
         bullet.setActive(true);
+        bullet.primaryColor = primaryColor;
 
         return bullet;
     }

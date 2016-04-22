@@ -30,31 +30,15 @@ public class SpecialWall extends Wall {
      * @param colonelHole The wormhole on the special wall
      */
     public void onShoot(Bullet bullet, Wormhole colonelHole, Wormhole jaffaHole) {
-        // TODO implement here
-        GameEngine.tab++;
 
-        GameEngine.print("SpecialWall.onShoot - Called on SpecialWall");
-        bullet.setActive(false);
-        GameEngine.print("Milyen színű a lövedék? [Most blue!] (B / Y)");
-        Scanner scan=new Scanner(System.in);
-        String line=scan.nextLine().toUpperCase();
-        if(line.equals("B")) {
-            SpecialWall blueWall = wormHole.getColor1();
-            if (blueWall != null) {
-                blueWall.setColor(Color.Empty);
-            }
-            setColor(Color.Blue);
-            wormHole.setColor1(this);
+        Color bulletColor = bullet.getColor();
+
+        if(color == bulletColor)
+            return;
+        //Megnezzuk, hogy melyik lyukhoz tartozik!
+        if(bullet.primaryColor == colonelHole.getColor1().getColor()){
+
         }
-        else if (line.equals("Y")){
-            SpecialWall yellowWall = wormHole.getColor2();
-            if (yellowWall != null) {
-                yellowWall.setColor(Color.Empty);
-            }
-            setColor(Color.Yellow);
-            wormHole.setColor2(this);
-        }
-        GameEngine.tab--;
     }
 
     /**
