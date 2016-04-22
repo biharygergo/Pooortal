@@ -52,4 +52,11 @@ public class FieldMap {
 
     }
 
+    public void listFields(){
+    }
+
+    public void listScalesDoors(){}
+
+    public void listSpecialWalls(){}
+
 }

@@ -111,4 +111,8 @@ public class Modules {
         return bullets;
     }
 
+    public void listBoxes(){}
+    public void listZPM(){}
+    public void listBullets(){}
+
 }

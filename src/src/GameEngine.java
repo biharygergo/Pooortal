@@ -12,27 +12,13 @@ public class GameEngine {
         GameEngine.tab=0;
     }
 
-    /**
-     * The player in the game
-     */
     private static Player oNeill;
     private static Player Jaffa;
     private static Replicator replicator;
-
-    /**
-     * The list items in the game
-     */
-    private Modules activeModules;
-
-    /**
-     * Reference to the map
-     */
-    private FieldMap map;
-
-    /**
-     * The wormhole in the game
-     */
-    private Wormhole wormhole;
+    private static Modules activeModules;
+    private static FieldMap map;
+    private static Wormhole oNeillHole;
+    private static Wormhole JaffaHole;
 
     /**
      * Creeates the map and starts to run the program
@@ -63,8 +49,6 @@ public class GameEngine {
     }
 
     public static void main(String[] args){
-        Modules modules = new Modules();
-
         Player player=new Player();
 
         String line = "0";
@@ -153,39 +137,79 @@ public class GameEngine {
                         break;
 
                     case "oNeilShootBullet":
+                        switch (elements[1]){
+                            case "B":
+                                oNeill.shootBlue(); //TODO: replace with color1
+                                break;
+                            case "Y":
+                                oNeill.shootYellow(); //TODO: replace with color2
+                                break;
+                            default:
+                                System.out.println("Incorrect color parameter for oNeill. Valid parameters are 'B' or 'Y'");
+                                break;
+                        }
                         break;
 
                     case "JaffaShootBullet":
+                        switch (elements[1]){
+                            case "R":
+                                Jaffa.shootBlue(); //TODO: replace with color1
+                                break;
+                            case "G":
+                                Jaffa.shootYellow(); //TODO: replace with color2
+                                break;
+                            default:
+                                System.out.println("Incorrect color parameter for Jaffa. Valid parameters are 'R' or 'G'");
+                                break;
+                        }
                         break;
 
                     case "oNeilDropBox":
+                        oNeill.dropBox();
                         break;
 
                     case "jaffaDropBox":
+                        Jaffa.dropBox();
                         break;
 
                     case "oNeilSetBox":
+                        Box oNeillBox = new Box(); //TODO: comment it out
+
+                        //TODO: write the logic
+
+                        oNeill.setBox(oNeillBox);
                         break;
 
                     case "jaffaSetBox":
+                        Box JaffaBox = new Box(); //TODO: comment it out
+
+                        //TODO: write the logic
+
+                        Jaffa.setBox(JaffaBox);
                         break;
 
                     case "listBoxes":
+                        activeModules.listBoxes();
                         break;
 
                     case "listZPM":
+                        activeModules.listZPM();
                         break;
 
                     case "listFields":
+                        map.listFields();
                         break;
 
                     case "listScalesDoors":
+                        map.listFields();
                         break;
 
                     case "listSpecialWalls":
+                        map.listSpecialWalls();
                         break;
 
                     case "listBullets":
+                        activeModules.listBullets();
                         break;
 
                     case "listWormholes":
