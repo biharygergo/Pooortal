@@ -43,7 +43,7 @@ public class Door extends Field {
      */
     public void onStep(Player player) {
 
-        Field nextPlayerField = player.getField().getSide(player.getDir());
+        Field nextPlayerField = player.getNextField();
 
         //TODO talaljuk ki hogy itt mi legyen, mert mi van ha doboz van lerakva az ajto elotti roadon? Nem kene tudnunk ralepni, modulest viszont nem latjuk innen!
 
@@ -83,7 +83,7 @@ public class Door extends Field {
      */
     public Map<Dir, Field> getSides() {
 
-        return null;
+        return sides;
     }
 
     /**
@@ -91,8 +91,8 @@ public class Door extends Field {
      * @param map the neighbours of the door in the specified direction
      */
     public void setSides(Map<Dir, Field> map) {
-        // TODO implement here
 
+        sides=map;
     }
 
 
@@ -102,5 +102,8 @@ public class Door extends Field {
      */
     public void onReplicatorStep(Replicator replicator){
 
+        //TODO replicator tutira fog igy mukodni, hogyha random lép is a kör végén? Pl.: visszalép az ajtóba és ide-oda ugral?
+        Field nextField = replicator.getNextField();
+        replicator.setField(nextField);
     }
 }
