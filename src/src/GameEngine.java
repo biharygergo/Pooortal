@@ -1,5 +1,7 @@
 package src;
 
+import com.sun.tools.doclets.formats.html.SourceToHTMLConverter;
+
 import java.util.Scanner;
 
 /**
@@ -54,219 +56,89 @@ public class GameEngine {
             System.out.print("\t");
         System.out.println(s);
     }
+
     public static void main(String[] args){
         Modules modules = new Modules();
 
         Player player=new Player();
 
-        String input = "0";
+        String line = "0";
         Scanner scan= new Scanner(System.in);
+        String elements[] = new String[10];
 
         while (true){
-            switch (input){
-                case "0":
-                   // input=scan.nextLine();
-                    System.out.println("1. Játék indítása");
-                    System.out.println("2. Mezőre lépés");
-                    System.out.println("3. Szakadékba lépés");
-                    System.out.println("4. Falra lövés");
-                    System.out.println("5. Specfalra lövés");
-                    System.out.println("6. Doboz felvétele");
-                    System.out.println("7. Doboz lerakása");
-                    System.out.println("8. Doboz szakadékba esik");
-                    System.out.println("9. ZPM felvétele");
-                    System.out.println("10. Ajtó nyitása");
-                    System.out.println("11. Féregjáraton átjárás");
-                    System.out.println("12. Kilépés");
 
+            line = scan.nextLine();
+            elements = line.split(" ");
 
-                    input=scan.nextLine();
-
-                    break;
-                case "1":
-                    FieldMap map = new FieldMap("proba.txt");
-
-                    Field startField;
-
-                    print("Van beolvasható térképfájl? Y / N");
-                    String line=scan.nextLine().toUpperCase();
-
-                    if(line.equals("Y")) {
-                        startField = map.getstartField();
-                        modules.initializeModules("proba.txt", startField);
-                        Player p1 = new Player();
-                        Wormhole wormhole = new Wormhole();
-                        p1.setField(startField);
-                    }
-
-                    input="0";
-                    break;
-                case "2":
-
-                    Field f2 = player.getField();
-
-                    Dir dir2 = player.getDir();
-
-                    Field nextField = player.getNextField();
-
-                    Item m = modules.searchModule(nextField);
-
-                    if(m==null){
-                        if(nextField.steppable()) {
-                            player.setField(nextField);
-                            nextField.onStep(player);
-                        }
-                        else{
-                            player.setField(f2);
-                            nextField.onStep(player);
-                        }
-                    }
-                    else{
-                        m.onStep(player);
-                    }
-
-                    input="0";
-                    break;
-                case "3":
-
-
-                    Gap gap = new Gap();
-                    player.setField(gap);
-                    gap.onStep(player);
-
-                    player.isAlive();
-
-                    input="0";
-
-
-                    break;
-
-                case "4":
-
-
-                    Bullet bullet4=new Bullet();
-                    Wall wall=new Wall();
-                    wall.onShoot(bullet4, new Wormhole());
-
-
-                    input="0";
-                    break;
-                case "5":
-                    Bullet bullet5=new Bullet();
-                    SpecialWall specialWall=new SpecialWall();
-                    specialWall.onShoot(bullet5, new Wormhole());
-                    input="0";
-                    break;
-                case "6":
-                    Field f6=player.getField();
-                    Dir dir6=player.getDir();
-                    Field nextf6=player.getNextField();
-                    Box box6=player.getBox();
-
-                    if(box6==null) {
-                        Item m6 = modules.searchModule(nextf6);
-
-                        if (m6 != null) {
-                            m6.onUse(player);
-
-                        }
-                    }
-                    input="0";
-                    break;
-                case "7":
-
-                    Field f=player.getField();
-                    Dir dir=player.getDir();
-                    f=player.getNextField();
-
-                    if(f.steppable()){
-                        Modules mod=new Modules();
-                        Item m7=mod.searchModule(f);
-
-                        if(m7==null){
-                            Box pBox=player.getBox();
-                            if(pBox!=null){
-                                Box b=player.dropBox();
-
-                            }
-                        }
-                    }
-                    else{
+            try {
+                switch (elements[0]) {
+                    case "loadMap":
+                        System.out.println("loadmap");
+                        System.out.println(elements[1]);
                         break;
-                    }
-                    input="0";
-                    break;
-                case "8":
-                    Field f8=player.getField();
-                    Dir dir8=player.getDir();
 
-                    Field nextf8=new Gap();
-                    Box hasBox=player.getBox();
-                    //Nincs jobb ötletem: a szakadékra úgy teszünk, mintha rálépnénk,
-                    //szakadékban ledobjuk a dobozt, ha a player nem rajta áll
-                    //a korábban megkérdezett dobozt pedig szépen kitöröljük a listából
-                    if(hasBox!=null) {
-                        nextf8.onStep(player);
-                        //if(player.getBox())
+                    case "randomizeReplicator":
+                        break;
 
-                        modules.removeBox(hasBox);
-                        // Box b8=player.dropBox();
+                    case "oNeilMove":
+                        break;
 
+                    case "jaffaMove":
+                        break;
 
-                    }
-                    input="0";
-                    break;
+                    case "oNeilShootBullet":
+                        break;
 
+                    case "JaffaShootBullet":
+                        break;
 
-                case "9":
+                    case "oNeilDropBox":
+                        break;
 
-                    Field f9=player.getField();
-                    Dir dir9=player.getDir();
-                    Field nextf9=player.getNextField();
+                    case "jaffaDropBox":
+                        break;
 
-                    if(nextf9.steppable()) {
-                        Item m9 = modules.searchModule(nextf9);
-                        if (m9 != null) {
-                            player.setField(nextf9);
-                            m9.onStep(player);
-                        }
-                    }
-                    input="0";
-                    break;
-                case "10":
-                    Scale scale = new Scale();
-                    scale.onStep(player);
-                    input="0";
-                    break;
-                case "11":
-                    SpecialWall sw = new SpecialWall();
+                    case "oNeilSetBox":
+                        break;
 
-                    if (sw.steppable())
-                        sw.onStep(player);
+                    case "jaffaSetBox":
+                        break;
 
+                    case "listBoxes":
+                        break;
 
-                    input="0";
-                    break;
+                    case "listZPM":
+                        break;
 
-                case "12":
+                    case "listFields":
+                        break;
 
-                    GameEngine.print("Kilépést nyomtunk? Y / N");
-                    Scanner scan13 = new Scanner(System.in);
-                    String line13 = scan.nextLine().toUpperCase();
+                    case "listScalesDoors":
+                        break;
 
-                    if (line13.equals("Y"))
-                        GameEngine.endGame();
-                    else {
-                        player.isAlive();
-                        GameEngine.endGame();
-                    }
-                    input="0";
-                    break;
+                    case "listSpecialWalls":
+                        break;
 
+                    case "listBullets":
+                        break;
+
+                    case "listWormholes":
+                        break;
+
+                    case " listPlayers":
+                        break;
+
+                    case "listReplicator":
+                        break;
+
+                    default:
+                        System.out.println("Not a valid statement.");
+                }
+            }catch (Exception e){
+                System.out.println("Error in statement: " + e);
             }
 
-            System.out.println();
-      }
+        }
     }
-
 }
