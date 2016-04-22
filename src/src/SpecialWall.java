@@ -36,9 +36,77 @@ public class SpecialWall extends Wall {
         if(color == bulletColor)
             return;
         //Megnezzuk, hogy melyik lyukhoz tartozik!
-        if(bullet.primaryColor == colonelHole.getColor1().getColor()){
+       if(bulletColor==colonelHole.primaryColor || bulletColor == colonelHole.secondaryColor){
+           if(bulletColor == colonelHole.primaryColor){
+               if(colonelHole.getColor1()!=null){
+                   colonelHole.getColor1().color = Color.Empty;
+                   colonelHole.setColor1(this);
+                   color = bulletColor;
+                   wormHole = colonelHole;
+               }
+               else{
+                   colonelHole.setColor1(this);
+                   color = bulletColor;
+                   wormHole = colonelHole;
 
-        }
+
+               }
+           }
+
+           if(bulletColor == colonelHole.secondaryColor){
+               if(colonelHole.getColor2()!=null){
+                   colonelHole.getColor2().color = Color.Empty;
+                   colonelHole.setColor2(this);
+                   color = bulletColor;
+                   wormHole = colonelHole;
+
+               }
+               else{
+                   colonelHole.setColor2(this);
+                   color = bulletColor;
+                   wormHole = colonelHole;
+
+
+               }
+           }
+       }
+
+        else {
+
+           if(bulletColor == jaffaHole.primaryColor){
+               if(jaffaHole.getColor1()!=null){
+                   jaffaHole.getColor1().color = Color.Empty;
+                   jaffaHole.setColor1(this);
+                   color = bulletColor;
+                   wormHole = jaffaHole;
+
+               }
+               else{
+                   jaffaHole.setColor1(this);
+                   color = bulletColor;
+                   wormHole = jaffaHole;
+
+
+               }
+           }
+
+           if(bulletColor == jaffaHole.secondaryColor){
+               if(jaffaHole.getColor2()!=null){
+                   jaffaHole.getColor2().color = Color.Empty;
+                   jaffaHole.setColor2(this);
+                   color = bulletColor;
+                   wormHole = jaffaHole;
+
+               }
+               else{
+                   jaffaHole.setColor2(this);
+                   color = bulletColor;
+                   wormHole = jaffaHole;
+
+               }
+           }
+
+       }
     }
 
     /**
@@ -46,10 +114,7 @@ public class SpecialWall extends Wall {
      * @param color The color to be set for the special wall
      */
     public void setColor(Color color) {
-        // TODO implement here
-        GameEngine.tab++;
-        GameEngine.print("SpecialWall.setColor - New color set");
-        GameEngine.tab--;
+       this.color = color;
     }
 
     /**
@@ -57,13 +122,10 @@ public class SpecialWall extends Wall {
      * @return The boolean whether the special wall is steppable or not
      */
     public boolean steppable() {
-        // TODO implement here
-        GameEngine.tab++;
-        wormHole = new Wormhole();
-        GameEngine.print("SpecialWall.steppable - Field's state returned");
-        boolean pass = wormHole.checkPass();
-        GameEngine.tab--;
-        return pass;
+        if(wormHole==null)
+            return false;
+
+        return wormHole.checkPass();
     }
 
     /**
@@ -71,12 +133,11 @@ public class SpecialWall extends Wall {
      * @param player the player who wants to step
      */
     public void onStep(Player player) {
-        // TODO implement here
-        GameEngine.tab++;
-        GameEngine.print("SpecialWall.onStep - Onstep called on Player");
-        SpecialWall other = wormHole.getColor2();
-        player.setField(other);
-        GameEngine.tab--;
+        if(color == wormHole.primaryColor)
+            player.setField(wormHole.getColor2());
+        else {
+            player.setField(wormHole.getColor1());
+        }
     }
 
     /**
@@ -84,11 +145,7 @@ public class SpecialWall extends Wall {
      * @return The color of the special wall
      */
     public Color getColor() {
-        // TODO implement here
-        GameEngine.tab++;
-        GameEngine.print("SpecialWall.getColor - Returned actual color");
-        GameEngine.tab--;
-        return null;
+        return color;
     }
 
     /**
@@ -96,6 +153,11 @@ public class SpecialWall extends Wall {
      * @param replicator this is the replicator
      */
     public void onReplicatorStep(Replicator replicator){
+        if(color == wormHole.primaryColor)
+            replicator.setField(wormHole.getColor2());
+        else {
+            replicator.setField(wormHole.getColor1());
+        }
 
     }
 

@@ -21,6 +21,8 @@ public class Wormhole {
      */
     private SpecialWall color1Portal;
 
+    public Color primaryColor;
+    public Color secondaryColor;
     /**
      * This is the color2 portal
      */
