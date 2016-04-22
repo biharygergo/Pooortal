@@ -50,8 +50,9 @@ public abstract class Field {
 
     //TODO: insert into document
     public Field getSide(Dir dir){
-        //TODO így kell ezt címezni? nem sides[dir]?
+        //TODO így kell ezt címezni? nem sides[dir]? - maró: így
         return sides.get(dir);
+
     }
 
     /**
