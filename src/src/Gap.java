@@ -49,7 +49,6 @@ public class Gap extends Field {
     public void onShoot(Bullet bullet, Wormhole colonelHole, Wormhole jaffaHole) {
        //Semmi sem történik, mehet tovább a golyó
         bullet.setField(this);
-        return;
 
     }
 

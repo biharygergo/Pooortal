@@ -60,35 +60,38 @@ public class Player {
      * @return The box which the player has dropped
      */
     public Box dropBox() {
-        // TODO implement here
-        GameEngine.tab++;
-        GameEngine.print("Player.dropBox - Box dropped");
-        //Box box=new Box();
-        box = null;
-        GameEngine.tab--;
-        return new Box();
+      box.setField(this.getNextField());
+        Box returnvalue = box;
+      box=null;
+        return returnvalue;
     }
 
     /**
      * @return the bullet which the player shot color1
      */
     public Bullet shootColor1() {
-        // TODO implement here
-        GameEngine.tab++;
-        GameEngine.print("Player.shootBlue - Blue bullet shot");
-        GameEngine.tab--;
-        return null;
+
+        Bullet bullet = new Bullet();
+        bullet.setColor(primaryColor);
+        bullet.setField(field);
+        bullet.setDir(dir);
+        bullet.setActive(true);
+
+        return bullet;
     }
 
     /**
      * @return The color2 bullet
      */
     public Bullet shootColor2() {
-        // TODO implement here
-        GameEngine.tab--;
-        GameEngine.print("Player.shootYellow - Yellow bullet shot");
-        GameEngine.tab--;
-        return null;
+        Bullet bullet = new Bullet();
+        //Óriás trükk: így a következő színt lehet beállítani a golyónak
+        bullet.setColor(primaryColor.next());
+        bullet.setField(field);
+        bullet.setDir(dir);
+        bullet.setActive(true);
+
+        return bullet;
     }
 
     /**
