@@ -5,6 +5,9 @@ package src;
  */
 public class Box extends Item {
 
+    private int weight;
+    private boolean alive;
+    private Dir dir;
      /**
       * Handles the pick up and drop of the box
       * @param player the player who wants to use the box
@@ -54,4 +57,11 @@ public class Box extends Item {
 
     }
 
+    public boolean isAlive(){
+        return alive;
+    }
+
+    public void setAlive(boolean life){
+        alive=life;
+    }
 }

@@ -32,9 +32,10 @@ public abstract class Field {
     /**
      * What to do if a fired bullet reaches the field
      * @param bullet the bullet hitting, or flying across the field
-     * @param wormHole The wormhole in the map
+     * @param colonelHole The wormhole in the map
+     * @param jaffaHole The wormhole in the map
      */
-    public abstract void onShoot(Bullet bullet, Wormhole wormHole);
+    public abstract void onShoot(Bullet bullet, Wormhole colonelHole, Wormhole jaffaHole);
 
     /**
      * @return Returns the neighbouring fields in a given direction
@@ -57,6 +58,19 @@ public abstract class Field {
         GameEngine.print("Field.setSides - set Field's neighbours");
         GameEngine.tab--;
 
+    }
+    /**
+     * what happens on replicator step
+     * @param replicator this is the replicator
+     */
+    public abstract void onReplicatorStep(Replicator replicator);
+
+    /**
+     * Used when trying to place a new ZPM. Returns a random road that is steppable
+     * @return road
+     */
+    public Field getRandomRoad(){
+        return null;
     }
 
 }
