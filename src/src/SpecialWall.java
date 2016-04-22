@@ -39,20 +39,20 @@ public class SpecialWall extends Wall {
         Scanner scan=new Scanner(System.in);
         String line=scan.nextLine().toUpperCase();
         if(line.equals("B")) {
-            SpecialWall blueWall = wormHole.getBlue();
+            SpecialWall blueWall = wormHole.getColor1();
             if (blueWall != null) {
                 blueWall.setColor(Color.Empty);
             }
             setColor(Color.Blue);
-            wormHole.setBlue(this);
+            wormHole.setColor1(this);
         }
         else if (line.equals("Y")){
-            SpecialWall yellowWall = wormHole.getYellow();
+            SpecialWall yellowWall = wormHole.getColor2();
             if (yellowWall != null) {
                 yellowWall.setColor(Color.Empty);
             }
             setColor(Color.Yellow);
-            wormHole.setYellow(this);
+            wormHole.setColor2(this);
         }
         GameEngine.tab--;
     }
@@ -90,7 +90,7 @@ public class SpecialWall extends Wall {
         // TODO implement here
         GameEngine.tab++;
         GameEngine.print("SpecialWall.onStep - Onstep called on Player");
-        SpecialWall other = wormHole.getYellow();
+        SpecialWall other = wormHole.getColor2();
         player.setField(other);
         GameEngine.tab--;
     }
@@ -114,4 +114,9 @@ public class SpecialWall extends Wall {
     public void onReplicatorStep(Replicator replicator){
 
     }
+
+    public void listSpecialWall(int num){
+        System.out.println(num +". (" + xPos + ","+ yPos + ") " + color + " " + wormHole.getDescription());
+    }
 }
+

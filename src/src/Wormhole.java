@@ -7,6 +7,7 @@ import java.util.Scanner;
  */
 public class Wormhole {
 
+    private String description;
     /**
      * Default constructor
      */
@@ -93,4 +94,8 @@ public class Wormhole {
     }
 
     public void listWormhole(){}
+
+    public String getDescription() {
+        return description;
+    }
 }
