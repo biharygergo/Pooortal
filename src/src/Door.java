@@ -68,9 +68,11 @@ public class Door extends Field {
     /**
      * If the door is closed, changes the bullet status to false. If open, the bullet flies through the given field
      * @param bullet the bullet hitting, or flying across the door
-     * @param wormHole The wormhole in the map
+     * @param colonelHole The colonel's wormhole in the map
+     *  @param jaffaHole  jaffa's wormhole in the map
+
      */
-    public void onShoot(Bullet bullet, Wormhole wormHole) {
+    public void onShoot(Bullet bullet, Wormhole colonelHole, Wormhole jaffaHole) {
         GameEngine.tab++;
         GameEngine.print("Door.onShoot - defines what happens when Door is shot");
         GameEngine.tab--;
@@ -93,6 +95,15 @@ public class Door extends Field {
      */
     public void setSides(Map<Dir, Field> map) {
         // TODO implement here
+
+    }
+
+
+    /**
+     * What happens on replicator step
+     * @param replicator this is the replicator that stepped on the door
+     */
+    public void onReplicatorStep(Replicator replicator){
 
     }
 }

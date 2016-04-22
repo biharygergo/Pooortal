@@ -6,5 +6,7 @@ package src;
 public enum Color {
     Blue,
     Yellow,
+    Red,
+    Green,
     Empty
 }

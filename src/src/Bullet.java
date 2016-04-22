@@ -118,4 +118,8 @@ public class Bullet{
         // TODO implement here
 
     }
+
+    public Field getNextField(){
+        return null;
+    }
 }
