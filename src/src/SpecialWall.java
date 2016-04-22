@@ -27,9 +27,9 @@ public class SpecialWall extends Wall {
     /**
      * What happens when the player shoots on the special wall
      * @param bullet The bullet which the player shoots on the special wall
-     * @param wormHole The wormhole on the special wall
+     * @param colonelHole The wormhole on the special wall
      */
-    public void onShoot(Bullet bullet, Wormhole wormHole) {
+    public void onShoot(Bullet bullet, Wormhole colonelHole, Wormhole jaffaHole) {
         // TODO implement here
         GameEngine.tab++;
 
@@ -107,4 +107,11 @@ public class SpecialWall extends Wall {
         return null;
     }
 
+    /**
+     *
+     * @param replicator this is the replicator
+     */
+    public void onReplicatorStep(Replicator replicator){
+
+    }
 }

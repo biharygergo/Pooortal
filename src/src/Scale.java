@@ -136,13 +136,36 @@ public class Scale extends Field {
     /**
      * What happens when the player shoots on the scale
      * @param bullet The bullet which the player shoots on the scale
-     * @param wormHole The wormhole
+     * @param colonelHole The wormhole
      */
-    public void onShoot(Bullet bullet, Wormhole wormHole) {
+    public void onShoot(Bullet bullet, Wormhole colonelHole, Wormhole jaffaHole) {
         // TODO implement here
         GameEngine.tab++;
         GameEngine.print("SpecialWall.onShoot - Called on SpecialWall");
         GameEngine.tab--;
     }
 
+    /**
+     *
+     * @return
+     */
+    public Map<Dir, Field> getSides (){
+        return sides;
+    }
+
+    /**
+     *
+     * @param newSides
+     */
+    public void setSides(Map<Dir, Field> newSides){
+        sides=newSides;
+    }
+
+    /**
+     *
+     * @param replicator this is the replicator
+     */
+    public void onReplicatorStep(Replicator replicator){
+
+    }
 }

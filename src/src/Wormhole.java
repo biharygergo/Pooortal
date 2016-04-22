@@ -15,14 +15,14 @@ public class Wormhole {
     }
 
     /**
-     * This is the yellow portal
+     * This is the color1 portal
      */
-    private SpecialWall yellowPortal;
+    private SpecialWall color1Portal;
 
     /**
-     * This is the blue portal
+     * This is the color2 portal
      */
-    private SpecialWall bluePortal;
+    private SpecialWall color2Portal;
 
     /**
      * Returns whether the wormhole is passable or not
@@ -45,7 +45,7 @@ public class Wormhole {
      * Returns the blue portal
      * @return The blue portal of the wormhole
      */
-    public SpecialWall getBlue() {
+    public SpecialWall getColor1() {
         // TODO implement here
         GameEngine.tab++;
         GameEngine.print("Wormhole.getBlue - Returned blue end of wormhole");
@@ -62,7 +62,7 @@ public class Wormhole {
      * Setting the blue portal to the wormhole
      * @param specWall The special wall that represents the blue portal of the wormhole
      */
-    public void setBlue(SpecialWall specWall) {
+    public void setColor1(SpecialWall specWall) {
         // TODO implement here
         GameEngine.tab++;
         GameEngine.print("Wormhole.setBlue - Blue end of wormhole set");
@@ -73,7 +73,7 @@ public class Wormhole {
      * Returns the yellow portal
      * @return The yellow portal of the wormhole
      */
-    public SpecialWall getYellow() {
+    public SpecialWall getColor2() {
         // TODO implement here
         GameEngine.tab++;
         GameEngine.print("Wormhole.getYellow - Returned yellow end of wormhole");
@@ -85,7 +85,7 @@ public class Wormhole {
      * Setting the yellow portal to the wormhole
      * @param specWall The special wall that represents the yellow portal of the wormhole
      */
-    public void setYellow(SpecialWall specWall) {
+    public void setColor2(SpecialWall specWall) {
         // TODO implement here
         GameEngine.tab++;
         GameEngine.print("Wormhole.setYellow - Yellow end of wormhole set");

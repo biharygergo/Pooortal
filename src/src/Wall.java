@@ -38,13 +38,21 @@ public class Wall extends Field {
     /**
      * What happens when the player shoots on the wall
      * @param bullet The bullet which the player shoots on the wall
-     * @param wormHole The wormhole on the wall
+     * @param colonelHole The wormhole on the wall
      */
-    public void onShoot(Bullet bullet, Wormhole wormHole) {
+    public void onShoot(Bullet bullet, Wormhole colonelHole, Wormhole jaffaHole) {
         // TODO implement here
         GameEngine.tab++;
         GameEngine.print("Wall.onShoot - Called on Wall");
         bullet.setActive(false);
         GameEngine.tab--;
+    }
+
+    /**
+     *
+     * @param replicator this is the replicator
+     */
+    public void onReplicatorStep(Replicator replicator){
+
     }
 }
