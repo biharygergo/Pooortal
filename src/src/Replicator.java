@@ -76,13 +76,11 @@ public class Replicator {
     }
 
     /**
-     * @param alive Set if the player is alive or dead
+     * @param alive Set if the replicator is alive or dead
      */
     public void setAlive(boolean alive) {
         // TODO implement here
-        GameEngine.tab++;
-        GameEngine.print("Player.setAlive - Player state set");
-        GameEngine.tab--;
+
     }
 
     /**
@@ -94,6 +92,13 @@ public class Replicator {
 
     }
 
+    /**
+     * What happens when replicator is shot
+     * @param bullet this is the killing bullet
+     */
+    public void onShoot(Bullet bullet){
+
+    }
 
     /**
      *

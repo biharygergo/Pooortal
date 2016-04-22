@@ -35,13 +35,22 @@ public class Road extends Field {
     /**
      * What happens when the player shoots on the road
      * @param bullet The bullet which the player shoots on the road
-     * @param wormHole The wormhole
+     * @param colonelHole The wormhole
+     * @param jaffaHole jaffahole
      */
-    public void onShoot(Bullet bullet, Wormhole wormHole) {
+    public void onShoot(Bullet bullet, Wormhole colonelHole, Wormhole jaffaHole) {
         // TODO implement here
         GameEngine.tab++;
         GameEngine.print("Road.onShoot - Called on Road");
         GameEngine.tab--;
+    }
+
+    /**
+     * What happens when replicator steps on Road
+     * @param replicator this is the replicator
+     */
+    public void onReplicatorStep(Replicator replicator){
+
     }
 
 }
