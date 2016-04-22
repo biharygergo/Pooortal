@@ -25,21 +25,15 @@ public class FieldMap {
      * @param string the path to the file which describes the map
      */
     public void create(String string) {
-        GameEngine.tab++;
-        GameEngine.print("FieldMap.create - FieldMap created");
-        GameEngine.tab--;
+     //TODO rekurziv letrehozo algoritmust írni! Beallitani elkeszules utan egy startfieldet!
     }
 
     /**
      * @return Returns the start field
      */
     public Field getstartField() {
-        // TODO implement here
-        GameEngine.tab++;
-        GameEngine.print("FieldMap.getstartField - returned first Field of the Map");
-        GameEngine.tab--;
 
-        return null;
+        return startField;
     }
 
     /**
@@ -47,10 +41,7 @@ public class FieldMap {
      * @param field the field where the start field should be
      */
     public void setstartField(Field field) {
-        GameEngine.tab++;
-        GameEngine.print("FieldMap.getstartField - set first Field of the Map");
-        GameEngine.tab--;
-        // TODO implement here
+       startField = field;
 
     }
 
