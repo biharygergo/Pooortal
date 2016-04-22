@@ -24,21 +24,16 @@ public class Door extends Field {
      * @return Returns true if the door is open, false otherwise
      */
     public boolean isOpen() {
-        // TODO implement here
-        GameEngine.tab++;
-        GameEngine.print("Door.isOpen - returned open attribute");
-        GameEngine.tab--;
-        return false;
+
+        return open;
     }
 
     /**
      * @param open Status of the door
      */
     public void setOpen(boolean open) {
-        GameEngine.tab++;
-        GameEngine.print("Door.setOpen - set open attribute " + open);
-        GameEngine.tab--;
-        // TODO implement here
+
+        this.open=open;
 
     }
 
@@ -47,10 +42,14 @@ public class Door extends Field {
      * @param player the player stepped on the door
      */
     public void onStep(Player player) {
-        GameEngine.tab++;
-        GameEngine.print("Door.onStep - Door was stepped on by player");
-        GameEngine.tab--;
-        // TODO implement here
+
+        Field nextPlayerField = player.getField().getSide(player.getDir());
+
+        //TODO talaljuk ki hogy itt mi legyen, mert mi van ha doboz van lerakva az ajto elotti roadon? Nem kene tudnunk ralepni, modulest viszont nem latjuk innen!
+
+        player.setField(nextPlayerField);
+
+
 
     }
 
@@ -58,11 +57,9 @@ public class Door extends Field {
      * @return Returns true if open, false otherwise
      */
     public boolean steppable() {
-        GameEngine.tab++;
-        GameEngine.print("Door.steppable - returned whether door is steppable");
-        GameEngine.tab--;
-        // TODO implement here
-        return false;
+
+
+        return open;
     }
 
     /**
@@ -73,18 +70,18 @@ public class Door extends Field {
 
      */
     public void onShoot(Bullet bullet, Wormhole colonelHole, Wormhole jaffaHole) {
-        GameEngine.tab++;
-        GameEngine.print("Door.onShoot - defines what happens when Door is shot");
-        GameEngine.tab--;
-        // TODO implement here
-
+       if(!open){
+           bullet.setActive(false);
+       }
+        else{
+           bullet.setField(this);
+       }
     }
 
     /**
      * @return Returns the neighbouring fields in a given direction
      */
     public Map<Dir, Field> getSides() {
-        // TODO implement here
 
         return null;
     }
