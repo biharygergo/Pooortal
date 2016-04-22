@@ -56,7 +56,7 @@ public abstract class Field {
     }
 
     public void setSide(Dir dir, Field newSide){
-        sides.replace(dir,newSide);
+        sides.put(dir, newSide);
     }
     /**
      * Sets the new neighbours

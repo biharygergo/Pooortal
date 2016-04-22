@@ -1,4 +1,10 @@
 package src;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 /**
@@ -16,7 +22,7 @@ public class GameEngine {
     private static Player Jaffa;
     private static Replicator replicator;
     private static Modules activeModules;
-    private static FieldMap map;
+    private static FieldMap map = new FieldMap();
     private static Wormhole oNeillHole;
     private static Wormhole JaffaHole;
 
@@ -38,7 +44,102 @@ public class GameEngine {
     }
 
     public static void loadMap(String filename) {
+        Field startField;
+        Field current = null;
+        boolean startFieldsetted = false;
+        String cells[] = new String[10];
 
+        Map<Dir, Field> sides = new HashMap<>();
+        sides.put(Dir.Up, null);
+        sides.put(Dir.Down, null);
+        sides.put(Dir.Left, null);
+        sides.put(Dir.Right, null);
+
+        int xSize = 6;
+        int ySize = 6;
+        int currentRow = 0;
+
+        ArrayList<Field> first = new ArrayList<>();
+        ArrayList<Field> second = new ArrayList<>();
+
+        for (int i = 0; i < xSize; i++) {
+            first.add(null);
+        }
+
+        try(
+            BufferedReader br = new BufferedReader(new FileReader(filename))) {
+                String line = br.readLine();
+
+                while (line != null) { //végig a sorokon
+                    System.out.println(line);
+                    line = br.readLine();
+                    cells = line.split(";");
+
+
+
+                    for (int i = 0; i < xSize; i++) { // végig az oszlopokon
+                        switch (cells[i]){
+                            case "Wall":
+                                current = new Wall();
+                                break;
+                            case "Road":
+                                current = new Road();
+                                break;
+                            case "Scale":
+                                current = new Scale();
+                                break;
+                            case "Gap":
+                                current = new Gap();
+                                break;
+                            case "Door":
+                                current = new Door();
+                                break;
+                            case "SpecialWall":
+                                current = new SpecialWall();
+                                break;
+                            default:
+                                System.out.println("Error in input map file!");
+                                break;
+                        }
+
+                        if (!startFieldsetted){
+                            map.setstartField(current);
+                            startFieldsetted = true;
+                        }
+
+                        second.add(current);
+
+                    }
+
+                    for (int i = 0; i < xSize; i++) {
+                        System.out.println(i);
+                        Field forSet = second.get(i);
+                        sides.put(Dir.Up, first.get(i));
+
+                        sides.put(Dir.Down, null);
+
+                        if (i > 0)
+                            sides.put(Dir.Left, second.get(i - 1));
+                        else
+                            sides.put(Dir.Left, null);
+
+                        if (i < xSize-1)
+                            sides.put(Dir.Right, second.get(i + 1));
+                        else
+                            sides.put(Dir.Right, null);
+
+                        if (first.get(i) != null)
+                            first.get(i).setSide(Dir.Down, current);
+                    }
+
+                    currentRow++;
+                    first = second;
+                    second.clear();
+                }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -51,19 +152,21 @@ public class GameEngine {
     public static void main(String[] args){
         Player player=new Player();
 
-        String line = "0";
+        String line = "loadMap d";
         Scanner scan= new Scanner(System.in);
         String elements[] = new String[10];
 
         while (true){
 
-            line = scan.nextLine();
+            //line = scan.nextLine();
             elements = line.split(" ");
 
-            try {
+            //try {
                 switch (elements[0]) {
                     case "loadMap":
-                       loadMap(elements[1]);
+                       elements[1] = "src/map.csv"; //TODO: ez majd kiszedhető, csak akkor nem kell mindig beírni
+                        loadMap(elements[1]);
+                        map.listFields();
                         break;
 
                     case "randomizeReplicator":
@@ -229,9 +332,9 @@ public class GameEngine {
                     default:
                         System.out.println("Not a valid statement.");
                 }
-            }catch (Exception e){
-                System.out.println("Error in statement: " + e);
-            }
+            //}catch (Exception e){
+            //    System.out.println("Error in statement: " + e);
+            //}
 
         }
     }

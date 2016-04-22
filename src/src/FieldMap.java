@@ -5,14 +5,14 @@ package src;
  */
 public class FieldMap {
 
-    private int xSize = 4, ySize = 4;
+    private int xSize = 6, ySize = 6;
 
     /**
      * Default constructor
      * @param s calls the create function
      */
-    public FieldMap(String s) {
-        create(s);
+    public FieldMap() {
+
     }
 
     /**
