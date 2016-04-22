@@ -44,15 +44,13 @@ public abstract class Field {
      * @return Returns the neighbouring fields in a given direction
      */
     public Map<Dir, Field> getSides() {
-        // TODO implement here
-        GameEngine.tab++;
-        GameEngine.print("Field.getSides - returned Field's neighbours");
-        GameEngine.tab--;
-        return null;
+
+        return sides;
     }
 
     //TODO: insert into document
     public Field getSide(Dir dir){
+        //TODO így kell ezt címezni? nem sides[dir]?
         return sides.get(dir);
     }
 
@@ -61,10 +59,7 @@ public abstract class Field {
      * @param map the neighbours of the door in the specified direction* @param map
      */
     public void setSides(Map<Dir, Field> map) {
-        // TODO implement here
-        GameEngine.tab++;
-        GameEngine.print("Field.setSides - set Field's neighbours");
-        GameEngine.tab--;
+       sides=map;
 
     }
     /**
@@ -78,6 +73,7 @@ public abstract class Field {
      * @return road
      */
     public Field getRandomRoad(){
+        //TODO rekurziv algoritmust írni, ami megkeres egy utat!
         return null;
     }
 
