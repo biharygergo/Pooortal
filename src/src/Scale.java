@@ -168,4 +168,8 @@ public class Scale extends Field {
     public void onReplicatorStep(Replicator replicator){
 
     }
+
+    public void listScale(int num){
+        System.out.println(num +". (" + xPos + ","+ yPos + ") " + "(" + door.xPos + ","+ door.yPos + ") " + minWeight + " " + currentWeight + " " + door.isOpen());
+    }
 }

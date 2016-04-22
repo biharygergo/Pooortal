@@ -7,8 +7,8 @@ import java.util.Map;
  */
 public abstract class Field {
 
-    private String description;
-    private int xPos, yPos;
+    protected String description;
+    protected int xPos, yPos;
 
     /**
      * Default constructor
@@ -83,5 +83,9 @@ public abstract class Field {
 
     public void listField(int num){
         System.out.println(num +". (" + xPos + ","+ yPos + ") " + description);
+    }
+
+    public String getDescription() {
+        return description;
     }
 }

@@ -56,11 +56,14 @@ public class FieldMap {
 
     public void listFields(){
         Field current = startField, first = startField; //current: actual field, first: first field of current row
+        int number = 0;
+
         for (int i = 0; i < ySize; i++) {
 
             for (int j = 0; j < xSize ; j++) {
-                current.listField(i*xSize+j);
+                current.listField(number);
                 current = current.getSide(Dir.Right);
+                number++;
             }
 
             current = first.getSide(Dir.Down);
@@ -69,7 +72,25 @@ public class FieldMap {
 
     }
 
-    public void listScalesDoors(){}
+    public void listScalesDoors(){
+        Field current = startField, first = startField; //current: actual field, first: first field of current row
+        int number = 0;
+
+        for (int i = 0; i < ySize; i++) {
+
+            for (int j = 0; j < xSize ; j++) {
+                if (current.getDescription().equals("Scale")) {
+                    Scale scale = (Scale) current;
+                    scale.listScale(number);
+                    number++;
+                }
+                current = current.getSide(Dir.Right);
+            }
+
+            current = first.getSide(Dir.Down);
+            first = first.getSide(Dir.Down); //go one field down
+        }
+    }
 
     public void listSpecialWalls(){}
 
