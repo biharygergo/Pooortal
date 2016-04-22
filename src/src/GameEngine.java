@@ -213,9 +213,12 @@ public class GameEngine {
                         break;
 
                     case "listWormholes":
+                        oNeillHole.listWormhole();
+                        JaffaHole.listWormhole();
                         break;
 
-                    case " listPlayers":
+                    case "listPlayers":
+
                         break;
 
                     case "listReplicator":
