@@ -55,6 +55,9 @@ public abstract class Field {
 
     }
 
+    public void setSide(Dir dir, Field newSide){
+        sides.replace(dir,newSide);
+    }
     /**
      * Sets the new neighbours
      * @param map the neighbours of the door in the specified direction* @param map
