@@ -40,6 +40,21 @@ public class Player {
      */
     private Box box;
 
+    /**
+     * The weight of the player
+     */
+    public int weight;
+
+    /**
+     * The primary color of this player
+     */
+    public Color primaryColor;
+
+    /**
+     * Not null if the player is currently standing on a Scale
+     */
+    public Scale onThisScale;
+
 
     /**
      * @return The box which the player has dropped
@@ -55,9 +70,9 @@ public class Player {
     }
 
     /**
-     * @return the bullet which the player shot
+     * @return the bullet which the player shot color1
      */
-    public Bullet shootBlue() {
+    public Bullet shootColor1() {
         // TODO implement here
         GameEngine.tab++;
         GameEngine.print("Player.shootBlue - Blue bullet shot");
@@ -66,9 +81,9 @@ public class Player {
     }
 
     /**
-     * @return The yellow bullet
+     * @return The color2 bullet
      */
-    public Bullet shootYellow() {
+    public Bullet shootColor2() {
         // TODO implement here
         GameEngine.tab--;
         GameEngine.print("Player.shootYellow - Yellow bullet shot");

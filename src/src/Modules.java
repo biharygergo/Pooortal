@@ -17,6 +17,7 @@ public class Modules {
 
     private List<Bullet> bullets;
 
+    private int collectedZPMs=0;
     /**
      * @param field The field we want to search for item
      * @return The item on the given field
@@ -79,7 +80,7 @@ public class Modules {
         GameEngine.tab--;
     }
 
-    /**
+    /** Remove ZPM and add new ZPM if necessary
      * @param zpm The ZPM to be removed
      */
     public void removeZPM(ZPM zpm) {
