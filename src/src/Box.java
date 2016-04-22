@@ -13,12 +13,17 @@ public class Box extends Item {
       * @param player the player who wants to use the box
      */
     public void onUse(Player player) {
-        GameEngine.tab++;
-        GameEngine.print("Box.onUse - Box is being used");
+
+
+        if(player.getBox()!=null)
+            return;
+
         player.setBox(this);
-        setField(player.getField());
-        GameEngine.tab--;
-        // TODO implement here
+        this.field=player.getField();
+        dir=player.getDir();
+
+        //Hozzaadjuk a player sulyahoz a box sulyat?
+        player.weight+=this.weight;
 
     }
 
@@ -27,10 +32,8 @@ public class Box extends Item {
      * @param player the player who wants to step on the field
      */
     public void onStep(Player player) {
-        GameEngine.tab++;
-        GameEngine.print("Box.onStep - onStep executed on player");
-        GameEngine.tab--;
-        // TODO implement here
+        //Elvileg nem csinálunk semmit
+       return;
 
     }
 
@@ -38,11 +41,8 @@ public class Box extends Item {
      * @return Returns the current field on which the box stands
      */
     public Field getField() {
-        // TODO implement here
-        GameEngine.tab++;
-        GameEngine.print("Box.getField - returned current Field");
-        GameEngine.tab--;
-        return null;
+
+        return field;
     }
 
     /**
@@ -50,10 +50,7 @@ public class Box extends Item {
      * @param field The new field
      */
     public void setField(Field field) {
-        // TODO implement here
-        GameEngine.tab++;
-        GameEngine.print("Box.setField - current Field reset to new field");
-        GameEngine.tab--;
+     this.field=field;
 
     }
 
