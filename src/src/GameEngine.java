@@ -15,9 +15,9 @@ public class GameEngine {
     /**
      * The player in the game
      */
-    private Player oNeill;
-    private Player Jaffa;
-    private Replicator replicator;
+    private static Player oNeill;
+    private static Player Jaffa;
+    private static Replicator replicator;
 
     /**
      * The list items in the game
@@ -55,6 +55,7 @@ public class GameEngine {
 
 
     }
+
     public static void print(String s){
         for(int i=0;i<tab;i++)
             System.out.print("\t");
@@ -82,12 +83,73 @@ public class GameEngine {
                         break;
 
                     case "randomizeReplicator":
+                        boolean value;
+                        if (elements[1].equals("true"))
+                            value = true;
+                        else if (elements[1].equals("false"))
+                            value = false;
+                        else {
+                            System.out.println("Incorrect parameter");
+                            break;
+                        }
+
+                        replicator.randomizeReplicator(value);
                         break;
 
                     case "oNeilMove":
+                        Dir oNeillMoveDir;
+                        Field oNeillNewField = new Road(); //TODO: comment it out
+
+                        switch (elements[1]){
+                            case "J":
+                                oNeillMoveDir = Dir.Left;
+                                break;
+                            case "I":
+                                oNeillMoveDir = Dir.Up;
+                                break;
+                            case "L":
+                                oNeillMoveDir = Dir.Right;
+                                break;
+                            case "K":
+                                oNeillMoveDir = Dir.Down;
+                                break;
+                            default:
+                                System.out.println("Incorrect direction parameter. Dir returned as null may cause problem");
+                                oNeillMoveDir = null;
+                                break;
+                        }
+
+                        //TODO: write the moving logic
+                        oNeill.setField(oNeillNewField);
+
                         break;
 
                     case "jaffaMove":
+                        Dir JaffaMoveDir;
+                        Field JaffaNewField = new Road(); //TODO: comment it out
+
+                        switch (elements[1]){
+                            case "A":
+                                JaffaMoveDir = Dir.Left;
+                                break;
+                            case "W":
+                                JaffaMoveDir = Dir.Up;
+                                break;
+                            case "D":
+                                JaffaMoveDir = Dir.Right;
+                                break;
+                            case "S":
+                                JaffaMoveDir = Dir.Down;
+                                break;
+                            default:
+                                System.out.println("Incorrect direction parameter. Dir returned as null may cause problem");
+                                JaffaMoveDir = null;
+                                break;
+                        }
+
+                        //TODO: write the moving logic
+                        Jaffa.setField(JaffaNewField);
+
                         break;
 
                     case "oNeilShootBullet":
