@@ -23,30 +23,25 @@ public class Modules {
      * @return The item on the given field
      */
     public Item searchModule(Field field) {
-        // TODO implement here
-        GameEngine.tab++;
-        GameEngine.print("Modules.searchModule - Returned Module on Field");
 
-        GameEngine.print("Következő mezőn van doboz? Y / N");
-        Scanner scan=new Scanner(System.in);
-        String ans=scan.nextLine().toUpperCase();
+        //TODO ZPM ujralerakasa a removeZPM-ben!
+        for (ZPM zpm : ZPMs) {
 
-        if(ans.equals("Y")){
-            Box box=new Box();
-            GameEngine.tab--;
-            return box;
+            if (zpm.getField().equals(field)) {
+                removeZPM(zpm);
+                return zpm;
+            }
         }
 
-        GameEngine.print("Következő mezőn van ZPM? (Csak a 9-es esetben igaz!) Y / N");
-        ans= scan.nextLine().toUpperCase();
-        if(ans.equals("Y")){
-            ZPM zpm=new ZPM();
-            removeZPM(zpm);
-            GameEngine.tab--;
-            return zpm;
+        for (Box box : boxes
+                ) {
+            if (box.getField().equals(field)) {
+                return box;
+            }
         }
-        GameEngine.tab--;
+
         return null;
+
     }
 
     /**
@@ -54,10 +49,8 @@ public class Modules {
      * @param startField The player starts from this field
      */
     public void initializeModules(String string, Field startField) {
-        // TODO implement here
-        GameEngine.tab++;
-        GameEngine.print("Modules.initializeModules - Modules initialized from file input");
-        GameEngine.tab--;
+        // TODO letrehozo fv-t kene irni!
+
     }
 
     /**
