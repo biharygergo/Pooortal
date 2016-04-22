@@ -1,5 +1,7 @@
 package src;
 
+import java.util.Map;
+
 /**
  * Represents the gap on the map
  */
@@ -56,6 +58,18 @@ public class Gap extends Field {
      * @param replicator this is the replicator
      */
     public void onReplicatorStep(Replicator replicator) {
+
+        Road replace = new Road();
+
+        this.getSide(Dir.Up).setSide(Dir.Down,replace);
+        this.getSide(Dir.Down).setSide(Dir.Up,replace);
+        this.getSide(Dir.Left).setSide(Dir.Right,replace);
+        this.getSide(Dir.Right).setSide(Dir.Left,replace);
+
+//TODO Itt ezt valaki nézze át rendesen hogy valid-e így!
+        replace.setSides(sides);
+
+        replicator.setAlive(false);
 
     }
 
