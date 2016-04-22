@@ -43,6 +43,7 @@ public class Wormhole {
         return false;
     }
 
+
     /**
      * Returns the blue portal
      * @return The blue portal of the wormhole

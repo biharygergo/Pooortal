@@ -16,20 +16,14 @@ public class Road extends Field {
      * @param player the player who wants to step on it
      */
     public void onStep(Player player) {
-        GameEngine.tab++;
-        GameEngine.print("Road.onStep - onStep called on Player");
-        GameEngine.tab--;
-        // TODO implement here
+       player.setField(this);
     }
 
     /**
      * @return The boolean whether the road is steppable or not
      */
     public boolean steppable() {
-        // TODO implement here
-        GameEngine.tab++;
-        GameEngine.print("Road.steppable - Field's state returned");
-        GameEngine.tab--;
+
         return true;
     }
 
@@ -40,10 +34,8 @@ public class Road extends Field {
      * @param jaffaHole jaffahole
      */
     public void onShoot(Bullet bullet, Wormhole colonelHole, Wormhole jaffaHole) {
-        // TODO implement here
-        GameEngine.tab++;
-        GameEngine.print("Road.onShoot - Called on Road");
-        GameEngine.tab--;
+
+        bullet.setField(this);
     }
 
     /**
@@ -52,6 +44,7 @@ public class Road extends Field {
      */
     public void onReplicatorStep(Replicator replicator){
 
+        replicator.setField(this);
     }
 
 }

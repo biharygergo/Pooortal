@@ -76,7 +76,7 @@ public abstract class Field {
      * Used when trying to place a new ZPM. Returns a random road that is steppable
      * @return road
      */
-    public Field getRandomRoad(){
+    public Road getRandomRoad(){
         //TODO rekurziv algoritmust írni, ami megkeres egy utat!
         return null;
     }

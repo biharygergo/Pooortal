@@ -16,6 +16,7 @@ public class Bullet{
      */
     private Color color;
 
+    public Color primaryColor;
     /**
      * Direction of the bullet
      */

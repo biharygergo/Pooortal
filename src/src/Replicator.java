@@ -25,7 +25,6 @@ public class Replicator {
      * @return The field which the player currently stands on
      */
     public Field getField() {
-        // TODO implement here
 
         return field;
     }
@@ -35,23 +34,23 @@ public class Replicator {
      */
     public void setField(Field field) {
 
+        this.field = field;
     }
 
     /**
      * @return The direction of the replicator
      */
     public Dir getDir() {
-        // TODO implement here
 
-        return Dir.Down;
+        return dir;
     }
 
     /**
      * @param dir The direction to be set for the replicator
      */
     public void setDir(Dir dir) {
-        // TODO implement here
 
+        this.dir = dir;
 
     }
 
@@ -59,18 +58,8 @@ public class Replicator {
      * @return Whether the player is alive or not
      */
     public boolean isAlive() {
-        // TODO implement here
-        GameEngine.tab++;
-        GameEngine.print("Player.isAlive - Returned player state");
-        GameEngine.print("Meghaltunk? Y/N");
-        Scanner scan=new Scanner(System.in);
-        String line=scan.nextLine().toUpperCase();
 
-        GameEngine.tab--;
-        if (line.equals("Y"))
-            return false;
-        else return true;
-
+        return alive;
 
 
     }
@@ -79,16 +68,18 @@ public class Replicator {
      * @param alive Set if the replicator is alive or dead
      */
     public void setAlive(boolean alive) {
-        // TODO implement here
 
+        this.alive = alive;
     }
 
     /**
      * @return The next field
      */
     public Field getNextField() {
-        // TODO implement here
-        return null;
+
+        Field nextField = field.getSide(dir);
+
+        return nextField;
 
     }
 
@@ -97,6 +88,9 @@ public class Replicator {
      * @param bullet this is the killing bullet
      */
     public void onShoot(Bullet bullet){
+
+        alive = false;
+        bullet.setActive(false);
 
     }
 

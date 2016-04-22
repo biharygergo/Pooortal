@@ -49,7 +49,6 @@ public class Gap extends Field {
     public void onShoot(Bullet bullet, Wormhole colonelHole, Wormhole jaffaHole) {
        //Semmi sem történik, mehet tovább a golyó
         bullet.setField(this);
-        return;
 
     }
 
@@ -66,7 +65,7 @@ public class Gap extends Field {
         this.getSide(Dir.Left).setSide(Dir.Right,replace);
         this.getSide(Dir.Right).setSide(Dir.Left,replace);
 
-//TODO Itt ezt valaki nézze át rendesen hogy valid-e így!
+        //TODO Itt ezt valaki nézze át rendesen hogy valid-e így!
         replace.setSides(sides);
 
         replicator.setAlive(false);

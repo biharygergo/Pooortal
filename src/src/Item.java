@@ -22,23 +22,16 @@ public abstract class Item {
      * @return The field which the item stands on
      */
     public Field getField() {
-        // TODO implement here
-        GameEngine.tab++;
-        GameEngine.print("Item.getField - returns item's current Field");
-        GameEngine.tab--;
 
-        return null;
+        return field;
     }
 
     /**
      * @param field The field to be set for the item
      */
     public void setField(Field field) {
-        GameEngine.tab++;
-        GameEngine.print("Item.getField - sets item's current Field");
-        GameEngine.tab--;
-        // TODO implement here
 
+         this.field=field;
     }
 
     /**
