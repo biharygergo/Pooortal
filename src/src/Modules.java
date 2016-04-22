@@ -57,51 +57,48 @@ public class Modules {
      * @param bullet The bullet to be added
      */
     public void addBullet(Bullet bullet) {
-        // TODO implement here
-        GameEngine.tab++;
-        GameEngine.print("Modules.addBullet - New Bullet added to active bullets");
-        GameEngine.tab--;
+
+        bullets.add(bullet);
     }
 
     /**
      * @param bullet The bullet to be removed
      */
     public void removeBullet(Bullet bullet) {
-        // TODO implement here
-        GameEngine.tab++;
-        GameEngine.print("Modules.removeBullet - Bullet removed from active bullets");
-        GameEngine.tab--;
+
+       bullets.remove(bullet);
     }
 
     /** Remove ZPM and add new ZPM if necessary
      * @param zpm The ZPM to be removed
      */
     public void removeZPM(ZPM zpm) {
-        // TODO implement here
-        GameEngine.tab++;
-        GameEngine.print("Modules.removeZPM - ZPM removed from active ZPMs");
-        GameEngine.tab--;
+       collectedZPMs++;
+
+        if((collectedZPMs%2)==0){
+            Road newField =  zpm.getField().getRandomRoad();
+            ZPM newZPM = new ZPM();
+            newZPM.setField(newField);
+            ZPMs.add(newZPM);
+
+            ZPMs.remove(zpm);
+        }
+        else{
+            ZPMs.remove(zpm);
+        }
     }
 
     /**
      * @param box The box to be removed
      */
     public void removeBox(Box box) {
-        // TODO implement here
-        GameEngine.tab++;
-
-        GameEngine.print("Modules.removeBox - Box deleted");
-        GameEngine.tab--;
+      boxes.remove(box);
     }
 
     /**
      * @return The list of bullets
      */
     public List<Bullet> getBullets() {
-        // TODO implement here
-        GameEngine.tab++;
-        GameEngine.print("Modules.getBullets - Returned active bullets");
-        GameEngine.tab--;
         return bullets;
     }
 
