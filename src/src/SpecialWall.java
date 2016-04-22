@@ -118,5 +118,7 @@ public class SpecialWall extends Wall {
     public void listSpecialWall(int num){
         System.out.println(num +". (" + xPos + ","+ yPos + ") " + color + " " + wormHole.getDescription());
     }
+
+
 }
 

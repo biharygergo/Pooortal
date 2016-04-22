@@ -213,17 +213,17 @@ public class GameEngine {
                         break;
 
                     case "listWormholes":
-                        oNeillHole.listWormhole();
-                        JaffaHole.listWormhole();
+                        oNeillHole.listWormhole(1);
+                        JaffaHole.listWormhole(2);
                         break;
 
                     case "listPlayers":
-                        oNeill.listPlayer();
-                        Jaffa.listPlayer();
+                        oNeill.listPlayer(1);
+                        Jaffa.listPlayer(2);
                         break;
 
                     case "listReplicator":
-                        replicator.listReplicator();
+                        replicator.listReplicator(1);
                         break;
 
                     default:

@@ -108,5 +108,5 @@ public class Replicator {
 
     }
 
-    public void listReplicator(){}
+    public void listReplicator(int num){}
 }

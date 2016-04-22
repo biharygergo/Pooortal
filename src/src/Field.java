@@ -88,4 +88,12 @@ public abstract class Field {
     public String getDescription() {
         return description;
     }
+
+    public int getxPos() {
+        return xPos;
+    }
+
+    public int getyPos() {
+        return yPos;
+    }
 }

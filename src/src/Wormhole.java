@@ -8,6 +8,7 @@ import java.util.Scanner;
 public class Wormhole {
 
     private String description;
+
     /**
      * Default constructor
      */
@@ -93,7 +94,9 @@ public class Wormhole {
         GameEngine.tab--;
     }
 
-    public void listWormhole(){}
+    public void listWormhole(int num){
+        System.out.println(num +". (" + color1Portal.getxPos() + ","+ color1Portal.yPos + ") " + color1Portal.getColor() + " (" + color2Portal.getxPos() + ","+ color2Portal.yPos + ") " + color2Portal.getColor());
+    }
 
     public String getDescription() {
         return description;

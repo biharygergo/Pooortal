@@ -222,6 +222,8 @@ public class Player {
 
     }
 
-    public void listPlayer(){}
+    public void listPlayer(int num){
+
+    }
 
 }
