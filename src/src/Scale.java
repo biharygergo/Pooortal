@@ -20,6 +20,26 @@ public class Scale extends Field {
     private boolean weight;
 
     /**
+     * Boxes currently stacked
+     */
+    public List<Box> boxes;
+
+    /**
+     * The minimum weight the door will open to
+     */
+    public int minWeight;
+
+    /**
+     * The weight currently on the scale
+     */
+    public int currentWeight;
+
+    /**
+     * The player that is currently standing on the Scale
+     */
+    public Player playerOnScale;
+
+    /**
      * The door which is connected to the scale
      */
     private Door door;
