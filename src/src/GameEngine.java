@@ -284,21 +284,11 @@ public class GameEngine {
                         break;
 
                     case "oNeilSetBox":
-                        //Box oNeillBox = new Box(randomField, 5); //TODO: comment it out
-
-                        //TODO: write the logic
                         setBoxForPlayer(oNeill);
-
-                        //oNeill.setBox(oNeillBox);
                         break;
 
                     case "jaffaSetBox":
-                        //Box JaffaBox = new Box(randomField, 5); //TODO: comment it out
-
-                        //TODO: write the logic
                         setBoxForPlayer(Jaffa);
-
-                        //Jaffa.setBox(JaffaBox);
                         break;
 
                     case "listBoxes":
@@ -415,9 +405,9 @@ public class GameEngine {
     }
 
     private void setBoxForPlayer(Player player) {
-        // logika
-        if (player.getBox() != null) {
-
+        Field nextField = player.getNextField();
+        if (player.getBox() == null && nextFieldHasActiveBox(nextField)) {
+            player.setBox((Box) activeModules.searchModule(nextField));
         }
     }
 
