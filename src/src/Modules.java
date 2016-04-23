@@ -46,7 +46,7 @@ public class Modules {
     }
 
     /**
-     * @param string String for initialization
+     * @param filename String for initialization
      * @param startField The player starts from this field
      */
     public void initializeModules(String filename, Field startField) {
