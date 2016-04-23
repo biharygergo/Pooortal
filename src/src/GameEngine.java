@@ -184,7 +184,7 @@ public class GameEngine {
 
             elements = line.split(" ");
 
-           //try {
+           try {
                 switch (elements[0]) {
                     case "loadMap":
                         elements[1] = "src/map.csv"; //TODO: ez majd kiszedhető, csak akkor nem kell mindig beírni
@@ -284,9 +284,9 @@ public class GameEngine {
                         System.out.println("Not a valid statement.");
                 }
                 System.out.println();
-            //}catch (Exception e){
-            //    System.out.println("Error in statement: " + e.toString());
-            //}
+            }catch (Exception e){
+                System.out.println("Error in statement: " + e.toString());
+            }
 
         }
     }
