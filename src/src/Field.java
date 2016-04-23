@@ -1,6 +1,7 @@
 package src;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -80,8 +81,42 @@ public abstract class Field {
      * Used when trying to place a new ZPM. Returns a random road that is steppable
      * @return road
      */
-    public Road getRandomRoad(){
+    public Road getRandomRoad(Field startHere, List<Box> boxes, List<ZPM> zpms){
         //TODO rekurziv algoritmust írni, ami megkeres egy utat!
+
+        Road foundGoodRoad = null;
+        boolean noMoreFields;
+
+        Field topLeft = null;
+
+        Field currentField;
+
+        int maxwidth = 6;
+        int maxheight = 6;
+
+        int currentx = startHere.getxPos();
+        int currenty = startHere.getyPos();
+
+        //Elvileg ezekkel a bal felső sarkot kellene megkapnunk
+        for(int i=0; i<currentx; i++){
+            if(i==0)
+                topLeft=startHere;
+            else {
+                topLeft = topLeft.getSide(Dir.Left);
+            }
+        }
+
+        for(int j = currenty; j<maxheight; j++){
+            topLeft = topLeft.getSide(Dir.Up);
+        }
+
+        currentField = topLeft;
+
+        for ( int row = 0; row < maxheight; row++){
+            for(int column = 0; column<maxwidth; column++){
+                
+            }
+        }
         return null;
     }
 
