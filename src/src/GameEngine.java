@@ -147,9 +147,7 @@ public class GameEngine {
 
                 }
 
-            //Pálya további elemei:
-            activeModules.getBox(0).setWeight(5);
-            activeModules.getBox(1).setWeight(10);
+           activeModules.initializeModules("src/modules.csv", map.getstartField());
 
         } catch (IOException e) {
             e.printStackTrace();

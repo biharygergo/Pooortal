@@ -1,5 +1,8 @@
 package src;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.*;
 
 /**
@@ -46,9 +49,32 @@ public class Modules {
      * @param string String for initialization
      * @param startField The player starts from this field
      */
-    public void initializeModules(String string, Field startField) {
-        // TODO letrehozo fv-t kene irni!
+    public void initializeModules(String filename, Field startField) {
 
+        try(
+                BufferedReader br = new BufferedReader(new FileReader(filename))) {
+                String line = br.readLine();
+                String cells[] = new String[10];
+
+                while (line != null) { //végig a sorokon
+                    line = br.readLine();
+                    cells = line.split(";");
+
+                    switch (cells[0]){
+                        case "Box":
+
+                            break;
+                        case "ZPM":
+                            break;
+
+                    }
+
+                    br.readLine();
+                }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
