@@ -200,11 +200,19 @@ public class GameEngine {
                         break;
 
                     case "oNeilDropBox":
+                        Field maybeGap = oNeill.getNextField();
+                        //Kvazi-Ralepunk de a player fieldjet nem allitottuk at!
+                        maybeGap.onStep(oNeill);
                         oNeill.dropBox();
+
+
                         break;
 
                     case "jaffaDropBox":
+                        Field maybeGapJaffa = Jaffa.getField();
+                        maybeGapJaffa.onStep(Jaffa);
                         Jaffa.dropBox();
+
                         break;
 
                     case "oNeilSetBox":

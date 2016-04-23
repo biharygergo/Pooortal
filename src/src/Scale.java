@@ -97,16 +97,18 @@ public class Scale extends Field {
      * @param player the player who wants to step on the field where the scale is
      */
     public void onStep(Player player) {
+        if(player.getField().equals(this)) {
 
-        player.onThisScale = this;
-        //Kell ez?!
+            player.onThisScale = this;
+            //Kell ez?!
 
-        currentWeight+=player.weight;
+            currentWeight += player.weight;
 
-        if(currentWeight>=minWeight){
-            door.setOpen(true);
+            if (currentWeight >= minWeight) {
+                door.setOpen(true);
+            }
+
         }
-
     }
 
     /**
