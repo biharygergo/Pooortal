@@ -146,6 +146,9 @@ public class GameEngine {
 
                 }
 
+            //Pálya további elemei:
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }
