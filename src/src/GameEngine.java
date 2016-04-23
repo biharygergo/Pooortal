@@ -406,6 +406,7 @@ public class GameEngine {
 
     private void setBoxForPlayer(Player player) {
         Field nextField = player.getNextField();
+
         if (player.getBox() == null && nextFieldHasActiveBox(nextField)) {
             player.setBox((Box) activeModules.searchModule(nextField));
         }
