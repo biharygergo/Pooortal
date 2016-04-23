@@ -110,8 +110,9 @@ public class Player {
      */
     public void setField(Field field) {
         if(onThisScale!=null){
-            onThisScale.currentWeight-=weight;
-            if(onThisScale.currentWeight<onThisScale.minWeight){
+            int currentWeight = onThisScale.getCurrentWeight() - weight;
+            onThisScale.setCurrentWeight(weight);
+            if(onThisScale.getCurrentWeight()<onThisScale.getMinWeight()){
                 onThisScale.getDoor().setOpen(false);
             }
             onThisScale = null;

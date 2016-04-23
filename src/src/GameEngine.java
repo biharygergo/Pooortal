@@ -59,6 +59,8 @@ public class GameEngine {
 
         ArrayList<Field> first = new ArrayList<>();
         ArrayList<Field> second = new ArrayList<>();
+        ArrayList<Scale> scales = new ArrayList<>();
+        ArrayList<Door> doors = new ArrayList<>();
 
         for (int i = 0; i < xSize; i++) {
             first.add(null);
@@ -83,12 +85,15 @@ public class GameEngine {
                                 break;
                             case "Scale":
                                 current = new Scale();
+                                scales.add((Scale) current);
+                                ((Scale) current).setCurrentWeight(8); //TODO: ez sem az igazi
                                 break;
                             case "Gap":
                                 current = new Gap();
                                 break;
                             case "Door":
                                 current = new Door();
+                                doors.add((Door) current);
                                 break;
                             case "SpecialWall":
                                 current = new SpecialWall();
@@ -153,6 +158,13 @@ public class GameEngine {
             e.printStackTrace();
         }
 
+        //Todo: ezt is ki lehetne valahogy írni file-ba. Kérdés hogy érdemes e, mert túl sok ajtó amúgy sincs a pályán
+        int i = 0;
+        for (Scale scale : scales){
+            scale.setDoor(doors.get(i));
+            doors.get(i).setScale(scale);
+            i++;
+        }
     }
 
     private void run(){
@@ -176,7 +188,6 @@ public class GameEngine {
                     case "loadMap":
                         elements[1] = "src/map.csv"; //TODO: ez majd kiszedhető, csak akkor nem kell mindig beírni
                         loadMap(elements[1]);
-                        map.listFields();
                         break;
 
                     case "replicatorMove":
@@ -236,7 +247,7 @@ public class GameEngine {
                         break;
 
                     case "listScalesDoors":
-                        map.listFields();
+                        map.listScalesDoors();
                         break;
 
                     case "listSpecialWalls":

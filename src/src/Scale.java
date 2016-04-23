@@ -22,17 +22,17 @@ public class Scale extends Field {
     /**
      * Boxes currently stacked
      */
-    public List<Box> boxes;
+    private List<Box> boxes;
 
     /**
      * The minimum weight the door will open to
      */
-    public int minWeight;
+    private int minWeight;
 
     /**
      * The weight currently on the scale
      */
-    public int currentWeight;
+    private int currentWeight;
 
     /**
      * The player that is currently standing on the Scale
@@ -139,5 +139,17 @@ public class Scale extends Field {
 
     public void listScale(int num){
         System.out.println(num +". (" + xPos + ","+ yPos + ") " + "(" + door.xPos + ","+ door.yPos + ") " + minWeight + " " + currentWeight + " " + door.isOpen());
+    }
+
+    public void setCurrentWeight(int currentWeight) {
+        this.currentWeight = currentWeight;
+    }
+
+    public int getCurrentWeight() {
+        return currentWeight;
+    }
+
+    public int getMinWeight() {
+        return minWeight;
     }
 }
