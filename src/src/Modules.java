@@ -50,7 +50,10 @@ public class Modules {
      * @param startField The player starts from this field
      */
     public void initializeModules(String filename, Field startField) {
-
+        Field current;
+        int x;
+        int y;
+        int weight;
         try(
                 BufferedReader br = new BufferedReader(new FileReader(filename))) {
                 String line = br.readLine();
@@ -62,11 +65,19 @@ public class Modules {
 
                     switch (cells[0]){
                         case "Box":
-
+                            x = Integer.parseInt(cells[1]);
+                            y = Integer.parseInt(cells[2]);
+                            weight = Integer.parseInt(cells[3]);
+                            current = startField.getFieldAtPos(x,y);
+                            boxes.add(new Box(current, weight));
                             break;
                         case "ZPM":
-                            break;
+                            x = Integer.parseInt(cells[1]);
+                            y = Integer.parseInt(cells[2]);
 
+                            current = startField.getFieldAtPos(x,y);
+                            ZPMs.add(new ZPM(current));
+                            break;
                     }
 
                     br.readLine();
@@ -101,8 +112,7 @@ public class Modules {
 
         if((collectedZPMs%2)==0){
             Road newField =  zpm.getField().getRandomRoad();
-            ZPM newZPM = new ZPM();
-            newZPM.setField(newField);
+            ZPM newZPM = new ZPM(newField);
             ZPMs.add(newZPM);
 
             ZPMs.remove(zpm);

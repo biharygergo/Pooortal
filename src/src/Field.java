@@ -105,5 +105,16 @@ public abstract class Field {
         this.xPos = xPos;
         this.yPos = yPos;
     }
+    public Field getFieldAtPos(int x, int y){
+        Field current = this;
+        for (int i = 0; i < x-1; i++) {
+            current = current.getSide(Dir.Down);
+        }
 
+        for (int i = 0; i < y-1; i++) {
+            current = current.getSide(Dir.Right);
+        }
+
+        return  current;
+    }
 }
