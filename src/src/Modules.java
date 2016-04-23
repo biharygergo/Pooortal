@@ -13,6 +13,11 @@ public class Modules {
     private ArrayList<Bullet> bullets = new ArrayList<>();
     private ArrayList<ZPM> ZPMs = new ArrayList<>();
     private ArrayList<Box> boxes = new ArrayList<>();
+    private Field startField; //TODO: dokumentálni
+
+    public void setStartField(Field startField) {
+        this.startField = startField;
+    }
 
     public Modules() {
 
@@ -111,7 +116,7 @@ public class Modules {
        collectedZPMs++;
 
         if((collectedZPMs%2)==0){
-            Road newField =  zpm.getField().getRandomRoad();
+            Road newField =  zpm.getField().getRandomRoad(startField);
             ZPM newZPM = new ZPM(newField);
             ZPMs.add(newZPM);
 
