@@ -32,7 +32,7 @@ public class Door extends Field {
      * @param open Status of the door
      */
     public void setOpen(boolean open) {
-
+        //TODO Mi legyen ha vki be akarja zárni ugy hogy rajta van a masik?
         this.open=open;
 
     }
@@ -43,14 +43,7 @@ public class Door extends Field {
      */
     public void onStep(Player player) {
 
-        Field nextPlayerField = player.getNextField();
-
-        //TODO talaljuk ki hogy itt mi legyen, mert mi van ha doboz van lerakva az ajto elotti roadon? Nem kene tudnunk ralepni, modulest viszont nem latjuk innen!
-
-        player.setField(nextPlayerField);
-
-
-
+      //GameEngine beallitja hogy mi legyen, itt ez sima Road-kent funkcional!
     }
 
     /**

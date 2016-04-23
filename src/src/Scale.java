@@ -85,6 +85,14 @@ public class Scale extends Field {
         return false;
     }
 
+    public void reCheckWeights(){
+        if(currentWeight<minWeight){
+            door.setOpen(false);
+        }
+        else{
+            door.setOpen(true);
+        }
+    }
     /**
      * @param player the player who wants to step on the field where the scale is
      */
@@ -92,7 +100,6 @@ public class Scale extends Field {
 
         player.onThisScale = this;
         //Kell ez?!
-        player.setField(this);
 
         currentWeight+=player.weight;
 

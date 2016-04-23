@@ -16,7 +16,8 @@ public class Road extends Field {
      * @param player the player who wants to step on it
      */
     public void onStep(Player player) {
-       player.setField(this);
+
+        //GameEngine állitja be az új fieldet!
     }
 
     /**
