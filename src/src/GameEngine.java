@@ -66,7 +66,7 @@ public class GameEngine {
 
         try(
             BufferedReader br = new BufferedReader(new FileReader(filename))) {
-                String line = " ";
+                String line;
 
                 while (currentRow < ySize) { //végig a sorokon
 
@@ -135,7 +135,6 @@ public class GameEngine {
                         second.get(i).setSides(sides);
                     }
 
-
                     currentRow++;
 
                     first.clear();
@@ -143,7 +142,6 @@ public class GameEngine {
                     for (int i = 0; i < second.size(); i++) {
                         first.add(second.get(i));
                     }
-
 
                     second.clear();
 
@@ -188,81 +186,19 @@ public class GameEngine {
                         break;
 
                     case "oNeilMove":
-                        Dir oNeillMoveDir;
-
-                        switch (elements[1]){
-                            case "J":
-                                oNeillMoveDir = Dir.Left;
-                                break;
-                            case "I":
-                                oNeillMoveDir = Dir.Up;
-                                break;
-                            case "L":
-                                oNeillMoveDir = Dir.Right;
-                                break;
-                            case "K":
-                                oNeillMoveDir = Dir.Down;
-                                break;
-                            default:
-                                System.out.println("Incorrect direction parameter. Dir returned as null may cause problem");
-                                oNeillMoveDir = null;
-                                break;
-                        }
-
-                        movePlayer(oNeill, oNeillMoveDir);
+                        oNeillMove(elements[1]);
                         break;
 
                     case "jaffaMove":
-                        Dir JaffaMoveDir;
-
-                        switch (elements[1]){
-                            case "A":
-                                JaffaMoveDir = Dir.Left;
-                                break;
-                            case "W":
-                                JaffaMoveDir = Dir.Up;
-                                break;
-                            case "D":
-                                JaffaMoveDir = Dir.Right;
-                                break;
-                            case "S":
-                                JaffaMoveDir = Dir.Down;
-                                break;
-                            default:
-                                System.out.println("Incorrect direction parameter. Dir returned as null may cause problem");
-                                JaffaMoveDir = null;
-                                break;
-                        }
-
-                        movePlayer(Jaffa, JaffaMoveDir);
+                        jaffaMove(elements[1]);
                         break;
 
                     case "oNeilShootBullet":
-                        switch (elements[1]){
-                            case "B":
-                                oNeill.shootColor1();
-                                break;
-                            case "Y":
-                                oNeill.shootColor2();
-                                break;
-                            default:
-                                System.out.println("Incorrect color parameter for oNeill. Valid parameters are 'B' or 'Y'");
-                                break;
-                        }
+                        oNeillShootBullet(elements[1]);
                         break;
 
                     case "JaffaShootBullet":
-                        switch (elements[1]){
-                            case "R":
-                                Jaffa.shootColor1();
-                                break;
-                            case "G":
-                                Jaffa.shootColor2();
-                                break;
-                            default:
-                                System.out.println("Incorrect color parameter for Jaffa. Valid parameters are 'R' or 'G'");
-                                break;
-                        }
+                        jaffaShootBullet(elements[1]);
                         break;
 
                     case "oNeilDropBox":
@@ -330,22 +266,7 @@ public class GameEngine {
                     //Todo: document: exittel lehet kilépni és kapunk egy ajándék verset
                     case "Exit":
                         inGame = false;
-                        System.out.println("Megtiszteltetés volt, hogy velünk játszottál!\n" +
-                                "Engedd meg, hogy Tóth Beáta Mária Viszlát! című versével búcsúzzunk és köszönjük meg az együtt töltött perceket:\n");
-                        System.out.println("Viszlát! Ha menned kell, menj! \n" +
-                                "De holnap ugyanitt találkozunk \n" +
-                                "Reggel újra itt leszel \n" +
-                                "S addig mint álom, elém tárul \n" +
-                                "\n" +
-                                "Viszlát! Tudom, hogy menned kell... \n" +
-                                "De várj még egy percet! \n" +
-                                "Még egy érintés, egy pillantás \n" +
-                                "Mert messze van a reggel \n" +
-                                "\n" +
-                                "Viszlát! Indulj végre el! \n" +
-                                "Úgyis fáj látnom \n" +
-                                "Ahogy távolodsz tőlem \n" +
-                                "Fáj, és már hiányzol!\n");
+                        exit();
                         break;
 
                     default:
@@ -353,7 +274,7 @@ public class GameEngine {
                 }
                 System.out.println();
             }catch (Exception e){
-                System.out.println("Error in statement: " + e);
+                System.out.println("Error in statement: " + e.toString());
             }
 
         }
@@ -383,6 +304,103 @@ public class GameEngine {
 
         moveReplicator(replicatorMoveDir);
         return;
+    }
+
+    private void oNeillMove(String element) {
+        Dir oNeillMoveDir;
+
+        switch (element){
+            case "J":
+                oNeillMoveDir = Dir.Left;
+                break;
+            case "I":
+                oNeillMoveDir = Dir.Up;
+                break;
+            case "L":
+                oNeillMoveDir = Dir.Right;
+                break;
+            case "K":
+                oNeillMoveDir = Dir.Down;
+                break;
+            default:
+                System.out.println("Incorrect direction parameter. Dir returned as null may cause problem");
+                oNeillMoveDir = null;
+                break;
+        }
+
+        movePlayer(oNeill, oNeillMoveDir);
+    }
+
+    private void jaffaMove(String element) {
+        Dir JaffaMoveDir;
+
+        switch (element){
+            case "A":
+                JaffaMoveDir = Dir.Left;
+                break;
+            case "W":
+                JaffaMoveDir = Dir.Up;
+                break;
+            case "D":
+                JaffaMoveDir = Dir.Right;
+                break;
+            case "S":
+                JaffaMoveDir = Dir.Down;
+                break;
+            default:
+                System.out.println("Incorrect direction parameter. Dir returned as null may cause problem");
+                JaffaMoveDir = null;
+                break;
+        }
+
+        movePlayer(Jaffa, JaffaMoveDir);
+    }
+
+    private void oNeillShootBullet(String element) {
+        switch (element){
+            case "B":
+                oNeill.shootColor1();
+                break;
+            case "Y":
+                oNeill.shootColor2();
+                break;
+            default:
+                System.out.println("Incorrect color parameter for oNeill. Valid parameters are 'B' or 'Y'");
+                break;
+        }
+    }
+
+    private void jaffaShootBullet(String element) {
+        switch (element){
+            case "R":
+                Jaffa.shootColor1();
+                break;
+            case "G":
+                Jaffa.shootColor2();
+                break;
+            default:
+                System.out.println("Incorrect color parameter for Jaffa. Valid parameters are 'R' or 'G'");
+                break;
+        }
+    }
+
+    private void exit() {
+        System.out.println("Megtiszteltetés volt, hogy velünk játszottál!\n" +
+                "Engedd meg, hogy Tóth Beáta Mária Viszlát! című versével búcsúzzunk és köszönjük meg az együtt töltött perceket:\n");
+        System.out.println("Viszlát! Ha menned kell, menj! \n" +
+                "De holnap ugyanitt találkozunk \n" +
+                "Reggel újra itt leszel \n" +
+                "S addig mint álom, elém tárul \n" +
+                "\n" +
+                "Viszlát! Tudom, hogy menned kell... \n" +
+                "De várj még egy percet! \n" +
+                "Még egy érintés, egy pillantás \n" +
+                "Mert messze van a reggel \n" +
+                "\n" +
+                "Viszlát! Indulj végre el! \n" +
+                "Úgyis fáj látnom \n" +
+                "Ahogy távolodsz tőlem \n" +
+                "Fáj, és már hiányzol!\n");
     }
 
     private void moveReplicator(Dir replicatorMoveDir) {

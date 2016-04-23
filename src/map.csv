@@ -1,6 +1,6 @@
 Wall;Wall;Wall;Wall;Wall;Wall
 Wall;Road;Wall;Scale;Gap;Wall
-Wall;Road;Door;Road;Box;Wall
+Wall;Road;Door;Road;Road;Wall
 Wall;Road;SpecialWall;Road;SpecialWall;Wall
-Wall;Gap;Box;Road;Road;Wall
+Wall;Gap;Road;Road;Road;Wall
 Wall;Wall;Wall;Wall;Wall;Wall
