@@ -17,8 +17,8 @@ public class GameEngine {
     private Replicator replicator;
     private Modules activeModules = new Modules();
     private FieldMap map = new FieldMap();
-    private Wormhole oNeillHole;
-    private Wormhole JaffaHole;
+    private Wormhole oNeillHole = new Wormhole();
+    private Wormhole JaffaHole = new Wormhole();
 
     GameEngine() {
 
