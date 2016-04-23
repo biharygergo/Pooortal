@@ -8,7 +8,21 @@ public class Box extends Item {
     private int weight;
     private boolean alive;
     private Dir dir;
-     /**
+
+    public Box(Field f, int w) {
+        field = f;
+        weight = w;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public void setWeight(int weight) {
+        this.weight = weight;
+    }
+
+    /**
       * Handles the pick up and drop of the box
       * @param player the player who wants to use the box
      */

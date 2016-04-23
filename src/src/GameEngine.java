@@ -21,7 +21,7 @@ public class GameEngine {
     private static Player oNeill;
     private static Player Jaffa;
     private static Replicator replicator;
-    private static Modules activeModules;
+    private static Modules activeModules = new Modules();
     private static FieldMap map = new FieldMap();
     private static Wormhole oNeillHole;
     private static Wormhole JaffaHole;
@@ -95,6 +95,11 @@ public class GameEngine {
                             case "SpecialWall":
                                 current = new SpecialWall();
                                 break;
+                            case "Box":
+                                current = new Road();
+                                Box box = new Box(current, 0);
+                                activeModules.addBox(box);
+                                break;
                             default:
                                 System.out.println("Error in input map file!");
                                 break;
@@ -147,7 +152,8 @@ public class GameEngine {
                 }
 
             //Pálya további elemei:
-
+            activeModules.getBox(0).setWeight(5);
+            activeModules.getBox(1).setWeight(10);
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -168,12 +174,14 @@ public class GameEngine {
         Scanner scan= new Scanner(System.in);
         String elements[] = new String[10];
 
+        Field randomField = new Road(); //TODO: just for testing
+
         while (true){
 
             line = scan.nextLine();
             elements = line.split(" ");
 
-            //try {
+            try {
                 switch (elements[0]) {
                     case "loadMap":
                        elements[1] = "src/map.csv"; //TODO: ez majd kiszedhető, csak akkor nem kell mindig beírni
@@ -288,7 +296,7 @@ public class GameEngine {
                         break;
 
                     case "oNeilSetBox":
-                        Box oNeillBox = new Box(); //TODO: comment it out
+                        Box oNeillBox = new Box(randomField, 5); //TODO: comment it out
 
                         //TODO: write the logic
 
@@ -296,7 +304,7 @@ public class GameEngine {
                         break;
 
                     case "jaffaSetBox":
-                        Box JaffaBox = new Box(); //TODO: comment it out
+                        Box JaffaBox = new Box(randomField, 5); //TODO: comment it out
 
                         //TODO: write the logic
 
@@ -344,9 +352,9 @@ public class GameEngine {
                     default:
                         System.out.println("Not a valid statement.");
                 }
-            //}catch (Exception e){
-            //    System.out.println("Error in statement: " + e);
-            //}
+            }catch (Exception e){
+                System.out.println("Error in statement: " + e);
+            }
 
         }
     }

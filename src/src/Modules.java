@@ -7,15 +7,13 @@ import java.util.*;
  */
 public class Modules {
 
+    private ArrayList<Bullet> bullets = new ArrayList<>();
+    private ArrayList<ZPM> ZPMs = new ArrayList<>();
+    private ArrayList<Box> boxes = new ArrayList<>();
+
     public Modules() {
 
     }
-
-    private List<ZPM> ZPMs;
-
-    private List<Box> boxes;
-
-    private List<Bullet> bullets;
 
     private int collectedZPMs=0;
     /**
@@ -102,8 +100,34 @@ public class Modules {
         return bullets;
     }
 
-    public void listBoxes(){}
-    public void listZPM(){}
-    public void listBullets(){}
+    public void listBoxes(){
+        int i = 0;
+        for (Box box: boxes) {
+            System.out.println(i + ". (" + box.field.getxPos() + "," + box.field.getyPos() + ") " + box.getWeight());
+            i++;
+        }
+    }
+    public void listZPM(){
+        int i = 0;
+        for (ZPM zpm: ZPMs) {
+            System.out.println(i + ". (" + zpm.field.getxPos() + "," + zpm.field.getyPos() + ") ");
+            i++;
+        }
+    }
+    public void listBullets(){
+        int i = 0;
+        for (Bullet bullet: bullets) {
+            System.out.println(i + ". (" + bullet.getField().getxPos() + "," + bullet.getField().getyPos() + ") " + bullet.getColor() + " " + bullet.getDir() + " ");
+            i++;
+        }
+    }
+
+    public void addBox(Box box){
+        boxes.add(box);
+    }
+
+    public Box getBox(int index){
+        return boxes.get(index);
+    }
 
 }
