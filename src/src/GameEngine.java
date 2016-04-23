@@ -169,6 +169,7 @@ public class GameEngine {
 
     public static void main(String[] args){
         Player player=new Player();
+        boolean inGame = true;
 
         String line = "loadMap d";
         Scanner scan= new Scanner(System.in);
@@ -176,9 +177,10 @@ public class GameEngine {
 
         Field randomField = new Road(); //TODO: just for testing
 
-        while (true){
+        while (inGame){
 
             line = scan.nextLine();
+
             elements = line.split(" ");
 
             try {
@@ -349,9 +351,31 @@ public class GameEngine {
                         replicator.listReplicator(1);
                         break;
 
+                    //Todo: document: exittel lehet kilépni és kapunk egy ajándék verset
+                    case "Exit":
+                        inGame = false;
+                        System.out.println("Megtiszteltetés volt, hogy velünk játszottál!\n" +
+                                "Engedd meg, hogy Tóth Beáta Mária Viszlát! című versével búcsúzzunk és köszönjük meg az együtt töltött perceket:\n");
+                        System.out.println("Viszlát! Ha menned kell, menj! \n" +
+                                "De holnap ugyanitt találkozunk \n" +
+                                "Reggel újra itt leszel \n" +
+                                "S addig mint álom, elém tárul \n" +
+                                "\n" +
+                                "Viszlát! Tudom, hogy menned kell... \n" +
+                                "De várj még egy percet! \n" +
+                                "Még egy érintés, egy pillantás \n" +
+                                "Mert messze van a reggel \n" +
+                                "\n" +
+                                "Viszlát! Indulj végre el! \n" +
+                                "Úgyis fáj látnom \n" +
+                                "Ahogy távolodsz tőlem \n" +
+                                "Fáj, és már hiányzol!\n");
+                        break;
+
                     default:
                         System.out.println("Not a valid statement.");
                 }
+                System.out.println();
             }catch (Exception e){
                 System.out.println("Error in statement: " + e);
             }

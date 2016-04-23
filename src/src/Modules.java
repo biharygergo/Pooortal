@@ -90,7 +90,7 @@ public class Modules {
      * @param box The box to be removed
      */
     public void removeBox(Box box) {
-      boxes.remove(box);
+        boxes.remove(box);
     }
 
     /**
