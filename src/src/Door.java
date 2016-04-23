@@ -90,10 +90,6 @@ public class Door extends Field {
      * Sets the new neighbours
      * @param map the neighbours of the door in the specified direction
      */
-    public void setSides(Map<Dir, Field> map) {
-
-        sides=map;
-    }
 
 
     /**

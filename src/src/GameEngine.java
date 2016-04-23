@@ -73,7 +73,6 @@ public class GameEngine {
                 while (currentRow < ySize) { //végig a sorokon
 
                     line = br.readLine();
-                    System.out.println(line);
                     cells = line.split(";");
 
                     for (int i = 0; i < xSize; i++) { // végig az oszlopokon
@@ -127,14 +126,12 @@ public class GameEngine {
                             sides.put(Dir.Right, null);
 
                         if (first.get(i) != null) {
-                            first.get(i).setSide(Dir.Down, current);
+                            first.get(i).setSide(Dir.Down, second.get(i));
                         }
-                        second.get(i).setPos(currentRow, i);
+                        second.get(i).setPos(currentRow+1, i+1);
                         second.get(i).setSides(sides);
                     }
 
-                    if (currentRow >0)
-                        System.out.println(first.get(0).getSides());
 
                     currentRow++;
 
@@ -144,9 +141,6 @@ public class GameEngine {
                         first.add(second.get(i));
                     }
 
-                    System.out.println(second.get(0));
-                    System.out.println(second.get(0).getSides());
-                    System.out.println();
 
                     second.clear();
 
@@ -176,7 +170,7 @@ public class GameEngine {
             line = scan.nextLine();
             elements = line.split(" ");
 
-            try {
+            //try {
                 switch (elements[0]) {
                     case "loadMap":
                        elements[1] = "src/map.csv"; //TODO: ez majd kiszedhető, csak akkor nem kell mindig beírni
@@ -347,9 +341,9 @@ public class GameEngine {
                     default:
                         System.out.println("Not a valid statement.");
                 }
-            }catch (Exception e){
-                System.out.println("Error in statement: " + e);
-            }
+            //}catch (Exception e){
+            //    System.out.println("Error in statement: " + e);
+            //}
 
         }
     }

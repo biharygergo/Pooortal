@@ -121,14 +121,6 @@ public class Scale extends Field {
 
     /**
      *
-     * @param newSides
-     */
-    public void setSides(Map<Dir, Field> newSides){
-        sides=newSides;
-    }
-
-    /**
-     *
      * @param replicator this is the replicator
      */
     public void onReplicatorStep(Replicator replicator){
