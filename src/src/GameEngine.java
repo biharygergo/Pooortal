@@ -44,7 +44,7 @@ public class GameEngine {
     private void loadMap(String filename) {
         Field startField;
         Field current = null;
-        boolean startFieldsetted = false;
+        boolean startFieldSetted = false;
         String cells[] = new String[10];
 
         Map<Dir, Field> sides = new HashMap<>();
@@ -108,10 +108,10 @@ public class GameEngine {
                                 break;
                         }
 
-                        if (!startFieldsetted){
-                            map.setstartField(current);
+                        if (!startFieldSetted){
+                            map.setStartField(current);
                             activeModules.setStartField(current);
-                            startFieldsetted = true;
+                            startFieldSetted = true;
                         }
 
                         second.add(current);
@@ -148,9 +148,9 @@ public class GameEngine {
                     for (int i = 0; i < second.size(); i++) {
                         first.add(second.get(i));
                     }
-
                     second.clear();
 
+                    initiatePlayersAndReplicator(first, currentRow);
                 }
 
            activeModules.initializeModules("src/modules.csv", map.getstartField());
@@ -168,8 +168,18 @@ public class GameEngine {
         }
     }
 
+    private void initiatePlayersAndReplicator(ArrayList<Field> fieldListInARow, int currentRow) {
+        //TODO: rendes programban is valami fix helyre kéne tenni, de map függő, hogy hova!
+        if (currentRow == 2) {
+            Jaffa = new Player(fieldListInARow.get(1), Dir.Up, 6, Color.Green);
+        } else if(currentRow == 3) {
+            oNeill = new Player(fieldListInARow.get(3), Dir.Up, 5, Color.Blue);
+        } else if (currentRow == 4) {
+            replicator = new Replicator(fieldListInARow.get(1), Dir.Down);
+        }
+    }
+
     private void run(){
-        Player player=new Player();
         boolean inGame = true;
 
         String line = "loadMap d";
@@ -179,9 +189,7 @@ public class GameEngine {
         Field randomField = new Road(); //TODO: just for testing
 
         while (inGame){
-
             line = scan.nextLine();
-
             elements = line.split(" ");
 
            try {
@@ -189,7 +197,6 @@ public class GameEngine {
                     case "loadMap":
                         elements[1] = "src/map.csv"; //TODO: ez majd kiszedhető, csak akkor nem kell mindig beírni
                         loadMap(elements[1]);
-
                         break;
 
                     case "replicatorMove":
@@ -217,8 +224,6 @@ public class GameEngine {
                         //Kvazi-Ralepunk de a player fieldjet nem allitottuk at!
                         maybeGap.onStep(oNeill);
                         oNeill.dropBox();
-
-
                         break;
 
                     case "jaffaDropBox":
@@ -266,8 +271,8 @@ public class GameEngine {
                         break;
 
                     case "listPlayers":
-                        oNeill.listPlayer(1);
-                        Jaffa.listPlayer(2);
+                        oNeill.listPlayer(1, "o'Neil");
+                        Jaffa.listPlayer(2, "Jaffa");
                         break;
 
                     case "listReplicator":

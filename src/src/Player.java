@@ -14,6 +14,14 @@ public class Player {
         field=new Road();
     }
 
+    public Player(Field field, Dir dir, int weight, Color primaryColor) {
+        this.field = field;
+        this.dir = dir;
+        this.weight = weight;
+        this.primaryColor = primaryColor;
+        this.alive = true;
+    }
+
     /**
      * The field which the player currently stands on
      */
@@ -54,7 +62,6 @@ public class Player {
      * Not null if the player is currently standing on a Scale
      */
     public Scale onThisScale;
-
 
     public Door onThisDoor;
 
@@ -175,16 +182,14 @@ public class Player {
      * @return The next field
      */
     public Field getNextField() {
-
-
         Field nextField = field.getSide(dir);
 
         return nextField;
-
     }
 
-    public void listPlayer(int num){
-
+    public void listPlayer(int num, String playerName){
+        System.out.println(num + ". " + playerName + " (" + field.getxPos() + "," + field.getyPos() + ") " + dir.name() +
+                (box == null ? " null " : ("(" + box.getField().getxPos() + "," + box.getField().getyPos() + ") ")) +
+                ((Boolean) alive).toString() + " " + collectedZPMs + " " + weight + " " + primaryColor);
     }
-
 }

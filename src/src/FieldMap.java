@@ -40,7 +40,7 @@ public class FieldMap {
      * Sets the start field
      * @param field the field where the start field should be
      */
-    public void setstartField(Field field) {
+    public void setStartField(Field field) {
        startField = field;
 
     }

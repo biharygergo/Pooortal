@@ -21,6 +21,12 @@ public class Replicator {
      */
     private boolean alive;
 
+    Replicator(Field field, Dir dir) {
+        this.field = field;
+        this.dir = dir;
+        this.alive = true;
+    }
+
     /**
      * @return The field which the player currently stands on
      */
@@ -94,5 +100,7 @@ public class Replicator {
 
     }
 
-    public void listReplicator(int num){}
+    public void listReplicator(int num){
+        System.out.println(num + "."  + " (" + field.getxPos() + "," + field.getyPos() + ") " + dir.name() + " " + ((Boolean) alive).toString());
+    }
 }
