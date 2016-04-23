@@ -229,6 +229,13 @@ public class GameEngine {
                         }
 
                         //TODO: write the moving logic
+
+                        if (oNeill.getDir().equals(oNeillMoveDir)) {
+                            movePlayerIfNoBarrierAhead(oNeill, oNeillMoveDir);
+                        } else {
+                            oNeill.setDir(oNeillMoveDir);
+                        }
+
                         oNeill.setField(oNeillNewField);
 
                         break;
@@ -381,5 +388,23 @@ public class GameEngine {
             }
 
         }
+    }
+
+    private static void movePlayerIfNoBarrierAhead(Player player, Dir playerMoveDir) {
+        Field nextField = player.getNextField();
+
+        if (!isBarrierAhead(player, playerMoveDir, nextField)) {
+            player.setField(nextField);
+        }
+    }
+
+    private static boolean isBarrierAhead(Player player, Dir playerMoveDir, Field nextField) {
+        boolean isBarrierAhead = false;
+
+        if (!nextField.steppable()) { //TODO egyéb akadályok
+            isBarrierAhead = true;
+        }
+
+        return isBarrierAhead;
     }
 }
