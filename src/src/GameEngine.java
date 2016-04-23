@@ -183,18 +183,8 @@ public class GameEngine {
                         map.listFields();
                         break;
 
-                    case "randomizeReplicator":
-                        boolean value;
-                        if (elements[1].equals("true"))
-                            value = true;
-                        else if (elements[1].equals("false"))
-                            value = false;
-                        else {
-                            System.out.println("Incorrect parameter");
-                            break;
-                        }
-
-                        replicator.randomizeReplicator(value);
+                    case "replicatorMove":
+                        replicatorMove(elements[1]);
                         break;
 
                     case "oNeilMove":
@@ -361,11 +351,53 @@ public class GameEngine {
         }
     }
 
+    private void replicatorMove(String element) {
+        Dir replicatorMoveDir;
+
+        switch (element){
+            case "V":
+                replicatorMoveDir = Dir.Left;
+                break;
+            case "G":
+                replicatorMoveDir = Dir.Up;
+                break;
+            case "N":
+                replicatorMoveDir = Dir.Right;
+                break;
+            case "B":
+                replicatorMoveDir = Dir.Down;
+                break;
+            default:
+                System.out.println("Incorrect direction parameter. Dir returned as null may cause problem");
+                replicatorMoveDir = null;
+                break;
+        }
+
+        moveReplicator(replicatorMoveDir);
+        return;
+    }
+
+    private void moveReplicator(Dir replicatorMoveDir) {
+        if (replicator.getDir().equals(replicatorMoveDir)) {
+            moveReplicatorTowardsHisActualDirIfNoBarrierAhead();
+        } else {
+            replicator.setDir(replicatorMoveDir);
+        }
+    }
+
+    private void moveReplicatorTowardsHisActualDirIfNoBarrierAhead() {
+        Field nextField = replicator.getNextField();
+
+        if (!isBarrierAhead(nextField)) {
+            replicator.setField(nextField);
+        }
+    }
+
     private void movePlayer(Player player, Dir playerMoveDir) {
         if (player.getDir().equals(playerMoveDir)) {
             movePlayerTowardsHisActualDirIfNoBarrierAhead(player);
         } else {
-            oNeill.setDir(playerMoveDir);
+            player.setDir(playerMoveDir);
         }
     }
 

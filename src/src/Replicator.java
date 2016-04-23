@@ -94,13 +94,5 @@ public class Replicator {
 
     }
 
-    /**
-     *
-     * @param value
-     */
-    public void randomizeReplicator(boolean value){
-
-    }
-
     public void listReplicator(int num){}
 }
