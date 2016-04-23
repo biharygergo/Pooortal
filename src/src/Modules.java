@@ -60,7 +60,7 @@ public class Modules {
                 String cells[] = new String[10];
 
                 while (line != null) { //végig a sorokon
-                    line = br.readLine();
+
                     cells = line.split(";");
 
                     switch (cells[0]){
@@ -80,7 +80,7 @@ public class Modules {
                             break;
                     }
 
-                    br.readLine();
+                    line = br.readLine();
                 }
 
         } catch (IOException e) {
@@ -137,21 +137,21 @@ public class Modules {
     }
 
     public void listBoxes(){
-        int i = 0;
+        int i = 1;
         for (Box box: boxes) {
             System.out.println(i + ". (" + box.field.getxPos() + "," + box.field.getyPos() + ") " + box.getWeight());
             i++;
         }
     }
     public void listZPM(){
-        int i = 0;
+        int i = 1;
         for (ZPM zpm: ZPMs) {
             System.out.println(i + ". (" + zpm.field.getxPos() + "," + zpm.field.getyPos() + ") ");
             i++;
         }
     }
     public void listBullets(){
-        int i = 0;
+        int i = 1;
         for (Bullet bullet: bullets) {
             System.out.println(i + ". (" + bullet.getField().getxPos() + "," + bullet.getField().getyPos() + ") " + bullet.getColor() + " " + bullet.getDir() + " ");
             i++;
