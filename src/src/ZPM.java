@@ -8,8 +8,8 @@ public class ZPM extends Item {
     /**
      * Default constructor
      */
-    public ZPM() {
-
+    public ZPM(Field current) {
+        field = current;
     }
 
     /**
