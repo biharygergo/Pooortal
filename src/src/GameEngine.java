@@ -178,7 +178,7 @@ public class GameEngine {
             try {
                 switch (elements[0]) {
                     case "loadMap":
-                       elements[1] = "src/map.csv"; //TODO: ez majd kiszedhető, csak akkor nem kell mindig beírni
+                        elements[1] = "src/map.csv"; //TODO: ez majd kiszedhető, csak akkor nem kell mindig beírni
                         loadMap(elements[1]);
                         map.listFields();
                         break;
@@ -284,19 +284,21 @@ public class GameEngine {
                         break;
 
                     case "oNeilSetBox":
-                        Box oNeillBox = new Box(randomField, 5); //TODO: comment it out
+                        //Box oNeillBox = new Box(randomField, 5); //TODO: comment it out
 
                         //TODO: write the logic
+                        setBoxForPlayer(oNeill);
 
-                        oNeill.setBox(oNeillBox);
+                        //oNeill.setBox(oNeillBox);
                         break;
 
                     case "jaffaSetBox":
-                        Box JaffaBox = new Box(randomField, 5); //TODO: comment it out
+                        //Box JaffaBox = new Box(randomField, 5); //TODO: comment it out
 
                         //TODO: write the logic
+                        setBoxForPlayer(Jaffa);
 
-                        Jaffa.setBox(JaffaBox);
+                        //Jaffa.setBox(JaffaBox);
                         break;
 
                     case "listBoxes":
@@ -410,6 +412,13 @@ public class GameEngine {
 
         //FIXME: Elég lenne ez, mert úgyis fixen előbb vesszük ki a dobozt a listából, mint hogy ez lefut? Egyelőre sztem maradjon.
         //return (activeModules.searchModule(nextField) instanceof Box) ? true : false;
+    }
+
+    private void setBoxForPlayer(Player player) {
+        // logika
+        if (player.getBox() != null) {
+
+        }
     }
 
 }
