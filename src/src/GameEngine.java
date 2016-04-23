@@ -207,7 +207,6 @@ public class GameEngine {
 
                     case "oNeilMove":
                         Dir oNeillMoveDir;
-                        Field oNeillNewField = new Road(); //TODO: comment it out
 
                         switch (elements[1]){
                             case "J":
@@ -228,21 +227,11 @@ public class GameEngine {
                                 break;
                         }
 
-                        //TODO: write the moving logic
-
-                        if (oNeill.getDir().equals(oNeillMoveDir)) {
-                            movePlayerIfNoBarrierAhead(oNeill, oNeillMoveDir);
-                        } else {
-                            oNeill.setDir(oNeillMoveDir);
-                        }
-
-                        oNeill.setField(oNeillNewField);
-
+                        movePlayer(oNeill, oNeillMoveDir);
                         break;
 
                     case "jaffaMove":
                         Dir JaffaMoveDir;
-                        Field JaffaNewField = new Road(); //TODO: comment it out
 
                         switch (elements[1]){
                             case "A":
@@ -263,9 +252,7 @@ public class GameEngine {
                                 break;
                         }
 
-                        //TODO: write the moving logic
-                        Jaffa.setField(JaffaNewField);
-
+                        movePlayer(Jaffa, JaffaMoveDir);
                         break;
 
                     case "oNeilShootBullet":
@@ -390,21 +377,47 @@ public class GameEngine {
         }
     }
 
-    private static void movePlayerIfNoBarrierAhead(Player player, Dir playerMoveDir) {
-        Field nextField = player.getNextField();
-
-        if (!isBarrierAhead(player, playerMoveDir, nextField)) {
-            player.setField(nextField);
+    private static void movePlayer(Player player, Dir playerMoveDir) {
+        if (player.getDir().equals(playerMoveDir)) {
+            movePlayerTowardsHisActualDirIfNoBarrierAhead(player);
+        } else {
+            oNeill.setDir(playerMoveDir);
         }
     }
 
-    private static boolean isBarrierAhead(Player player, Dir playerMoveDir, Field nextField) {
+    private static void movePlayerTowardsHisActualDirIfNoBarrierAhead(Player player) {
+        Field nextField = player.getNextField();
+
+        if (!isBarrierAhead(nextField)) {
+            player.setField(nextField);
+            nextField.onStep(player);
+        }
+    }
+
+    private static boolean isBarrierAhead(Field nextField) {
         boolean isBarrierAhead = false;
 
-        if (!nextField.steppable()) { //TODO egyéb akadályok
+        if (!nextField.steppable() || nextFieldHasActiveBox(nextField)) {  //FIXME: egyéb?
             isBarrierAhead = true;
         }
 
         return isBarrierAhead;
     }
+
+    private static boolean nextFieldHasActiveBox(Field nextField) {
+        boolean nextFieldHasActiveBox = false;
+
+        Item itemOnNextField = activeModules.searchModule(nextField);
+        if (itemOnNextField != null && itemOnNextField instanceof Box) {
+            if (((Box) itemOnNextField).isAlive()) {
+                nextFieldHasActiveBox = true;
+            }
+        }
+
+        return nextFieldHasActiveBox;
+
+        //FIXME: Elég lenne ez, mert úgyis fixen előbb vesszük ki a dobozt a listából, mint hogy ez lefut? Egyelőre sztem maradjon.
+        //return (activeModules.searchModule(nextField) instanceof Box) ? true : false;
+    }
+
 }
