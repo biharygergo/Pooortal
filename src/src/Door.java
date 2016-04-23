@@ -19,6 +19,7 @@ public class Door extends Field {
      */
     private boolean open;
 
+    //TODO Door kapott egy referenciát Scale-re!
     private Scale scale;
 
     private boolean playerBlockingDoor;
@@ -34,7 +35,6 @@ public class Door extends Field {
      * @param open Status of the door
      */
     public void setOpen(boolean open) {
-        //TODO Mi legyen ha vki be akarja zárni ugy hogy rajta van a masik?
         this.open=open;
 
     }
@@ -113,9 +113,5 @@ public class Door extends Field {
      * @param replicator this is the replicator that stepped on the door
      */
     public void onReplicatorStep(Replicator replicator){
-
-        //TODO replicator tutira fog igy mukodni, hogyha random lép is a kör végén? Pl.: visszalép az ajtóba és ide-oda ugral?
-        Field nextField = replicator.getNextField();
-        replicator.setField(nextField);
     }
 }

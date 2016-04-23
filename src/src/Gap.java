@@ -21,8 +21,9 @@ public class Gap extends Field {
 
         if(player.getField()!=this){
             Box currentBox = player.getBox();
-            currentBox.setAlive(false);
-            player.dropBox();
+            if(currentBox!=null)
+                currentBox.setAlive(false);
+            //player.dropBox();
 
             return;
         }

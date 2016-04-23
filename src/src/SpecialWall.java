@@ -135,10 +135,12 @@ public class SpecialWall extends Wall {
      * @param player the player who wants to step
      */
     public void onStep(Player player) {
-        if(color == wormHole.primaryColor)
-            player.setField(wormHole.getColor2());
-        else {
-            player.setField(wormHole.getColor1());
+        if(player.getField().equals(this)) {
+            if (color == wormHole.primaryColor)
+                player.setField(wormHole.getColor2());
+            else {
+                player.setField(wormHole.getColor1());
+            }
         }
     }
 
