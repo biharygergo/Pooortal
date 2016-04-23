@@ -12,38 +12,36 @@ import java.util.Scanner;
  */
 public class GameEngine {
 
-    static int tab;
+    private Player oNeill;
+    private Player Jaffa;
+    private Replicator replicator;
+    private Modules activeModules = new Modules();
+    private FieldMap map = new FieldMap();
+    private Wormhole oNeillHole;
+    private Wormhole JaffaHole;
 
-    public GameEngine() {
-        GameEngine.tab=0;
+    GameEngine() {
+
     }
-
-    private static Player oNeill;
-    private static Player Jaffa;
-    private static Replicator replicator;
-    private static Modules activeModules = new Modules();
-    private static FieldMap map = new FieldMap();
-    private static Wormhole oNeillHole;
-    private static Wormhole JaffaHole;
 
     /**
      * Creeates the map and starts to run the program
      */
     public void start() {
-        // TODO implement here
-
+        //loadMap("src/map.csv");
+        //TODO ez egyelőre nem kell, mert a loadmap egy parancs most a protóban
+        run();
     }
 
     /**
      * Ends the game
      */
-    public static void endGame() {
+    public void endGame() {
         // TODO implement here
-        GameEngine.print("GameEngine.endGame - Game has ended");
 
     }
 
-    public static void loadMap(String filename) {
+    private void loadMap(String filename) {
         Field startField;
         Field current = null;
         boolean startFieldsetted = false;
@@ -161,13 +159,7 @@ public class GameEngine {
 
     }
 
-    public static void print(String s){
-        for(int i=0;i<tab;i++)
-            System.out.print("\t");
-        System.out.println(s);
-    }
-
-    public static void main(String[] args){
+    private void run(){
         Player player=new Player();
         boolean inGame = true;
 
@@ -377,7 +369,7 @@ public class GameEngine {
         }
     }
 
-    private static void movePlayer(Player player, Dir playerMoveDir) {
+    private void movePlayer(Player player, Dir playerMoveDir) {
         if (player.getDir().equals(playerMoveDir)) {
             movePlayerTowardsHisActualDirIfNoBarrierAhead(player);
         } else {
@@ -385,7 +377,7 @@ public class GameEngine {
         }
     }
 
-    private static void movePlayerTowardsHisActualDirIfNoBarrierAhead(Player player) {
+    private void movePlayerTowardsHisActualDirIfNoBarrierAhead(Player player) {
         Field nextField = player.getNextField();
 
         if (!isBarrierAhead(nextField)) {
@@ -394,7 +386,7 @@ public class GameEngine {
         }
     }
 
-    private static boolean isBarrierAhead(Field nextField) {
+    private boolean isBarrierAhead(Field nextField) {
         boolean isBarrierAhead = false;
 
         if (!nextField.steppable() || nextFieldHasActiveBox(nextField)) {  //FIXME: egyéb?
@@ -404,7 +396,7 @@ public class GameEngine {
         return isBarrierAhead;
     }
 
-    private static boolean nextFieldHasActiveBox(Field nextField) {
+    private boolean nextFieldHasActiveBox(Field nextField) {
         boolean nextFieldHasActiveBox = false;
 
         Item itemOnNextField = activeModules.searchModule(nextField);
