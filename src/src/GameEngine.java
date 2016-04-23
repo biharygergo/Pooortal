@@ -66,7 +66,7 @@ public class GameEngine {
 
         try(
             BufferedReader br = new BufferedReader(new FileReader(filename))) {
-                String line = " ";
+                String line;
 
                 while (currentRow < ySize) { //végig a sorokon
 
@@ -135,7 +135,6 @@ public class GameEngine {
                         second.get(i).setSides(sides);
                     }
 
-
                     currentRow++;
 
                     first.clear();
@@ -143,7 +142,6 @@ public class GameEngine {
                     for (int i = 0; i < second.size(); i++) {
                         first.add(second.get(i));
                     }
-
 
                     second.clear();
 
