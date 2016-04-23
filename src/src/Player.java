@@ -56,6 +56,8 @@ public class Player {
     public Scale onThisScale;
 
 
+    public Door onThisDoor;
+
     /**
      * @return The box which the player has dropped
      */
@@ -112,6 +114,14 @@ public class Player {
             if(onThisScale.currentWeight<onThisScale.minWeight){
                 onThisScale.getDoor().setOpen(false);
             }
+            onThisScale = null;
+        }
+
+        if(onThisDoor!=null){
+            onThisDoor.setPlayerBlockingDoor(false);
+            onThisDoor.reCheckWeightAfterSteppingOff();
+            onThisDoor = null;
+
         }
         this.field=field;
     }
@@ -164,6 +174,7 @@ public class Player {
      * @return The next field
      */
     public Field getNextField() {
+
 
         Field nextField = field.getSide(dir);
 
