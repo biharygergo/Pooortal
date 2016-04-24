@@ -288,8 +288,12 @@ public class GameEngine {
                     //todo: document
                     case "updateBullets":
                         updateBullets();
-
                         break;
+
+                    case "listGameOver":
+                        isGameOver();
+                        break;
+
                     default:
                         System.out.println("Not a valid statement.");
                 }
@@ -580,6 +584,15 @@ public class GameEngine {
             System.out.print("\n");
             }
         }
+
+    private void isGameOver() {
+        if (activeModules.noMoreZPM()) {
+            System.out.println("True");
+        }
+        else {
+            System.out.println("False");
+        }
+    }
 
 
 }
