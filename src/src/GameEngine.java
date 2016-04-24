@@ -499,6 +499,7 @@ public class GameEngine {
 
         if (!isBarrierAhead(nextField,null)) {
             replicator.setField(nextField);
+            nextField.onReplicatorStep(replicator);
         }
     }
 
