@@ -340,7 +340,7 @@ public class GameEngine {
 
     private void replicatorMove(String element) {
         Dir replicatorMoveDir;
-
+        element = element.toUpperCase();
         switch (element){
             case "V":
                 replicatorMoveDir = Dir.Left;
@@ -383,7 +383,7 @@ public class GameEngine {
 
     private void oNeillMove(String element) {
         Dir oNeillMoveDir;
-
+        element = element.toUpperCase();
         switch (element){
             case "J":
                 oNeillMoveDir = Dir.Left;
@@ -408,7 +408,7 @@ public class GameEngine {
 
     private void jaffaMove(String element) {
         Dir JaffaMoveDir;
-
+        element = element.toUpperCase();
         switch (element){
             case "A":
                 JaffaMoveDir = Dir.Left;
@@ -433,6 +433,7 @@ public class GameEngine {
 
     private void oNeillShootBullet(String element) {
         Bullet shot;
+        element = element.toUpperCase();
         switch (element){
             case "B":
                 shot = oNeill.shootColor1();
@@ -451,6 +452,7 @@ public class GameEngine {
 
     private void jaffaShootBullet(String element) {
         Bullet shot;
+        element = element.toUpperCase();
         switch (element){
             case "R":
                 shot = Jaffa.shootColor1();
