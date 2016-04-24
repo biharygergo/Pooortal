@@ -547,18 +547,19 @@ public class GameEngine {
 
                  if (oNeill.getField().equals(currentField)) {
                     if(oNeill.isAlive())
-                    System.out.print(String.format("%15s","Oneill "));
+                    System.out.print(String.format("%15s","Oneill "+oNeill.getDir().toString().substring(0,1)));
+
                     continue;
                 }
                 else if(Jaffa.getField().equals(currentField)) {
                     if(Jaffa.isAlive()) {
-                        System.out.print(String.format("%15s", "Jaffa "));
+                        System.out.print(String.format("%15s", "Jaffa "+Jaffa.getDir().toString().substring(0,1)));
                         continue;
                     }
                 }
                 else if(replicator.getField().equals(currentField) && replicator.isAlive()) {
 
-                        System.out.print(String.format("%15s", "Replicator "));
+                        System.out.print(String.format("%15s", "Replicator "+replicator.getDir().toString().substring(0,1)));
                         continue;
 
                 }
