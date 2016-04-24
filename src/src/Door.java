@@ -96,10 +96,6 @@ public class Door extends Field {
     /**
      * @return Returns the neighbouring fields in a given direction
      */
-    public Map<Dir, Field> getSides() {
-
-        return sides;
-    }
 
    public void setScale(Scale scale){
        this.scale = scale;

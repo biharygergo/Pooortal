@@ -34,8 +34,8 @@ public class Box extends Item {
             return;
 
         player.setBox(this);
-        this.field=player.getField();
-        dir=player.getDir();
+        this.field = player.getField();
+        dir = player.getDir();
 
         //Hozzaadjuk a player sulyahoz a box sulyat?
         player.weight+=this.weight;
