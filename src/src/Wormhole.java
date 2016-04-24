@@ -31,7 +31,7 @@ public class Wormhole {
      */
     public boolean checkPass() {
 
-        //FIXME: biztos mindig jól setteljük be ezeket?
+        //FIXME: biztos mindig jól setteljük be ezeket? Igen!
       if (color1Portal!=null && color2Portal != null)
           return true;
 

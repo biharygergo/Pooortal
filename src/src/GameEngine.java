@@ -533,7 +533,7 @@ public class GameEngine {
     private boolean isBarrierAhead(Field nextField, Player player) {
         boolean isBarrierAhead = false;
 
-        if (!nextField.steppable() || nextFieldHasActiveBox(nextField, player)) {  //FIXME: egyéb?
+        if (!nextField.steppable() || nextFieldHasActiveBox(nextField, player)) {
             isBarrierAhead = true;
         }
 

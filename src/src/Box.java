@@ -28,8 +28,6 @@ public class Box extends Item {
       * @param player the player who wants to use the box
      */
     public void onUse(Player player) {
-
-
         if(player.getBox()!=null)
             return;
 
@@ -48,15 +46,12 @@ public class Box extends Item {
      */
     public void onStep(Player player) {
         //Elvileg nem csinálunk semmit
-       return;
-
     }
 
     /**
      * @return Returns the current field on which the box stands
      */
     public Field getField() {
-
         return field;
     }
 
@@ -66,7 +61,6 @@ public class Box extends Item {
      */
     public void setField(Field field) {
      this.field=field;
-
     }
 
     public boolean isAlive(){

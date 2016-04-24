@@ -11,8 +11,6 @@ public enum Color {
     Empty;
 
     public Color next() {
-        //TODO írjuk hozza a doksihoz?
-        // No bounds checking required here, because the last instance overrides
         return values()[ordinal() + 1];
     }
 }

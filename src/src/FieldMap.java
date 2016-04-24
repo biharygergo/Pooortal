@@ -8,6 +8,11 @@ public class FieldMap {
     private int xSize = 6, ySize = 6;
 
     /**
+     * The player is put on this field at the beginning
+     */
+    private Field startField;
+
+    /**
      * Default constructor
      *  calls the create function
      */
@@ -16,23 +21,16 @@ public class FieldMap {
     }
 
     /**
-     * The player is put on this field at the beginning
-     */
-    private Field startField;
-
-    /**
      * Creates the map with fields and items and the player
      * @param string the path to the file which describes the map
      */
     public void create(String string) {
-     //TODO rekurziv letrehozo algoritmust írni! Beallitani elkeszules utan egy startfieldet!
     }
 
     /**
      * @return Returns the start field
      */
     public Field getstartField() {
-
         return startField;
     }
 
