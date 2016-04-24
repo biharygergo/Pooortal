@@ -592,10 +592,10 @@ public class GameEngine {
 
     private void isGameOver() {
         if (activeModules.noMoreZPM()) {
-            System.out.println("True");
+            System.out.println("1. True");
         }
         else {
-            System.out.println("False");
+            System.out.println("1. loadFalse");
         }
     }
 
