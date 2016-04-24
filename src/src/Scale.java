@@ -138,9 +138,7 @@ public class Scale extends Field {
      *
      * @return
      */
-    public Map<Dir, Field> getSides (){
-        return sides;
-    }
+
 
     /**
      *

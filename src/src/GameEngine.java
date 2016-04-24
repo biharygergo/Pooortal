@@ -33,7 +33,7 @@ public class GameEngine {
     /**
      * Ends the game
      */
-    public boolean endGame() {
+    private boolean endGame() {
         // TODO implement here
         if(oNeill!=null && Jaffa!=null) {
             if (!oNeill.isAlive() || !Jaffa.isAlive() || activeModules.noMoreZPM()) {
@@ -71,7 +71,7 @@ public class GameEngine {
             BufferedReader br = new BufferedReader(new FileReader(filename))) {
                 String line;
 
-                while (currentRow < ySize) { //végig a sorokon
+                while (currentRow < ySize) { /* végig a sorokon */
 
                     line = br.readLine();
                     cells = line.split(";");
@@ -146,9 +146,7 @@ public class GameEngine {
 
                     first.clear();
 
-                    for (int i = 0; i < second.size(); i++) {
-                        first.add(second.get(i));
-                    }
+                    first.addAll(second);
                     second.clear();
 
                     initiatePlayersAndReplicator(first, currentRow);
@@ -189,11 +187,9 @@ public class GameEngine {
         boolean inGame = true;
         boolean endgame;
 
-        String line = "loadMap d";
+        String line;
         Scanner scan= new Scanner(System.in);
-        String elements[] = new String[10];
-
-        Field randomField = new Road(); //TODO: just for testing
+        String elements[];
 
         while (inGame){
             endgame = endGame();
@@ -364,7 +360,6 @@ public class GameEngine {
         }
 
         moveReplicator(replicatorMoveDir);
-        return;
     }
 
     private void updateBullets(){
@@ -585,28 +580,19 @@ public class GameEngine {
 
                  if (oNeill.getField().equals(currentField) && oNeill.isAlive()) {
                     System.out.print(String.format("%15s","Oneill "+oNeill.getDir().toString().substring(0,1)));
-
-                    continue;
                 }
                 else if(Jaffa.getField().equals(currentField) && Jaffa.isAlive()) {
-                        System.out.print(String.format("%15s", "Jaffa "+Jaffa.getDir().toString().substring(0,1)));
-                        continue;
-
+                     System.out.print(String.format("%15s", "Jaffa "+Jaffa.getDir().toString().substring(0,1)));
                 }
                 else if(replicator.getField().equals(currentField) && replicator.isAlive()) {
-
-                        System.out.print(String.format("%15s", "Replicator "+replicator.getDir().toString().substring(0,1)));
-                        continue;
-
+                     System.out.print(String.format("%15s", "Replicator "+replicator.getDir().toString().substring(0,1)));
                 }
 
                 else if(activeModules.findBox(currentField)!=null) {
                     System.out.print(String.format("%15s","Box "));
-                    continue;
                 }
                 else if (activeModules.findZPM(currentField)!=null) {
                     System.out.print(String.format("%15s","ZPM "));
-                    continue;
                 }
                 else{
                     System.out.print(String.format("%15s",currentField.getDescription()+" "));
