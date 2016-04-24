@@ -1,7 +1,5 @@
 package src;
 
-import java.util.Scanner;
-
 /**
  * Represents a wormhole between two special wall
  */
@@ -14,13 +12,14 @@ public class Wormhole {
 
     }
 
+    public Color primaryColor;
+    public Color secondaryColor;
+
     /**
      * This is the color1 portal
      */
     private SpecialWall color1Portal;
 
-    public Color primaryColor;
-    public Color secondaryColor;
     /**
      * This is the color2 portal
      */
@@ -38,7 +37,6 @@ public class Wormhole {
 
         return false;
     }
-
 
     /**
      * Returns the blue portal

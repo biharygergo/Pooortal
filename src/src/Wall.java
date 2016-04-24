@@ -25,7 +25,6 @@ public class Wall extends Field {
      * @return The boolean whether the wall is steppable or not
      */
     public boolean steppable() {
-
         return false;
     }
 
@@ -35,7 +34,6 @@ public class Wall extends Field {
      * @param colonelHole The wormhole on the wall
      */
     public void onShoot(Bullet bullet, Wormhole colonelHole, Wormhole jaffaHole) {
-
         bullet.setActive(false);
     }
 

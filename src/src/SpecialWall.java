@@ -1,7 +1,5 @@
 package src;
 
-import java.util.*;
-
 /**
  * Represents a special wall, which extends from the wall
  */
