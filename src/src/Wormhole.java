@@ -7,8 +7,6 @@ import java.util.Scanner;
  */
 public class Wormhole {
 
-    private String description;
-
     /**
      * Default constructor
      */
@@ -76,10 +74,6 @@ public class Wormhole {
 
     public void listWormhole(int num){
         System.out.println(num +"." + (color1Portal == null ? " null Empty" : ("(" + color1Portal.getxPos() + "," + color1Portal.getyPos() + ") " + color1Portal.getColor().name())) +
-                (color2Portal == null ? " null Empty" : ("(" + color2Portal.getxPos() + "," + color2Portal.getyPos() + ") "  + color2Portal.getColor().name())));
-    }
-
-    public String getDescription() {
-        return description;
+                (color2Portal == null ? " null Empty" : (" (" + color2Portal.getxPos() + "," + color2Portal.getyPos() + ") "  + color2Portal.getColor().name())));
     }
 }

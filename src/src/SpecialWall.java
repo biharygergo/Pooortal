@@ -176,8 +176,7 @@ public class SpecialWall extends Wall {
     }
 
     public void listSpecialWall(int num){
-        System.out.println(num +". (" + xPos + ","+ yPos + ") " + color + " " + (wormHole == null ? " null " : wormHole.getDescription()));
-        //TODO: wormhole.getdescription sztem tuti nem lesz jó, lehet ki kéne írni az egész wormholet?
+        System.out.println(num +". (" + xPos + ","+ yPos + ") " + color);
     }
 }
 

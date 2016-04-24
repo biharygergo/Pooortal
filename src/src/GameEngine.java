@@ -34,7 +34,6 @@ public class GameEngine {
      * Ends the game
      */
     private boolean endGame() {
-        // TODO implement here
         if(oNeill!=null && Jaffa!=null) {
             if (!oNeill.isAlive() || !Jaffa.isAlive() || activeModules.noMoreZPM()) {
                 return true;
@@ -210,7 +209,7 @@ public class GameEngine {
 
                     case "replicatorMove":
                         if(elements.length==1) {
-                            System.out.println("Missing second parameter!");
+                            System.out.println("Missing parameter!");
                         }
                         else
                             replicatorMove(elements[1]);
@@ -218,7 +217,7 @@ public class GameEngine {
 
                     case "oNeilMove":
                         if(elements.length==1) {
-                            System.out.println("Missing second parameter!");
+                            System.out.println("Missing parameter!");
                         }
                         else {
                             oNeillMove(elements[1]);
@@ -227,7 +226,7 @@ public class GameEngine {
 
                     case "jaffaMove":
                         if(elements.length==1) {
-                            System.out.println("Missing second parameter!");
+                            System.out.println("Missing parameter!");
                         }
                         else
                             jaffaMove(elements[1]);
@@ -235,7 +234,7 @@ public class GameEngine {
 
                     case "oNeilShootBullet":
                         if(elements.length==1) {
-                            System.out.println("Missing second parameter!");
+                            System.out.println("Missing parameter!");
                         }
                         else
                             oNeillShootBullet(elements[1]);
@@ -243,7 +242,7 @@ public class GameEngine {
 
                     case "JaffaShootBullet":
                         if(elements.length==1) {
-                            System.out.println("Missing second parameter!");
+                            System.out.println("Missing parameter!");
                         }
                         else
                             jaffaShootBullet(elements[1]);
@@ -340,7 +339,7 @@ public class GameEngine {
     }
 
     private void replicatorMove(String element) {
-        Dir replicatorMoveDir;
+        Dir replicatorMoveDir = null;
         element = element.toUpperCase();
         switch (element){
             case "V":
@@ -356,8 +355,7 @@ public class GameEngine {
                 replicatorMoveDir = Dir.Down;
                 break;
             default:
-                System.out.println("Incorrect direction parameter. Dir returned as null may cause problem");
-                replicatorMoveDir = null;
+                System.out.println("Incorrect direction parameter. Valid parameters are 'G' or 'V' or 'B' or 'N'");
                 break;
         }
 
@@ -383,7 +381,7 @@ public class GameEngine {
     }
 
     private void oNeillMove(String element) {
-        Dir oNeillMoveDir;
+        Dir oNeillMoveDir = null;
         element = element.toUpperCase();
         switch (element){
             case "J":
@@ -399,8 +397,7 @@ public class GameEngine {
                 oNeillMoveDir = Dir.Down;
                 break;
             default:
-                System.out.println("Incorrect direction parameter. Dir returned as null may cause problem");
-                oNeillMoveDir = null;
+                System.out.println("Incorrect direction parameter. Valid parameters are 'I' or 'J' or 'K' or 'L'");
                 break;
         }
 
@@ -408,7 +405,7 @@ public class GameEngine {
     }
 
     private void jaffaMove(String element) {
-        Dir JaffaMoveDir;
+        Dir JaffaMoveDir = null;
         element = element.toUpperCase();
         switch (element){
             case "A":
@@ -424,8 +421,7 @@ public class GameEngine {
                 JaffaMoveDir = Dir.Down;
                 break;
             default:
-                System.out.println("Incorrect direction parameter. Dir returned as null may cause problem");
-                JaffaMoveDir = null;
+                System.out.println("Incorrect direction parameter. Valid parameters are 'W' or 'A' or 'S' or 'D'");
                 break;
         }
 
@@ -491,10 +487,12 @@ public class GameEngine {
     }
 
     private void moveReplicator(Dir replicatorMoveDir) {
-        if (replicator.getDir().equals(replicatorMoveDir)) {
-            moveReplicatorTowardsHisActualDirIfNoBarrierAhead();
-        } else {
-            replicator.setDir(replicatorMoveDir);
+        if (replicatorMoveDir != null) {
+            if (replicator.getDir().equals(replicatorMoveDir)) {
+                moveReplicatorTowardsHisActualDirIfNoBarrierAhead();
+            } else {
+                replicator.setDir(replicatorMoveDir);
+            }
         }
     }
 
@@ -508,10 +506,12 @@ public class GameEngine {
     }
 
     private void movePlayer(Player player, Dir playerMoveDir) {
-        if (player.getDir().equals(playerMoveDir)) {
-            movePlayerTowardsHisActualDirIfNoBarrierAhead(player);
-        } else {
-            player.setDir(playerMoveDir);
+        if (playerMoveDir != null) {
+            if (player.getDir().equals(playerMoveDir)) {
+                movePlayerTowardsHisActualDirIfNoBarrierAhead(player);
+            } else {
+                player.setDir(playerMoveDir);
+            }
         }
     }
 
