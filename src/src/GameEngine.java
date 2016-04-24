@@ -746,14 +746,16 @@ public class GameEngine {
                     break;
 
                 case "N":
-                    Field maybeGap = oNeill.getNextField();
-                    //Kvazi-Ralepunk de a player fieldjet nem allitottuk at!
-                    maybeGap.onStep(oNeill);
-                    oNeill.dropBox();
-                    activeModules.checkBoxes();
-                    insertManyNewlines();
+                    if (oNeill.getBox() != null) {
+                        Field maybeGap = oNeill.getNextField();
+                        //Kvazi-Ralepunk de a player fieldjet nem allitottuk at!
+                        maybeGap.onStep(oNeill);
+                        oNeill.dropBox();
+                        activeModules.checkBoxes();
+                        insertManyNewlines();
 
-                    Animate();
+                        Animate();
+                    }
                     break;
 
 
