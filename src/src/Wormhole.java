@@ -34,6 +34,7 @@ public class Wormhole {
      */
     public boolean checkPass() {
 
+        //FIXME: biztos mindig jól setteljük be ezeket?
       if (color1Portal!=null && color2Portal != null)
           return true;
 
@@ -74,7 +75,8 @@ public class Wormhole {
     }
 
     public void listWormhole(int num){
-        System.out.println(num +". (" + color1Portal.getxPos() + ","+ color1Portal.yPos + ") " + color1Portal.getColor() + " (" + color2Portal.getxPos() + ","+ color2Portal.yPos + ") " + color2Portal.getColor());
+        System.out.println(num +"." + (color1Portal == null ? " null empty" : ("(" + color1Portal.getxPos() + "," + color1Portal.getyPos() + ") " + color1Portal.getColor().name())) +
+                (color2Portal == null ? " null empty" : ("(" + color2Portal.getxPos() + "," + color2Portal.getyPos() + ") "  + color2Portal.getColor().name())));
     }
 
     public String getDescription() {

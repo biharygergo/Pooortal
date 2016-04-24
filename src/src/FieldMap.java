@@ -66,7 +66,7 @@ public class FieldMap {
 
     public void listScalesDoors(){
         Field current = startField, first = startField; //current: actual field, first: first field of current row
-        int number = 0;
+        int number = 1;
 
         for (int i = 0; i < ySize; i++) {
 
@@ -86,7 +86,7 @@ public class FieldMap {
 
     public void listSpecialWalls(){
         Field current = startField, first = startField; //current: actual field, first: first field of current row
-        int number = 0;
+        int number = 1;
 
         for (int i = 0; i < ySize; i++) {
 

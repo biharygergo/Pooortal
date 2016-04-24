@@ -86,8 +86,8 @@ public class GameEngine {
                             case "Scale":
                                 current = new Scale();
                                 scales.add((Scale) current);
-                                ((Scale) current).setCurrentWeight(8); //TODO: ez sem az igazi
-                                break;
+                                ((Scale) current).setMinWeight(8); //TODO: ez sem az igazi
+                                break;                              //átírtam minWeight settelésre
                             case "Gap":
                                 current = new Gap();
                                 break;
@@ -175,7 +175,7 @@ public class GameEngine {
         } else if(currentRow == 3) {
             oNeill = new Player(fieldListInARow.get(3), Dir.Up, 5, Color.Blue);
         } else if (currentRow == 4) {
-            replicator = new Replicator(fieldListInARow.get(1), Dir.Down);
+            replicator = new Replicator(fieldListInARow.get(1), Dir.Up);
         }
     }
 
