@@ -35,7 +35,8 @@ public class Wall extends Field {
      * @param colonelHole The wormhole on the wall
      */
     public void onShoot(Bullet bullet, Wormhole colonelHole, Wormhole jaffaHole) {
-       bullet.setActive(false);
+
+        bullet.setActive(false);
     }
 
     /**

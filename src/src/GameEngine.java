@@ -2,10 +2,7 @@ package src;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * The engine of the game. Creeates the map with list of items, handles the player movement.
@@ -288,6 +285,9 @@ public class GameEngine {
                     case "showMap":
                         Animate();
                         break;
+                    case "updateBullets":
+                        updateBullets();
+                        break;
                     default:
                         System.out.println("Not a valid statement.");
                 }
@@ -323,6 +323,24 @@ public class GameEngine {
 
         moveReplicator(replicatorMoveDir);
         return;
+    }
+
+    private void updateBullets(){
+
+        List<Bullet> bullets = activeModules.getBullets();
+
+            for (Bullet bullet:bullets
+                    ) {
+                Field nextField = bullet.getNextField();
+                if(replicator.getField().equals(nextField)) {
+                    replicator.onShoot(bullet);
+                }
+                else {
+                    nextField.onShoot(bullet,oNeillHole,JaffaHole);
+                }
+            }
+
+        activeModules.checkBullets();
     }
 
     private void oNeillMove(String element) {
@@ -376,12 +394,16 @@ public class GameEngine {
     }
 
     private void oNeillShootBullet(String element) {
+        Bullet shot;
         switch (element){
             case "B":
-                oNeill.shootColor1();
+                shot = oNeill.shootColor1();
+                activeModules.addBullet(shot);
                 break;
             case "Y":
-                oNeill.shootColor2();
+               shot =  oNeill.shootColor2();
+                activeModules.addBullet(shot);
+
                 break;
             default:
                 System.out.println("Incorrect color parameter for oNeill. Valid parameters are 'B' or 'Y'");
@@ -390,12 +412,17 @@ public class GameEngine {
     }
 
     private void jaffaShootBullet(String element) {
+        Bullet shot;
         switch (element){
             case "R":
-                Jaffa.shootColor1();
+                shot = Jaffa.shootColor1();
+                activeModules.addBullet(shot);
+
                 break;
             case "G":
-                Jaffa.shootColor2();
+                shot = Jaffa.shootColor2();
+                activeModules.addBullet(shot);
+
                 break;
             default:
                 System.out.println("Incorrect color parameter for Jaffa. Valid parameters are 'R' or 'G'");

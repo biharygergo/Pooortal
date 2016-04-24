@@ -101,6 +101,15 @@ public class Modules {
         bullets.add(bullet);
     }
 
+
+    public void checkBullets(){
+        ArrayList<Bullet> newList = new ArrayList<Bullet>();
+        for (Bullet bullet: bullets){
+            if(bullet.isActive())
+                newList.add(bullet);
+        }
+        bullets=newList;
+    }
     /**
      * @param bullet The bullet to be removed
      */
