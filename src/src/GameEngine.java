@@ -780,6 +780,13 @@ public class GameEngine {
                     Animate();
                     break;
 
+                case "E":
+                    inGame = false;
+                    exit();
+                    break;
+
+                default:
+                    System.out.println("Not a valid statement.");
             }
         }
     }
