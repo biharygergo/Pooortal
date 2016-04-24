@@ -285,8 +285,10 @@ public class GameEngine {
                     case "showMap":
                         Animate();
                         break;
+                    //todo: document
                     case "updateBullets":
                         updateBullets();
+
                         break;
                     default:
                         System.out.println("Not a valid statement.");
