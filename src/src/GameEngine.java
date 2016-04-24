@@ -621,7 +621,7 @@ public class GameEngine {
         }
 
     private void isGameOver() {
-        if (activeModules.noMoreZPM()) {
+        if (activeModules.noMoreZPM() || !oNeill.isAlive() || !Jaffa.isAlive()) {
             System.out.println("1. True");
         }
         else {
