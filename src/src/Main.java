@@ -1,7 +1,7 @@
 package src;
 
 /**
- * Created by U539853 on 2016.04.23..
+ * The Main class
  */
 public class Main {
 

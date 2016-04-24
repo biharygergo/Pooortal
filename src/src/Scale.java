@@ -8,13 +8,6 @@ import java.util.*;
 public class Scale extends Field {
 
     /**
-     * Default constructor
-     */
-    public Scale() {
-        description = "Scale";
-    }
-
-    /**
      * The weight of the scale (True or False)
      */
     private boolean weight;
@@ -43,6 +36,13 @@ public class Scale extends Field {
      * The door which is connected to the scale
      */
     private Door door;
+
+    /**
+     * Default constructor
+     */
+    public Scale() {
+        description = "Scale";
+    }
 
     /**
      * @return The door which is connected to the scale

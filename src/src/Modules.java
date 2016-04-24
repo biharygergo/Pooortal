@@ -15,15 +15,15 @@ public class Modules {
     private ArrayList<Box> boxes = new ArrayList<>();
     private Field startField; //TODO: dokumentálni
 
-    public void setStartField(Field startField) {
-        this.startField = startField;
-    }
+    private int collectedZPMs=0;
 
     public Modules() {
 
     }
 
-    private int collectedZPMs=0;
+    public void setStartField(Field startField) {
+        this.startField = startField;
+    }
 
     /**
      * @param field The field we want to search for item
@@ -121,7 +121,7 @@ public class Modules {
      */
     public void checkBoxes(){
         ArrayList<Box> newList = new ArrayList<Box>();
-        for (Box box: boxes){
+        for (Box box: boxes) {
             if(box.isAlive())
                 newList.add(box);
         }
