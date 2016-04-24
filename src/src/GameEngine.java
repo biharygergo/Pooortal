@@ -501,25 +501,25 @@ public class GameEngine {
                 System.out.print("\t\t");
                 currentField = map.getFieldAtPos(i, j);
                 if(activeModules.findBox(currentField)!=null) {
-                    System.out.print("Box ");
+                    System.out.print(String.format("%15s","Box "));
                 }
                 else if (activeModules.findZPM(currentField)!=null) {
-                    System.out.print("ZPM ");
+                    System.out.print(String.format("%15s","ZPM "));
                 }
                 else if (oNeill.getField().equals(currentField)) {
                     if(oNeill.isAlive())
-                    System.out.print("Oneill ");
+                    System.out.print(String.format("%15s","Oneill "));
                 }
                 else if(Jaffa.getField().equals(currentField)) {
                     if(Jaffa.isAlive())
-                    System.out.print("Jaffa ");
+                    System.out.print(String.format("%15s","Jaffa "));
                 }
                 else if(replicator.getField().equals(currentField)) {
                     if(replicator.isAlive())
-                    System.out.print("Replicator ");
+                    System.out.print(String.format("%15s","Replicator "));
                 }
                 else{
-                    System.out.print(currentField.getDescription()+" ");
+                    System.out.print(String.format("%15s",currentField.getDescription()+" "));
                     }
                 }
 
