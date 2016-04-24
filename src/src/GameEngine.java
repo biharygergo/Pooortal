@@ -174,7 +174,7 @@ public class GameEngine {
 
     private void initiatePlayersAndReplicator(ArrayList<Field> fieldListInARow, int currentRow) {
         if (currentRow == 2) {
-            Jaffa = new Player(fieldListInARow.get(1), Dir.Up, 6, Color.Green);
+            Jaffa = new Player(fieldListInARow.get(1), Dir.Up, 6, Color.Red);
         } else if(currentRow == 3) {
             oNeill = new Player(fieldListInARow.get(3), Dir.Up, 5, Color.Blue);
         } else if (currentRow == 4) {

@@ -80,6 +80,9 @@ public class SpecialWall extends Wall {
         else {
 
            if(bulletColor == jaffaHole.primaryColor){
+               if(jaffaHole.getColor2()!=null && jaffaHole.getColor2().equals(this)) {
+                   jaffaHole.setColor2(null);
+               }
                if(jaffaHole.getColor1()!=null){
                    jaffaHole.getColor1().color = Color.Empty;
                    jaffaHole.setColor1(this);
@@ -97,6 +100,9 @@ public class SpecialWall extends Wall {
            }
 
            if(bulletColor == jaffaHole.secondaryColor){
+               if(jaffaHole.getColor1()!=null && jaffaHole.getColor1().equals(this)) {
+                   jaffaHole.setColor1(null);
+               }
                if(jaffaHole.getColor2()!=null){
                    jaffaHole.getColor2().color = Color.Empty;
                    jaffaHole.setColor2(this);
