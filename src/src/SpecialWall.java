@@ -41,6 +41,9 @@ public class SpecialWall extends Wall {
         //Megnezzuk, hogy melyik lyukhoz tartozik!
        if(bulletColor==colonelHole.primaryColor || bulletColor == colonelHole.secondaryColor){
            if(bulletColor == colonelHole.primaryColor){
+               if(colonelHole.getColor2()!= null && colonelHole.getColor2().equals(this)){
+                   colonelHole.setColor2(null);
+               }
                if(colonelHole.getColor1()!=null){
                    colonelHole.getColor1().color = Color.Empty;
                    colonelHole.setColor1(this);
@@ -57,6 +60,9 @@ public class SpecialWall extends Wall {
            }
 
            if(bulletColor == colonelHole.secondaryColor){
+               if(colonelHole.getColor1()!= null && colonelHole.getColor1().equals(this)){
+                   colonelHole.setColor1(null);
+               }
                if(colonelHole.getColor2()!=null){
                    colonelHole.getColor2().color = Color.Empty;
                    colonelHole.setColor2(this);
