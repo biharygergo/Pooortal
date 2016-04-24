@@ -44,10 +44,9 @@ public class GameEngine {
     }
 
     private void loadMap(String filename) {
-        Field startField;
         Field current = null;
         boolean startFieldSetted = false;
-        String cells[] = new String[10];
+        String cells[];
 
         Map<Dir, Field> sides = new HashMap<>();
         sides.put(Dir.Up, null);
