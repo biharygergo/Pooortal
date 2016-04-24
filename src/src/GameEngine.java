@@ -549,14 +549,16 @@ public class GameEngine {
                     continue;
                 }
                 else if(Jaffa.getField().equals(currentField)) {
-                    if(Jaffa.isAlive())
-                    System.out.print(String.format("%15s","Jaffa "));
-                    continue;
+                    if(Jaffa.isAlive()) {
+                        System.out.print(String.format("%15s", "Jaffa "));
+                        continue;
+                    }
                 }
-                else if(replicator.getField().equals(currentField)) {
-                    if(replicator.isAlive())
-                    System.out.print(String.format("%15s","Replicator "));
-                    continue;
+                else if(replicator.getField().equals(currentField) && replicator.isAlive()) {
+
+                        System.out.print(String.format("%15s", "Replicator "));
+                        continue;
+
                 }
 
                 else if(activeModules.findBox(currentField)!=null) {
