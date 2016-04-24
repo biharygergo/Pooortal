@@ -109,6 +109,36 @@ public class Modules {
        bullets.remove(bullet);
     }
 
+    /**
+     * Finds ZPM based on its location
+     * @param where location
+     * @return
+     */
+    public boolean ZPMisInList(Field where){
+        for (ZPM zpm:ZPMs
+             ) {
+
+            if(zpm.getField().equals(where))
+                return true;
+        }
+        return false;
+    }
+
+    /**
+     * Finds box based on location
+     * @param where location
+     * @return
+     */
+    public boolean BoxisInList(Field where){
+        for (Box box:boxes
+                ) {
+
+            if(box.getField().equals(where))
+                return true;
+        }
+        return false;
+    }
+
     /** Remove ZPM and add new ZPM if necessary
      * @param zpm The ZPM to be removed
      */
@@ -117,6 +147,13 @@ public class Modules {
 
         if((collectedZPMs%2)==0){
             Road newField =  zpm.getField().getRandomRoad(startField);
+
+
+            //Ha benne van vmelyik listában, akkor az nem lesz jó mező!
+            while(ZPMisInList(newField) || BoxisInList(newField)){
+                newField = zpm.getField().getRandomRoad(startField);
+            }
+
             ZPM newZPM = new ZPM(newField);
             ZPMs.add(newZPM);
 
