@@ -19,17 +19,15 @@ public class Gap extends Field {
      */
     public void onStep(Player player) {
 
-        if(player.getField()!=this){
+        if(player.getField() != this) {
             Box currentBox = player.getBox();
-            if(currentBox!=null)
+            if(currentBox != null)
                 currentBox.setAlive(false);
             //player.dropBox();
-
-            return;
         }
 
         //Ha nem alltunk rajta, akkor dobozt raktunk le, ha rajta allunk akkor bizony meghaltunk!
-            player.setAlive(false);
+        player.setAlive(false);
     }
 
     /**
