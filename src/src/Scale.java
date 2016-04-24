@@ -22,7 +22,7 @@ public class Scale extends Field {
     /**
      * Boxes currently stacked
      */
-    private List<Box> boxes;
+    private ArrayList<Box> boxes = new ArrayList<>();
 
     /**
      * The minimum weight the door will open to

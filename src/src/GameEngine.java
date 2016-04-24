@@ -192,10 +192,10 @@ public class GameEngine {
             line = scan.nextLine();
             elements = line.split(" ");
 
-           try {
+           //try {
                 switch (elements[0]) {
                     case "loadMap":
-                        elements[1] = "src/map.csv"; //TODO: ez majd kiszedhető, csak akkor nem kell mindig beírni
+                        //elements[1] = "src/map.csv"; //TODO: ez majd kiszedhető, csak akkor nem kell mindig beírni
                         loadMap("src/map.csv"); //Todo: mi lenne ha mégsem kéne beírni a filenevet? úgysem változik soha
                         break;
 
@@ -292,9 +292,9 @@ public class GameEngine {
                         System.out.println("Not a valid statement.");
                 }
                 System.out.println();
-            }catch (Exception e){
-                System.out.println("Error in statement: " + e.toString());
-            }
+            //}catch (Exception e){
+             //   System.out.println("Error in statement: " + e.toString());
+            //}
 
         }
     }
