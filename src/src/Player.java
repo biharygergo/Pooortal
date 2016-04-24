@@ -70,9 +70,10 @@ public class Player {
      */
     public Box dropBox() {
       box.setField(this.getNextField());
-        Box returnvalue = box;
-      box=null;
-        return returnvalue;
+      Box returnvalue = box;
+      weight -= box.getWeight();
+      box = null;
+      return returnvalue;
     }
 
     /**
