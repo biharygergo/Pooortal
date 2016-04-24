@@ -7,7 +7,6 @@ public class Box extends Item {
 
     private int weight;
     private boolean alive;
-    private Dir dir;
 
     public Box(Field f, int w) {
         field = f;
@@ -33,7 +32,6 @@ public class Box extends Item {
 
         player.setBox(this);
         this.field = player.getField();
-        dir = player.getDir();
 
         //Hozzaadjuk a player sulyahoz a box sulyat?
         player.weight+=this.weight;
