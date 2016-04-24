@@ -31,7 +31,6 @@ public class Modules {
      */
     public Item searchModule(Field field) {
 
-        //TODO ZPM ujralerakasa a removeZPM-ben!
         for (ZPM zpm : ZPMs) {
             if (zpm.getField().equals(field)) {
                 removeZPM(zpm);

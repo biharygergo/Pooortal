@@ -25,7 +25,6 @@ public class FieldMap {
      * @param string the path to the file which describes the map
      */
     public void create(String string) {
-     //TODO rekurziv letrehozo algoritmust írni! Beallitani elkeszules utan egy startfieldet!
     }
 
     /**

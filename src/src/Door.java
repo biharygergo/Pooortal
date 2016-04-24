@@ -44,7 +44,6 @@ public class Door extends Field {
      * @param player the player stepped on the door
      */
     public void onStep(Player player) {
-//TODO doksiba írni: uj változó doorblocking? private mondjuk de a fv public!
         playerBlockingDoor=true;
       //GameEngine beallitja hogy mi legyen, itt ez sima Road-kent funkcional!
     }

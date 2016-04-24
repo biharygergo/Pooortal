@@ -49,7 +49,6 @@ public abstract class Field {
 
     //TODO: insert into document
     public Field getSide(Dir dir){
-        //TODO így kell ezt címezni? nem sides[dir]? - maró: így
         return sides.get(dir);
 
     }
@@ -103,7 +102,6 @@ public abstract class Field {
     }
 
    /* public Road getRandomRoad(Field startHere, List<Box> boxes, List<ZPM> zpms){
-        //TODO rekurziv algoritmust írni, ami megkeres egy utat!
 
         Road foundGoodRoad = null;
         boolean noMoreFields;
