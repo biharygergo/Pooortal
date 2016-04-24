@@ -784,6 +784,7 @@ public class GameEngine {
 
                 case "E":
                     inGame = false;
+                    System.out.println("Interactive game mode exited.");
                     break;
 
                 default:
