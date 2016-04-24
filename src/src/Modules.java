@@ -13,7 +13,7 @@ public class Modules {
     private ArrayList<Bullet> bullets = new ArrayList<>();
     private ArrayList<ZPM> ZPMs = new ArrayList<>();
     private ArrayList<Box> boxes = new ArrayList<>();
-    private Field startField; //TODO: dokumentálni
+    private Field startField;
 
     private int collectedZPMs=0;
 
