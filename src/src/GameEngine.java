@@ -196,7 +196,7 @@ public class GameEngine {
                 switch (elements[0]) {
                     case "loadMap":
                         elements[1] = "src/map.csv"; //TODO: ez majd kiszedhető, csak akkor nem kell mindig beírni
-                        loadMap(elements[1]);
+                        loadMap("src/map.csv"); //Todo: mi lenne ha mégsem kéne beírni a filenevet? úgysem változik soha
                         break;
 
                     case "replicatorMove":
@@ -285,7 +285,7 @@ public class GameEngine {
                         exit();
                         break;
 
-                    case "ShowMap":
+                    case "showMap":
                         Animate();
                         break;
                     default:
@@ -498,6 +498,7 @@ public class GameEngine {
 
         for(int i = 1; i<=maxheight; i++){
             for ( int j = 1 ; j<=maxwidth; j++){
+                System.out.print("\t\t");
                 currentField = map.getFieldAtPos(i, j);
                 if(activeModules.findBox(currentField)!=null) {
                     System.out.print("Box ");
