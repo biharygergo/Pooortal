@@ -35,7 +35,7 @@ public class GameEngine {
      */
     public boolean endGame() {
         // TODO implement here
-        if(oNeill!=null || Jaffa!=null) {
+        if(oNeill!=null && Jaffa!=null) {
             if (!oNeill.isAlive() || !Jaffa.isAlive() || activeModules.noMoreZPM()) {
                 return true;
             }
