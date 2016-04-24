@@ -6,7 +6,6 @@ package src;
 public class Door extends Field {
 
     private Scale scale;
-    //TODO ez minek? használjuk valamire?
     private boolean playerBlockingDoor;
 
     /**

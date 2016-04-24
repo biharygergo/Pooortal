@@ -30,7 +30,7 @@ public class Scale extends Field {
     /**
      * The player that is currently standing on the Scale
      */
-    public Player playerOnScale;
+    private Player playerOnScale;
 
     /**
      * The door which is connected to the scale
@@ -62,7 +62,6 @@ public class Scale extends Field {
      * @return Whether there is weight on the scale or not
      */
     public boolean getWeight() {
-
         return weight;
     }
 
@@ -71,7 +70,6 @@ public class Scale extends Field {
      */
     public void setWeight(boolean weight) {
        this.weight = weight;
-
     }
 
     /**
