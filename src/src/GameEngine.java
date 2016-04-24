@@ -202,23 +202,44 @@ public class GameEngine {
                         break;
 
                     case "replicatorMove":
-                        replicatorMove(elements[1]);
+                        if(elements.length==1) {
+                            System.out.println("Missing second parameter!");
+                        }
+                        else
+                            replicatorMove(elements[1]);
                         break;
 
                     case "oNeilMove":
-                        oNeillMove(elements[1]);
+                        if(elements.length==1) {
+                            System.out.println("Missing second parameter!");
+                        }
+                        else {
+                            oNeillMove(elements[1]);
+                        }
                         break;
 
                     case "jaffaMove":
-                        jaffaMove(elements[1]);
+                        if(elements.length==1) {
+                            System.out.println("Missing second parameter!");
+                        }
+                        else
+                            jaffaMove(elements[1]);
                         break;
 
                     case "oNeilShootBullet":
-                        oNeillShootBullet(elements[1]);
+                        if(elements.length==1) {
+                            System.out.println("Missing second parameter!");
+                        }
+                        else
+                            oNeillShootBullet(elements[1]);
                         break;
 
                     case "JaffaShootBullet":
-                        jaffaShootBullet(elements[1]);
+                        if(elements.length==1) {
+                            System.out.println("Missing second parameter!");
+                        }
+                        else
+                            jaffaShootBullet(elements[1]);
                         break;
 
                     case "oNeilDropBox":
