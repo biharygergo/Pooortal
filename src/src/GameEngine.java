@@ -27,7 +27,6 @@ public class GameEngine {
      */
     public void start() {
         //loadMap("src/map.csv");
-        //TODO ez egyelőre nem kell, mert a loadmap egy parancs most a protóban
         run();
     }
 
@@ -174,7 +173,6 @@ public class GameEngine {
     }
 
     private void initiatePlayersAndReplicator(ArrayList<Field> fieldListInARow, int currentRow) {
-        //TODO: rendes programban is valami fix helyre kéne tenni, de map függő, hogy hova!
         if (currentRow == 2) {
             Jaffa = new Player(fieldListInARow.get(1), Dir.Up, 6, Color.Green);
         } else if(currentRow == 3) {
@@ -557,11 +555,7 @@ public class GameEngine {
             }
         }
 
-
-            return nextFieldHasActiveBox;
-
-        //FIXME: Elég lenne ez, mert úgyis fixen előbb vesszük ki a dobozt a listából, mint hogy ez lefut? Egyelőre sztem maradjon.
-        //return (activeModules.searchModule(nextField) instanceof Box) ? true : false;
+        return nextFieldHasActiveBox;
     }
 
     private void setBoxForPlayer(Player player) {
