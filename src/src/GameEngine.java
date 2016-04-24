@@ -484,10 +484,12 @@ public class GameEngine {
     private void setBoxForPlayer(Player player) {
         Field nextField = player.getNextField();
 
-        if (player.getBox() == null && nextFieldHasActiveBox(nextField)) {
-            player.setBox((Box) activeModules.searchModule(nextField));
-        }
 
+        if (player.getBox() == null && nextFieldHasActiveBox(nextField)) {
+            Box steppedOn = (Box) activeModules.searchModule(nextField);
+            steppedOn.onUse(player);
+
+        }
 
     }
 
@@ -500,15 +502,8 @@ public class GameEngine {
             for ( int j = 1 ; j<=maxwidth; j++){
                 System.out.print("\t\t");
                 currentField = map.getFieldAtPos(i, j);
-                if(activeModules.findBox(currentField)!=null) {
-                    System.out.print(String.format("%15s","Box "));
-                    continue;
-                }
-                else if (activeModules.findZPM(currentField)!=null) {
-                    System.out.print(String.format("%15s","ZPM "));
-                    continue;
-                }
-                else if (oNeill.getField().equals(currentField)) {
+
+                 if (oNeill.getField().equals(currentField)) {
                     if(oNeill.isAlive())
                     System.out.print(String.format("%15s","Oneill "));
                     continue;
@@ -521,6 +516,15 @@ public class GameEngine {
                 else if(replicator.getField().equals(currentField)) {
                     if(replicator.isAlive())
                     System.out.print(String.format("%15s","Replicator "));
+                    continue;
+                }
+
+                else if(activeModules.findBox(currentField)!=null) {
+                    System.out.print(String.format("%15s","Box "));
+                    continue;
+                }
+                else if (activeModules.findZPM(currentField)!=null) {
+                    System.out.print(String.format("%15s","ZPM "));
                     continue;
                 }
                 else{
