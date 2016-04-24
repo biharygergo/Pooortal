@@ -8,17 +8,17 @@ public class FieldMap {
     private int xSize = 6, ySize = 6;
 
     /**
+     * The player is put on this field at the beginning
+     */
+    private Field startField;
+
+    /**
      * Default constructor
      *  calls the create function
      */
     public FieldMap() {
 
     }
-
-    /**
-     * The player is put on this field at the beginning
-     */
-    private Field startField;
 
     /**
      * Creates the map with fields and items and the player
@@ -31,7 +31,6 @@ public class FieldMap {
      * @return Returns the start field
      */
     public Field getstartField() {
-
         return startField;
     }
 

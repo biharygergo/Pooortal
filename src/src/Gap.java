@@ -1,7 +1,5 @@
 package src;
 
-import java.util.Map;
-
 /**
  * Represents the gap on the map
  */
@@ -18,7 +16,6 @@ public class Gap extends Field {
      * @param player the player who wants to step on the gap
      */
     public void onStep(Player player) {
-
         if(player.getField() != this) {
             Box currentBox = player.getBox();
             if(currentBox != null)
@@ -35,7 +32,6 @@ public class Gap extends Field {
      * @return Whether the gap is steppable or not
      */
     public boolean steppable() {
-
         //Ra lehet lepni! Ha replicator kicsereli, akkor ugysem ez hivodik meg.
         return true;
     }
@@ -49,7 +45,6 @@ public class Gap extends Field {
     public void onShoot(Bullet bullet, Wormhole colonelHole, Wormhole jaffaHole) {
        //Semmi sem történik, mehet tovább a golyó
         bullet.setField(this);
-
     }
 
     /**
@@ -57,7 +52,6 @@ public class Gap extends Field {
      * @param replicator this is the replicator
      */
     public void onReplicatorStep(Replicator replicator) {
-
         Road replace = new Road();
 
         this.getSide(Dir.Up).setSide(Dir.Down,replace);
@@ -66,10 +60,6 @@ public class Gap extends Field {
         this.getSide(Dir.Right).setSide(Dir.Left,replace);
 
         replace.setSides(sides);
-
         replicator.setAlive(false);
-
     }
-
-
 }

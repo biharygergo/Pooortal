@@ -1,11 +1,18 @@
 package src;
 
-import java.util.*;
-
 /**
  * Represents a door on a given field
  */
 public class Door extends Field {
+
+    //TODO Door kapott egy referenciát Scale-re!
+    private Scale scale;
+    private boolean playerBlockingDoor;
+
+    /**
+     * Status of the door
+     */
+    private boolean open;
 
     /**
      * Default constructor
@@ -15,19 +22,9 @@ public class Door extends Field {
     }
 
     /**
-     * Status of the door
-     */
-    private boolean open;
-
-    //TODO Door kapott egy referenciát Scale-re!
-    private Scale scale;
-
-    private boolean playerBlockingDoor;
-    /**
      * @return Returns true if the door is open, false otherwise
      */
     public boolean isOpen() {
-
         return open;
     }
 
@@ -36,7 +33,6 @@ public class Door extends Field {
      */
     public void setOpen(boolean open) {
         this.open=open;
-
     }
 
     /**
@@ -57,7 +53,6 @@ public class Door extends Field {
     }
 
     public void reCheckWeightAfterSteppingOff(){
-
         scale.reCheckWeights();
     }
     /**
@@ -71,8 +66,6 @@ public class Door extends Field {
      * @return Returns true if open, false otherwise
      */
     public boolean steppable() {
-
-
         return open;
     }
 
