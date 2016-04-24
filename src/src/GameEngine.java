@@ -253,13 +253,14 @@ public class GameEngine {
                         //Kvazi-Ralepunk de a player fieldjet nem allitottuk at!
                         maybeGap.onStep(oNeill);
                         oNeill.dropBox();
+                        activeModules.checkBoxes();
                         break;
 
                     case "jaffaDropBox":
                         Field maybeGapJaffa = Jaffa.getField();
                         maybeGapJaffa.onStep(Jaffa);
                         Jaffa.dropBox();
-
+                        activeModules.checkBoxes();
                         break;
 
                     case "oNeilSetBox":

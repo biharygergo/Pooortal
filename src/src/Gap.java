@@ -26,8 +26,9 @@ public class Gap extends Field {
             //player.dropBox();
         }
 
-        //Ha nem alltunk rajta, akkor dobozt raktunk le, ha rajta allunk akkor bizony meghaltunk!
-        player.setAlive(false);
+        else {//Ha nem alltunk rajta, akkor dobozt raktunk le, ha rajta allunk akkor bizony meghaltunk!
+            player.setAlive(false);
+        }
     }
 
     /**

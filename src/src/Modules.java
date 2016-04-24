@@ -116,6 +116,15 @@ public class Modules {
         }
         bullets=newList;
     }
+
+    public void checkBoxes(){
+        ArrayList<Box> newList = new ArrayList<Box>();
+        for (Box box: boxes){
+            if(box.isAlive())
+                newList.add(box);
+        }
+        boxes=newList;
+    }
     /**
      * @param bullet The bullet to be removed
      */

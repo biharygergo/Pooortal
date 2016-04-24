@@ -149,6 +149,9 @@ public class SpecialWall extends Wall {
                 player.setField(wormHole.getColor1());
             }
         }
+        else{
+            player.dropBoxAllowed=false;
+        }
     }
 
     /**

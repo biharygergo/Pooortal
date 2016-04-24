@@ -38,6 +38,7 @@ public class Player {
 
     private boolean alive;
 
+    public boolean dropBoxAllowed = true;
     /**
      * The number of ZPMs the player has collected so far
      */
@@ -69,11 +70,18 @@ public class Player {
      * @return The box which the player has dropped
      */
     public Box dropBox() {
-      box.setField(this.getNextField());
-      Box returnvalue = box;
-      weight -= box.getWeight();
-      box = null;
-      return returnvalue;
+        if(dropBoxAllowed) {
+            box.setField(this.getNextField());
+            Box returnvalue = box;
+            weight -= box.getWeight();
+            box = null;
+            return returnvalue;
+
+        }
+        else{
+            dropBoxAllowed=true;
+            return null;
+        }
     }
 
     /**
