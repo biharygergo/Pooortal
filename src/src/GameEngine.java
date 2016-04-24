@@ -87,8 +87,8 @@ public class GameEngine {
                             case "Scale":
                                 current = new Scale();
                                 scales.add((Scale) current);
-                                ((Scale) current).setMinWeight(8); //TODO: ez sem az igazi
-                                break;                              //átírtam minWeight settelésre
+                                ((Scale) current).setMinWeight(8);
+                                break;
                             case "Gap":
                                 current = new Gap();
                                 break;
@@ -202,8 +202,8 @@ public class GameEngine {
             try {
                 switch (elements[0]) {
                     case "loadMap":
-                        //elements[1] = "src/map.csv"; //TODO: ez majd kiszedhető, csak akkor nem kell mindig beírni
-                        loadMap("src/map.csv"); //Todo: mi lenne ha mégsem kéne beírni a filenevet? úgysem változik soha
+                        //elements[1] = "src/map.csv"; //Nem kell paraméter a loadMap parancshoz!
+                        loadMap("src/map.csv");
                         break;
 
                     case "replicatorMove":
@@ -310,7 +310,6 @@ public class GameEngine {
                         replicator.listReplicator(1);
                         break;
 
-                    //Todo: document: exittel lehet kilépni és kapunk egy ajándék verset
                     case "Exit":
                         inGame = false;
                         exit();
@@ -319,7 +318,7 @@ public class GameEngine {
                     case "showMap":
                         Animate();
                         break;
-                    //todo: document
+
                     case "updateBullets":
                         updateBullets();
                         break;
