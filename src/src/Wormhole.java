@@ -75,8 +75,8 @@ public class Wormhole {
     }
 
     public void listWormhole(int num){
-        System.out.println(num +"." + (color1Portal == null ? " null empty" : ("(" + color1Portal.getxPos() + "," + color1Portal.getyPos() + ") " + color1Portal.getColor().name())) +
-                (color2Portal == null ? " null empty" : ("(" + color2Portal.getxPos() + "," + color2Portal.getyPos() + ") "  + color2Portal.getColor().name())));
+        System.out.println(num +"." + (color1Portal == null ? " null Empty" : ("(" + color1Portal.getxPos() + "," + color1Portal.getyPos() + ") " + color1Portal.getColor().name())) +
+                (color2Portal == null ? " null Empty" : ("(" + color2Portal.getxPos() + "," + color2Portal.getyPos() + ") "  + color2Portal.getColor().name())));
     }
 
     public String getDescription() {
