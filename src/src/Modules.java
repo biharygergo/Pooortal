@@ -24,6 +24,7 @@ public class Modules {
     }
 
     private int collectedZPMs=0;
+
     /**
      * @param field The field we want to search for item
      * @return The item on the given field
@@ -32,22 +33,19 @@ public class Modules {
 
         //TODO ZPM ujralerakasa a removeZPM-ben!
         for (ZPM zpm : ZPMs) {
-
             if (zpm.getField().equals(field)) {
                 removeZPM(zpm);
                 return zpm;
             }
         }
 
-        for (Box box : boxes
-                ) {
+        for (Box box : boxes) {
             if (box.getField().equals(field)) {
                 return box;
             }
         }
 
         return null;
-
     }
 
     public boolean noMoreZPM(){
@@ -103,7 +101,6 @@ public class Modules {
      * @param bullet The bullet to be added
      */
     public void addBullet(Bullet bullet) {
-
         bullets.add(bullet);
     }
 
@@ -134,7 +131,6 @@ public class Modules {
      * @param bullet The bullet to be removed
      */
     public void removeBullet(Bullet bullet) {
-
        bullets.remove(bullet);
     }
 
@@ -144,9 +140,7 @@ public class Modules {
      * @return
      */
     public boolean ZPMisInList(Field where){
-        for (ZPM zpm:ZPMs
-             ) {
-
+        for (ZPM zpm:ZPMs) {
             if(zpm.getField().equals(where))
                 return true;
         }
@@ -159,9 +153,7 @@ public class Modules {
      * @return
      */
     public boolean BoxisInList(Field where){
-        for (Box box:boxes
-                ) {
-
+        for (Box box:boxes) {
             if(box.getField().equals(where))
                 return true;
         }
@@ -174,9 +166,7 @@ public class Modules {
      * @return
      */
     public ZPM findZPM(Field what){
-        for (ZPM zpm:ZPMs
-                ) {
-
+        for (ZPM zpm:ZPMs) {
             if(zpm.getField().equals(what))
                 return zpm;
         }
@@ -189,17 +179,12 @@ public class Modules {
      * @return
      */
     public Box findBox(Field where){
-        for (Box box:boxes
-                ) {
-
+        for (Box box:boxes) {
             if(box.getField().equals(where))
                 return box;
         }
         return null;
     }
-
-
-
 
     /** Remove ZPM and add new ZPM if necessary
      * @param zpm The ZPM to be removed

@@ -16,7 +16,6 @@ public class Road extends Field {
      * @param player the player who wants to step on it
      */
     public void onStep(Player player) {
-
         //GameEngine állitja be az új fieldet!
     }
 
@@ -24,7 +23,6 @@ public class Road extends Field {
      * @return The boolean whether the road is steppable or not
      */
     public boolean steppable() {
-
         return true;
     }
 
@@ -35,7 +33,6 @@ public class Road extends Field {
      * @param jaffaHole jaffahole
      */
     public void onShoot(Bullet bullet, Wormhole colonelHole, Wormhole jaffaHole) {
-
         bullet.setField(this);
     }
 
@@ -44,8 +41,6 @@ public class Road extends Field {
      * @param replicator this is the replicator
      */
     public void onReplicatorStep(Replicator replicator){
-
         replicator.setField(this);
     }
-
 }

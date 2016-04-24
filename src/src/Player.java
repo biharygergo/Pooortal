@@ -3,24 +3,12 @@ package src;
 import java.util.Scanner;
 
 /**
- * Represents the player on the map
+ * Represents a player on the map
  */
 public class Player {
 
-    /**
-     * Default constructor
-     */
-    public Player(){
-        field=new Road();
-    }
-
-    public Player(Field field, Dir dir, int weight, Color primaryColor) {
-        this.field = field;
-        this.dir = dir;
-        this.weight = weight;
-        this.primaryColor = primaryColor;
-        this.alive = true;
-    }
+    public boolean dropBoxAllowed = true;
+    public Door onThisDoor;
 
     /**
      * The field which the player currently stands on
@@ -35,10 +23,8 @@ public class Player {
     /**
      * Is the player alive or dead?
      */
-
     private boolean alive;
 
-    public boolean dropBoxAllowed = true;
     /**
      * The number of ZPMs the player has collected so far
      */
@@ -64,7 +50,20 @@ public class Player {
      */
     public Scale onThisScale;
 
-    public Door onThisDoor;
+    /**
+     * Default constructor
+     */
+    public Player(){
+        field=new Road();
+    }
+
+    public Player(Field field, Dir dir, int weight, Color primaryColor) {
+        this.field = field;
+        this.dir = dir;
+        this.weight = weight;
+        this.primaryColor = primaryColor;
+        this.alive = true;
+    }
 
     /**
      * @return The box which the player has dropped
@@ -76,7 +75,6 @@ public class Player {
             weight -= box.getWeight();
             box = null;
             return returnvalue;
-
         }
         else{
             dropBoxAllowed=true;
@@ -117,7 +115,6 @@ public class Player {
      * @return The field which the player currently stands on
      */
     public Field getField() {
-
         return field;
     }
 
@@ -156,7 +153,6 @@ public class Player {
      * @param dir The direction to be set for the player
      */
     public void setDir(Dir dir) {
-
       this.dir = dir;
     }
 
@@ -164,7 +160,6 @@ public class Player {
      * @return The box which the player has picked up
      */
     public Box getBox() {
-
         return box;
     }
 
