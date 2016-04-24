@@ -460,7 +460,7 @@ public class GameEngine {
     private void moveReplicatorTowardsHisActualDirIfNoBarrierAhead() {
         Field nextField = replicator.getNextField();
 
-        if (!isBarrierAhead(nextField)) {
+        if (!isBarrierAhead(nextField,null)) {
             replicator.setField(nextField);
         }
     }
@@ -476,23 +476,24 @@ public class GameEngine {
     private void movePlayerTowardsHisActualDirIfNoBarrierAhead(Player player) {
         Field nextField = player.getNextField();
 
-        if (!isBarrierAhead(nextField)) {
+        if (!isBarrierAhead(nextField, player)) {
+
             player.setField(nextField);
             nextField.onStep(player);
         }
     }
 
-    private boolean isBarrierAhead(Field nextField) {
+    private boolean isBarrierAhead(Field nextField, Player player) {
         boolean isBarrierAhead = false;
 
-        if (!nextField.steppable() || nextFieldHasActiveBox(nextField)) {  //FIXME: egyéb?
+        if (!nextField.steppable() || nextFieldHasActiveBox(nextField, player)) {  //FIXME: egyéb?
             isBarrierAhead = true;
         }
 
         return isBarrierAhead;
     }
 
-    private boolean nextFieldHasActiveBox(Field nextField) {
+    private boolean nextFieldHasActiveBox(Field nextField, Player player) {
         boolean nextFieldHasActiveBox = false;
 
         Item itemOnNextField = activeModules.searchModule(nextField);
@@ -501,8 +502,16 @@ public class GameEngine {
                 nextFieldHasActiveBox = true;
             }
         }
+        else if (itemOnNextField != null && itemOnNextField instanceof ZPM) {
+            if (player != null) {
+                player.collectedZPMs++;
+                if (activeModules.noMoreZPM())
+                    exit();
+            }
+        }
 
-        return nextFieldHasActiveBox;
+
+            return nextFieldHasActiveBox;
 
         //FIXME: Elég lenne ez, mert úgyis fixen előbb vesszük ki a dobozt a listából, mint hogy ez lefut? Egyelőre sztem maradjon.
         //return (activeModules.searchModule(nextField) instanceof Box) ? true : false;
@@ -512,7 +521,7 @@ public class GameEngine {
         Field nextField = player.getNextField();
 
 
-        if (player.getBox() == null && nextFieldHasActiveBox(nextField)) {
+        if (player.getBox() == null && nextFieldHasActiveBox(nextField,player)) {
             if(nextField instanceof Scale){
                 Scale scale = (Scale) nextField;
                 scale.removeBox((Box) activeModules.searchModule(nextField));

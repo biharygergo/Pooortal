@@ -50,6 +50,12 @@ public class Modules {
 
     }
 
+    public boolean noMoreZPM(){
+        if(ZPMs.size()==0)
+            return true;
+        return false;
+    }
+
     /**
      * @param filename String for initialization
      * @param startField The player starts from this field
