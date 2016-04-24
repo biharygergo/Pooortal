@@ -5,8 +5,8 @@ package src;
  */
 public class Door extends Field {
 
-    //TODO Door kapott egy referenciát Scale-re!
     private Scale scale;
+    //TODO ez minek? használjuk valamire?
     private boolean playerBlockingDoor;
 
     /**
