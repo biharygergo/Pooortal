@@ -5,13 +5,6 @@ package src;
  */
 public class Wormhole {
 
-    /**
-     * Default constructor
-     */
-    public Wormhole() {
-
-    }
-
     public Color primaryColor;
     public Color secondaryColor;
 
@@ -24,6 +17,13 @@ public class Wormhole {
      * This is the color2 portal
      */
     private SpecialWall color2Portal;
+
+    /**
+     * Default constructor
+     */
+    public Wormhole() {
+
+    }
 
     /**
      * Returns whether the wormhole is passable or not

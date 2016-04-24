@@ -6,14 +6,6 @@ package src;
 public class SpecialWall extends Wall {
 
     /**
-     * Default constructor
-     */
-    public SpecialWall() {
-        this.color = Color.Empty;
-        description = "SpecialWall";
-    }
-
-    /**
      * The color of the special wall when there is a portal on it
      */
     private Color color;
@@ -24,6 +16,14 @@ public class SpecialWall extends Wall {
     private Wormhole wormHole;
 
     /**
+     * Default constructor
+     */
+    public SpecialWall() {
+        this.color = Color.Empty;
+        description = "SpecialWall";
+    }
+
+    /**
      * What happens when the player shoots on the special wall
      * @param bullet The bullet which the player shoots on the special wall
      * @param colonelHole The wormhole on the special wall
@@ -31,7 +31,6 @@ public class SpecialWall extends Wall {
     public void onShoot(Bullet bullet, Wormhole colonelHole, Wormhole jaffaHole) {
 
         Color bulletColor = bullet.getColor();
-
         bullet.setActive(false);
 
         if(color == bulletColor)

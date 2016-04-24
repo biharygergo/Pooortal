@@ -6,17 +6,15 @@ package src;
 public abstract class Item {
 
     /**
-     * Default constructor
-     */
-    public Item() {
-      //  GameEngine.print("Item.() - new Item was created");
-
-    }
-
-    /**
      * The field which the item stands on
      */
     protected Field field;
+
+    /**
+     * Default constructor
+     */
+    public Item() {
+    }
 
     /**
      * @return The field which the item stands on
