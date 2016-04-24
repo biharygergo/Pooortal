@@ -5,18 +5,13 @@ package src;
  */
 public class Bullet{
 
-    /**
-     * Default constructor
-     */
-    public Bullet() {
-    }
+    public Color primaryColor;
 
     /**
      * Color of the bullet
      */
     private Color color;
 
-    public Color primaryColor;
     /**
      * Direction of the bullet
      */
@@ -33,10 +28,15 @@ public class Bullet{
     private boolean active;
 
     /**
+     * Default constructor
+     */
+    public Bullet() {
+    }
+
+    /**
      * @return Returns the color of the bullet
      */
     public Color getColor() {
-
         return color;
     }
 
@@ -45,14 +45,12 @@ public class Bullet{
      */
     public void setColor(Color color) {
       this.color=color;
-
     }
 
     /**
      * @return Returns the direction of the bullet
      */
     public Dir getDir() {
-
         return dir;
     }
 
@@ -61,7 +59,6 @@ public class Bullet{
      */
     public void setDir(Dir dir) {
        this.dir=dir;
-
     }
 
     /**
@@ -69,14 +66,12 @@ public class Bullet{
      */
     public void setField(Field field) {
         this.field=field;
-
     }
 
     /**
      * @return Returns the actual field of the bullet
      */
     public Field getField() {
-
         return field;
     }
 
@@ -84,7 +79,6 @@ public class Bullet{
      * @return true, if the bullet is active, otherwise false
      */
     public boolean isActive() {
-
         return active;
     }
 
@@ -93,7 +87,6 @@ public class Bullet{
      */
     public void setActive(boolean active) {
         this.active=active;
-
     }
 
     public Field getNextField(){

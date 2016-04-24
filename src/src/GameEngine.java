@@ -27,7 +27,6 @@ public class GameEngine {
      */
     public void start() {
         //loadMap("src/map.csv");
-        //TODO ez egyelőre nem kell, mert a loadmap egy parancs most a protóban
         run();
     }
 
@@ -88,8 +87,8 @@ public class GameEngine {
                             case "Scale":
                                 current = new Scale();
                                 scales.add((Scale) current);
-                                ((Scale) current).setMinWeight(8); //TODO: ez sem az igazi
-                                break;                              //átírtam minWeight settelésre
+                                ((Scale) current).setMinWeight(8);
+                                break;
                             case "Gap":
                                 current = new Gap();
                                 break;
@@ -174,7 +173,6 @@ public class GameEngine {
     }
 
     private void initiatePlayersAndReplicator(ArrayList<Field> fieldListInARow, int currentRow) {
-        //TODO: rendes programban is valami fix helyre kéne tenni, de map függő, hogy hova!
         if (currentRow == 2) {
             Jaffa = new Player(fieldListInARow.get(1), Dir.Up, 6, Color.Green);
         } else if(currentRow == 3) {
@@ -201,11 +199,11 @@ public class GameEngine {
             line = scan.nextLine();
             elements = line.split(" ");
 
-           //try {
+            try {
                 switch (elements[0]) {
                     case "loadMap":
-                        //elements[1] = "src/map.csv"; //TODO: ez majd kiszedhető, csak akkor nem kell mindig beírni
-                        loadMap("src/map.csv"); //Todo: mi lenne ha mégsem kéne beírni a filenevet? úgysem változik soha
+                        //elements[1] = "src/map.csv"; //Nem kell paraméter a loadMap parancshoz!
+                        loadMap("src/map.csv");
                         break;
 
                     case "replicatorMove":
@@ -250,11 +248,13 @@ public class GameEngine {
                         break;
 
                     case "oNeilDropBox":
-                        Field maybeGap = oNeill.getNextField();
-                        //Kvazi-Ralepunk de a player fieldjet nem allitottuk at!
-                        maybeGap.onStep(oNeill);
-                        oNeill.dropBox();
-                        activeModules.checkBoxes();
+                        if (oNeill.getBox() != null) {
+                            Field maybeGap = oNeill.getNextField();
+                            //Kvazi-Ralepunk de a player fieldjet nem allitottuk at!
+                            maybeGap.onStep(oNeill);
+                            oNeill.dropBox();
+                            activeModules.checkBoxes();
+                        }
                         break;
 
                     case "jaffaDropBox":
@@ -310,7 +310,6 @@ public class GameEngine {
                         replicator.listReplicator(1);
                         break;
 
-                    //Todo: document: exittel lehet kilépni és kapunk egy ajándék verset
                     case "Exit":
                         inGame = false;
                         exit();
@@ -319,7 +318,7 @@ public class GameEngine {
                     case "showMap":
                         Animate();
                         break;
-                    //todo: document
+
                     case "updateBullets":
                         updateBullets();
                         break;
@@ -336,9 +335,9 @@ public class GameEngine {
                         System.out.println("Not a valid statement.");
                 }
                 System.out.println();
-            //}catch (Exception e){
-             //   System.out.println("Error in statement: " + e.toString());
-            //}
+            }catch (Exception e){
+                System.out.println("Error in statement: " + e.toString());
+            }
 
         }
     }
@@ -555,11 +554,7 @@ public class GameEngine {
             }
         }
 
-
-            return nextFieldHasActiveBox;
-
-        //FIXME: Elég lenne ez, mert úgyis fixen előbb vesszük ki a dobozt a listából, mint hogy ez lefut? Egyelőre sztem maradjon.
-        //return (activeModules.searchModule(nextField) instanceof Box) ? true : false;
+        return nextFieldHasActiveBox;
     }
 
     private void setBoxForPlayer(Player player) {
@@ -655,6 +650,8 @@ public class GameEngine {
             line = scan.nextLine();
             elements =line.split( " ");
 
+            for (int i = 0; i<elements.length; i++)
+                elements[i] = elements[i].toUpperCase();
 
             //try {
             switch (elements[0]) {
@@ -748,14 +745,16 @@ public class GameEngine {
                     break;
 
                 case "N":
-                    Field maybeGap = oNeill.getNextField();
-                    //Kvazi-Ralepunk de a player fieldjet nem allitottuk at!
-                    maybeGap.onStep(oNeill);
-                    oNeill.dropBox();
-                    activeModules.checkBoxes();
-                    insertManyNewlines();
+                    if (oNeill.getBox() != null) {
+                        Field maybeGap = oNeill.getNextField();
+                        //Kvazi-Ralepunk de a player fieldjet nem allitottuk at!
+                        maybeGap.onStep(oNeill);
+                        oNeill.dropBox();
+                        activeModules.checkBoxes();
+                        insertManyNewlines();
 
-                    Animate();
+                        Animate();
+                    }
                     break;
 
 
@@ -783,6 +782,13 @@ public class GameEngine {
                     Animate();
                     break;
 
+                case "E":
+                    inGame = false;
+                    exit();
+                    break;
+
+                default:
+                    System.out.println("Not a valid statement.");
             }
         }
     }
