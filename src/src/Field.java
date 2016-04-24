@@ -100,44 +100,6 @@ public abstract class Field {
         return roads.get(Result);
     }
 
-   /* public Road getRandomRoad(Field startHere, List<Box> boxes, List<ZPM> zpms){
-
-        Road foundGoodRoad = null;
-        boolean noMoreFields;
-
-        Field topLeft = null;
-
-        Field currentField;
-
-        int maxwidth = 6;
-        int maxheight = 6;
-
-        int currentx = startHere.getxPos();
-        int currenty = startHere.getyPos();
-
-        //Elvileg ezekkel a bal felső sarkot kellene megkapnunk
-        for(int i=0; i<currentx; i++){
-            if(i==0)
-                topLeft=startHere;
-            else {
-                topLeft = topLeft.getSide(Dir.Left);
-            }
-        }
-
-        for(int j = currenty; j<maxheight; j++){
-            topLeft = topLeft.getSide(Dir.Up);
-        }
-
-        currentField = topLeft;
-
-        for ( int row = 0; row < maxheight; row++){
-            for(int column = 0; column<maxwidth; column++){
-                
-            }
-        }
-        return null;
-    }*/
-
     public void listField(int num){
         System.out.println(num +". (" + xPos + ","+ yPos + ") " + description);
     }

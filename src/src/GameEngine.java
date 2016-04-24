@@ -163,7 +163,6 @@ public class GameEngine {
             e.printStackTrace();
         }
 
-        //Todo: ezt is ki lehetne valahogy írni file-ba. Kérdés hogy érdemes e, mert túl sok ajtó amúgy sincs a pályán
         int i = 0;
         for (Scale scale : scales){
             scale.setDoor(doors.get(i));
