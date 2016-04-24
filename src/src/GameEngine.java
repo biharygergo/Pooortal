@@ -193,7 +193,7 @@ public class GameEngine {
 
         while (inGame){
             endgame = endGame();
-            /*if(endgame){
+            /*if(endgame) {
                 inGame = false;
                 exit();
             }*/
