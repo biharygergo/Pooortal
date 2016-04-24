@@ -230,6 +230,11 @@ public class Modules {
         }
     }
 
+    public void clearAll(){
+        boxes.clear();
+        ZPMs.clear();
+        bullets.clear();
+    }
     /**
      * @param box The box to be removed
      */

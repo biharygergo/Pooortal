@@ -44,6 +44,7 @@ public class GameEngine {
     }
 
     private void loadMap(String filename) {
+        activeModules.clearAll();
         Field current = null;
         boolean startFieldSetted = false;
         String cells[];
