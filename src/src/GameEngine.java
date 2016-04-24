@@ -33,9 +33,14 @@ public class GameEngine {
     /**
      * Ends the game
      */
-    public void endGame() {
+    public boolean endGame() {
         // TODO implement here
-
+        if(oNeill!=null || Jaffa!=null) {
+            if (!oNeill.isAlive() || !Jaffa.isAlive() || activeModules.noMoreZPM()) {
+                return true;
+            }
+        }
+        return false;
     }
 
     private void loadMap(String filename) {
@@ -183,6 +188,7 @@ public class GameEngine {
 
     private void run(){
         boolean inGame = true;
+        boolean endgame;
 
         String line = "loadMap d";
         Scanner scan= new Scanner(System.in);
@@ -191,6 +197,11 @@ public class GameEngine {
         Field randomField = new Road(); //TODO: just for testing
 
         while (inGame){
+            endgame = endGame();
+            if(endgame){
+                inGame = false;
+                exit();
+            }
             line = scan.nextLine();
             elements = line.split(" ");
 
@@ -619,6 +630,7 @@ public class GameEngine {
             System.out.println("1. False");
         }
     }
+
 
 
 }
