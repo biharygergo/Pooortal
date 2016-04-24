@@ -5,8 +5,6 @@ package src;
  */
 public class Bullet{
 
-    public Color primaryColor;
-
     /**
      * Color of the bullet
      */
