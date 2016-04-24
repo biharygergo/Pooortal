@@ -1,9 +1,7 @@
 package src;
 
-import java.util.Scanner;
-
 /**
- * Created by katalinberes on 2016. 04. 22..
+ * Represents the replicator on the map
  */
 public class Replicator {
     /**
@@ -31,7 +29,6 @@ public class Replicator {
      * @return The field which the player currently stands on
      */
     public Field getField() {
-
         return field;
     }
 
@@ -39,7 +36,6 @@ public class Replicator {
      * @param field The field to be set for the replicator
      */
     public void setField(Field field) {
-
         this.field = field;
     }
 
@@ -47,7 +43,6 @@ public class Replicator {
      * @return The direction of the replicator
      */
     public Dir getDir() {
-
         return dir;
     }
 
@@ -55,26 +50,20 @@ public class Replicator {
      * @param dir The direction to be set for the replicator
      */
     public void setDir(Dir dir) {
-
         this.dir = dir;
-
     }
 
     /**
      * @return Whether the player is alive or not
      */
     public boolean isAlive() {
-
         return alive;
-
-
     }
 
     /**
      * @param alive Set if the replicator is alive or dead
      */
     public void setAlive(boolean alive) {
-
         this.alive = alive;
     }
 
@@ -82,11 +71,9 @@ public class Replicator {
      * @return The next field
      */
     public Field getNextField() {
-
         Field nextField = field.getSide(dir);
 
         return nextField;
-
     }
 
     /**
@@ -94,10 +81,8 @@ public class Replicator {
      * @param bullet this is the killing bullet
      */
     public void onShoot(Bullet bullet){
-
         alive = false;
         bullet.setActive(false);
-
     }
 
     public void listReplicator(int num){

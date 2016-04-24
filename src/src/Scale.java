@@ -44,7 +44,6 @@ public class Scale extends Field {
      */
     private Door door;
 
-
     /**
      * @return The door which is connected to the scale
      */
@@ -136,12 +135,6 @@ public class Scale extends Field {
     public void onShoot(Bullet bullet, Wormhole colonelHole, Wormhole jaffaHole) {
        bullet.setField(this);
     }
-
-    /**
-     *
-     * @return
-     */
-
 
     /**
      *
