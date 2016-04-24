@@ -139,6 +139,34 @@ public class Modules {
         return false;
     }
 
+    public ZPM findZPM(Field what){
+        for (ZPM zpm:ZPMs
+                ) {
+
+            if(zpm.getField().equals(what))
+                return zpm;
+        }
+        return null;
+    }
+
+    /**
+     * Finds box based on location
+     * @param where location
+     * @return
+     */
+    public Box findBox(Field where){
+        for (Box box:boxes
+                ) {
+
+            if(box.getField().equals(where))
+                return box;
+        }
+        return null;
+    }
+
+
+
+
     /** Remove ZPM and add new ZPM if necessary
      * @param zpm The ZPM to be removed
      */

@@ -285,6 +285,9 @@ public class GameEngine {
                         exit();
                         break;
 
+                    case "ShowMap":
+                        Animate();
+                        break;
                     default:
                         System.out.println("Not a valid statement.");
                 }
@@ -484,6 +487,44 @@ public class GameEngine {
         if (player.getBox() == null && nextFieldHasActiveBox(nextField)) {
             player.setBox((Box) activeModules.searchModule(nextField));
         }
+
+
     }
+
+    private void Animate(){
+        Field currentField;
+        int maxwidth = 6;
+        int maxheight = 6;
+
+        for(int i = 1; i<=maxheight; i++){
+            for ( int j = 1 ; j<=maxwidth; j++){
+                currentField = map.getFieldAtPos(i, j);
+                if(activeModules.findBox(currentField)!=null) {
+                    System.out.print("Box ");
+                }
+                else if (activeModules.findZPM(currentField)!=null) {
+                    System.out.print("ZPM ");
+                }
+                else if (oNeill.getField().equals(currentField)) {
+                    if(oNeill.isAlive())
+                    System.out.print("Oneill ");
+                }
+                else if(Jaffa.getField().equals(currentField)) {
+                    if(Jaffa.isAlive())
+                    System.out.print("Jaffa ");
+                }
+                else if(replicator.getField().equals(currentField)) {
+                    if(replicator.isAlive())
+                    System.out.print("Replicator ");
+                }
+                else{
+                    System.out.print(currentField.getDescription()+" ");
+                    }
+                }
+
+            System.out.print("\n");
+            }
+        }
+
 
 }
