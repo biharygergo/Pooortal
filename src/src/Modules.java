@@ -200,8 +200,9 @@ public class Modules {
 
             ZPM newZPM = new ZPM(newField);*/
 
-            //ZPM newZPM = new ZPM(); // TODO törölni ezt a sort, csak proto miatt kell...
-            //ZPMs.add(newZPM);
+            Field newField = startField.getFixRoad(); // TODO törölni ezt a sort, csak proto miatt kell...
+            ZPM newZPM = new ZPM(newField); // TODO ez is
+            ZPMs.add(newZPM);
 
             ZPMs.remove(zpm);
         }
