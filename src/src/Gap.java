@@ -25,6 +25,8 @@ public class Gap extends Field {
 
         else {//Ha nem alltunk rajta, akkor dobozt raktunk le, ha rajta allunk akkor bizony meghaltunk!
             player.setAlive(false);
+            if(player.getBox()!=null)
+                player.getBox().setAlive(false);
         }
     }
 

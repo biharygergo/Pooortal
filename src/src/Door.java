@@ -31,7 +31,11 @@ public class Door extends Field {
      * @param open Status of the door
      */
     public void setOpen(boolean open) {
-        this.open=open;
+        if(playerBlockingDoor)
+            this.open = true;
+        else {
+            this.open = open;
+        }
     }
 
     /**
@@ -40,6 +44,7 @@ public class Door extends Field {
      */
     public void onStep(Player player) {
         playerBlockingDoor=true;
+        player.onThisDoor = this;
       //GameEngine beallitja hogy mi legyen, itt ez sima Road-kent funkcional!
     }
 
