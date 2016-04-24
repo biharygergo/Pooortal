@@ -18,7 +18,6 @@ public class ZPM extends Item {
      */
     public void onUse(Player player) {
      //Itt nem történik semmi ha minden igaz
-
     }
 
     /**
@@ -30,7 +29,6 @@ public class ZPM extends Item {
        player.setField(this.field); //max ennyi
 
         //Itt még mi történik?
-
 
     }
 
@@ -49,5 +47,4 @@ public class ZPM extends Item {
     public void setField(Field field) {
        this.field = field;
     }
-
 }
