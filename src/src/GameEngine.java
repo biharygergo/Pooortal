@@ -649,6 +649,8 @@ public class GameEngine {
             line = scan.nextLine();
             elements =line.split( " ");
 
+            for (int i = 0; i<elements.length; i++)
+                elements[i] = elements[i].toUpperCase();
 
             //try {
             switch (elements[0]) {
