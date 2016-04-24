@@ -176,6 +176,6 @@ public abstract class Field {
     }
 
     public Field getFixRoad() {
-        return getFieldAtPos(4, 3);
+        return getFieldAtPos(4, 5);
     }
 }
