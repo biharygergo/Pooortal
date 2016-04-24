@@ -486,6 +486,10 @@ public class GameEngine {
 
 
         if (player.getBox() == null && nextFieldHasActiveBox(nextField)) {
+            if(nextField instanceof Scale){
+                Scale scale = (Scale) nextField;
+                scale.removeBox((Box) activeModules.searchModule(nextField));
+            }
             Box steppedOn = (Box) activeModules.searchModule(nextField);
             steppedOn.onUse(player);
 
