@@ -109,6 +109,13 @@ public class Scale extends Field {
             }
 
         }
+        else{
+            Box box = player.getBox();
+            boxes.add(box);
+            currentWeight+=box.getWeight();
+            if(currentWeight >=minWeight)
+                door.setOpen(true);
+        }
     }
 
     /**
