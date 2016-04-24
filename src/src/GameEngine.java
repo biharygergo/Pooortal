@@ -566,10 +566,12 @@ public class GameEngine {
                 Box removal = scale.getBoxOnTop();
 
                 scale.removeBox(removal);
+                removal.onUse(player);
             }
-            Box steppedOn = (Box) activeModules.searchModule(nextField);
-            steppedOn.onUse(player);
-
+            else {
+                Box steppedOn = (Box) activeModules.searchModule(nextField);
+                steppedOn.onUse(player);
+            }
         }
 
     }
