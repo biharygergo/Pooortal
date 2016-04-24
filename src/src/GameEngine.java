@@ -784,7 +784,6 @@ public class GameEngine {
 
                 case "E":
                     inGame = false;
-                    exit();
                     break;
 
                 default:
