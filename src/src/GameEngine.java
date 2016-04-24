@@ -327,6 +327,10 @@ public class GameEngine {
                         isGameOver();
                         break;
 
+                    case "playRealGame":
+                        playGame();
+                        break;
+
                     default:
                         System.out.println("Not a valid statement.");
                 }
@@ -577,6 +581,12 @@ public class GameEngine {
 
     }
 
+    private void insertManyNewlines(){
+        for(int i=0; i<40; i++){
+            System.out.println("");
+        }
+    }
+
     private void Animate(){
         Field currentField;
         int maxwidth = 6;
@@ -621,6 +631,156 @@ public class GameEngine {
         }
     }
 
+    private void playGame() {
+        boolean inGame = true;
+        boolean endgame;
+        insertManyNewlines();
+        Animate();
+        String line;
+        Scanner scan = new Scanner(System.in);
+        String elements[];
+        long lastUpdated = System.currentTimeMillis()/1000;
+        while (inGame) {
+            endgame = endGame();
+            if (endgame) {
+                inGame = false;
+                exit();
+            }
+            long currentTime = System.currentTimeMillis()/1000;
+            if(currentTime-lastUpdated>2)
+                updateBullets();
+            line = scan.nextLine();
+            elements = line.split(" ");
 
+            //try {
+            switch (elements[0]) {
+
+                case "I":
+
+                    oNeillMove("I");
+                    insertManyNewlines();
+                    Animate();
+                    break;
+                case "J":
+
+                    oNeillMove(elements[0]);
+                    insertManyNewlines();
+
+                    Animate();
+                    break;
+                case "K":
+
+                    oNeillMove(elements[0]);
+                    insertManyNewlines();
+
+                    Animate();
+                    break;
+                case "L":
+
+                    oNeillMove(elements[0]);
+                    insertManyNewlines();
+
+                    Animate();
+                    break;
+
+                case "A":
+
+                    jaffaMove(elements[0]);
+                    insertManyNewlines();
+
+                    Animate();
+                    break;
+                case "S":
+
+                    jaffaMove(elements[0]);
+                    insertManyNewlines();
+
+                    Animate();
+                    break;
+                case "D":
+
+                    jaffaMove(elements[0]);
+                    insertManyNewlines();
+
+                    Animate();
+                    break;
+                case "W":
+
+                    jaffaMove(elements[0]);
+                    insertManyNewlines();
+
+                    Animate();
+                    break;
+
+                case "U":
+
+                    oNeillShootBullet("B");
+                    insertManyNewlines();
+
+                    Animate();
+
+                    break;
+
+                case "O":
+
+                    oNeillShootBullet("Y");
+                    insertManyNewlines();
+
+                    Animate();
+                    break;
+                case "Q":
+
+                    jaffaShootBullet("R");
+                    insertManyNewlines();
+
+                    Animate();
+                    break;
+                case "R":
+
+                    jaffaShootBullet("G");
+                    insertManyNewlines();
+
+                    Animate();
+                    break;
+
+                case "N":
+                    Field maybeGap = oNeill.getNextField();
+                    //Kvazi-Ralepunk de a player fieldjet nem allitottuk at!
+                    maybeGap.onStep(oNeill);
+                    oNeill.dropBox();
+                    activeModules.checkBoxes();
+                    insertManyNewlines();
+
+                    Animate();
+                    break;
+
+
+                case "Y":
+                    Field maybeGapJaffa = Jaffa.getField();
+                    maybeGapJaffa.onStep(Jaffa);
+                    Jaffa.dropBox();
+                    activeModules.checkBoxes();
+                    insertManyNewlines();
+
+                    Animate();
+                    break;
+
+                case "M":
+                    setBoxForPlayer(oNeill);
+                    insertManyNewlines();
+
+                    Animate();
+                    break;
+
+                case "X":
+                    setBoxForPlayer(Jaffa);
+                    insertManyNewlines();
+
+                    Animate();
+                    break;
+
+            }
+        }
+    }
 
 }
