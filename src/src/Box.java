@@ -12,6 +12,7 @@ public class Box extends Item {
     public Box(Field f, int w) {
         field = f;
         weight = w;
+        alive = true;
     }
 
     public int getWeight() {
