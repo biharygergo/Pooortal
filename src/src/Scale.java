@@ -119,6 +119,9 @@ public class Scale extends Field {
         }
     }
 
+    public Box getBoxOnTop(){
+        return boxes.get(boxes.size()-1);
+    }
     public void removeBox(Box box){
         int boxweight = box.getWeight();
         currentWeight-=boxweight;
