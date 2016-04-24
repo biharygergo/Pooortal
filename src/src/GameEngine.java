@@ -198,10 +198,10 @@ public class GameEngine {
 
         while (inGame){
             endgame = endGame();
-            if(endgame){
+            /*if(endgame){
                 inGame = false;
                 exit();
-            }
+            }*/
             line = scan.nextLine();
             elements = line.split(" ");
 
