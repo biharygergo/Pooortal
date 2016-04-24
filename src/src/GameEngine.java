@@ -648,8 +648,10 @@ public class GameEngine {
                 exit();
             }
             long currentTime = System.currentTimeMillis()/1000;
-            if(currentTime-lastUpdated>2)
+            if(currentTime-lastUpdated>2) {
                 updateBullets();
+                moveReplicator(replicator.setNewRandomField());
+            }
             line = scan.nextLine();
             elements =line.split( " ");
 

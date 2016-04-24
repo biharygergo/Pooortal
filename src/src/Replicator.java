@@ -1,5 +1,7 @@
 package src;
 
+import java.util.Random;
+
 /**
  * Represents the replicator on the map
  */
@@ -46,6 +48,32 @@ public class Replicator {
         return dir;
     }
 
+    public Dir setNewRandomField(){
+        Random r = new Random();
+
+        int newDirInt = r.nextInt(4);
+        Dir newDir = Dir.Right;
+        switch (newDirInt){
+            case 0:
+                newDir = Dir.Up;
+                break;
+            case 1:
+                newDir = Dir.Down;
+                break;
+            case 2:
+                newDir = Dir.Left;
+                break;
+            case 3:
+                newDir = Dir.Right;
+                break;
+
+        }
+
+        this.dir = newDir;
+        return newDir;
+
+
+    }
     /**
      * @param dir The direction to be set for the replicator
      */
