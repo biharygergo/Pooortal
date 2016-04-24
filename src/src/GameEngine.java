@@ -310,7 +310,6 @@ public class GameEngine {
                         replicator.listReplicator(1);
                         break;
 
-                    //Todo: document: exittel lehet kilépni és kapunk egy ajándék verset
                     case "Exit":
                         inGame = false;
                         exit();
@@ -319,7 +318,7 @@ public class GameEngine {
                     case "showMap":
                         Animate();
                         break;
-                    //todo: document
+
                     case "updateBullets":
                         updateBullets();
                         break;
