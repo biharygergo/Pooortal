@@ -107,7 +107,9 @@ public class Modules {
         bullets.add(bullet);
     }
 
-
+    /**
+     * Checks bullet states and updates list
+     */
     public void checkBullets(){
         ArrayList<Bullet> newList = new ArrayList<Bullet>();
         for (Bullet bullet: bullets){
@@ -117,6 +119,9 @@ public class Modules {
         bullets=newList;
     }
 
+    /**
+     * Checks boxes and updates list
+     */
     public void checkBoxes(){
         ArrayList<Box> newList = new ArrayList<Box>();
         for (Box box: boxes){
@@ -163,6 +168,11 @@ public class Modules {
         return false;
     }
 
+    /**
+     * Finds given ZPM in list
+     * @param what this ZPM
+     * @return
+     */
     public ZPM findZPM(Field what){
         for (ZPM zpm:ZPMs
                 ) {
