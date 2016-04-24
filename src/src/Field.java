@@ -47,7 +47,6 @@ public abstract class Field {
         return sides;
     }
 
-    //TODO: insert into document
     public Field getSide(Dir dir){
         return sides.get(dir);
 

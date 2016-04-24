@@ -30,8 +30,6 @@ public class Wormhole {
      * @return The boolean which represents that the wormhole is passable or not
      */
     public boolean checkPass() {
-
-        //FIXME: biztos mindig jól setteljük be ezeket? Igen!
       if (color1Portal!=null && color2Portal != null)
           return true;
 
