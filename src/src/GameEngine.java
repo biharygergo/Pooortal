@@ -151,6 +151,11 @@ public class GameEngine {
                 }
 
            activeModules.initializeModules("src/modules.csv", map.getstartField());
+            JaffaHole.primaryColor=Color.Red;
+            JaffaHole.secondaryColor=Color.Red.next();
+
+            oNeillHole.primaryColor=Color.Blue;
+            oNeillHole.secondaryColor=Color.Yellow;
 
         } catch (IOException e) {
             e.printStackTrace();
