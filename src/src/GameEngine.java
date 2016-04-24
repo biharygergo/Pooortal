@@ -3,6 +3,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
+import java.util.concurrent.SynchronousQueue;
 
 /**
  * The engine of the game. Creeates the map with list of items, handles the player movement.
@@ -650,7 +651,8 @@ public class GameEngine {
             if(currentTime-lastUpdated>2)
                 updateBullets();
             line = scan.nextLine();
-            elements = line.split(" ");
+            elements =line.split( " ");
+
 
             //try {
             switch (elements[0]) {
