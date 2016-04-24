@@ -595,7 +595,7 @@ public class GameEngine {
             System.out.println("1. True");
         }
         else {
-            System.out.println("1. loadFalse");
+            System.out.println("1. False");
         }
     }
 
