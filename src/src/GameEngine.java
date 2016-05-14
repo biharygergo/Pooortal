@@ -327,6 +327,7 @@ public class GameEngine {
                         break;
 
                     case "playRealGame":
+                        View.initGui();
                         playGame();
                         break;
 
