@@ -45,8 +45,9 @@ public class View extends JFrame {
      */
     public View() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(100, 100, 670, 397);
+        setBounds(100, 100, 310, 350);
         contentPane = new JPanel();
+
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         setContentPane(contentPane);
         contentPane.setLayout(new BorderLayout(0, 0));
@@ -54,6 +55,8 @@ public class View extends JFrame {
         JPanel gamePanel = new JPanel();
         contentPane.add(gamePanel, BorderLayout.CENTER);
         gamePanel.setLayout(new GridLayout(6, 6, 0, 0));
+
+
 
         JLabel lblImage = new JLabel("Image11");
         gamePanel.add(lblImage);
@@ -236,7 +239,11 @@ public class View extends JFrame {
     }
 
     public void setFieldImage(Field field){
-
+        int y = field.getyPos();
+        int x = field.getxPos();
+        labels[y-1][x-1].setIcon(field.getImage());
+        labels[y-1][x-1].setText("");
+        contentPane.invalidate();
     }
 
     public void setBoxImage(Box box){

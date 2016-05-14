@@ -1,5 +1,6 @@
 package src;
 
+import javax.swing.*;
 import java.util.*;
 
 /**
@@ -117,6 +118,7 @@ public abstract class Field {
     }
 
     public void setPos(int xPos, int yPos) {
+
         this.xPos = xPos;
         this.yPos = yPos;
     }
@@ -136,4 +138,6 @@ public abstract class Field {
     public Field getFixRoad() {
         return getFieldAtPos(5, 4);
     }
+
+    public abstract Icon getImage();
 }

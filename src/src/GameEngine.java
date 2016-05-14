@@ -4,6 +4,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
 
+
+
 /**
  * The engine of the game. Creeates the map with list of items, handles the player movement.
  */
@@ -140,6 +142,9 @@ public class GameEngine {
                             first.get(i).setSide(Dir.Down, second.get(i));
                         }
                         second.get(i).setPos(currentRow+1, i+1);
+                        int test = currentRow+1;
+                        int test2 = i+1;
+                        System.out.println(test + " " + test2);
                         second.get(i).setSides(sides);
                     }
 
@@ -643,7 +648,9 @@ public class GameEngine {
                     System.out.print(String.format("%15s","ZPM "));
                 }
                 else{
-                    System.out.print(String.format("%15s",currentField.getDescription()+" "));
+                    System.out.print(String.
+                            format("%15s",currentField.getDescription()+" "));
+                     view.setFieldImage(currentField);
                     }
                 }
 

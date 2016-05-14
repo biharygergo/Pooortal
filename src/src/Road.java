@@ -1,5 +1,12 @@
 package src;
 
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+
 /**
  * Represents the road field, which is always steppable if nothing stands on it
  */
@@ -42,5 +49,22 @@ public class Road extends Field {
      */
     public void onReplicatorStep(Replicator replicator){
         replicator.setField(this);
+    }
+
+
+    public Icon getImage() {
+        String name = "road.png";
+        String path ="src/"+name;
+        File file = new File(path);
+        BufferedImage image = null;
+        try {
+            image = ImageIO.read(file);
+            Image dimg =image.getScaledInstance(50,50, Image.SCALE_SMOOTH);
+            return new ImageIcon(dimg);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

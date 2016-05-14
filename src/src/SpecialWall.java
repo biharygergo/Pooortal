@@ -1,5 +1,12 @@
 package src;
 
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+
 /**
  * Represents a special wall, which extends from the wall
  */
@@ -180,6 +187,39 @@ public class SpecialWall extends Wall {
 
     public void listSpecialWall(int num){
         System.out.println(num +". (" + xPos + ","+ yPos + ") " + color);
+    }
+
+    public Icon getImage() {
+        String Color = "";
+        switch (color){
+            case Blue:
+                Color = "blue";
+                break;
+            case Yellow:
+                Color = "yellow";
+                break;
+            case Green:
+                Color = "green";
+                break;
+            case Red:
+                Color = "red";
+                break;
+
+        }
+
+        String name = Color + "_sw.png";
+        String path ="src/"+name;
+        File file = new File(path);
+        BufferedImage image = null;
+        try {
+            image = ImageIO.read(file);
+            Image dimg =image.getScaledInstance(50,50, Image.SCALE_SMOOTH);
+            return new ImageIcon(dimg);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
 
