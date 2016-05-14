@@ -3,7 +3,6 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
-import java.util.concurrent.SynchronousQueue;
 
 /**
  * The engine of the game. Creeates the map with list of items, handles the player movement.
@@ -21,6 +20,8 @@ public class GameEngine {
     GameEngine() {
 
     }
+
+
 
     /**
      * Creeates the map and starts to run the program
@@ -327,7 +328,7 @@ public class GameEngine {
                         break;
 
                     case "playRealGame":
-                        View.initGui();
+                        //View.initGui(this);
                         playGame();
                         break;
 
@@ -611,7 +612,7 @@ public class GameEngine {
         }
     }
 
-    private void Animate(){
+    public void Animate(){
         Field currentField;
         int maxwidth = 6;
         int maxheight = 6;

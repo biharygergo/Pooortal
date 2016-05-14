@@ -7,13 +7,12 @@ import java.awt.event.KeyListener;
  * Created by Gergo on 14/05/16.
  */
 public class Controller implements KeyListener {
-    View ourView = View.getInstance();
     boolean endGame = false;
-    GameEngine engine;
-
+    GameEngine engine = null;
+    View ourView;
     float lastUpdated = 0;
     public void run(){
-        engine.loadMap("xy");
+        engine.loadMap("src/map.csv");
 
         while (!endGame) {
             endGame = engine.endGame();
@@ -28,8 +27,11 @@ public class Controller implements KeyListener {
         }
     }
 
-    public Controller() {
-        ourView.addKeyListener(this);
+    public Controller(GameEngine game) {
+        engine = game;
+        View.initGui(this);
+        //ourView = View.getInstance();
+       // ourView.addKeyListener(this);
     }
 
     @Override
@@ -46,8 +48,8 @@ public class Controller implements KeyListener {
         System.out.println(e.getKeyChar());
 
         char typed = e.getKeyChar();
-        String command = typed + "";
-        command.toUpperCase();
+        String command = typed+"";
+        command = command.toUpperCase();
 
         switch (command) {
 
@@ -59,7 +61,6 @@ public class Controller implements KeyListener {
             case "J":
 
                 engine.oNeillMove("J");
-
                 break;
             case "K":
 
