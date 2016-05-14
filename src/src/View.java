@@ -7,12 +7,10 @@ package src;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.GridLayout;
 import java.util.List;
-import javax.swing.JLabel;
 
 public class View extends JFrame {
 
@@ -61,7 +59,6 @@ public class View extends JFrame {
         gamePanel.add(lblImage);
         labels[0][0] = lblImage;
 
-
         //FIGYELEM!!! SZAMOZAS 0-tol indul es nem 1-tol mint a GameEngineben!!!
         JLabel lblImage_1 = new JLabel("Image12");
         gamePanel.add(lblImage_1);
@@ -98,6 +95,11 @@ public class View extends JFrame {
         JLabel lblImage_9 = new JLabel("Image14");
         gamePanel.add(lblImage_9);
         labels[3][1] = lblImage_9;
+
+
+//        JLayeredPane testPanel = new JLayeredPane();
+//        gamePanel.add(testPanel);
+//        labels[3][1] = testPanel;
 
         JLabel lblImage_10 = new JLabel("Image15");
         gamePanel.add(lblImage_10);
@@ -225,6 +227,29 @@ public class View extends JFrame {
         // TODO implement here
     }
 
+    public void setPlayerImage(Player player){
+        int y = player.getY();
+        int x = player.getX();
+        labels[player.getY()-1][player.getX()-1].setIcon(player.getImage());
+        labels[player.getY()-1][player.getX()-1].setText("");
+        contentPane.invalidate();
+    }
+
+    public void setFieldImage(Field field){
+
+    }
+
+    public void setBoxImage(Box box){
+
+    }
+
+    public void setZPMImage(ZPM zpm){
+
+    }
+
+    public void setReplicatorImage(Replicator replicator){
+
+    }
     /**
      * @param boxes
      * @return

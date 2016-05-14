@@ -1,5 +1,11 @@
 package src;
 
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.Scanner;
 
 /**
@@ -196,5 +202,34 @@ public class Player {
         System.out.println(num + ". " + playerName + " (" + field.getxPos() + "," + field.getyPos() + ") " + dir.name() +
                 (box == null ? " null " : ("(" + box.getField().getxPos() + "," + box.getField().getyPos() + ") ")) +
                 ((Boolean) alive).toString() + " " + collectedZPMs + " " + weight + " " + primaryColor);
+    }
+
+    public int getX(){
+        return field.getxPos();
+    }
+
+    public int getY(){
+        return field.getyPos();
+    }
+
+    public Icon getImage() {
+        String name;
+        if(primaryColor == Color.Blue)
+            name = "oneil.png";
+        else{
+            name = "jaffa.png";
+        }
+        String path ="src/"+name;
+        File file = new File(path);
+        BufferedImage image = null;
+        try {
+            image = ImageIO.read(file);
+            Image dimg =image.getScaledInstance(50,50, Image.SCALE_SMOOTH);
+            return new ImageIcon(dimg);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

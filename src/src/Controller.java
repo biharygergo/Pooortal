@@ -57,6 +57,7 @@ public class Controller implements KeyListener {
             case "I":
 
                 engine.oNeillMove("I");
+                engine.Animate();
                 break;
             case "J":
 

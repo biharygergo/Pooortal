@@ -616,6 +616,7 @@ public class GameEngine {
         Field currentField;
         int maxwidth = 6;
         int maxheight = 6;
+        View view = View.getInstance();
 
         for(int i = 1; i<=maxheight; i++){
             for ( int j = 1 ; j<=maxwidth; j++){
@@ -624,9 +625,11 @@ public class GameEngine {
 
                  if (oNeill.getField().equals(currentField) && oNeill.isAlive()) {
                     System.out.print(String.format("%15s","Oneill "+oNeill.getDir().toString().substring(0,1)));
+                     view.setPlayerImage(oNeill);
                 }
                 else if(Jaffa.getField().equals(currentField) && Jaffa.isAlive()) {
                      System.out.print(String.format("%15s", "Jaffa "+Jaffa.getDir().toString().substring(0,1)));
+                     view.setPlayerImage(Jaffa);
                 }
                 else if(replicator.getField().equals(currentField) && replicator.isAlive()) {
                      System.out.print(String.format("%15s", "Replicator "+replicator.getDir().toString().substring(0,1)));
