@@ -11,6 +11,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.GridLayout;
+import java.util.List;
 import javax.swing.JLabel;
 
 public class View extends JFrame {
@@ -209,6 +210,62 @@ public class View extends JFrame {
         JLabel lblInformation = new JLabel("Information:");
         infoPanel.add(lblInformation);
     }
+
+    /**
+     * @param player
+     */
+    public void notifyPlayerMoved(Player player) {
+        // TODO implement here
+    }
+
+    /**
+     * @param replicator
+     */
+    public void notifyReplicatorMoved(Replicator replicator) {
+        // TODO implement here
+    }
+
+    /**
+     * @param boxes
+     * @return
+     */
+    public void notifyBoxMoved(List<Box> boxes) {
+        // TODO implement here
+    }
+
+    /**
+     * @param ZPMs
+     * @return
+     */
+    public void notifyZpmMoved(List<ZPM> ZPMs) {
+        // TODO implement here
+    }
+
+    /**
+     * @param bullets
+     * @return
+     */
+    public void notifyBulletsMoved(List<Bullet> bullets) {
+        // TODO implement here
+    }
+
+    /**
+     * @param replicator
+     * @return
+     */
+    public void notifyReplicatorClosedGap(Replicator replicator) {
+        // TODO implement here
+    }
+
+    /**
+     * @param jaffaHole
+     * @param colonelHole
+     * @return
+     */
+    public void notifyWormholeStateChanged(Wormhole jaffaHole, Wormhole colonelHole) {
+        // TODO implement here
+    }
+
 
 }
 
