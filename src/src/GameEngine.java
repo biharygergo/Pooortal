@@ -170,6 +170,7 @@ public class GameEngine {
             doors.get(i).setScale(scale);
             i++;
         }
+
     }
 
     private void initiatePlayersAndReplicator(ArrayList<Field> fieldListInARow, int currentRow) {

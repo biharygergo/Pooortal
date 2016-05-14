@@ -13,7 +13,6 @@ public class Controller implements KeyListener {
     float lastUpdated = 0;
     public void run(){
         engine.loadMap("src/map.csv");
-
         while (!endGame) {
             endGame = engine.endGame();
             if (endGame) {
@@ -46,6 +45,7 @@ public class Controller implements KeyListener {
     @Override
     public void keyReleased(KeyEvent e) {
         System.out.println(e.getKeyChar());
+        engine.Animate();
 
         char typed = e.getKeyChar();
         String command = typed+"";
@@ -57,7 +57,6 @@ public class Controller implements KeyListener {
             case "I":
 
                 engine.oNeillMove("I");
-                engine.Animate();
                 break;
             case "J":
 
