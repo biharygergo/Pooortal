@@ -8,7 +8,7 @@ import java.awt.event.KeyListener;
  */
 public class Controller implements KeyListener {
     boolean endGame = false;
-    GameEngine engine = null;
+    static GameEngine engine = null;
     View ourView;
     float lastUpdated = 0;
     public void run(){
@@ -33,6 +33,9 @@ public class Controller implements KeyListener {
        // ourView.addKeyListener(this);
     }
 
+    public static void loadImages(){
+        engine.Animate();
+    }
     @Override
     public void keyTyped(KeyEvent e) {
     }

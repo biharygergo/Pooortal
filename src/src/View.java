@@ -28,7 +28,7 @@ public class View extends JFrame {
                      frame = new View();
 
                     frame.addKeyListener(controller);
-
+                    Controller.loadImages();
                     frame.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
