@@ -1,5 +1,12 @@
 package src;
 
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+
 /**
  * Represents a box on a given field
  */
@@ -67,5 +74,21 @@ public class Box extends Item {
 
     public void setAlive(boolean life){
         alive=life;
+    }
+
+    public Icon getImage() {
+        String name = "box.png";
+        String path ="src/"+name;
+        File file = new File(path);
+        BufferedImage image = null;
+        try {
+            image = ImageIO.read(file);
+            Image dimg =image.getScaledInstance(50,50, Image.SCALE_SMOOTH);
+            return new ImageIcon(dimg);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

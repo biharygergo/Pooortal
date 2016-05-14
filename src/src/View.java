@@ -242,20 +242,33 @@ public class View extends JFrame {
         int y = field.getyPos();
         int x = field.getxPos();
         labels[y-1][x-1].setIcon(field.getImage());
-        labels[y-1][x-1].setText("");
+       labels[y-1][x-1].setText("");
         contentPane.invalidate();
     }
 
     public void setBoxImage(Box box){
+        int y = box.getField().getyPos();
+        int x = box.getField().getxPos();
+        labels[y-1][x-1].setIcon(box.getImage());
+        labels[y-1][x-1].setText("");
+        contentPane.invalidate();
 
     }
 
     public void setZPMImage(ZPM zpm){
-
+        int y = zpm.getField().getyPos();
+        int x = zpm.getField().getxPos();
+        labels[y-1][x-1].setIcon(zpm.getImage());
+        labels[y-1][x-1].setText("");
+        contentPane.invalidate();
     }
 
     public void setReplicatorImage(Replicator replicator){
-
+        int y = replicator.getField().getyPos();
+        int x = replicator.getField().getxPos();
+        labels[y-1][x-1].setIcon(replicator.getImage());
+        labels[y-1][x-1].setText("");
+        contentPane.invalidate();
     }
     /**
      * @param boxes

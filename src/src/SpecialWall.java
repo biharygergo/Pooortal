@@ -204,6 +204,8 @@ public class SpecialWall extends Wall {
             case Red:
                 Color = "red";
                 break;
+            default:
+                Color = "none";
 
         }
 

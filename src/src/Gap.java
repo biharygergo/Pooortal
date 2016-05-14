@@ -63,6 +63,7 @@ public class Gap extends Field {
     public void onReplicatorStep(Replicator replicator) {
         Road replace = new Road();
 
+        replace.setPos(this.xPos, this.yPos);
         this.getSide(Dir.Up).setSide(Dir.Down,replace);
         this.getSide(Dir.Down).setSide(Dir.Up,replace);
         this.getSide(Dir.Left).setSide(Dir.Right,replace);

@@ -639,13 +639,16 @@ public class GameEngine {
                 }
                 else if(replicator.getField().equals(currentField) && replicator.isAlive()) {
                      System.out.print(String.format("%15s", "Replicator "+replicator.getDir().toString().substring(0,1)));
+                     view.setReplicatorImage(replicator);
                 }
 
                 else if(activeModules.findBox(currentField)!=null) {
                     System.out.print(String.format("%15s","Box "));
+                     view.setBoxImage(activeModules.findBox(currentField));
                 }
                 else if (activeModules.findZPM(currentField)!=null) {
                     System.out.print(String.format("%15s","ZPM "));
+                     view.setZPMImage(activeModules.findZPM(currentField));
                 }
                 else{
                     System.out.print(String.

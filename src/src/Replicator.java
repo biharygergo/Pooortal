@@ -1,5 +1,11 @@
 package src;
 
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.Random;
 
 /**
@@ -50,6 +56,7 @@ public class Replicator {
 
     public Dir setNewRandomField(){
         Random r = new Random();
+
 
         int newDirInt = r.nextInt(4);
         Dir newDir = Dir.Right;
@@ -115,5 +122,21 @@ public class Replicator {
 
     public void listReplicator(int num){
         System.out.println(num + "."  + " (" + field.getxPos() + "," + field.getyPos() + ") " + dir.name() + " " + ((Boolean) alive).toString());
+    }
+
+    public Icon getImage() {
+        String name = "replicator.png";
+        String path ="src/"+name;
+        File file = new File(path);
+        BufferedImage image = null;
+        try {
+            image = ImageIO.read(file);
+            Image dimg =image.getScaledInstance(50,50, Image.SCALE_SMOOTH);
+            return new ImageIcon(dimg);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
