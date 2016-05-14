@@ -33,7 +33,7 @@ public class GameEngine {
     /**
      * Ends the game
      */
-    private boolean endGame() {
+    public boolean endGame() {
         if(oNeill!=null && Jaffa!=null) {
             if (!oNeill.isAlive() || !Jaffa.isAlive() || activeModules.noMoreZPM()) {
                 return true;
@@ -42,7 +42,7 @@ public class GameEngine {
         return false;
     }
 
-    private void loadMap(String filename) {
+    public void loadMap(String filename) {
         activeModules.clearAll();
         Field current = null;
         boolean startFieldSetted = false;
@@ -342,7 +342,7 @@ public class GameEngine {
         }
     }
 
-    private void replicatorMove(String element) {
+    public void replicatorMove(String element) {
         Dir replicatorMoveDir = null;
         element = element.toUpperCase();
         switch (element){
@@ -366,7 +366,7 @@ public class GameEngine {
         moveReplicator(replicatorMoveDir);
     }
 
-    private void updateBullets(){
+    public void updateBullets(){
 
         List<Bullet> bullets = activeModules.getBullets();
 
@@ -384,7 +384,7 @@ public class GameEngine {
         activeModules.checkBullets();
     }
 
-    private void oNeillMove(String element) {
+    public void oNeillMove(String element) {
         Dir oNeillMoveDir = null;
         element = element.toUpperCase();
         switch (element){
@@ -408,7 +408,7 @@ public class GameEngine {
         movePlayer(oNeill, oNeillMoveDir);
     }
 
-    private void jaffaMove(String element) {
+    public void jaffaMove(String element) {
         Dir JaffaMoveDir = null;
         element = element.toUpperCase();
         switch (element){
@@ -432,7 +432,7 @@ public class GameEngine {
         movePlayer(Jaffa, JaffaMoveDir);
     }
 
-    private void oNeillShootBullet(String element) {
+    public void oNeillShootBullet(String element) {
         Bullet shot;
         element = element.toUpperCase();
         switch (element){
@@ -451,7 +451,7 @@ public class GameEngine {
         }
     }
 
-    private void jaffaShootBullet(String element) {
+    public void jaffaShootBullet(String element) {
         Bullet shot;
         element = element.toUpperCase();
         switch (element){
@@ -471,7 +471,35 @@ public class GameEngine {
         }
     }
 
-    private void exit() {
+    public void oNeilDropBox(){
+        if (oNeill.getBox() != null) {
+            Field maybeGap = oNeill.getNextField();
+            //Kvazi-Ralepunk de a player fieldjet nem allitottuk at!
+            maybeGap.onStep(oNeill);
+            oNeill.dropBox();
+            activeModules.checkBoxes();
+        }
+    }
+
+    public void oNeilGetBox(){
+        setBoxForPlayer(oNeill);
+
+    }
+
+    public void jaffaDropBox(){
+        if (Jaffa.getBox() != null) {
+
+            Field maybeGapJaffa = Jaffa.getField();
+            maybeGapJaffa.onStep(Jaffa);
+            Jaffa.dropBox();
+            activeModules.checkBoxes();
+        }
+    }
+
+    public void jaffaGetBox(){
+        setBoxForPlayer(Jaffa);
+    }
+    public void exit() {
         System.out.println("Megtiszteltetés volt, hogy velünk játszottál!\n" +
                 "Engedd meg, hogy Tóth Beáta Mária Viszlát! című versével búcsúzzunk és köszönjük meg az együtt töltött perceket:\n");
         System.out.println("Viszlát! Ha menned kell, menj! \n" +
@@ -490,7 +518,7 @@ public class GameEngine {
                 "Fáj, és már hiányzol!\n");
     }
 
-    private void moveReplicator(Dir replicatorMoveDir) {
+    public void moveReplicator(Dir replicatorMoveDir) {
         if (replicatorMoveDir != null) {
             if (replicator.getDir().equals(replicatorMoveDir)) {
                 moveReplicatorTowardsHisActualDirIfNoBarrierAhead();
@@ -627,6 +655,9 @@ public class GameEngine {
         }
     }
 
+    public void moveRandomReplicator(){
+        moveReplicator(replicator.setNewRandomField());
+    }
     private void playGame() {
         boolean inGame = true;
         boolean endgame;
