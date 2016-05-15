@@ -487,6 +487,9 @@ public class GameEngine {
             oNeill.dropBox();
             activeModules.checkBoxes();
         }
+
+        AnimateOneField(oNeill.getField());
+        AnimateOneField(oNeill.getNextField());
     }
 
     public void oNeilGetBox(){
@@ -502,11 +505,15 @@ public class GameEngine {
             Jaffa.dropBox();
             activeModules.checkBoxes();
         }
+        AnimateOneField(Jaffa.getField());
+        AnimateOneField(Jaffa.getNextField());
     }
 
     public void jaffaGetBox(){
         setBoxForPlayer(Jaffa);
     }
+
+
     public void exit() {
         System.out.println("Megtiszteltetés volt, hogy velünk játszottál!\n" +
                 "Engedd meg, hogy Tóth Beáta Mária Viszlát! című versével búcsúzzunk és köszönjük meg az együtt töltött perceket:\n");
@@ -615,6 +622,9 @@ public class GameEngine {
                 steppedOn.onUse(player);
             }
         }
+
+        AnimateOneField(nextField);
+        AnimateOneField(player.getField());
 
     }
 
