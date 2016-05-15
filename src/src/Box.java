@@ -14,6 +14,7 @@ public class Box extends Item {
 
     private int weight;
     private boolean alive;
+    private BufferedImage myImage;
 
     public Box(Field f, int w) {
         field = f;
@@ -82,9 +83,13 @@ public class Box extends Item {
         File file = new File(path);
         BufferedImage image = null;
         try {
+            if(myImage == null){
             image = ImageIO.read(file);
-            Image dimg =image.getScaledInstance(50,50, Image.SCALE_SMOOTH);
-            return image;
+            myImage = image;
+            return image;}
+            else{
+                return myImage;
+            }
 
         } catch (IOException e) {
             e.printStackTrace();

@@ -16,7 +16,7 @@ public class Wall extends Field {
      * Default constructor
      */
 
-    BufferedImage image;
+    BufferedImage myImage;
 
     public Wall() {
         description = "Wall";
@@ -62,9 +62,13 @@ public class Wall extends Field {
         File file = new File(path);
         BufferedImage image = null;
         try {
-            image = ImageIO.read(file);
-            Image dimg =image.getScaledInstance(50,50, Image.SCALE_SMOOTH);
-            return image;
+            if(myImage == null){
+                image = ImageIO.read(file);
+                myImage = image;
+                return image;}
+            else{
+                return myImage;
+            }
 
         } catch (IOException e) {
             e.printStackTrace();

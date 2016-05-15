@@ -622,7 +622,6 @@ public class GameEngine {
         int maxwidth = 6;
         int maxheight = 6;
         View view = View.getInstance();
-        view.Invalidate();
 
         for(int i = 1; i<=maxheight; i++){
             for ( int j = 1 ; j<=maxwidth; j++) {
@@ -676,7 +675,9 @@ public class GameEngine {
             }
            // System.out.print("\n");
             }
-        }
+        view.InvalidateMe();
+
+    }
 
     private void isGameOver() {
         if (activeModules.noMoreZPM() || !oNeill.isAlive() || !Jaffa.isAlive()) {

@@ -24,6 +24,7 @@ public class Controller implements KeyListener {
                 engine.updateBullets();
                 engine.moveRandomReplicator();
             }
+            lastUpdated = currentTime;
         }
     }
 
