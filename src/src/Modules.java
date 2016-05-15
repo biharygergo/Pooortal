@@ -217,19 +217,6 @@ public class Modules {
 
     //OLD
     public void removeZPMs(ZPM zpm) {
-       collectedZPMs++;
-
-        if((collectedZPMs%2) == 0){
-            Road newField =  zpm.getField().getRandomRoad(startField);
-
-            while(ZPMisInList(newField) || BoxisInList(newField)){
-                newField = zpm.getField().getRandomRoad(startField);
-            }
-
-            ZPM newZPM = new ZPM(newField);
-            ZPMs.add(newZPM);
-        }
-
         ZPMs.remove(zpm);
     }
 
