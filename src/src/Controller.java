@@ -147,7 +147,7 @@ public class Controller implements KeyListener {
         }
 
 
-            engine.Animate();
+            //engine.Animate();
 
     }
 }

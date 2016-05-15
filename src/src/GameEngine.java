@@ -412,6 +412,8 @@ public class GameEngine {
         }
 
         movePlayer(oNeill, oNeillMoveDir);
+
+
     }
 
     public void jaffaMove(String element) {
@@ -544,11 +546,16 @@ public class GameEngine {
     }
 
     private void movePlayer(Player player, Dir playerMoveDir) {
+
         if (playerMoveDir != null) {
             if (player.getDir().equals(playerMoveDir)) {
+                Field old = player.getField();
                 movePlayerTowardsHisActualDirIfNoBarrierAhead(player);
+                AnimateOneField(old);
+                AnimateOneField(player.getField());
             } else {
                 player.setDir(playerMoveDir);
+                AnimateOneField(player.getField());
             }
         }
     }
@@ -658,10 +665,11 @@ public class GameEngine {
     public void AnimateOneField(Field thisField) {
 
         View view = View.getInstance();
-        view.Invalidate();
+        //view.Invalidate();
 
                 // System.out.print("\t\t");
                 Field currentField = thisField;
+                view.invalidateField(thisField);
 
                 view.setFieldImage(currentField);
 
