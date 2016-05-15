@@ -21,7 +21,6 @@ public class View extends JFrame {
      * Launch the application.
      * @param controller
      */
-
     public static void initGui(Controller controller) {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -100,7 +99,7 @@ public class View extends JFrame {
         int y = field.getyPos();
         int x = field.getxPos();
         labels[y-1][x-1].setIcon(field.getImage());
-       labels[y-1][x-1].setText("");
+        labels[y-1][x-1].setText("");
         contentPane.invalidate();
     }
 
@@ -169,6 +168,12 @@ public class View extends JFrame {
         // TODO implement here
     }
 
+    /**
+     *
+     * @param image
+     * @param angle
+     * @return
+     */
     public static BufferedImage rotate(BufferedImage image, double angle) {
         double sin = Math.abs(Math.sin(angle)), cos = Math.abs(Math.cos(angle));
         int w = image.getWidth(), h = image.getHeight();
@@ -183,12 +188,21 @@ public class View extends JFrame {
         return result;
     }
 
+    /**
+     *
+     * @return
+     */
     private static GraphicsConfiguration getDefaultConfiguration() {
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
         GraphicsDevice gd = ge.getDefaultScreenDevice();
         return gd.getDefaultConfiguration();
     }
 
+    /**
+     *
+     * @param dir
+     * @return
+     */
     public static double getAngleFromDir(Dir dir){
         double degree;
         switch (dir){
