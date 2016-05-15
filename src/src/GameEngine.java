@@ -512,6 +512,7 @@ public class GameEngine {
     public void oNeilGetBox(){
         setBoxForPlayer(oNeill);
 
+
     }
 
     public void jaffaDropBox(){
@@ -650,7 +651,9 @@ public class GameEngine {
                 Box removal = scale.getBoxOnTop();
 
                 scale.removeBox(removal);
+
                 removal.onUse(player);
+                AnimateOneField(scale.getDoor());
             }
             else {
                 Box steppedOn = (Box) activeModules.searchModule(nextField);
