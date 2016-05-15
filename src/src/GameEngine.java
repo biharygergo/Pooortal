@@ -317,10 +317,12 @@ public class GameEngine {
     public void oNeilDropBox(){
         if (oNeill.getBox() != null) {
             Field maybeGap = oNeill.getNextField();
-            //Kvazi-Ralepunk de a player fieldjet nem allitottuk at!
-            maybeGap.onStep(oNeill);
-            oNeill.dropBox();
-            activeModules.checkBoxes();
+            if(maybeGap.steppable()) {
+                //Kvazi-Ralepunk de a player fieldjet nem allitottuk at!
+                maybeGap.onStep(oNeill);
+                oNeill.dropBox();
+                activeModules.checkBoxes();
+            }
         }
     }
 
