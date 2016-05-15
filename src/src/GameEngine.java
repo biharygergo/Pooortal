@@ -376,6 +376,7 @@ public class GameEngine {
 
         List<Bullet> bullets = activeModules.getBullets();
 
+
             for (Bullet bullet:bullets
                     ) {
                 Field nextField = bullet.getNextField();
@@ -389,6 +390,7 @@ public class GameEngine {
 
                 AnimateOneField(oldField);
                 AnimateOneField(nextField);
+
 
             }
 
