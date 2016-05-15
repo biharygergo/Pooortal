@@ -72,6 +72,7 @@ public class Gap extends Field {
 
         replace.setSides(sides);
         replicator.setAlive(false);
+        replicator.setField(replace);
     }
 
     public BufferedImage getImage() {
