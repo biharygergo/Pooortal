@@ -627,7 +627,6 @@ public class GameEngine {
             for ( int j = 1 ; j<=maxwidth; j++){
                 System.out.print("\t\t");
                 currentField = map.getFieldAtPos(i, j);
-
                  if (oNeill.getField().equals(currentField) && oNeill.isAlive()) {
                     System.out.print(String.format("%15s","Oneill "+oNeill.getDir().toString().substring(0,1)));
                      view.setPlayerImage(oNeill);

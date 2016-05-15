@@ -116,6 +116,10 @@ public class Door extends Field {
 
     public Icon getImage() {
         String name = "door_closed.png";
+
+        if(open)
+            name = "door_open.png";
+
         String path ="src/"+name;
         File file = new File(path);
         BufferedImage image = null;

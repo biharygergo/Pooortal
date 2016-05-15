@@ -4,12 +4,11 @@ package src;
  * Created by Gergo on 14/05/16.
  */
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
+import java.awt.*;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import java.awt.GridLayout;
+import java.awt.image.BufferedImage;
 import java.util.List;
 
 public class View extends JFrame {
@@ -311,6 +310,51 @@ public class View extends JFrame {
         // TODO implement here
     }
 
+    public static BufferedImage rotate(BufferedImage image, double angle) {
+        double sin = Math.abs(Math.sin(angle)), cos = Math.abs(Math.cos(angle));
+        int w = image.getWidth(), h = image.getHeight();
+        int neww = (int)Math.floor(w*cos+h*sin), newh = (int) Math.floor(h * cos + w * sin);
+        GraphicsConfiguration gc = getDefaultConfiguration();
+        BufferedImage result = gc.createCompatibleImage(neww, newh, Transparency.TRANSLUCENT);
+        Graphics2D g = result.createGraphics();
+        g.translate((neww - w) / 2, (newh - h) / 2);
+        g.rotate(angle, w / 2, h / 2);
+        g.drawRenderedImage(image, null);
+        g.dispose();
+        return result;
+    }
+
+    private static GraphicsConfiguration getDefaultConfiguration() {
+        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        GraphicsDevice gd = ge.getDefaultScreenDevice();
+        return gd.getDefaultConfiguration();
+    }
+
+    public static double getAngleFromDir(Dir dir){
+        double degree;
+        switch (dir){
+            case Up:
+                degree = 0;
+                break;
+
+            case Right:
+                degree = 90;
+                break;
+
+            case Down:
+                degree = 180;
+                break;
+
+            case Left:
+                degree = 270;
+                break;
+
+            default:
+                degree = 0;
+        }
+
+        return Math.toRadians(degree);
+    }
 
 }
 

@@ -211,6 +211,7 @@ public class Player {
         return field.getyPos();
     }
 
+
     public Icon getImage() {
         String name;
         if(primaryColor == Color.Blue)
@@ -223,6 +224,9 @@ public class Player {
         BufferedImage image = null;
         try {
             image = ImageIO.read(file);
+
+            image = View.rotate(image, View.getAngleFromDir(dir));
+
             Image dimg =image.getScaledInstance(50,50, Image.SCALE_SMOOTH);
             return new ImageIcon(dimg);
 
