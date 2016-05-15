@@ -138,7 +138,7 @@ public class Controller implements KeyListener {
                 break;
 
             case "M":
-                engine.oNeilGetBox();
+                engine.oNeilDropBox();
 
                 break;
 

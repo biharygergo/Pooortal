@@ -496,8 +496,13 @@ public class GameEngine {
             Field maybeGap = oNeill.getNextField();
             //Kvazi-Ralepunk de a player fieldjet nem allitottuk at!
             maybeGap.onStep(oNeill);
-            oNeill.dropBox();
+            Box box = oNeill.dropBox();
             activeModules.checkBoxes();
+
+            if(box.getField().getDescription().equals("Scale")){
+                Scale scale = (Scale) box.getField();
+                AnimateOneField(scale.getDoor());
+            }
         }
 
         AnimateOneField(oNeill.getField());
@@ -514,9 +519,16 @@ public class GameEngine {
 
             Field maybeGapJaffa = Jaffa.getField();
             maybeGapJaffa.onStep(Jaffa);
-            Jaffa.dropBox();
+            Box box = Jaffa.dropBox();
             activeModules.checkBoxes();
+
+            if(box.getField().getDescription().equals("Scale")){
+                Scale scale = (Scale) box.getField();
+                AnimateOneField(scale.getDoor());
+            }
+
         }
+
         AnimateOneField(Jaffa.getField());
         AnimateOneField(Jaffa.getNextField());
     }
