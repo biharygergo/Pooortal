@@ -17,6 +17,8 @@ public class Replicator {
      */
     private Field field;
 
+
+    BufferedImage myImage;
     /**
      * The current direction of the replicator
      */
@@ -130,9 +132,13 @@ public class Replicator {
         File file = new File(path);
         BufferedImage image = null;
         try {
-            image = ImageIO.read(file);
-            Image dimg =image.getScaledInstance(50,50, Image.SCALE_SMOOTH);
-            return image;
+            if(myImage == null){
+                image = ImageIO.read(file);
+                myImage = image;
+                return image;}
+            else{
+                return myImage;
+            }
 
         } catch (IOException e) {
             e.printStackTrace();
