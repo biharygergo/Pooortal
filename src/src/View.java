@@ -16,10 +16,12 @@ public class View extends JFrame {
     private JPanel contentPane;
     private JLabel[][] labels = new JLabel[6][6];
     public static View frame;
+
     /**
      * Launch the application.
      * @param controller
      */
+
     public static void initGui(Controller controller) {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -39,6 +41,7 @@ public class View extends JFrame {
     public static View getInstance(){
         return frame;
     }
+
     /**
      * Create the frame.
      */

@@ -7,10 +7,12 @@ import java.awt.event.KeyListener;
  * Created by Gergo on 14/05/16.
  */
 public class Controller implements KeyListener {
+
     boolean endGame = false;
     static GameEngine engine = null;
-    View ourView;
+    View ourView; // Ez minek ide ?
     float lastUpdated = 0;
+
     public void run(){
         engine.loadMap("src/map.csv");
         while (!endGame) {
@@ -36,6 +38,7 @@ public class Controller implements KeyListener {
     public static void loadImages(){
         engine.Animate();
     }
+
     @Override
     public void keyTyped(KeyEvent e) {
     }
@@ -55,88 +58,68 @@ public class Controller implements KeyListener {
 
         switch (command) {
 
-
             case "I":
-
                 engine.oNeillMove("I");
                 break;
-            case "J":
 
+            case "J":
                 engine.oNeillMove("J");
                 break;
+
             case "K":
-
                 engine.oNeillMove("K");
-
                 break;
-            case "L":
 
+            case "L":
                 engine.oNeillMove("L");
                 break;
 
             case "A":
-
                 engine.jaffaMove("A");
-
                 break;
+
             case "S":
-
                 engine.jaffaMove("S");
-
                 break;
+
             case "D":
-
                 engine.jaffaMove(command);
-
                 break;
+
             case "W":
-
                 engine.jaffaMove(command);
-
                 break;
 
             case "U":
-
                 engine.oNeillShootBullet("B");
-
-
                 break;
 
             case "O":
-
                 engine.oNeillShootBullet("Y");
-
                 break;
+
             case "Q":
-
                 engine.jaffaShootBullet("R");
-
                 break;
+
             case "R":
-
                 engine.jaffaShootBullet("G");
-
                 break;
 
             case "N":
                 engine.oNeilGetBox();
-
                 break;
-
 
             case "Y":
                 engine.jaffaDropBox();
-
                 break;
 
             case "M":
                 engine.oNeilGetBox();
-
                 break;
 
             case "X":
                 engine.jaffaGetBox();
-
                 break;
 
         }
