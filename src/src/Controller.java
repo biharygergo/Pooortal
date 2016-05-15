@@ -48,7 +48,6 @@ public class Controller implements KeyListener {
     @Override
     public void keyReleased(KeyEvent e) {
         System.out.println(e.getKeyChar());
-        engine.Animate();
 
         char typed = e.getKeyChar();
         String command = typed+"";
@@ -141,5 +140,6 @@ public class Controller implements KeyListener {
                 break;
 
         }
+        engine.Animate();
     }
 }
