@@ -11,7 +11,7 @@ public class Controller implements KeyListener {
 
     boolean endGame = false;
     static GameEngine engine = null;
-    View ourView; // Ez minek ide ?
+    View ourView;
     float lastUpdated = 0;
 
     public Controller(GameEngine game) {
