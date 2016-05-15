@@ -1,5 +1,6 @@
 package src;
 
+import javax.swing.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -13,12 +14,19 @@ public class Controller implements KeyListener {
     View ourView; // Ez minek ide ?
     float lastUpdated = 0;
 
+    public Controller(GameEngine game) {
+        engine = game;
+        View.initGui(this);
+        //ourView = View.getInstance();
+        // ourView.addKeyListener(this);
+    }
+
     public void run(){
         engine.loadMap("src/map.csv");
         while (!endGame) {
             endGame = engine.endGame();
             if (endGame) {
-                engine.exit();
+                exitGameWithStyle();
             }
             long currentTime = System.currentTimeMillis() / 1000;
             if (currentTime - lastUpdated > 2) {
@@ -28,11 +36,18 @@ public class Controller implements KeyListener {
         }
     }
 
-    public Controller(GameEngine game) {
-        engine = game;
-        View.initGui(this);
-        //ourView = View.getInstance();
-       // ourView.addKeyListener(this);
+    private void exitGameWithStyle() {
+        String reason;
+        if (engine.getActiveModules().noMoreZPM()) {
+            reason = "Gratulálunk, nyertél!\n\n";
+        } else {
+            reason = "Sajnos vesztettél!\n\n";
+        }
+
+        int result = JOptionPane.showConfirmDialog(ourView, reason + engine.getExitString(), "Játék vége", JOptionPane.CLOSED_OPTION, 1);
+        if (result == 0) {
+            System.exit(0);
+        }
     }
 
     public static void loadImages(){

@@ -345,25 +345,6 @@ public class GameEngine {
         setBoxForPlayer(Jaffa);
     }
 
-    public void exit() {
-        System.out.println("Megtiszteltetés volt, hogy velünk játszottál!\n" +
-                "Engedd meg, hogy Tóth Beáta Mária Viszlát! című versével búcsúzzunk és köszönjük meg az együtt töltött perceket:\n");
-        System.out.println("Viszlát! Ha menned kell, menj! \n" +
-                "De holnap ugyanitt találkozunk \n" +
-                "Reggel újra itt leszel \n" +
-                "S addig mint álom, elém tárul \n" +
-                "\n" +
-                "Viszlát! Tudom, hogy menned kell... \n" +
-                "De várj még egy percet! \n" +
-                "Még egy érintés, egy pillantás \n" +
-                "Mert messze van a reggel \n" +
-                "\n" +
-                "Viszlát! Indulj végre el! \n" +
-                "Úgyis fáj látnom \n" +
-                "Ahogy távolodsz tőlem \n" +
-                "Fáj, és már hiányzol!\n");
-    }
-
     public void moveReplicator(Dir replicatorMoveDir) {
         if (replicatorMoveDir != null) {
             if (replicator.getDir().equals(replicatorMoveDir)) {
@@ -496,8 +477,32 @@ public class GameEngine {
         moveReplicator(replicator.setNewRandomField());
     }
 
+    public Modules getActiveModules() {
+        return activeModules;
+    }
 
-//    private void run(){
+    public String getExitString() {
+        return "Megtiszteltetés volt, hogy velünk játszottál!\n" +
+                "Engedd meg, hogy Tóth Beáta Mária Viszlát! című versével búcsúzzunk és köszönjük meg az együtt töltött perceket:\n\n" +
+
+                "Viszlát! Ha menned kell, menj! \n" +
+                "De holnap ugyanitt találkozunk \n" +
+                "Reggel újra itt leszel \n" +
+                "S addig mint álom, elém tárul \n" +
+                "\n" +
+                "Viszlát! Tudom, hogy menned kell... \n" +
+                "De várj még egy percet! \n" +
+                "Még egy érintés, egy pillantás \n" +
+                "Mert messze van a reggel \n" +
+                "\n" +
+                "Viszlát! Indulj végre el! \n" +
+                "Úgyis fáj látnom \n" +
+                "Ahogy távolodsz tőlem \n" +
+                "Fáj, és már hiányzol!\n\n" +
+                "Kattints az OK gombra a kilépéshez!";
+    }
+
+    //    private void run(){
 //        boolean inGame = true;
 //        boolean endgame;
 //
