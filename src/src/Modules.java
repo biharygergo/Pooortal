@@ -215,11 +215,6 @@ public class Modules {
         }
     }
 
-    //OLD
-    public void removeZPMs(ZPM zpm) {
-        ZPMs.remove(zpm);
-    }
-
     public void clearAll(){
         boxes.clear();
         ZPMs.clear();
