@@ -4,9 +4,6 @@ import javax.swing.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-/**
- * Created by Gergo on 14/05/16.
- */
 public class Controller implements KeyListener {
 
     boolean endGame = false;

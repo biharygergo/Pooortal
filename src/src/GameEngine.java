@@ -1,10 +1,9 @@
 package src;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
-
-
 
 /**
  * The engine of the game. Creates the map with list of items, handles the player movement.

@@ -1,11 +1,6 @@
 package src;
 
-/**
- * Created by Gergo on 14/05/16.
- */
-
 import java.awt.*;
-
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.image.BufferedImage;
