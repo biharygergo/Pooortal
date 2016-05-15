@@ -585,7 +585,7 @@ public class GameEngine {
     }
 
     private void movePlayer(Player player, Dir playerMoveDir) {
-
+        int oldZPM = activeModules.getCollectedZPMs();
         if (playerMoveDir != null) {
             if (player.getDir().equals(playerMoveDir)) {
                 Field old = player.getField();
@@ -607,7 +607,11 @@ public class GameEngine {
         if (player.onThisScale != null)
             AnimateOneField(player.onThisScale.getDoor());
 
-
+        if (oldZPM != activeModules.getCollectedZPMs()){
+            for (ZPM zpm : activeModules.getZPMs()) {
+                AnimateOneField(zpm.getField());
+            }
+        }
     }
 
     private void movePlayerTowardsHisActualDirIfNoBarrierAhead(Player player) {
