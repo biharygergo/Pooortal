@@ -120,7 +120,7 @@ public class Controller implements KeyListener {
                 engine.jaffaShootBullet("R");
 
                 break;
-            case "R":
+            case "E":
 
                 engine.jaffaShootBullet("G");
 
