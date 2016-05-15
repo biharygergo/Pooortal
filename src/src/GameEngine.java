@@ -557,14 +557,25 @@ public class GameEngine {
         if (playerMoveDir != null) {
             if (player.getDir().equals(playerMoveDir)) {
                 Field old = player.getField();
+                Scale scale= player.onThisScale;
+
+
                 movePlayerTowardsHisActualDirIfNoBarrierAhead(player);
                 AnimateOneField(old);
                 AnimateOneField(player.getField());
+                if (scale != null)
+                    AnimateOneField(scale.getDoor());
+
             } else {
                 player.setDir(playerMoveDir);
                 AnimateOneField(player.getField());
             }
         }
+
+        if (player.onThisScale != null)
+            AnimateOneField(player.onThisScale.getDoor());
+
+
     }
 
     private void movePlayerTowardsHisActualDirIfNoBarrierAhead(Player player) {
