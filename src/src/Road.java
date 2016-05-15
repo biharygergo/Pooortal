@@ -52,7 +52,7 @@ public class Road extends Field {
     }
 
 
-    public Icon getImage() {
+    public BufferedImage getImage() {
         String name = "road.png";
         String path ="src/"+name;
         File file = new File(path);
@@ -60,7 +60,7 @@ public class Road extends Field {
         try {
             image = ImageIO.read(file);
             Image dimg =image.getScaledInstance(50,50, Image.SCALE_SMOOTH);
-            return new ImageIcon(dimg);
+            return image;
 
         } catch (IOException e) {
             e.printStackTrace();

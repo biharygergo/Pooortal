@@ -189,7 +189,7 @@ public class SpecialWall extends Wall {
         System.out.println(num +". (" + xPos + ","+ yPos + ") " + color);
     }
 
-    public Icon getImage() {
+    public BufferedImage getImage() {
         String Color = "";
         switch (color){
             case Blue:
@@ -216,7 +216,7 @@ public class SpecialWall extends Wall {
         try {
             image = ImageIO.read(file);
             Image dimg =image.getScaledInstance(50,50, Image.SCALE_SMOOTH);
-            return new ImageIcon(dimg);
+            return image;
 
         } catch (IOException e) {
             e.printStackTrace();

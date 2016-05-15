@@ -114,7 +114,7 @@ public class Door extends Field {
     public void onReplicatorStep(Replicator replicator){
     }
 
-    public Icon getImage() {
+    public BufferedImage getImage() {
         String name = "door_closed.png";
 
         if(open)
@@ -126,7 +126,7 @@ public class Door extends Field {
         try {
             image = ImageIO.read(file);
             Image dimg =image.getScaledInstance(50,50, Image.SCALE_SMOOTH);
-            return new ImageIcon(dimg);
+            return image;
 
         } catch (IOException e) {
             e.printStackTrace();

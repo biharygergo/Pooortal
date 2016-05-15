@@ -2,6 +2,7 @@ package src;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.IOException;
 
 /**
  * Created by Gergo on 14/05/16.
@@ -34,7 +35,9 @@ public class Controller implements KeyListener {
     }
 
     public static void loadImages(){
-        engine.Animate();
+
+            engine.Animate();
+
     }
     @Override
     public void keyTyped(KeyEvent e) {
@@ -142,6 +145,8 @@ public class Controller implements KeyListener {
 
         }
 
-        engine.Animate();
+
+            engine.Animate();
+
     }
 }

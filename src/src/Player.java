@@ -212,7 +212,7 @@ public class Player {
     }
 
 
-    public Icon getImage() {
+    public BufferedImage getImage() {
         String name;
         if(primaryColor == Color.Blue)
             name = "oneil.png";
@@ -227,8 +227,8 @@ public class Player {
 
             image = View.rotate(image, View.getAngleFromDir(dir));
 
-            Image dimg =image.getScaledInstance(50,50, Image.SCALE_SMOOTH);
-            return new ImageIcon(dimg);
+            Image dimg =  image.getScaledInstance(50,50, Image.SCALE_SMOOTH);
+            return image;
 
         } catch (IOException e) {
             e.printStackTrace();

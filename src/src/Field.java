@@ -1,6 +1,7 @@
 package src;
 
 import javax.swing.*;
+import java.awt.image.BufferedImage;
 import java.util.*;
 
 /**
@@ -139,5 +140,5 @@ public abstract class Field {
         return getFieldAtPos(5, 4);
     }
 
-    public abstract Icon getImage();
+    public abstract BufferedImage getImage();
 }

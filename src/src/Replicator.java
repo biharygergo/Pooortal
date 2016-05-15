@@ -124,7 +124,7 @@ public class Replicator {
         System.out.println(num + "."  + " (" + field.getxPos() + "," + field.getyPos() + ") " + dir.name() + " " + ((Boolean) alive).toString());
     }
 
-    public Icon getImage() {
+    public BufferedImage getImage() {
         String name = "replicator.png";
         String path ="src/"+name;
         File file = new File(path);
@@ -132,7 +132,7 @@ public class Replicator {
         try {
             image = ImageIO.read(file);
             Image dimg =image.getScaledInstance(50,50, Image.SCALE_SMOOTH);
-            return new ImageIcon(dimg);
+            return image;
 
         } catch (IOException e) {
             e.printStackTrace();

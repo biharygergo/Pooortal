@@ -55,7 +55,7 @@ public class ZPM extends Item {
        this.field = field;
     }
 
-    public Icon getImage() {
+    public BufferedImage getImage() {
         String name = "zpm.png";
         String path ="src/"+name;
         File file = new File(path);
@@ -63,7 +63,7 @@ public class ZPM extends Item {
         try {
             image = ImageIO.read(file);
             Image dimg =image.getScaledInstance(50,50, Image.SCALE_SMOOTH);
-            return new ImageIcon(dimg);
+            return image;
 
         } catch (IOException e) {
             e.printStackTrace();

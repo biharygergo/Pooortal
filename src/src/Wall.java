@@ -15,8 +15,12 @@ public class Wall extends Field {
     /**
      * Default constructor
      */
+
+    BufferedImage image;
+
     public Wall() {
         description = "Wall";
+
     }
 
     /**
@@ -52,7 +56,7 @@ public class Wall extends Field {
         //Ez sem hivodik meg sosem!
     }
 
-    public Icon getImage() {
+    public BufferedImage getImage() {
         String name = "wall.png";
         String path ="src/"+name;
         File file = new File(path);
@@ -60,7 +64,7 @@ public class Wall extends Field {
         try {
             image = ImageIO.read(file);
             Image dimg =image.getScaledInstance(50,50, Image.SCALE_SMOOTH);
-            return new ImageIcon(dimg);
+            return image;
 
         } catch (IOException e) {
             e.printStackTrace();

@@ -9,13 +9,15 @@ import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.util.List;
 
 public class View extends JFrame {
 
     private JPanel contentPane;
-    private JLabel[][] labels = new JLabel[6][6];
+    //private JLabel[][] labels = new JLabel[6][6];
     public static View frame;
+    private  Graphics g;
     /**
      * Launch the application.
      * @param controller
@@ -36,6 +38,18 @@ public class View extends JFrame {
         });
     }
 
+    public void paint(Graphics g){
+
+    }
+
+    public void Invalidate(){
+        repaint();
+        revalidate();
+        this.removeAll();
+        this.update(getGraphics());
+
+    }
+
     public static View getInstance(){
         return frame;
     }
@@ -43,18 +57,24 @@ public class View extends JFrame {
      * Create the frame.
      */
     public View() {
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(100, 100, 310, 350);
-        contentPane = new JPanel();
+
+        setSize(800, 800);
+
+        setVisible(true);
+       // setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //setBounds(100, 100, 310, 350);
+       contentPane = new JPanel();
 
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         setContentPane(contentPane);
         contentPane.setLayout(new BorderLayout(0, 0));
-
+        g = contentPane.getGraphics();
+/*
         JPanel gamePanel = new JPanel();
         contentPane.add(gamePanel, BorderLayout.CENTER);
-        gamePanel.setLayout(new GridLayout(6, 6, 0, 0));
+        gamePanel.setLayout(new GridLayout(6, 6, 0, 0));*/
 
+        /*
 
 
         JLabel lblImage = new JLabel("Image11");
@@ -212,7 +232,7 @@ public class View extends JFrame {
         contentPane.add(infoPanel, BorderLayout.NORTH);
 
         JLabel lblInformation = new JLabel("Information:");
-        infoPanel.add(lblInformation);
+        infoPanel.add(lblInformation);*/
     }
 
     /**
@@ -229,45 +249,82 @@ public class View extends JFrame {
         // TODO implement here
     }
 
-    public void setPlayerImage(Player player){
+    private BufferedImage resizeImage(BufferedImage originalImage, int width, int height, int type) throws IOException {
+        BufferedImage resizedImage = new BufferedImage(width, height, type);
+        Graphics2D g = resizedImage.createGraphics();
+        g.drawImage(originalImage, 0, 0, width, height, null);
+        g.dispose();
+        return resizedImage;
+    }
+
+    public void paintOn(BufferedImage bi, int x, int y){
+        g = getGraphics();
+
+        double SCALE = 0.5;
+
+
+        BufferedImage scaled = null;
+        try {
+            scaled = resizeImage(bi, 100, 100,  BufferedImage.TYPE_INT_ARGB);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        g.drawImage(scaled, y*100, x*100, null);
+
+
+    }
+
+    public void setPlayerImage(Player player) {
         int y = player.getY();
         int x = player.getX();
-        labels[player.getY()-1][player.getX()-1].setIcon(player.getImage());
+       // System.out.println(x +" " +y);
+       /* labels[player.getY()-1][player.getX()-1].setIcon(player.getImage());
         labels[player.getY()-1][player.getX()-1].setText("");
-        contentPane.invalidate();
+        contentPane.invalidate();*/
+         paintOn(player.getImage(), x, y);
+
+
+
     }
 
     public void setFieldImage(Field field){
         int y = field.getyPos();
         int x = field.getxPos();
-        labels[y-1][x-1].setIcon(field.getImage());
+        /*labels[y-1][x-1].setIcon(field.getImage());
        labels[y-1][x-1].setText("");
-        contentPane.invalidate();
+        contentPane.invalidate();*/
+        paintOn(field.getImage(), x, y);
+
     }
 
     public void setBoxImage(Box box){
         int y = box.getField().getyPos();
         int x = box.getField().getxPos();
-        labels[y-1][x-1].setIcon(box.getImage());
+        /*labels[y-1][x-1].setIcon(box.getImage());
         labels[y-1][x-1].setText("");
-        contentPane.invalidate();
+        contentPane.invalidate();*/
+
+        paintOn(box.getImage(), x, y);
 
     }
 
     public void setZPMImage(ZPM zpm){
         int y = zpm.getField().getyPos();
         int x = zpm.getField().getxPos();
-        labels[y-1][x-1].setIcon(zpm.getImage());
+        /*labels[y-1][x-1].setIcon(zpm.getImage());
         labels[y-1][x-1].setText("");
-        contentPane.invalidate();
+        contentPane.invalidate();*/
+        paintOn(zpm.getImage(), x, y);
     }
 
     public void setReplicatorImage(Replicator replicator){
         int y = replicator.getField().getyPos();
         int x = replicator.getField().getxPos();
-        labels[y-1][x-1].setIcon(replicator.getImage());
+       /* labels[y-1][x-1].setIcon(replicator.getImage());
         labels[y-1][x-1].setText("");
-        contentPane.invalidate();
+        contentPane.invalidate();*/
+        paintOn(replicator.getImage(), x, y);
     }
     /**
      * @param boxes

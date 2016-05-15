@@ -144,7 +144,7 @@ public class GameEngine {
                         second.get(i).setPos(currentRow+1, i+1);
                         int test = currentRow+1;
                         int test2 = i+1;
-                        System.out.println(test + " " + test2);
+                       // System.out.println(test + " " + test2);
                         second.get(i).setSides(sides);
                     }
 
@@ -617,45 +617,64 @@ public class GameEngine {
         }
     }
 
-    public void Animate(){
+    public void Animate() {
         Field currentField;
         int maxwidth = 6;
         int maxheight = 6;
         View view = View.getInstance();
+        view.Invalidate();
 
         for(int i = 1; i<=maxheight; i++){
-            for ( int j = 1 ; j<=maxwidth; j++){
-                System.out.print("\t\t");
+            for ( int j = 1 ; j<=maxwidth; j++) {
+                // System.out.print("\t\t");
                 currentField = map.getFieldAtPos(i, j);
-                 if (oNeill.getField().equals(currentField) && oNeill.isAlive()) {
-                    System.out.print(String.format("%15s","Oneill "+oNeill.getDir().toString().substring(0,1)));
-                     view.setPlayerImage(oNeill);
-                }
-                else if(Jaffa.getField().equals(currentField) && Jaffa.isAlive()) {
-                     System.out.print(String.format("%15s", "Jaffa "+Jaffa.getDir().toString().substring(0,1)));
-                     view.setPlayerImage(Jaffa);
-                }
-                else if(replicator.getField().equals(currentField) && replicator.isAlive()) {
-                     System.out.print(String.format("%15s", "Replicator "+replicator.getDir().toString().substring(0,1)));
-                     view.setReplicatorImage(replicator);
-                }
+                /*
+                if (oNeill.getField().equals(currentField) && oNeill.isAlive()) {
+                    // System.out.print(String.format("%15s","Oneill "+oNeill.getDir().toString().substring(0,1)));
+                    view.setPlayerImage(oNeill);
 
-                else if(activeModules.findBox(currentField)!=null) {
-                    System.out.print(String.format("%15s","Box "));
-                     view.setBoxImage(activeModules.findBox(currentField));
-                }
-                else if (activeModules.findZPM(currentField)!=null) {
-                    System.out.print(String.format("%15s","ZPM "));
-                     view.setZPMImage(activeModules.findZPM(currentField));
-                }
-                else{
-                    System.out.print(String.
-                            format("%15s",currentField.getDescription()+" "));
-                     view.setFieldImage(currentField);
-                    }
-                }
+                } else if (Jaffa.getField().equals(currentField) && Jaffa.isAlive()) {
+                    //System.out.print(String.format("%15s", "Jaffa "+Jaffa.getDir().toString().substring(0,1)));
+                    view.setPlayerImage(Jaffa);
+                } else if (replicator.getField().equals(currentField) && replicator.isAlive()) {
+                    // System.out.print(String.format("%15s", "Replicator "+replicator.getDir().toString().substring(0,1)));
+                    view.setReplicatorImage(replicator);
+                } else if (activeModules.findBox(currentField) != null) {
+                    // System.out.print(String.format("%15s","Box "));
+                    view.setBoxImage(activeModules.findBox(currentField));
+                } else if (activeModules.findZPM(currentField) != null) {
+                    //System.out.print(String.format("%15s","ZPM "));
+                    view.setZPMImage(activeModules.findZPM(currentField));
+                } else {
+                    //System.out.print(String.
+                    // format("%15s",currentField.getDescription()+" "));
+                    view.setFieldImage(currentField);
+                }*/
 
-            System.out.print("\n");
+                view.setFieldImage(currentField);
+
+                if (activeModules.findBox(currentField) != null)
+                    view.setBoxImage(activeModules.findBox(currentField));
+
+
+                if (activeModules.findZPM(currentField) != null)
+                    view.setZPMImage(activeModules.findZPM(currentField));
+
+
+                if (Jaffa.getField().equals(currentField) && Jaffa.isAlive())
+                    view.setPlayerImage(Jaffa);
+
+
+                if (oNeill.getField().equals(currentField) && oNeill.isAlive())
+                    view.setPlayerImage(oNeill);
+
+                if (replicator.getField().equals(currentField) && replicator.isAlive())
+                    view.setReplicatorImage(replicator);
+
+
+
+            }
+           // System.out.print("\n");
             }
         }
 
