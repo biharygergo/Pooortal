@@ -368,8 +368,10 @@ public class GameEngine {
                 System.out.println("Incorrect direction parameter. Valid parameters are 'G' or 'V' or 'B' or 'N'");
                 break;
         }
-
+        Field oldField = replicator.getField();
         moveReplicator(replicatorMoveDir);
+        AnimateOneField(oldField);
+        AnimateOneField(replicator.getField());
     }
 
     public void updateBullets(){
@@ -398,6 +400,7 @@ public class GameEngine {
             }
 
         activeModules.checkBullets();
+        
     }
 
     public void oNeillMove(String element) {
