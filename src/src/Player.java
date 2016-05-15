@@ -15,6 +15,7 @@ public class Player {
     public boolean dropBoxAllowed = true;
     public Door onThisDoor;
 
+    BufferedImage myImage;
     /**
      * The field which the player currently stands on
      */
@@ -223,12 +224,17 @@ public class Player {
         File file = new File(path);
         BufferedImage image = null;
         try {
-            image = ImageIO.read(file);
+            if(myImage == null){
+                image = ImageIO.read(file);
+                myImage = image;
+                BufferedImage image2 = View.rotate(image, View.getAngleFromDir(dir));
+                return image2;}
+            else{
+                BufferedImage image2 = View.rotate(myImage, View.getAngleFromDir(dir));
 
-            image = View.rotate(image, View.getAngleFromDir(dir));
+                return myImage;
+            }
 
-            Image dimg =  image.getScaledInstance(50,50, Image.SCALE_SMOOTH);
-            return image;
 
         } catch (IOException e) {
             e.printStackTrace();
