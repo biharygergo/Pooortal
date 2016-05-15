@@ -78,22 +78,13 @@ public class Box extends Item {
     }
 
     public BufferedImage getImage() {
-        String name = "box.png";
-        String path ="src/"+name;
-        File file = new File(path);
-        BufferedImage image = null;
+        if (image == null)
         try {
-            if(myImage == null){
-            image = ImageIO.read(file);
-            myImage = image;
-            return image;}
-            else{
-                return myImage;
-            }
-
+            image = ImageIO.read(new File("src/box.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return null;
+
+        return image;
     }
 }

@@ -1,10 +1,13 @@
 package src;
 
+import java.awt.image.BufferedImage;
+
 /**
  * Represents the items on the map (ZPM, box)
  */
 public abstract class Item {
 
+    BufferedImage image;
     /**
      * The field which the item stands on
      */
