@@ -193,7 +193,7 @@ public class Modules {
 
         if((collectedZPMs%2)==0){
             // TODO Teszt miatt lett kommentezve
-            /*Road newField =  zpm.getField().getRandomRoad(startField);
+            Road newField =  zpm.getField().getRandomRoad(startField);
 
 
             //Ha benne van vmelyik listában, akkor az nem lesz jó mező!
@@ -201,17 +201,11 @@ public class Modules {
                 newField = zpm.getField().getRandomRoad(startField);
             }
 
-            ZPM newZPM = new ZPM(newField);*/
+            ZPM newZPM = new ZPM(newField);
 
-            Field newField = startField.getFixRoad(); // TODO törölni ezt a sort, csak proto miatt kell...
-            ZPM newZPM = new ZPM(newField); // TODO ez is
             ZPMs.add(newZPM);
-
-            ZPMs.remove(zpm);
         }
-        else{
-            ZPMs.remove(zpm);
-        }
+        ZPMs.remove(zpm);
     }
 
     public void clearAll(){

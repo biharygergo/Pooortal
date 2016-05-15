@@ -53,9 +53,15 @@ public abstract class Field {
 
     }
 
+    /**
+     *
+     * @param dir
+     * @param newSide
+     */
     public void setSide(Dir dir, Field newSide){
         sides.put(dir, newSide);
     }
+
     /**
      * Sets the new neighbours
      * @param map the neighbours of the door in the specified direction* @param map
@@ -67,6 +73,7 @@ public abstract class Field {
         sides.put(Dir.Left, map.get(Dir.Left));
         sides.put(Dir.Right, map.get(Dir.Right));
     }
+
     /**
      * what happens on replicator step
      * @param replicator this is the replicator
@@ -101,27 +108,55 @@ public abstract class Field {
         return roads.get(Result);
     }
 
+    /**
+     *
+     * @param num
+     */
     public void listField(int num){
         System.out.println(num +". (" + xPos + ","+ yPos + ") " + description);
     }
 
+    /**
+     *
+     * @return
+     */
     public String getDescription() {
         return description;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getxPos() {
         return xPos;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getyPos() {
         return yPos;
     }
 
+    /**
+     *
+     * @param xPos
+     * @param yPos
+     */
     public void setPos(int xPos, int yPos) {
 
         this.xPos = xPos;
         this.yPos = yPos;
     }
+
+    /**
+     *
+     * @param x
+     * @param y
+     * @return
+     */
     public Field getFieldAtPos(int x, int y){
         Field current = this;
         for (int i = 0; i < x-1; i++) {
@@ -133,10 +168,6 @@ public abstract class Field {
         }
 
         return  current;
-    }
-
-    public Field getFixRoad() {
-        return getFieldAtPos(5, 4);
     }
 
     public abstract Icon getImage();
