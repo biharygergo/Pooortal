@@ -9,13 +9,13 @@ import java.io.IOException;
  * Represents a bullet in a given color
  */
 public class Bullet{
-
+    BufferedImage red, blue, green, yellow;
     /**
      * Color of the bullet
      */
     private Color color;
 
-    BufferedImage myImage = null;
+
     /**
      * Direction of the bullet
      */
@@ -100,22 +100,29 @@ public class Bullet{
 
 
     public BufferedImage getImage() {
-        String name = color.toString().toLowerCase() + ".png";
-        String path ="src/"+name;
-        File file = new File(path);
-        BufferedImage image = null;
-        try {
-            if(myImage == null){
-                image = ImageIO.read(file);
-                myImage = image;
-                return image;}
-            else{
-                return myImage;
+        if (blue == null || green == null || red == null || yellow == null) {
+            try {
+                blue = ImageIO.read(new File("src/blue_bullet.png"));
+                red = ImageIO.read(new File("src/red_bullet.png"));
+                green = ImageIO.read(new File("src/green_bullet.png"));
+                yellow = ImageIO.read(new File("src/yellow_bullet.png"));
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-
-        } catch (IOException e) {
-            e.printStackTrace();
         }
+
+        switch (color) {
+            case Blue:
+                return blue;
+            case Yellow:
+                return yellow;
+            case Green:
+                return green;
+            case Red:
+                return red;
+        }
+
         return null;
     }
+
 }
