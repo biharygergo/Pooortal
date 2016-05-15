@@ -270,5 +270,14 @@ public class View extends JFrame {
         return Math.toRadians(degree);
     }
 
+    public void setBulletImage(Bullet bulletImage) {
+
+        int y = bulletImage.getField().getyPos();
+        int x = bulletImage.getField().getxPos();
+       /* labels[y-1][x-1].setIcon(replicator.getImage());
+        labels[y-1][x-1].setText("");
+        contentPane.invalidate();*/
+        paintOn(bulletImage.getImage(), x, y);
+    }
 }
 

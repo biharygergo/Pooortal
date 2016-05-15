@@ -379,12 +379,17 @@ public class GameEngine {
             for (Bullet bullet:bullets
                     ) {
                 Field nextField = bullet.getNextField();
+                Field oldField = bullet.getField();
                 if(replicator.getField().equals(nextField)) {
                     replicator.onShoot(bullet);
                 }
                 else {
                     nextField.onShoot(bullet,oNeillHole,JaffaHole);
                 }
+
+                AnimateOneField(oldField);
+                AnimateOneField(nextField);
+
             }
 
         activeModules.checkBullets();
@@ -447,6 +452,7 @@ public class GameEngine {
             case "B":
                 shot = oNeill.shootColor1();
                 activeModules.addBullet(shot);
+
                 break;
             case "Y":
                shot =  oNeill.shootColor2();
@@ -464,6 +470,7 @@ public class GameEngine {
         element = element.toUpperCase();
         switch (element){
             case "R":
+
                 shot = Jaffa.shootColor1();
                 activeModules.addBullet(shot);
 
@@ -690,7 +697,8 @@ public class GameEngine {
                 if (activeModules.findZPM(currentField) != null)
                     view.setZPMImage(activeModules.findZPM(currentField));
 
-
+                if (replicator.getField().equals(currentField) && replicator.isAlive())
+                    view.setReplicatorImage(replicator);
                 if (Jaffa.getField().equals(currentField) && Jaffa.isAlive())
                     view.setPlayerImage(Jaffa);
 
@@ -698,10 +706,15 @@ public class GameEngine {
                 if (oNeill.getField().equals(currentField) && oNeill.isAlive())
                     view.setPlayerImage(oNeill);
 
-                if (replicator.getField().equals(currentField) && replicator.isAlive())
-                    view.setReplicatorImage(replicator);
 
 
+                List<Bullet> bullets = activeModules.getBullets();
+
+        for (Bullet b: bullets
+             ) {
+            if(b.getField().equals(currentField))
+                view.setBulletImage(b);
+        }
 
             }
             // System.out.print("\n");

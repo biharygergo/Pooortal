@@ -1,5 +1,10 @@
 package src;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+
 /**
  * Represents a bullet in a given color
  */
@@ -10,6 +15,7 @@ public class Bullet{
      */
     private Color color;
 
+    BufferedImage myImage = null;
     /**
      * Direction of the bullet
      */
@@ -90,5 +96,26 @@ public class Bullet{
     public Field getNextField(){
         Field nextField = field.getSide(dir);
         return nextField;
+    }
+
+
+    public BufferedImage getImage() {
+        String name = color.toString().toLowerCase() + ".png";
+        String path ="src/"+name;
+        File file = new File(path);
+        BufferedImage image = null;
+        try {
+            if(myImage == null){
+                image = ImageIO.read(file);
+                myImage = image;
+                return image;}
+            else{
+                return myImage;
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
