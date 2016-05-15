@@ -232,7 +232,7 @@ public class Player {
             else{
                 BufferedImage image2 = View.rotate(myImage, View.getAngleFromDir(dir));
 
-                return myImage;
+                return image2;
             }
 
 
