@@ -564,9 +564,13 @@ public class GameEngine {
     public void moveReplicator(Dir replicatorMoveDir) {
         if (replicatorMoveDir != null) {
             if (replicator.getDir().equals(replicatorMoveDir)) {
+                Field old = replicator.getField();
                 moveReplicatorTowardsHisActualDirIfNoBarrierAhead();
+                AnimateOneField(old);
+                AnimateOneField(replicator.getNextField());
             } else {
                 replicator.setDir(replicatorMoveDir);
+                AnimateOneField(replicator.getField());
             }
         }
     }
