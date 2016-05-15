@@ -679,6 +679,44 @@ public class GameEngine {
 
     }
 
+    public void AnimateOneField(Field thisField) {
+
+        View view = View.getInstance();
+        view.Invalidate();
+
+                // System.out.print("\t\t");
+                Field currentField = thisField;
+
+                view.setFieldImage(currentField);
+
+                if (activeModules.findBox(currentField) != null)
+                    view.setBoxImage(activeModules.findBox(currentField));
+
+
+                if (activeModules.findZPM(currentField) != null)
+                    view.setZPMImage(activeModules.findZPM(currentField));
+
+
+                if (Jaffa.getField().equals(currentField) && Jaffa.isAlive())
+                    view.setPlayerImage(Jaffa);
+
+
+                if (oNeill.getField().equals(currentField) && oNeill.isAlive())
+                    view.setPlayerImage(oNeill);
+
+                if (replicator.getField().equals(currentField) && replicator.isAlive())
+                    view.setReplicatorImage(replicator);
+
+
+
+            }
+            // System.out.print("\n");
+
+
+
+
+
+
     private void isGameOver() {
         if (activeModules.noMoreZPM() || !oNeill.isAlive() || !Jaffa.isAlive()) {
             System.out.println("1. True");
