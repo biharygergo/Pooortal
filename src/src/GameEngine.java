@@ -425,7 +425,7 @@ public class GameEngine {
             if (player != null) {
                 player.collectedZPMs++;
                 activeModules.removeZPM((ZPM) itemOnNextField);
-                activeModules.addNewZPMToRandomFieldIfNeccessary();
+                activeModules.addNewZPMToRandomFieldIfNeccessary((ZPM) itemOnNextField);
             }
         }
 

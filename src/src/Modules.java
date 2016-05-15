@@ -200,22 +200,17 @@ public class Modules {
         }
     }
 
-    public void addNewZPMToRandomFieldIfNeccessary() {
+    public void addNewZPMToRandomFieldIfNeccessary(ZPM zpm) {
         collectedZPMs++;
 
         if((collectedZPMs%2)==0){
-            // TODO Teszt miatt lett kommentezve
-           /*Road newField =  zpm.getField().getRandomRoad(startField);
+            Road newField =  zpm.getField().getRandomRoad(startField);
 
-            //Ha benne van vmelyik listában, akkor az nem lesz jó mező!
             while(ZPMisInList(newField) || BoxisInList(newField)){
                 newField = zpm.getField().getRandomRoad(startField);
             }
 
-            ZPM newZPM = new ZPM(newField); */
-
-            Field newField = startField.getFixRoad(); // TODO törölni ezt a sort, csak proto miatt kell...
-            ZPM newZPM = new ZPM(newField); // TODO ez is
+            ZPM newZPM = new ZPM(newField);
             ZPMs.add(newZPM);
         }
     }
