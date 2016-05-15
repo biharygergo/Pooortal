@@ -695,43 +695,37 @@ public class GameEngine {
         View view = View.getInstance();
         //view.Invalidate();
 
-                // System.out.print("\t\t");
-                Field currentField = thisField;
-                view.invalidateField(thisField);
+        // System.out.print("\t\t");
+        Field currentField = thisField;
+        view.invalidateField(thisField);
 
-                view.setFieldImage(currentField);
+        view.setFieldImage(currentField);
 
-                if (activeModules.findBox(currentField) != null)
-                    view.setBoxImage(activeModules.findBox(currentField));
-
-
-                if (activeModules.findZPM(currentField) != null)
-                    view.setZPMImage(activeModules.findZPM(currentField));
-
-                if (replicator.getField().equals(currentField) && replicator.isAlive())
-                    view.setReplicatorImage(replicator);
-                if (Jaffa.getField().equals(currentField) && Jaffa.isAlive())
-                    view.setPlayerImage(Jaffa);
+        if (activeModules.findBox(currentField) != null)
+            view.setBoxImage(activeModules.findBox(currentField));
 
 
-                if (oNeill.getField().equals(currentField) && oNeill.isAlive())
-                    view.setPlayerImage(oNeill);
+        if (activeModules.findZPM(currentField) != null)
+            view.setZPMImage(activeModules.findZPM(currentField));
+
+        if (replicator.getField().equals(currentField) && replicator.isAlive())
+            view.setReplicatorImage(replicator);
+
+        if (Jaffa.getField().equals(currentField) && Jaffa.isAlive())
+            view.setPlayerImage(Jaffa);
 
 
+        if (oNeill.getField().equals(currentField) && oNeill.isAlive())
+            view.setPlayerImage(oNeill);
 
-                List<Bullet> bullets = activeModules.getBullets();
-
-        for (Bullet b: bullets
-             ) {
-            if(b.getField().equals(currentField))
-                view.setBulletImage(b);
-        }
-
-            }
-            // System.out.print("\n");
+        if (activeModules.findBullet(currentField) != null)
+            view.setBulletImage(activeModules.findBullet(currentField));
 
 
+        // System.out.print("\n");
 
+
+    }
 
 
 
@@ -747,6 +741,7 @@ public class GameEngine {
     public void moveRandomReplicator(){
         moveReplicator(replicator.setNewRandomField());
     }
+
     private void playGame() {
         boolean inGame = true;
         boolean endgame;
