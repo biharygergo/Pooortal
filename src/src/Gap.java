@@ -76,22 +76,14 @@ public class Gap extends Field {
     }
 
     public BufferedImage getImage() {
-        String name = "gap.png";
-        String path ="src/"+name;
-        File file = new File(path);
-        BufferedImage image = null;
-        try {
-            if(myImage == null){
-                image = ImageIO.read(file);
-                myImage = image;
-                return image;}
-            else{
-                return myImage;
+        if (image == null) {
+            try {
+                image = ImageIO.read(new File("src/gap.png"));
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-
-        } catch (IOException e) {
-            e.printStackTrace();
         }
-        return null;
+
+        return image;
     }
 }

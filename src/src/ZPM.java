@@ -12,7 +12,7 @@ import java.io.IOException;
  */
 public class ZPM extends Item {
 
-    private BufferedImage myImage;
+
     /**
      * Default constructor
      */
@@ -57,21 +57,14 @@ public class ZPM extends Item {
     }
 
     public BufferedImage getImage() {
-        String name = "zpm.png";
-        String path ="src/"+name;
-        File file = new File(path);
-        BufferedImage image = null;
-        try {
-            if(myImage == null){
-                image = ImageIO.read(file);
-                myImage = image;
-                return image;}
-            else{
-                return myImage;
+        if (image == null) {
+            try {
+                image = ImageIO.read(new File("src/zpm.png"));
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-        } catch (IOException e) {
-            e.printStackTrace();
         }
-        return null;
+
+        return image;
     }
 }

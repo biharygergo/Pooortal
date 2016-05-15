@@ -57,22 +57,14 @@ public class Wall extends Field {
     }
 
     public BufferedImage getImage() {
-        String name = "wall.png";
-        String path ="src/"+name;
-        File file = new File(path);
-        BufferedImage image = null;
-        try {
-            if(myImage == null){
-                image = ImageIO.read(file);
-                myImage = image;
-                return image;}
-            else{
-                return myImage;
+        if (image == null) {
+            try {
+                image = ImageIO.read(new File("src/wall.png"));
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-
-        } catch (IOException e) {
-            e.printStackTrace();
         }
-        return null;
+
+        return image;
     }
 }
