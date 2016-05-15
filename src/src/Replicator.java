@@ -18,7 +18,7 @@ public class Replicator {
     private Field field;
 
 
-    BufferedImage myImage;
+    BufferedImage image;
     /**
      * The current direction of the replicator
      */
@@ -127,22 +127,15 @@ public class Replicator {
     }
 
     public BufferedImage getImage() {
-        String name = "replicator.png";
-        String path ="src/"+name;
-        File file = new File(path);
-        BufferedImage image = null;
-        try {
-            if(myImage == null){
-                image = ImageIO.read(file);
-                myImage = image;
-                return image;}
-            else{
-                return myImage;
-            }
 
-        } catch (IOException e) {
-            e.printStackTrace();
+        if (image == null) {
+            try {
+                image = ImageIO.read(new File("src/replicator.png"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
-        return null;
+
+        return View.rotate(image, View.getAngleFromDir(dir));
     }
 }
