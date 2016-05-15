@@ -11,7 +11,7 @@ import java.io.IOException;
  * Represents a special wall, which extends from the wall
  */
 public class SpecialWall extends Wall {
-
+    BufferedImage red, blue, green, yellow;
     /**
      * The color of the special wall when there is a portal on it
      */
@@ -190,38 +190,31 @@ public class SpecialWall extends Wall {
     }
 
     public BufferedImage getImage() {
-        String Color = "";
+        if (blue == null || green == null || red == null || yellow == null || image == null) {
+           try {
+               image = ImageIO.read(new File("none_sw.png"));
+               blue = ImageIO.read(new File("blue_sw.png"));
+               red = ImageIO.read(new File("red_sw.png"));
+               green = ImageIO.read(new File("green_sw.png"));
+               yellow = ImageIO.read(new File("yellow_sw.png"));
+           } catch (IOException e) {
+               e.printStackTrace();
+           }
+       }
+
         switch (color){
             case Blue:
-                Color = "blue";
-                break;
+               return blue;
             case Yellow:
-                Color = "yellow";
-                break;
+                return yellow;
             case Green:
-                Color = "green";
-                break;
+                return green;
             case Red:
-                Color = "red";
-                break;
+                return red;
             default:
-                Color = "none";
+                return image;
 
         }
-
-        String name = Color + "_sw.png";
-        String path ="src/"+name;
-        File file = new File(path);
-        BufferedImage image = null;
-        try {
-            image = ImageIO.read(file);
-            Image dimg =image.getScaledInstance(50,50, Image.SCALE_SMOOTH);
-            return image;
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return null;
     }
 }
 
