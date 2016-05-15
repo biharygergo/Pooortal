@@ -151,10 +151,6 @@ public class Scale extends Field {
 
     }
 
-    public void listScale(int num){
-        System.out.println(num + ". (" + xPos + "," + yPos + ") " + "(" + door.xPos + "," + door.yPos + ") " + minWeight + " " + currentWeight + " " + door.isOpen());
-    }
-
     public void setCurrentWeight(int currentWeight) {
         this.currentWeight = currentWeight;
     }
@@ -186,5 +182,9 @@ public class Scale extends Field {
         }
         return null;
     }
+
+//    public void listScale(int num){
+//        System.out.println(num + ". (" + xPos + "," + yPos + ") " + "(" + door.xPos + "," + door.yPos + ") " + minWeight + " " + currentWeight + " " + door.isOpen());
+//    }
 
 }

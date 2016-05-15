@@ -120,10 +120,6 @@ public class Replicator {
         bullet.setActive(false);
     }
 
-    public void listReplicator(int num){
-        System.out.println(num + "." + " (" + field.getxPos() + "," + field.getyPos() + ") " + dir.name() + " " + ((Boolean) alive).toString());
-    }
-
     public Icon getImage() {
         String name = "images/replicator.png";
         String path ="src/"+name;
@@ -139,4 +135,8 @@ public class Replicator {
         }
         return null;
     }
+
+//    public void listReplicator(int num){
+//        System.out.println(num + "." + " (" + field.getxPos() + "," + field.getyPos() + ") " + dir.name() + " " + ((Boolean) alive).toString());
+//    }
 }

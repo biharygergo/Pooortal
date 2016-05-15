@@ -185,10 +185,6 @@ public class SpecialWall extends Wall {
 
     }
 
-    public void listSpecialWall(int num){
-        System.out.println(num +". (" + xPos + ","+ yPos + ") " + color);
-    }
-
     public Icon getImage() {
         String Color = "";
         switch (color){
@@ -223,5 +219,9 @@ public class SpecialWall extends Wall {
         }
         return null;
     }
+
+//    public void listSpecialWall(int num){
+//        System.out.println(num +". (" + xPos + ","+ yPos + ") " + color);
+//    }
 }
 

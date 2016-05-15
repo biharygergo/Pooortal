@@ -106,7 +106,7 @@ public class GameEngine {
                                 activeModules.addBox(box);
                                 break;
                             default:
-                                System.out.println("Error in input map file!");
+                                //System.out.println("Error in input map file!");
                                 break;
                         }
 
@@ -140,8 +140,8 @@ public class GameEngine {
                             first.get(i).setSide(Dir.Down, second.get(i));
                         }
                         second.get(i).setPos(currentRow+1, i+1);
-                        int test = currentRow+1;
-                        int test2 = i+1;
+                        //int test = currentRow+1;
+                        //int test2 = i+1;
                         //System.out.println(test + " " + test2);
                         second.get(i).setSides(sides);
                     }
@@ -202,7 +202,7 @@ public class GameEngine {
                 replicatorMoveDir = Dir.Down;
                 break;
             default:
-                System.out.println("Incorrect direction parameter. Valid parameters are 'G' or 'V' or 'B' or 'N'");
+                //System.out.println("Incorrect direction parameter. Valid parameters are 'G' or 'V' or 'B' or 'N'");
                 break;
         }
 
@@ -244,7 +244,7 @@ public class GameEngine {
                 oNeillMoveDir = Dir.Down;
                 break;
             default:
-                System.out.println("Incorrect direction parameter. Valid parameters are 'I' or 'J' or 'K' or 'L'");
+                //System.out.println("Incorrect direction parameter. Valid parameters are 'I' or 'J' or 'K' or 'L'");
                 break;
         }
 
@@ -268,7 +268,7 @@ public class GameEngine {
                 JaffaMoveDir = Dir.Down;
                 break;
             default:
-                System.out.println("Incorrect direction parameter. Valid parameters are 'W' or 'A' or 'S' or 'D'");
+                //System.out.println("Incorrect direction parameter. Valid parameters are 'W' or 'A' or 'S' or 'D'");
                 break;
         }
 
@@ -289,7 +289,7 @@ public class GameEngine {
 
                 break;
             default:
-                System.out.println("Incorrect color parameter for oNeill. Valid parameters are 'B' or 'Y'");
+                //System.out.println("Incorrect color parameter for oNeill. Valid parameters are 'B' or 'Y'");
                 break;
         }
     }
@@ -309,7 +309,7 @@ public class GameEngine {
 
                 break;
             default:
-                System.out.println("Incorrect color parameter for Jaffa. Valid parameters are 'R' or 'G'");
+                //System.out.println("Incorrect color parameter for Jaffa. Valid parameters are 'R' or 'G'");
                 break;
         }
     }

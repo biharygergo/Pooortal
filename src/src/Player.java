@@ -197,12 +197,6 @@ public class Player {
         return nextField;
     }
 
-    public void listPlayer(int num, String playerName){
-        System.out.println(num + ". " + playerName + " (" + field.getxPos() + "," + field.getyPos() + ") " + dir.name() +
-                (box == null ? " null " : ("(" + box.getField().getxPos() + "," + box.getField().getyPos() + ") ")) +
-                ((Boolean) alive).toString() + " " + collectedZPMs + " " + weight + " " + primaryColor);
-    }
-
     public int getX(){
         return field.getxPos();
     }
@@ -210,7 +204,6 @@ public class Player {
     public int getY(){
         return field.getyPos();
     }
-
 
     public Icon getImage() {
         String name;
@@ -235,4 +228,10 @@ public class Player {
         }
         return null;
     }
+
+//    public void listPlayer(int num, String playerName){
+//        System.out.println(num + ". " + playerName + " (" + field.getxPos() + "," + field.getyPos() + ") " + dir.name() +
+//                (box == null ? " null " : ("(" + box.getField().getxPos() + "," + box.getField().getyPos() + ") ")) +
+//                ((Boolean) alive).toString() + " " + collectedZPMs + " " + weight + " " + primaryColor);
+//    }
 }

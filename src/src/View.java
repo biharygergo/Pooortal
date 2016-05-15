@@ -228,6 +228,4 @@ public class View extends JFrame {
 
         return Math.toRadians(degree);
     }
-
 }
-

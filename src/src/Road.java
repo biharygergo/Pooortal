@@ -51,7 +51,6 @@ public class Road extends Field {
         replicator.setField(this);
     }
 
-
     public Icon getImage() {
         String name = "images/road.png";
         String path ="src/"+name;

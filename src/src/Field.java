@@ -112,9 +112,9 @@ public abstract class Field {
      *
      * @param num
      */
-    public void listField(int num){
-        System.out.println(num +". (" + xPos + ","+ yPos + ") " + description);
-    }
+//    public void listField(int num){
+//        System.out.println(num +". (" + xPos + ","+ yPos + ") " + description);
+//    }
 
     /**
      *
