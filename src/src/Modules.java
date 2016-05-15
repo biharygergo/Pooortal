@@ -189,22 +189,19 @@ public class Modules {
      * @param zpm The ZPM to be removed
      */
     public void removeZPM(ZPM zpm) {
-       collectedZPMs++;
+        collectedZPMs++;
 
-        if((collectedZPMs%2)==0){
-            // TODO Teszt miatt lett kommentezve
+        if((collectedZPMs%2) == 0){
             Road newField =  zpm.getField().getRandomRoad(startField);
 
-
-            //Ha benne van vmelyik listában, akkor az nem lesz jó mező!
             while(ZPMisInList(newField) || BoxisInList(newField)){
                 newField = zpm.getField().getRandomRoad(startField);
             }
 
             ZPM newZPM = new ZPM(newField);
-
             ZPMs.add(newZPM);
         }
+
         ZPMs.remove(zpm);
     }
 
@@ -234,6 +231,7 @@ public class Modules {
             i++;
         }
     }
+
     public void listZPM(){
         int i = 1;
         for (ZPM zpm: ZPMs) {
@@ -241,6 +239,7 @@ public class Modules {
             i++;
         }
     }
+
     public void listBullets(){
         int i = 1;
         for (Bullet bullet: bullets) {
