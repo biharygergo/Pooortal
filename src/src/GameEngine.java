@@ -491,4 +491,342 @@ public class GameEngine {
         moveReplicator(replicator.setNewRandomField());
     }
 
+
+//    private void run(){
+//        boolean inGame = true;
+//        boolean endgame;
+//
+//        String line;
+//        Scanner scan= new Scanner(System.in);
+//        String elements[];
+//
+//        while (inGame){
+//            endgame = endGame();
+//            /*if(endgame) {
+//                inGame = false;
+//                exit();
+//            }*/
+//            line = scan.nextLine();
+//            elements = line.split(" ");
+//
+//            try {
+//                switch (elements[0]) {
+//                    case "loadMap":
+//                        //elements[1] = "src/map.csv"; //Nem kell paraméter a loadMap parancshoz!
+//                        loadMap("src/map.csv");
+//                        break;
+//
+//                    case "replicatorMove":
+//                        if(elements.length==1) {
+//                            System.out.println("Missing parameter!");
+//                        }
+//                        else
+//                            replicatorMove(elements[1]);
+//                        break;
+//
+//                    case "oNeilMove":
+//                        if(elements.length==1) {
+//                            System.out.println("Missing parameter!");
+//                        }
+//                        else {
+//                            oNeillMove(elements[1]);
+//                        }
+//                        break;
+//
+//                    case "jaffaMove":
+//                        if(elements.length==1) {
+//                            System.out.println("Missing parameter!");
+//                        }
+//                        else
+//                            jaffaMove(elements[1]);
+//                        break;
+//
+//                    case "oNeilShootBullet":
+//                        if(elements.length==1) {
+//                            System.out.println("Missing parameter!");
+//                        }
+//                        else
+//                            oNeillShootBullet(elements[1]);
+//                        break;
+//
+//                    case "JaffaShootBullet":
+//                        if(elements.length==1) {
+//                            System.out.println("Missing parameter!");
+//                        }
+//                        else
+//                            jaffaShootBullet(elements[1]);
+//                        break;
+//
+//                    case "oNeilDropBox":
+//                        if (oNeill.getBox() != null) {
+//                            Field maybeGap = oNeill.getNextField();
+//                            //Kvazi-Ralepunk de a player fieldjet nem allitottuk at!
+//                            maybeGap.onStep(oNeill);
+//                            oNeill.dropBox();
+//                            activeModules.checkBoxes();
+//                        }
+//                        break;
+//
+//                    case "jaffaDropBox":
+//                        Field maybeGapJaffa = Jaffa.getField();
+//                        maybeGapJaffa.onStep(Jaffa);
+//                        Jaffa.dropBox();
+//                        activeModules.checkBoxes();
+//                        break;
+//
+//                    case "oNeilSetBox":
+//                        setBoxForPlayer(oNeill);
+//                        break;
+//
+//                    case "jaffaSetBox":
+//                        setBoxForPlayer(Jaffa);
+//                        break;
+//
+//                    case "listBoxes":
+//                        activeModules.listBoxes();
+//                        break;
+//
+//                    case "listZPM":
+//                        activeModules.listZPM();
+//                        break;
+//
+//                    case "listFields":
+//                        map.listFields();
+//                        break;
+//
+//                    case "listScalesDoors":
+//                        map.listScalesDoors();
+//                        break;
+//
+//                    case "listSpecialWalls":
+//                        map.listSpecialWalls();
+//                        break;
+//
+//                    case "listBullets":
+//                        activeModules.listBullets();
+//                        break;
+//
+//                    case "listWormholes":
+//                        oNeillHole.listWormhole(1);
+//                        JaffaHole.listWormhole(2);
+//                        break;
+//
+//                    case "listPlayers":
+//                        oNeill.listPlayer(1, "o'Neil");
+//                        Jaffa.listPlayer(2, "Jaffa");
+//                        break;
+//
+//                    case "listReplicator":
+//                        replicator.listReplicator(1);
+//                        break;
+//
+//                    case "Exit":
+//                        inGame = false;
+//                        exit();
+//                        break;
+//
+//                    case "showMap":
+//                        Animate();
+//                        break;
+//
+//                    case "updateBullets":
+//                        updateBullets();
+//                        break;
+//
+//                    case "listGameOver":
+//                        isGameOver();
+//                        break;
+//
+//                    case "playRealGame":
+//                        //View.initGui(this);
+//                        playGame();
+//                        break;
+//
+//                    default:
+//                        System.out.println("Not a valid statement.");
+//                }
+//                System.out.println();
+//            }catch (Exception e){
+//                System.out.println("Error in statement: " + e.toString());
+//            }
+//
+//        }
+//    }
+
+//    private void isGameOver() {
+//        if (activeModules.noMoreZPM() || !oNeill.isAlive() || !Jaffa.isAlive()) {
+//            System.out.println("1. True");
+//        }
+//        else {
+//            System.out.println("1. False");
+//        }
+//    }
+
+//    private void playGame() {
+//        boolean inGame = true;
+//        boolean endgame;
+//        insertManyNewlines();
+//        Animate();
+//        String line;
+//        Scanner scan = new Scanner(System.in);
+//        String elements[];
+//        long lastUpdated = System.currentTimeMillis()/1000;
+//        while (inGame) {
+//            endgame = endGame();
+//            if (endgame) {
+//                inGame = false;
+//                exit();
+//            }
+//            long currentTime = System.currentTimeMillis()/1000;
+//            if(currentTime-lastUpdated>2) {
+//                updateBullets();
+//                moveReplicator(replicator.setNewRandomField());
+//            }
+//            line = scan.nextLine();
+//            elements =line.split( " ");
+//
+//            for (int i = 0; i<elements.length; i++)
+//                elements[i] = elements[i].toUpperCase();
+//
+//            //try {
+//            switch (elements[0]) {
+//
+//                case "I":
+//
+//                    oNeillMove("I");
+//                    insertManyNewlines();
+//                    Animate();
+//                    break;
+//                case "J":
+//
+//                    oNeillMove(elements[0]);
+//                    insertManyNewlines();
+//
+//                    Animate();
+//                    break;
+//                case "K":
+//
+//                    oNeillMove(elements[0]);
+//                    insertManyNewlines();
+//
+//                    Animate();
+//                    break;
+//                case "L":
+//
+//                    oNeillMove(elements[0]);
+//                    insertManyNewlines();
+//
+//                    Animate();
+//                    break;
+//
+//                case "A":
+//
+//                    jaffaMove(elements[0]);
+//                    insertManyNewlines();
+//
+//                    Animate();
+//                    break;
+//                case "S":
+//
+//                    jaffaMove(elements[0]);
+//                    insertManyNewlines();
+//
+//                    Animate();
+//                    break;
+//                case "D":
+//
+//                    jaffaMove(elements[0]);
+//                    insertManyNewlines();
+//
+//                    Animate();
+//                    break;
+//                case "W":
+//
+//                    jaffaMove(elements[0]);
+//                    insertManyNewlines();
+//
+//                    Animate();
+//                    break;
+//
+//                case "U":
+//
+//                    oNeillShootBullet("B");
+//                    insertManyNewlines();
+//
+//                    Animate();
+//
+//                    break;
+//
+//                case "O":
+//
+//                    oNeillShootBullet("Y");
+//                    insertManyNewlines();
+//
+//                    Animate();
+//                    break;
+//                case "Q":
+//
+//                    jaffaShootBullet("R");
+//                    insertManyNewlines();
+//
+//                    Animate();
+//                    break;
+//                case "R":
+//
+//                    jaffaShootBullet("G");
+//                    insertManyNewlines();
+//
+//                    Animate();
+//                    break;
+//
+//                case "N":
+//                    if (oNeill.getBox() != null) {
+//                        Field maybeGap = oNeill.getNextField();
+//                        //Kvazi-Ralepunk de a player fieldjet nem allitottuk at!
+//                        maybeGap.onStep(oNeill);
+//                        oNeill.dropBox();
+//                        activeModules.checkBoxes();
+//                        insertManyNewlines();
+//
+//                        Animate();
+//                    }
+//                    break;
+//
+//
+//                case "Y":
+//                    Field maybeGapJaffa = Jaffa.getField();
+//                    maybeGapJaffa.onStep(Jaffa);
+//                    Jaffa.dropBox();
+//                    activeModules.checkBoxes();
+//                    insertManyNewlines();
+//
+//                    Animate();
+//                    break;
+//
+//                case "M":
+//                    setBoxForPlayer(oNeill);
+//                    insertManyNewlines();
+//
+//                    Animate();
+//                    break;
+//
+//                case "X":
+//                    setBoxForPlayer(Jaffa);
+//                    insertManyNewlines();
+//
+//                    Animate();
+//                    break;
+//
+//                case "E":
+//                    inGame = false;
+//                    System.out.println("Interactive game mode exited.");
+//                    break;
+//
+//                default:
+//                    System.out.println("Not a valid statement.");
+//            }
+//        }
+//    }
+
+
 }
