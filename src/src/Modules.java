@@ -172,6 +172,14 @@ public class Modules {
         return null;
     }
 
+    public Bullet findBullet(Field what){
+        for (Bullet bullet:bullets) {
+            if(bullet.getField().equals(what))
+                return bullet;
+        }
+        return null;
+    }
+
     /**
      * Finds box based on location
      * @param where location
