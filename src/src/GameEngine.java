@@ -718,8 +718,8 @@ public class GameEngine {
         if (oNeill.getField().equals(currentField) && oNeill.isAlive())
             view.setPlayerImage(oNeill);
 
-        if (activeModules.findBox(currentField) != null)
-            view.setBoxImage(activeModules.findBox(currentField));
+        if (activeModules.findBullet(currentField) != null)
+            view.setBulletImage(activeModules.findBullet(currentField));
 
 
         // System.out.print("\n");
