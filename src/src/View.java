@@ -1,9 +1,5 @@
 package src;
 
-/**
- * Created by Gergo on 14/05/16.
- */
-
 import java.awt.*;
 
 import javax.swing.*;
@@ -18,6 +14,7 @@ public class View extends JFrame {
     private JPanel contentPane;
     //private JLabel[][] labels = new JLabel[6][6];
     public static View frame;
+    private int width = 100, height = 100;
     //private  Graphics g;
     /**
      * Launch the application.
@@ -69,7 +66,7 @@ public class View extends JFrame {
        contentPane = new JPanel();
 
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-        contentPane.setSize(900, 800);
+        contentPane.setSize(800, 800);
         contentPane.setBackground(Color.RED);
         setContentPane(contentPane);
         contentPane.setVisible(true);
@@ -83,20 +80,6 @@ public class View extends JFrame {
 
     }
 
-    /**
-     * @param player
-     */
-    public void notifyPlayerMoved(Player player) {
-        // TODO implement here
-    }
-
-    /**
-     * @param replicator
-     */
-    public void notifyReplicatorMoved(Replicator replicator) {
-        // TODO implement here
-    }
-
     private BufferedImage resizeImage(BufferedImage originalImage, int width, int height, int type) throws IOException {
         BufferedImage resizedImage = new BufferedImage(width, height, type);
         Graphics2D g = resizedImage.createGraphics();
@@ -106,10 +89,7 @@ public class View extends JFrame {
     }
 
     public void paintOn(BufferedImage bi, int x, int y){
-       Graphics g = getGraphics();
-
-        double SCALE = 0.5;
-
+        Graphics g = getGraphics();
 
         BufferedImage scaled = null;
         try {
@@ -118,7 +98,7 @@ public class View extends JFrame {
             e.printStackTrace();
         }
 
-        g.drawImage(scaled, y*100, x*100, null);
+        g.drawImage(scaled, height*100, width*100, null);
 
 
     }
@@ -126,22 +106,12 @@ public class View extends JFrame {
     public void setPlayerImage(Player player) {
         int y = player.getY();
         int x = player.getX();
-       // System.out.println(x +" " +y);
-       /* labels[player.getY()-1][player.getX()-1].setIcon(player.getImage());
-        labels[player.getY()-1][player.getX()-1].setText("");
-        contentPane.invalidate();*/
-         paintOn(player.getImage(), x, y);
-
-
-
+        paintOn(player.getImage(), x, y);
     }
 
     public void setFieldImage(Field field){
         int y = field.getyPos();
         int x = field.getxPos();
-        /*labels[y-1][x-1].setIcon(field.getImage());
-       labels[y-1][x-1].setText("");
-        contentPane.invalidate();*/
         paintOn(field.getImage(), x, y);
 
     }
@@ -149,10 +119,6 @@ public class View extends JFrame {
     public void setBoxImage(Box box){
         int y = box.getField().getyPos();
         int x = box.getField().getxPos();
-        /*labels[y-1][x-1].setIcon(box.getImage());
-        labels[y-1][x-1].setText("");
-        contentPane.invalidate();*/
-
         paintOn(box.getImage(), x, y);
 
     }
@@ -160,69 +126,22 @@ public class View extends JFrame {
     public void setZPMImage(ZPM zpm){
         int y = zpm.getField().getyPos();
         int x = zpm.getField().getxPos();
-        /*labels[y-1][x-1].setIcon(zpm.getImage());
-        labels[y-1][x-1].setText("");
-        contentPane.invalidate();*/
         paintOn(zpm.getImage(), x, y);
     }
 
     public void setReplicatorImage(Replicator replicator){
         int y = replicator.getField().getyPos();
         int x = replicator.getField().getxPos();
-       /* labels[y-1][x-1].setIcon(replicator.getImage());
-        labels[y-1][x-1].setText("");
-        contentPane.invalidate();*/
         paintOn(replicator.getImage(), x, y);
     }
 
     public void invalidateField(Field field){
         Graphics g = getGraphics();
-
         g.setColor(Color.lightGray);
-        g.fillRect(field.getyPos()*100, field.getxPos()*100, 100, 100);
+        g.fillRect(field.getyPos()*height, field.getxPos()*width, 100, 100);
 
     }
 
-    /**
-     * @param boxes
-     * @return
-     */
-    public void notifyBoxMoved(List<Box> boxes) {
-        // TODO implement here
-    }
-
-    /**
-     * @param ZPMs
-     * @return
-     */
-    public void notifyZpmMoved(List<ZPM> ZPMs) {
-        // TODO implement here
-    }
-
-    /**
-     * @param bullets
-     * @return
-     */
-    public void notifyBulletsMoved(List<Bullet> bullets) {
-        // TODO implement here
-    }
-
-    /**
-     * @param replicator
-     * @return
-     */
-    public void notifyReplicatorClosedGap(Replicator replicator) {
-        // TODO implement here
-    }
-
-    /**
-     * @param jaffaHole
-     * @param colonelHole
-     * @return
-     */
-    public void notifyWormholeStateChanged(Wormhole jaffaHole, Wormhole colonelHole) {
-        // TODO implement here
-    }
 
     public static BufferedImage rotate(BufferedImage image, double angle) {
         double sin = Math.abs(Math.sin(angle)), cos = Math.abs(Math.cos(angle));
@@ -271,12 +190,8 @@ public class View extends JFrame {
     }
 
     public void setBulletImage(Bullet bulletImage) {
-
         int y = bulletImage.getField().getyPos();
         int x = bulletImage.getField().getxPos();
-       /* labels[y-1][x-1].setIcon(replicator.getImage());
-        labels[y-1][x-1].setText("");
-        contentPane.invalidate();*/
         paintOn(bulletImage.getImage(), x, y);
     }
 }
