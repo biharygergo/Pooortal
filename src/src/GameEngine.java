@@ -627,28 +627,6 @@ public class GameEngine {
             for ( int j = 1 ; j<=maxwidth; j++) {
                 // System.out.print("\t\t");
                 currentField = map.getFieldAtPos(i, j);
-                /*
-                if (oNeill.getField().equals(currentField) && oNeill.isAlive()) {
-                    // System.out.print(String.format("%15s","Oneill "+oNeill.getDir().toString().substring(0,1)));
-                    view.setPlayerImage(oNeill);
-
-                } else if (Jaffa.getField().equals(currentField) && Jaffa.isAlive()) {
-                    //System.out.print(String.format("%15s", "Jaffa "+Jaffa.getDir().toString().substring(0,1)));
-                    view.setPlayerImage(Jaffa);
-                } else if (replicator.getField().equals(currentField) && replicator.isAlive()) {
-                    // System.out.print(String.format("%15s", "Replicator "+replicator.getDir().toString().substring(0,1)));
-                    view.setReplicatorImage(replicator);
-                } else if (activeModules.findBox(currentField) != null) {
-                    // System.out.print(String.format("%15s","Box "));
-                    view.setBoxImage(activeModules.findBox(currentField));
-                } else if (activeModules.findZPM(currentField) != null) {
-                    //System.out.print(String.format("%15s","ZPM "));
-                    view.setZPMImage(activeModules.findZPM(currentField));
-                } else {
-                    //System.out.print(String.
-                    // format("%15s",currentField.getDescription()+" "));
-                    view.setFieldImage(currentField);
-                }*/
 
                 view.setFieldImage(currentField);
 
@@ -659,6 +637,9 @@ public class GameEngine {
                 if (activeModules.findZPM(currentField) != null)
                     view.setZPMImage(activeModules.findZPM(currentField));
 
+                if (replicator.getField().equals(currentField) && replicator.isAlive())
+                    view.setReplicatorImage(replicator);
+
 
                 if (Jaffa.getField().equals(currentField) && Jaffa.isAlive())
                     view.setPlayerImage(Jaffa);
@@ -666,11 +647,6 @@ public class GameEngine {
 
                 if (oNeill.getField().equals(currentField) && oNeill.isAlive())
                     view.setPlayerImage(oNeill);
-
-                if (replicator.getField().equals(currentField) && replicator.isAlive())
-                    view.setReplicatorImage(replicator);
-
-
 
             }
            // System.out.print("\n");
