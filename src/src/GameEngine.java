@@ -30,7 +30,7 @@ public class GameEngine {
      */
     public void start() {
         //loadMap("src/map.csv");
-        run();
+        //run();
     }
 
     /**
@@ -334,7 +334,7 @@ public class GameEngine {
 
                     case "playRealGame":
                         //View.initGui(this);
-                        playGame();
+                        //playGame();
                         break;
 
                     default:
@@ -385,7 +385,10 @@ public class GameEngine {
                     replicator.onShoot(bullet);
                 }
                 else {
+
                     nextField.onShoot(bullet,oNeillHole,JaffaHole);
+                    activeModules.checkBullets();
+
                 }
 
                 AnimateOneField(oldField);
