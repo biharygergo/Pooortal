@@ -14,7 +14,7 @@ public class View extends JFrame {
     private JPanel contentPane;
     //private JLabel[][] labels = new JLabel[6][6];
     public static View frame;
-    private int width = 100, height = 100;
+    private int Fwidth = 100, Fheight = 100;
     //private  Graphics g;
     /**
      * Launch the application.
@@ -98,7 +98,7 @@ public class View extends JFrame {
             e.printStackTrace();
         }
 
-        g.drawImage(scaled, height*100, width*100, null);
+        g.drawImage(scaled, y*Fheight, x*Fwidth, null);
 
 
     }
@@ -138,7 +138,7 @@ public class View extends JFrame {
     public void invalidateField(Field field){
         Graphics g = getGraphics();
         g.setColor(Color.lightGray);
-        g.fillRect(field.getyPos()*height, field.getxPos()*width, 100, 100);
+        g.fillRect(field.getyPos()*Fheight, field.getxPos()*Fwidth, 100, 100);
 
     }
 
