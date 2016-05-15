@@ -102,7 +102,7 @@ public class Controller implements KeyListener {
                 break;
 
             case "N":
-                engine.oNeilGetBox();
+                engine.oNeilDropBox();
                 break;
 
             case "Y":
