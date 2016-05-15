@@ -25,8 +25,8 @@ public class View extends JFrame {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                     frame = new View();
 
+                    frame = new View();
                     frame.addKeyListener(controller);
                     Controller.loadImages();
                     frame.setVisible(true);
