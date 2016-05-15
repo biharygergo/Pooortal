@@ -1,5 +1,6 @@
 package src;
 
+import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.IOException;
@@ -11,7 +12,7 @@ public class Controller implements KeyListener {
     boolean endGame = false;
     static GameEngine engine = null;
     View ourView;
-    float lastUpdated = 0;
+    long lastUpdated = System.currentTimeMillis()/1000;
     public void run(){
         engine.loadMap("src/map.csv");
         while (!endGame) {
@@ -19,12 +20,14 @@ public class Controller implements KeyListener {
             if (endGame) {
                 engine.exit();
             }
-            long currentTime = System.currentTimeMillis() / 1000;
+            long currentTime = System.currentTimeMillis()/1000;
+            long elapsed = currentTime -lastUpdated;
             if (currentTime - lastUpdated > 2) {
                 engine.updateBullets();
                 engine.moveRandomReplicator();
+                lastUpdated = currentTime;
+
             }
-            lastUpdated = currentTime;
         }
     }
 
