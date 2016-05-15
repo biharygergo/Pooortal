@@ -15,6 +15,7 @@ public class Controller implements KeyListener {
     long lastUpdated = System.currentTimeMillis()/1000;
     public void run(){
         engine.loadMap("src/map.csv");
+        Thread t = new Thread();
         while (!endGame) {
             endGame = engine.endGame();
             if (endGame) {
@@ -24,6 +25,7 @@ public class Controller implements KeyListener {
             long elapsed = currentTime -lastUpdated;
             if (currentTime - lastUpdated > 2) {
                 engine.updateBullets();
+
                 engine.moveRandomReplicator();
                 lastUpdated = currentTime;
 
