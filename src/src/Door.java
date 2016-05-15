@@ -14,6 +14,7 @@ public class Door extends Field {
 
     private Scale scale;
     private boolean playerBlockingDoor;
+    BufferedImage opened = null;
 
     /**
      * Status of the door
@@ -115,22 +116,21 @@ public class Door extends Field {
     }
 
     public BufferedImage getImage() {
-        String name = "door_closed.png";
 
-        if(open)
-            name = "door_open.png";
+        if (image == null || opened == null) {
+            try {
+                image = ImageIO.read(new File("src/door_closed.png"));
+                opened = ImageIO.read(new File("src/door_opened.png"));
+                return image;
 
-        String path ="src/"+name;
-        File file = new File(path);
-        BufferedImage image = null;
-        try {
-            image = ImageIO.read(file);
-            Image dimg =image.getScaledInstance(50,50, Image.SCALE_SMOOTH);
-            return image;
-
-        } catch (IOException e) {
-            e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
-        return null;
+
+        if (open)
+            return opened;
+        else
+            return image;
     }
 }

@@ -11,6 +11,7 @@ public abstract class Field {
 
     protected String description;
     protected int xPos, yPos;
+    BufferedImage image = null;
 
     /**
      * Default constructor
