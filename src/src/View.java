@@ -8,6 +8,7 @@ import java.awt.*;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.List;
@@ -17,7 +18,7 @@ public class View extends JFrame {
     private JPanel contentPane;
     //private JLabel[][] labels = new JLabel[6][6];
     public static View frame;
-    private  Graphics g;
+    //private  Graphics g;
     /**
      * Launch the application.
      * @param controller
@@ -43,10 +44,12 @@ public class View extends JFrame {
     }
 
     public void Invalidate(){
-        repaint();
-        revalidate();
-        this.removeAll();
-        this.update(getGraphics());
+
+
+        Graphics g = getGraphics();
+        g.setColor(Color.lightGray);
+        g.drawRect(0,0,800,800);
+        g.fillRect(0,0,800,800);
 
     }
 
@@ -66,9 +69,12 @@ public class View extends JFrame {
        contentPane = new JPanel();
 
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+        contentPane.setSize(900, 800);
+        contentPane.setBackground(Color.RED);
         setContentPane(contentPane);
-        contentPane.setLayout(new BorderLayout(0, 0));
-        g = contentPane.getGraphics();
+        contentPane.setVisible(true);
+        //contentPane.setLayout(new BorderLayout(0, 0));
+       // g = contentPane.getGraphics();
 /*
         JPanel gamePanel = new JPanel();
         contentPane.add(gamePanel, BorderLayout.CENTER);
@@ -135,7 +141,7 @@ public class View extends JFrame {
         gamePanel.add(lblImage_12);
         labels[0][2] = lblImage_12;
 
-        JLabel lblImage_13 = new JLabel("Image12");
+        JLabel lblImage_13 = new g.fillRect(0,0,800,800);JLabel("Image12");
         gamePanel.add(lblImage_13);
         labels[1][2] = lblImage_13;
 
@@ -258,7 +264,7 @@ public class View extends JFrame {
     }
 
     public void paintOn(BufferedImage bi, int x, int y){
-        g = getGraphics();
+       Graphics g = getGraphics();
 
         double SCALE = 0.5;
 
