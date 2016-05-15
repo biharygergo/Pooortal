@@ -82,7 +82,7 @@ public class Player {
             return returnvalue;
         }
         else{
-            dropBoxAllowed=true;
+            dropBoxAllowed = true;
             return null;
         }
     }

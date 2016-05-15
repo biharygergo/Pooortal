@@ -34,14 +34,13 @@ public class Box extends Item {
       * @param player the player who wants to use the box
      */
     public void onUse(Player player) {
-        if(player.getBox()!=null)
-            return;
+        if(player.getBox() != null) return;
 
         player.setBox(this);
         this.field = player.getField();
 
         //Hozzaadjuk a player sulyahoz a box sulyat?
-        player.weight+=this.weight;
+        player.weight += this.weight;
 
     }
 
@@ -65,7 +64,7 @@ public class Box extends Item {
      * @param field The new field
      */
     public void setField(Field field) {
-     this.field=field;
+        this.field=field;
     }
 
     public boolean isAlive(){

@@ -83,20 +83,20 @@ public class Scale extends Field {
      */
     public boolean steppable() {
         //Ha vannak rajta dobozok, ne lehessen rálépni - > ledől a doboztorony :)
-      if(boxes.size()==0)
-          return true;
+        if(boxes.size()==0) return true;
 
         return false;
     }
 
     public void reCheckWeights(){
-        if(currentWeight<minWeight){
+        if(currentWeight < minWeight) {
             door.setOpen(false);
         }
-        else{
+        else {
             door.setOpen(true);
         }
     }
+
     /**
      * @param player the player who wants to step on the field where the scale is
      */
@@ -123,14 +123,16 @@ public class Scale extends Field {
     }
 
     public Box getBoxOnTop(){
-        return boxes.get(boxes.size()-1);
+        return boxes.get(boxes.size() - 1);
     }
+
     public void removeBox(Box box){
         int boxweight = box.getWeight();
-        currentWeight-=boxweight;
+        currentWeight -= boxweight;
         boxes.remove(box);
         reCheckWeights();
     }
+
     /**
      * What happens when the player shoots on the scale
      * @param bullet The bullet which the player shoots on the scale

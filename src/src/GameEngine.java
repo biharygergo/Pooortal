@@ -317,7 +317,7 @@ public class GameEngine {
     public void oNeilDropBox(){
         if (oNeill.getBox() != null) {
             Field maybeGap = oNeill.getNextField();
-            if(maybeGap.steppable()) {
+            if (maybeGap.steppable()) {
                 //Kvazi-Ralepunk de a player fieldjet nem allitottuk at!
                 maybeGap.onStep(oNeill);
                 oNeill.dropBox();
@@ -332,11 +332,12 @@ public class GameEngine {
 
     public void jaffaDropBox(){
         if (Jaffa.getBox() != null) {
-
-            Field maybeGapJaffa = Jaffa.getField();
-            maybeGapJaffa.onStep(Jaffa);
-            Jaffa.dropBox();
-            activeModules.checkBoxes();
+            Field maybeGap = Jaffa.getNextField();
+            if (maybeGap.steppable()) {
+                maybeGap.onStep(Jaffa);
+                Jaffa.dropBox();
+                activeModules.checkBoxes();
+            }
         }
     }
 
