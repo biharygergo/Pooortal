@@ -45,15 +45,10 @@ public class Controller implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-
-    }
-
-    @Override
-    public void keyReleased(KeyEvent e) {
         System.out.println(e.getKeyChar());
 
         char typed = e.getKeyChar();
-        String command = typed+"";
+        String command = typed + "";
         command = command.toUpperCase();
 
         switch (command) {
@@ -124,5 +119,10 @@ public class Controller implements KeyListener {
 
         }
         engine.Animate();
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+
     }
 }
