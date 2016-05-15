@@ -15,7 +15,7 @@ public class Player {
     public boolean dropBoxAllowed = true;
     public Door onThisDoor;
 
-    BufferedImage myImage;
+    BufferedImage image;
     /**
      * The field which the player currently stands on
      */
@@ -59,8 +59,8 @@ public class Player {
     /**
      * Default constructor
      */
-    public Player(){
-        field=new Road();
+    public Player() {
+        field = new Road();
     }
 
     public Player(Field field, Dir dir, int weight, Color primaryColor) {
@@ -75,17 +75,16 @@ public class Player {
      * @return The box which the player has dropped
      */
     public Box dropBox() {
-        if(dropBoxAllowed) {
-            if(this.getNextField().steppable()) {
+        if (dropBoxAllowed) {
+            if (this.getNextField().steppable()) {
                 box.setField(this.getNextField());
                 Box returnvalue = box;
                 weight -= box.getWeight();
                 box = null;
                 return returnvalue;
             }
-        }
-        else{
-            dropBoxAllowed=true;
+        } else {
+            dropBoxAllowed = true;
             return null;
         }
 
@@ -131,38 +130,38 @@ public class Player {
      * @param field The field to be set for the player
      */
     public void setField(Field field) {
-        if(onThisScale!=null){
+        if (onThisScale != null) {
             int currentWeight = onThisScale.getCurrentWeight() - weight;
             onThisScale.setCurrentWeight(currentWeight);
-            if(onThisScale.getCurrentWeight()<onThisScale.getMinWeight()){
+            if (onThisScale.getCurrentWeight() < onThisScale.getMinWeight()) {
                 onThisScale.getDoor().setOpen(false);
             }
             onThisScale = null;
         }
 
-        if(onThisDoor!=null){
+        if (onThisDoor != null) {
             onThisDoor.setPlayerBlockingDoor(false);
             onThisDoor.reCheckWeightAfterSteppingOff();
             onThisDoor = null;
 
         }
-        if(box!=null)
+        if (box != null)
             box.setField(field);
-        this.field=field;
+        this.field = field;
     }
 
     /**
      * @return The direction of the player
      */
     public Dir getDir() {
-       return dir;
+        return dir;
     }
 
     /**
      * @param dir The direction to be set for the player
      */
     public void setDir(Dir dir) {
-      this.dir = dir;
+        this.dir = dir;
     }
 
     /**
@@ -202,47 +201,34 @@ public class Player {
         return nextField;
     }
 
-    public void listPlayer(int num, String playerName){
+    public void listPlayer(int num, String playerName) {
         System.out.println(num + ". " + playerName + " (" + field.getxPos() + "," + field.getyPos() + ") " + dir.name() +
                 (box == null ? " null " : ("(" + box.getField().getxPos() + "," + box.getField().getyPos() + ") ")) +
                 ((Boolean) alive).toString() + " " + collectedZPMs + " " + weight + " " + primaryColor);
     }
 
-    public int getX(){
+    public int getX() {
         return field.getxPos();
     }
 
-    public int getY(){
+    public int getY() {
         return field.getyPos();
     }
 
 
     public BufferedImage getImage() {
-        String name;
-        if(primaryColor == Color.Blue)
-            name = "oneil.png";
-        else{
-            name = "jaffa.png";
-        }
-        String path ="src/"+name;
-        File file = new File(path);
-        BufferedImage image = null;
-        try {
-            if(myImage == null){
-                image = ImageIO.read(file);
-                myImage = image;
-                BufferedImage image2 = View.rotate(image, View.getAngleFromDir(dir));
-                return image2;}
-            else{
-                BufferedImage image2 = View.rotate(myImage, View.getAngleFromDir(dir));
-
-                return image2;
+        if (image == null) {
+            try {
+                if (primaryColor == Color.Blue)
+                    image = ImageIO.read(new File("src/oneil.png"));
+                else {
+                    image = ImageIO.read(new File("src/jaffa.png"));
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-
-
-        } catch (IOException e) {
-            e.printStackTrace();
         }
-        return null;
+
+        return View.rotate(image, View.getAngleFromDir(dir));
     }
 }
