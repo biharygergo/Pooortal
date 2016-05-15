@@ -78,11 +78,12 @@ public class Box extends Item {
     }
 
     public BufferedImage getImage() {
-        if (image == null)
-        try {
-            image = ImageIO.read(new File("src/box.png"));
-        } catch (IOException e) {
-            e.printStackTrace();
+        if (image == null) {
+            try {
+                image = ImageIO.read(new File("src/box.png"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
         return image;
