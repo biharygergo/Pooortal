@@ -56,7 +56,7 @@ public class ZPM extends Item {
     }
 
     public Icon getImage() {
-        String name = "zpm.png";
+        String name = "images/zpm.png";
         String path ="src/"+name;
         File file = new File(path);
         BufferedImage image = null;

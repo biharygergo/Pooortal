@@ -7,7 +7,7 @@ import java.util.*;
 
 
 /**
- * The engine of the game. Creeates the map with list of items, handles the player movement.
+ * The engine of the game. Creates the map with list of items, handles the player movement.
  */
 public class GameEngine {
 
@@ -23,14 +23,12 @@ public class GameEngine {
 
     }
 
-
-
     /**
      * Creeates the map and starts to run the program
      */
     public void start() {
         //loadMap("src/map.csv");
-        run();
+      //  run();
     }
 
     /**
@@ -144,7 +142,7 @@ public class GameEngine {
                         second.get(i).setPos(currentRow+1, i+1);
                         int test = currentRow+1;
                         int test2 = i+1;
-                        System.out.println(test + " " + test2);
+                        //System.out.println(test + " " + test2);
                         second.get(i).setSides(sides);
                     }
 
@@ -184,167 +182,6 @@ public class GameEngine {
             oNeill = new Player(fieldListInARow.get(3), Dir.Up, 5, Color.Blue);
         } else if (currentRow == 4) {
             replicator = new Replicator(fieldListInARow.get(1), Dir.Up);
-        }
-    }
-
-    private void run(){
-        boolean inGame = true;
-        boolean endgame;
-
-        String line;
-        Scanner scan= new Scanner(System.in);
-        String elements[];
-
-        while (inGame){
-            endgame = endGame();
-            /*if(endgame) {
-                inGame = false;
-                exit();
-            }*/
-            line = scan.nextLine();
-            elements = line.split(" ");
-
-            try {
-                switch (elements[0]) {
-                    case "loadMap":
-                        //elements[1] = "src/map.csv"; //Nem kell paraméter a loadMap parancshoz!
-                        loadMap("src/map.csv");
-                        break;
-
-                    case "replicatorMove":
-                        if(elements.length==1) {
-                            System.out.println("Missing parameter!");
-                        }
-                        else
-                            replicatorMove(elements[1]);
-                        break;
-
-                    case "oNeilMove":
-                        if(elements.length==1) {
-                            System.out.println("Missing parameter!");
-                        }
-                        else {
-                            oNeillMove(elements[1]);
-                        }
-                        break;
-
-                    case "jaffaMove":
-                        if(elements.length==1) {
-                            System.out.println("Missing parameter!");
-                        }
-                        else
-                            jaffaMove(elements[1]);
-                        break;
-
-                    case "oNeilShootBullet":
-                        if(elements.length==1) {
-                            System.out.println("Missing parameter!");
-                        }
-                        else
-                            oNeillShootBullet(elements[1]);
-                        break;
-
-                    case "JaffaShootBullet":
-                        if(elements.length==1) {
-                            System.out.println("Missing parameter!");
-                        }
-                        else
-                            jaffaShootBullet(elements[1]);
-                        break;
-
-                    case "oNeilDropBox":
-                        if (oNeill.getBox() != null) {
-                            Field maybeGap = oNeill.getNextField();
-                            //Kvazi-Ralepunk de a player fieldjet nem allitottuk at!
-                            maybeGap.onStep(oNeill);
-                            oNeill.dropBox();
-                            activeModules.checkBoxes();
-                        }
-                        break;
-
-                    case "jaffaDropBox":
-                        Field maybeGapJaffa = Jaffa.getField();
-                        maybeGapJaffa.onStep(Jaffa);
-                        Jaffa.dropBox();
-                        activeModules.checkBoxes();
-                        break;
-
-                    case "oNeilSetBox":
-                        setBoxForPlayer(oNeill);
-                        break;
-
-                    case "jaffaSetBox":
-                        setBoxForPlayer(Jaffa);
-                        break;
-
-                    case "listBoxes":
-                        activeModules.listBoxes();
-                        break;
-
-                    case "listZPM":
-                        activeModules.listZPM();
-                        break;
-
-                    case "listFields":
-                        map.listFields();
-                        break;
-
-                    case "listScalesDoors":
-                        map.listScalesDoors();
-                        break;
-
-                    case "listSpecialWalls":
-                        map.listSpecialWalls();
-                        break;
-
-                    case "listBullets":
-                        activeModules.listBullets();
-                        break;
-
-                    case "listWormholes":
-                        oNeillHole.listWormhole(1);
-                        JaffaHole.listWormhole(2);
-                        break;
-
-                    case "listPlayers":
-                        oNeill.listPlayer(1, "o'Neil");
-                        Jaffa.listPlayer(2, "Jaffa");
-                        break;
-
-                    case "listReplicator":
-                        replicator.listReplicator(1);
-                        break;
-
-                    case "Exit":
-                        inGame = false;
-                        exit();
-                        break;
-
-                    case "showMap":
-                        Animate();
-                        break;
-
-                    case "updateBullets":
-                        updateBullets();
-                        break;
-
-                    case "listGameOver":
-                        isGameOver();
-                        break;
-
-                    case "playRealGame":
-                        //View.initGui(this);
-                        playGame();
-                        break;
-
-                    default:
-                        System.out.println("Not a valid statement.");
-                }
-                System.out.println();
-            }catch (Exception e){
-                System.out.println("Error in statement: " + e.toString());
-            }
-
         }
     }
 
@@ -489,7 +326,6 @@ public class GameEngine {
 
     public void oNeilGetBox(){
         setBoxForPlayer(oNeill);
-
     }
 
     public void jaffaDropBox(){
@@ -505,6 +341,7 @@ public class GameEngine {
     public void jaffaGetBox(){
         setBoxForPlayer(Jaffa);
     }
+
     public void exit() {
         System.out.println("Megtiszteltetés volt, hogy velünk játszottál!\n" +
                 "Engedd meg, hogy Tóth Beáta Mária Viszlát! című versével búcsúzzunk és köszönjük meg az együtt töltött perceket:\n");
@@ -594,7 +431,6 @@ public class GameEngine {
     private void setBoxForPlayer(Player player) {
         Field nextField = player.getNextField();
 
-
         if (player.getBox() == null && nextFieldHasActiveBox(nextField,player)) {
             if(nextField instanceof Scale){
                 Scale scale = (Scale) nextField;
@@ -608,13 +444,6 @@ public class GameEngine {
                 steppedOn.onUse(player);
             }
         }
-
-    }
-
-    private void insertManyNewlines(){
-        for(int i=0; i<40; i++){
-            System.out.println("");
-        }
     }
 
     public void Animate(){
@@ -625,216 +454,41 @@ public class GameEngine {
 
         for(int i = 1; i<=maxheight; i++){
             for ( int j = 1 ; j<=maxwidth; j++){
-                System.out.print("\t\t");
+                //System.out.print("\t\t");
                 currentField = map.getFieldAtPos(i, j);
                  if (oNeill.getField().equals(currentField) && oNeill.isAlive()) {
-                    System.out.print(String.format("%15s","Oneill "+oNeill.getDir().toString().substring(0,1)));
+                   // System.out.print(String.format("%15s","Oneill "+oNeill.getDir().toString().substring(0,1)));
                      view.setPlayerImage(oNeill);
                 }
                 else if(Jaffa.getField().equals(currentField) && Jaffa.isAlive()) {
-                     System.out.print(String.format("%15s", "Jaffa "+Jaffa.getDir().toString().substring(0,1)));
+                  //   System.out.print(String.format("%15s", "Jaffa "+Jaffa.getDir().toString().substring(0,1)));
                      view.setPlayerImage(Jaffa);
                 }
                 else if(replicator.getField().equals(currentField) && replicator.isAlive()) {
-                     System.out.print(String.format("%15s", "Replicator "+replicator.getDir().toString().substring(0,1)));
+                    // System.out.print(String.format("%15s", "Replicator "+replicator.getDir().toString().substring(0,1)));
                      view.setReplicatorImage(replicator);
                 }
 
                 else if(activeModules.findBox(currentField)!=null) {
-                    System.out.print(String.format("%15s","Box "));
+                   // System.out.print(String.format("%15s","Box "));
                      view.setBoxImage(activeModules.findBox(currentField));
                 }
                 else if (activeModules.findZPM(currentField)!=null) {
-                    System.out.print(String.format("%15s","ZPM "));
+                   // System.out.print(String.format("%15s","ZPM "));
                      view.setZPMImage(activeModules.findZPM(currentField));
                 }
                 else{
-                    System.out.print(String.
-                            format("%15s",currentField.getDescription()+" "));
+                    //System.out.print(String.format("%15s",currentField.getDescription()+" "));
                      view.setFieldImage(currentField);
                     }
                 }
 
-            System.out.print("\n");
+            //System.out.print("\n");
             }
         }
-
-    private void isGameOver() {
-        if (activeModules.noMoreZPM() || !oNeill.isAlive() || !Jaffa.isAlive()) {
-            System.out.println("1. True");
-        }
-        else {
-            System.out.println("1. False");
-        }
-    }
 
     public void moveRandomReplicator(){
         moveReplicator(replicator.setNewRandomField());
-    }
-    private void playGame() {
-        boolean inGame = true;
-        boolean endgame;
-        insertManyNewlines();
-        Animate();
-        String line;
-        Scanner scan = new Scanner(System.in);
-        String elements[];
-        long lastUpdated = System.currentTimeMillis()/1000;
-        while (inGame) {
-            endgame = endGame();
-            if (endgame) {
-                inGame = false;
-                exit();
-            }
-            long currentTime = System.currentTimeMillis()/1000;
-            if(currentTime-lastUpdated>2) {
-                updateBullets();
-                moveReplicator(replicator.setNewRandomField());
-            }
-            line = scan.nextLine();
-            elements =line.split( " ");
-
-            for (int i = 0; i<elements.length; i++)
-                elements[i] = elements[i].toUpperCase();
-
-            //try {
-            switch (elements[0]) {
-
-                case "I":
-
-                    oNeillMove("I");
-                    insertManyNewlines();
-                    Animate();
-                    break;
-                case "J":
-
-                    oNeillMove(elements[0]);
-                    insertManyNewlines();
-
-                    Animate();
-                    break;
-                case "K":
-
-                    oNeillMove(elements[0]);
-                    insertManyNewlines();
-
-                    Animate();
-                    break;
-                case "L":
-
-                    oNeillMove(elements[0]);
-                    insertManyNewlines();
-
-                    Animate();
-                    break;
-
-                case "A":
-
-                    jaffaMove(elements[0]);
-                    insertManyNewlines();
-
-                    Animate();
-                    break;
-                case "S":
-
-                    jaffaMove(elements[0]);
-                    insertManyNewlines();
-
-                    Animate();
-                    break;
-                case "D":
-
-                    jaffaMove(elements[0]);
-                    insertManyNewlines();
-
-                    Animate();
-                    break;
-                case "W":
-
-                    jaffaMove(elements[0]);
-                    insertManyNewlines();
-
-                    Animate();
-                    break;
-
-                case "U":
-
-                    oNeillShootBullet("B");
-                    insertManyNewlines();
-
-                    Animate();
-
-                    break;
-
-                case "O":
-
-                    oNeillShootBullet("Y");
-                    insertManyNewlines();
-
-                    Animate();
-                    break;
-                case "Q":
-
-                    jaffaShootBullet("R");
-                    insertManyNewlines();
-
-                    Animate();
-                    break;
-                case "R":
-
-                    jaffaShootBullet("G");
-                    insertManyNewlines();
-
-                    Animate();
-                    break;
-
-                case "N":
-                    if (oNeill.getBox() != null) {
-                        Field maybeGap = oNeill.getNextField();
-                        //Kvazi-Ralepunk de a player fieldjet nem allitottuk at!
-                        maybeGap.onStep(oNeill);
-                        oNeill.dropBox();
-                        activeModules.checkBoxes();
-                        insertManyNewlines();
-
-                        Animate();
-                    }
-                    break;
-
-
-                case "Y":
-                    Field maybeGapJaffa = Jaffa.getField();
-                    maybeGapJaffa.onStep(Jaffa);
-                    Jaffa.dropBox();
-                    activeModules.checkBoxes();
-                    insertManyNewlines();
-
-                    Animate();
-                    break;
-
-                case "M":
-                    setBoxForPlayer(oNeill);
-                    insertManyNewlines();
-
-                    Animate();
-                    break;
-
-                case "X":
-                    setBoxForPlayer(Jaffa);
-                    insertManyNewlines();
-
-                    Animate();
-                    break;
-
-                case "E":
-                    inGame = false;
-                    System.out.println("Interactive game mode exited.");
-                    break;
-
-                default:
-                    System.out.println("Not a valid statement.");
-            }
-        }
     }
 
 }

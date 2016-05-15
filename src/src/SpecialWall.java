@@ -210,7 +210,7 @@ public class SpecialWall extends Wall {
         }
 
         String name = Color + "_sw.png";
-        String path ="src/"+name;
+        String path ="src/images/"+name;
         File file = new File(path);
         BufferedImage image = null;
         try {

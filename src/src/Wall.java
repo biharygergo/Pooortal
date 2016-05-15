@@ -53,7 +53,7 @@ public class Wall extends Field {
     }
 
     public Icon getImage() {
-        String name = "wall.png";
+        String name = "images/wall.png";
         String path ="src/"+name;
         File file = new File(path);
         BufferedImage image = null;

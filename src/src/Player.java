@@ -215,9 +215,9 @@ public class Player {
     public Icon getImage() {
         String name;
         if(primaryColor == Color.Blue)
-            name = "oneil.png";
+            name = "images/oneil.png";
         else{
-            name = "jaffa.png";
+            name = "images/jaffa.png";
         }
         String path ="src/"+name;
         File file = new File(path);

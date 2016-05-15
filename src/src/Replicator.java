@@ -121,11 +121,11 @@ public class Replicator {
     }
 
     public void listReplicator(int num){
-        System.out.println(num + "."  + " (" + field.getxPos() + "," + field.getyPos() + ") " + dir.name() + " " + ((Boolean) alive).toString());
+        System.out.println(num + "." + " (" + field.getxPos() + "," + field.getyPos() + ") " + dir.name() + " " + ((Boolean) alive).toString());
     }
 
     public Icon getImage() {
-        String name = "replicator.png";
+        String name = "images/replicator.png";
         String path ="src/"+name;
         File file = new File(path);
         BufferedImage image = null;

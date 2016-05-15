@@ -77,7 +77,7 @@ public class Box extends Item {
     }
 
     public Icon getImage() {
-        String name = "box.png";
+        String name = "images/box.png";
         String path ="src/"+name;
         File file = new File(path);
         BufferedImage image = null;

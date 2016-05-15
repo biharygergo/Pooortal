@@ -170,7 +170,7 @@ public class Scale extends Field {
     }
 
     public Icon getImage() {
-        String name = "scale.png";
+        String name = "images/scale.png";
         String path ="src/"+name;
         File file = new File(path);
         BufferedImage image = null;

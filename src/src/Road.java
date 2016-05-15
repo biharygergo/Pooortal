@@ -53,7 +53,7 @@ public class Road extends Field {
 
 
     public Icon getImage() {
-        String name = "road.png";
+        String name = "images/road.png";
         String path ="src/"+name;
         File file = new File(path);
         BufferedImage image = null;

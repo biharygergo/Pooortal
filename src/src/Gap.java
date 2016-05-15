@@ -74,7 +74,7 @@ public class Gap extends Field {
     }
 
     public Icon getImage() {
-        String name = "gap.png";
+        String name = "images/gap.png";
         String path ="src/"+name;
         File file = new File(path);
         BufferedImage image = null;
