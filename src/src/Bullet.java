@@ -102,10 +102,10 @@ public class Bullet{
     public BufferedImage getImage() {
         if (blue == null || green == null || red == null || yellow == null) {
             try {
-                blue = ImageIO.read(new File("src/blue_bullet.png"));
-                red = ImageIO.read(new File("src/red_bullet.png"));
-                green = ImageIO.read(new File("src/green_bullet.png"));
-                yellow = ImageIO.read(new File("src/yellow_bullet.png"));
+                blue = ImageIO.read(new File("res/img/blue_bullet.png"));
+                red = ImageIO.read(new File("res/img/red_bullet.png"));
+                green = ImageIO.read(new File("res/img/green_bullet.png"));
+                yellow = ImageIO.read(new File("res/img/yellow_bullet.png"));
             } catch (IOException e) {
                 e.printStackTrace();
             }

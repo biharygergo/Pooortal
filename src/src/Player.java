@@ -228,9 +228,9 @@ public class Player {
         if (image == null) {
             try {
                 if (primaryColor == Color.Blue)
-                    image = ImageIO.read(new File("src/oneil.png"));
+                    image = ImageIO.read(new File("res/img/oneil.png"));
                 else {
-                    image = ImageIO.read(new File("src/jaffa.png"));
+                    image = ImageIO.read(new File("res/img/jaffa.png"));
                 }
             } catch (IOException e) {
                 e.printStackTrace();

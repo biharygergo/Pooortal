@@ -192,11 +192,11 @@ public class SpecialWall extends Wall {
     public BufferedImage getImage() {
         if (blue == null || green == null || red == null || yellow == null || image == null) {
            try {
-               image = ImageIO.read(new File("src/none_sw.png"));
-               blue = ImageIO.read(new File("src/blue_sw.png"));
-               red = ImageIO.read(new File("src/red_sw.png"));
-               green = ImageIO.read(new File("src/green_sw.png"));
-               yellow = ImageIO.read(new File("src/yellow_sw.png"));
+               image = ImageIO.read(new File("res/img/none_sw.png"));
+               blue = ImageIO.read(new File("res/img/blue_sw.png"));
+               red = ImageIO.read(new File("res/img/red_sw.png"));
+               green = ImageIO.read(new File("res/img/green_sw.png"));
+               yellow = ImageIO.read(new File("res/img/yellow_sw.png"));
            } catch (IOException e) {
                e.printStackTrace();
            }

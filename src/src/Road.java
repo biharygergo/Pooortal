@@ -56,7 +56,7 @@ public class Road extends Field {
     public BufferedImage getImage() {
         if (image == null) {
             try {
-                image = ImageIO.read(new File("src/road.png"));
+                image = ImageIO.read(new File("res/img/road.png"));
             } catch (IOException e) {
                 e.printStackTrace();
             }

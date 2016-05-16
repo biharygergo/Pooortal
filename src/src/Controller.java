@@ -17,7 +17,7 @@ public class Controller implements KeyListener, Runnable {
         if (type.equals("listener")) {
             setListener();
         } else {
-            engine.loadMap("src/map_2.csv");
+            engine.loadMap("res/csv/map_2.csv");
             Thread t = new Thread();
             while (!endGame) {
                 endGame = engine.endGame();

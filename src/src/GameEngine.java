@@ -162,7 +162,7 @@ public class GameEngine {
 
                 }
 
-            activeModules.initializeModules("src/modules_2.csv", map.getstartField());
+            activeModules.initializeModules("res/csv/modules_2.csv", map.getstartField());
             JaffaHole.primaryColor=Color.Red;
             JaffaHole.secondaryColor=Color.Red.next();
 
@@ -174,7 +174,7 @@ public class GameEngine {
         }
 
         initiatePlayersAndReplicator(first, currentRow);
-        initializeScales("src/scale.csv",  doors);
+        initializeScales("res/csv/scale.csv",  doors);
     }
 
     private void initializeScales(String filename, ArrayList<Door> doors){
@@ -238,7 +238,7 @@ public class GameEngine {
                 switch (elements[0]) {
                     case "loadMap":
                         //elements[1] = "src/map.csv"; //Nem kell paraméter a loadMap parancshoz!
-                        loadMap("src/map.csv");
+                        loadMap("res/csv/map.csv");
                         break;
 
                     case "replicatorMove":

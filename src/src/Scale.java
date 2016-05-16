@@ -173,7 +173,7 @@ public class Scale extends Field {
     public BufferedImage getImage() {
         if (image == null) {
             try {
-                image = ImageIO.read(new File("src/scale.png"));
+                image = ImageIO.read(new File("res/img/scale.png"));
             } catch (IOException e) {
                 e.printStackTrace();
             }

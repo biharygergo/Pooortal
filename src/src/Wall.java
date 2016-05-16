@@ -59,7 +59,7 @@ public class Wall extends Field {
     public BufferedImage getImage() {
         if (image == null) {
             try {
-                image = ImageIO.read(new File("src/wall.png"));
+                image = ImageIO.read(new File("res/img/wall.png"));
             } catch (IOException e) {
                 e.printStackTrace();
             }

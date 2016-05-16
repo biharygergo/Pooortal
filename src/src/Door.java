@@ -123,8 +123,8 @@ public class Door extends Field {
 
         if (image == null || opened == null) {
             try {
-                image = ImageIO.read(new File("src/door_closed.png"));
-                opened = ImageIO.read(new File("src/door_open.png"));
+                image = ImageIO.read(new File("res/img/door_closed.png"));
+                opened = ImageIO.read(new File("res/img/door_open.png"));
 
 
             } catch (IOException e) {

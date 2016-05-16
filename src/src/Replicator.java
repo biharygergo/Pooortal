@@ -130,7 +130,7 @@ public class Replicator {
 
         if (image == null) {
             try {
-                image = ImageIO.read(new File("src/replicator.png"));
+                image = ImageIO.read(new File("res/img/replicator.png"));
             } catch (IOException e) {
                 e.printStackTrace();
             }

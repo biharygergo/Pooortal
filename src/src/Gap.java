@@ -78,7 +78,7 @@ public class Gap extends Field {
     public BufferedImage getImage() {
         if (image == null) {
             try {
-                image = ImageIO.read(new File("src/gap.png"));
+                image = ImageIO.read(new File("res/img/gap.png"));
             } catch (IOException e) {
                 e.printStackTrace();
             }
