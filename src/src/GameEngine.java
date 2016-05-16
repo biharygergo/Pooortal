@@ -3,13 +3,19 @@ package src;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * The engine of the game. Creeates the map with list of items, handles the player movement.
  */
 public class GameEngine {
 
+    public static int xSize = 17;
+    public static int ySize = 17;
+    ArrayList<Scale> scales = new ArrayList<>();
     private Player oNeill;
     private Player Jaffa;
     private Replicator replicator;
@@ -18,18 +24,14 @@ public class GameEngine {
     private Wormhole oNeillHole = new Wormhole();
     private Wormhole JaffaHole = new Wormhole();
 
-    ArrayList<Scale> scales = new ArrayList<>();
-
-    public static int xSize = 17;
-    public static int ySize = 17;
-
-    GameEngine() {}
+    GameEngine() {
+    }
 
     /**
      * Ends the game
      */
     public boolean endGame() {
-        if(oNeill!=null && Jaffa!=null) {
+        if (oNeill != null && Jaffa != null) {
             if (!oNeill.isAlive() || !Jaffa.isAlive() || activeModules.noMoreZPM()) {
                 return true;
             }
@@ -39,6 +41,7 @@ public class GameEngine {
 
     /**
      * Loads the map
+     *
      * @param filename
      */
     public void loadMap(String filename) {
@@ -53,101 +56,96 @@ public class GameEngine {
         sides.put(Dir.Left, null);
         sides.put(Dir.Right, null);
 
-
         int currentRow = 0;
 
         ArrayList<Field> first = new ArrayList<>();
         ArrayList<Field> second = new ArrayList<>();
-
         ArrayList<Door> doors = new ArrayList<>();
 
         for (int i = 0; i < xSize; i++) {
             first.add(null);
         }
 
-        try(
-            BufferedReader br = new BufferedReader(new FileReader(filename))) {
-                String line;
+        try (
+                BufferedReader br = new BufferedReader(new FileReader(filename))) {
+            String line;
 
-                while (currentRow < ySize) { /* végig a sorokon */
+            while (currentRow < ySize) { /* végig a sorokon */
 
-                    line = br.readLine();
-                    cells = line.split(",");
+                line = br.readLine();
+                cells = line.split(",");
 
-                    for (int i = 0; i < xSize; i++) { // végig az oszlopokon
-                        //System.out.println(cells[i]);
-                        switch (cells[i]){
+                for (int i = 0; i < xSize; i++) { // végig az oszlopokon
+                    switch (cells[i]) {
 
-                            case "Wall":
-                                current = new Wall();
-                                break;
-                            case "Road":
-                                current = new Road();
-                                break;
-                            case "Scale":
-                                current = new Scale();
-                                scales.add((Scale) current);
-                                break;
-                            case "Gap":
-                                current = new Gap();
-                                break;
-                            case "Door":
-                                current = new Door();
-                                doors.add((Door) current);
-                                break;
-                            case "SpecialWall":
-                                current = new SpecialWall();
-                                break;
-                            case "Box":
-                                current = new Road();
-                                Box box = new Box(current, 0);
-                                activeModules.addBox(box);
-                                break;
-                            default:
-                                System.out.println("Error in input map file!");
-                                break;
-                        }
-
-                        if (!startFieldSetted){
-                            map.setStartField(current);
-                            activeModules.setStartField(current);
-                            startFieldSetted = true;
-                        }
-
-                        second.add(current);
-
+                        case "Wall":
+                            current = new Wall();
+                            break;
+                        case "Road":
+                            current = new Road();
+                            break;
+                        case "Scale":
+                            current = new Scale();
+                            scales.add((Scale) current);
+                            break;
+                        case "Gap":
+                            current = new Gap();
+                            break;
+                        case "Door":
+                            current = new Door();
+                            doors.add((Door) current);
+                            break;
+                        case "SpecialWall":
+                            current = new SpecialWall();
+                            break;
+                        case "Box":
+                            current = new Road();
+                            Box box = new Box(current, 0);
+                            activeModules.addBox(box);
+                            break;
+                        default:
+                            break;
                     }
 
-                    for (int i = 0; i < xSize; i++) {
-                        sides.clear();
-                        sides.put(Dir.Up, first.get(i));
-
-                        sides.put(Dir.Down, null);
-
-                        if (i > 0)
-                            sides.put(Dir.Left, second.get(i - 1));
-                        else
-                            sides.put(Dir.Left, null);
-
-                        if (i < xSize-1)
-                            sides.put(Dir.Right, second.get(i + 1));
-                        else
-                            sides.put(Dir.Right, null);
-
-                        if (first.get(i) != null) {
-                            first.get(i).setSide(Dir.Down, second.get(i));
-                        }
-                        second.get(i).setPos(currentRow+1, i+1);
-                        second.get(i).setSides(sides);
+                    if (!startFieldSetted) {
+                        map.setStartField(current);
+                        activeModules.setStartField(current);
+                        startFieldSetted = true;
                     }
 
-                    currentRow++;
+                    second.add(current);
 
-                    first.clear();
-
-                    first.addAll(second);
-                    second.clear();
                 }
+
+                for (int i = 0; i < xSize; i++) {
+                    sides.clear();
+                    sides.put(Dir.Up, first.get(i));
+
+                    sides.put(Dir.Down, null);
+
+                    if (i > 0)
+                        sides.put(Dir.Left, second.get(i - 1));
+                    else
+                        sides.put(Dir.Left, null);
+
+                    if (i < xSize - 1)
+                        sides.put(Dir.Right, second.get(i + 1));
+                    else
+                        sides.put(Dir.Right, null);
+
+                    if (first.get(i) != null) {
+                        first.get(i).setSide(Dir.Down, second.get(i));
+                    }
+                    second.get(i).setPos(currentRow + 1, i + 1);
+                    second.get(i).setSides(sides);
+                }
+
+                currentRow++;
+                first.clear();
+
+                first.addAll(second);
+                second.clear();
+            }
 
             activeModules.initializeModules("res/csv/modules_2.csv", map.getstartfield());
             JaffaHole.primaryColor = Color.Red;
@@ -160,17 +158,16 @@ public class GameEngine {
             e.printStackTrace();
         }
 
-        initiatePlayersAndReplicator(first, currentRow);
+        initiatePlayersAndReplicator();
         initializeScales("res/csv/scale.csv", doors);
     }
 
     /**
-     *
      * @param filename
      * @param doors
      */
-    private void initializeScales(String filename, ArrayList<Door> doors){
-        try(
+    private void initializeScales(String filename, ArrayList<Door> doors) {
+        try (
                 BufferedReader br = new BufferedReader(new FileReader(filename))) {
             String line = br.readLine();
             String cells[] = new String[10];
@@ -178,104 +175,77 @@ public class GameEngine {
             while (line != null) { //végig a sorokon
 
                 cells = line.split(",");
-                scales.get(i).setDoor(doors.get(Integer.parseInt(cells[1])-1));
-                doors.get(Integer.parseInt(cells[1])-1).setScale(scales.get(i));
+                scales.get(i).setDoor(doors.get(Integer.parseInt(cells[1]) - 1));
+                doors.get(Integer.parseInt(cells[1]) - 1).setScale(scales.get(i));
                 scales.get(i).setMinWeight(Integer.parseInt(cells[2]));
-               // doors.get(i).setRotated(Integer.parseInt(cells[3]) == 1 ? true : false);
+                // doors.get(i).setRotated(Integer.parseInt(cells[3]) == 1 ? true : false);
 
-                if(cells[3].equals('1')){
+                if (cells[3].equals('1')) {
                     doors.get(Integer.parseInt(cells[1])).setRotated(true);
                 }
-
-
                 i++;
                 line = br.readLine();
             }
-
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
     }
 
-    /**
-     *
-     * @param fieldListInARow
-     * @param currentRow
-     */
-    private void initiatePlayersAndReplicator(ArrayList<Field> fieldListInARow, int currentRow) {
-
-            Jaffa = new Player(map.getFieldAtPos(2,2), Dir.Up, 6, Color.Red);
-
-            oNeill = new Player(map.getFieldAtPos(16,16), Dir.Up, 5, Color.Blue);
-
-            replicator = new Replicator(map.getFieldAtPos(14,2), Dir.Up);
-
+    private void initiatePlayersAndReplicator() {
+        Jaffa = new Player(map.getFieldAtPos(2, 2), Dir.Up, 6, Color.Red);
+        oNeill = new Player(map.getFieldAtPos(16, 16), Dir.Up, 5, Color.Blue);
+        replicator = new Replicator(map.getFieldAtPos(14, 2), Dir.Up);
     }
 
-    /**
-     *
-     */
-    public void updateBullets(){
-
+    public void updateBullets() {
         List<Bullet> bullets = activeModules.getBullets();
 
+        for (Bullet bullet : bullets
+                ) {
+            Field nextField = bullet.getNextField();
+            Field oldField = bullet.getField();
+            if (replicator.getField().equals(nextField) && replicator.isAlive()) {
+                replicator.onShoot(bullet);
+                activeModules.checkBullets();
+            } else {
 
-            for (Bullet bullet:bullets
-                    ) {
-                Field nextField = bullet.getNextField();
-                Field oldField = bullet.getField();
-                if(replicator.getField().equals(nextField) && replicator.isAlive()) {
+                Field oldWall = JaffaHole.getColor1();
+                Field oldWall2 = JaffaHole.getColor2();
+                Field oldWall3 = oNeillHole.getColor1();
+                Field oldWall4 = oNeillHole.getColor2();
 
-                        replicator.onShoot(bullet);
-                        activeModules.checkBullets();
+                nextField.onShoot(bullet, oNeillHole, JaffaHole);
+                activeModules.checkBullets();
 
-
+                if (oldWall != null) {
+                    AnimateOneField(oldWall);
                 }
-                else {
-
-                    Field oldWall = JaffaHole.getColor1();
-                    Field oldWall2 = JaffaHole.getColor2();
-                    Field oldWall3 = oNeillHole.getColor1();
-                    Field oldWall4 = oNeillHole.getColor2();
-
-                    nextField.onShoot(bullet,oNeillHole,JaffaHole);
-                    activeModules.checkBullets();
-
-                    if(oldWall!=null){
-                        AnimateOneField(oldWall);
-                    }
-                    if(oldWall2!=null){
-                        AnimateOneField(oldWall2);
-                    }
-                    if(oldWall3!=null){
-                        AnimateOneField(oldWall3);
-                    }
-                    if(oldWall4!=null){
-                        AnimateOneField(oldWall4);
-                    }
-
+                if (oldWall2 != null) {
+                    AnimateOneField(oldWall2);
                 }
-
-                AnimateOneField(oldField);
-                AnimateOneField(nextField);
-
+                if (oldWall3 != null) {
+                    AnimateOneField(oldWall3);
+                }
+                if (oldWall4 != null) {
+                    AnimateOneField(oldWall4);
+                }
 
             }
 
+            AnimateOneField(oldField);
+            AnimateOneField(nextField);
+        }
+
         activeModules.checkBullets();
-        
     }
 
     /**
-     *
      * @param element
      */
     public void oNeillMove(String element) {
         Dir oNeillMoveDir = null;
         element = element.toUpperCase();
-        switch (element){
+        switch (element) {
             case "J":
                 oNeillMoveDir = Dir.Left;
                 break;
@@ -289,7 +259,6 @@ public class GameEngine {
                 oNeillMoveDir = Dir.Down;
                 break;
             default:
-                System.out.println("Incorrect direction parameter. Valid parameters are 'I' or 'J' or 'K' or 'L'");
                 break;
         }
 
@@ -299,13 +268,12 @@ public class GameEngine {
     }
 
     /**
-     *
      * @param element
      */
     public void jaffaMove(String element) {
         Dir JaffaMoveDir = null;
         element = element.toUpperCase();
-        switch (element){
+        switch (element) {
             case "A":
                 JaffaMoveDir = Dir.Left;
                 break;
@@ -319,7 +287,6 @@ public class GameEngine {
                 JaffaMoveDir = Dir.Down;
                 break;
             default:
-                System.out.println("Incorrect direction parameter. Valid parameters are 'W' or 'A' or 'S' or 'D'");
                 break;
         }
 
@@ -327,13 +294,12 @@ public class GameEngine {
     }
 
     /**
-     *
      * @param element
      */
     public void oNeillShootBullet(String element) {
         Bullet shot;
         element = element.toUpperCase();
-        switch (element){
+        switch (element) {
             case "B":
                 shot = oNeill.shootColor1();
                 activeModules.addBullet(shot);
@@ -341,24 +307,22 @@ public class GameEngine {
 
                 break;
             case "Y":
-               shot =  oNeill.shootColor2();
+                shot = oNeill.shootColor2();
                 activeModules.addBullet(shot);
 
                 break;
             default:
-                System.out.println("Incorrect color parameter for oNeill. Valid parameters are 'B' or 'Y'");
                 break;
         }
     }
 
     /**
-     *
      * @param element
      */
     public void jaffaShootBullet(String element) {
         Bullet shot;
         element = element.toUpperCase();
-        switch (element){
+        switch (element) {
             case "R":
 
                 shot = Jaffa.shootColor1();
@@ -371,24 +335,20 @@ public class GameEngine {
 
                 break;
             default:
-                System.out.println("Incorrect color parameter for Jaffa. Valid parameters are 'R' or 'G'");
                 break;
         }
     }
 
-    /**
-     *
-     */
-    public void oNeilDropBox(){
+    public void oNeilDropBox() {
         if (oNeill.getBox() != null) {
             Field maybeGap = oNeill.getNextField();
             //Kvazi-Ralepunk de a player fieldjet nem allitottuk at!
-            if(maybeGap.steppable() || maybeGap.getDescription().equals("Scale")) {
+            if (maybeGap.steppable() || maybeGap.getDescription().equals("Scale")) {
                 maybeGap.onStep(oNeill);
                 Box box = oNeill.dropBox();
                 activeModules.checkBoxes();
 
-                if(box!=null) {
+                if (box != null) {
                     if (box.getField().getDescription().equals("Scale")) {
                         Scale scale = (Scale) box.getField();
                         AnimateOneField(scale.getDoor());
@@ -401,28 +361,20 @@ public class GameEngine {
         AnimateOneField(oNeill.getNextField());
     }
 
-    /**
-     *
-     */
-    public void oNeilGetBox(){
+    public void oNeilGetBox() {
         setBoxForPlayer(oNeill);
-
-
     }
 
-    /**
-     *
-     */
-    public void jaffaDropBox(){
+    public void jaffaDropBox() {
         if (Jaffa.getBox() != null) {
 
             Field maybeGapJaffa = Jaffa.getNextField();
-            if(maybeGapJaffa.steppable() || maybeGapJaffa.getDescription().equals("Scale")) {
+            if (maybeGapJaffa.steppable() || maybeGapJaffa.getDescription().equals("Scale")) {
                 maybeGapJaffa.onStep(Jaffa);
                 Box box = Jaffa.dropBox();
                 activeModules.checkBoxes();
 
-                if(box!=null) {
+                if (box != null) {
                     if (box.getField().getDescription().equals("Scale")) {
                         Scale scale = (Scale) box.getField();
                         AnimateOneField(scale.getDoor());
@@ -436,10 +388,7 @@ public class GameEngine {
         AnimateOneField(Jaffa.getNextField());
     }
 
-    /**
-     *
-     */
-    public void jaffaGetBox(){
+    public void jaffaGetBox() {
         setBoxForPlayer(Jaffa);
     }
 
@@ -469,7 +418,6 @@ public class GameEngine {
     }
 
     /**
-     *
      * @param replicatorMoveDir
      */
     public void moveReplicator(Dir replicatorMoveDir) {
@@ -488,20 +436,16 @@ public class GameEngine {
         }
     }
 
-    /**
-     *
-     */
     private void moveReplicatorTowardsHisActualDirIfNoBarrierAhead() {
         Field nextField = replicator.getNextField();
 
-        if (!isBarrierAheadReplicator(nextField,replicator)) {
+        if (!isBarrierAheadReplicator(nextField, replicator)) {
             replicator.setField(nextField);
             nextField.onReplicatorStep(replicator);
         }
     }
 
     /**
-     *
      * @param player
      * @param playerMoveDir
      */
@@ -510,7 +454,7 @@ public class GameEngine {
         if (playerMoveDir != null) {
             if (player.getDir().equals(playerMoveDir)) {
                 Field old = player.getField();
-                Scale scale= player.onThisScale;
+                Scale scale = player.onThisScale;
 
 
                 movePlayerTowardsHisActualDirIfNoBarrierAhead(player);
@@ -528,7 +472,7 @@ public class GameEngine {
         if (player.onThisScale != null)
             AnimateOneField(player.onThisScale.getDoor());
 
-        if (oldZPM != activeModules.getCollectedZPMs()){
+        if (oldZPM != activeModules.getCollectedZPMs()) {
             for (ZPM zpm : activeModules.getZPMs()) {
                 AnimateOneField(zpm.getField());
             }
@@ -536,7 +480,6 @@ public class GameEngine {
     }
 
     /**
-     *
      * @param player
      */
     private void movePlayerTowardsHisActualDirIfNoBarrierAhead(Player player) {
@@ -550,7 +493,6 @@ public class GameEngine {
     }
 
     /**
-     *
      * @param nextField
      * @param replicator
      * @return
@@ -566,7 +508,6 @@ public class GameEngine {
     }
 
     /**
-     *
      * @param nextField
      * @param replicator
      * @return
@@ -581,12 +522,10 @@ public class GameEngine {
             }
         }
 
-
         return nextFieldHasActiveBox;
     }
 
     /**
-     *
      * @param nextField
      * @param player
      * @return
@@ -602,7 +541,6 @@ public class GameEngine {
     }
 
     /**
-     *
      * @param nextField
      * @param player
      * @return
@@ -615,8 +553,7 @@ public class GameEngine {
             if (((Box) itemOnNextField).isAlive()) {
                 nextFieldHasActiveBox = true;
             }
-        }
-        else if (itemOnNextField != null && itemOnNextField instanceof ZPM) {
+        } else if (itemOnNextField != null && itemOnNextField instanceof ZPM) {
             if (player != null) {
                 player.collectedZPMs++;
                 activeModules.addNewZPMToRandomFieldIfNeccessary((ZPM) itemOnNextField);
@@ -628,15 +565,14 @@ public class GameEngine {
     }
 
     /**
-     *
      * @param player
      */
     private void setBoxForPlayer(Player player) {
         Field nextField = player.getNextField();
 
 
-        if (player.getBox() == null && nextFieldHasActiveBox(nextField,player)) {
-            if(nextField instanceof Scale){
+        if (player.getBox() == null && nextFieldHasActiveBox(nextField, player)) {
+            if (nextField instanceof Scale) {
                 Scale scale = (Scale) nextField;
                 Box removal = scale.getBoxOnTop();
 
@@ -645,8 +581,7 @@ public class GameEngine {
                 removal.onUse(player);
                 AnimateOneField(scale.getDoor());
                 AnimateOneField(scale);
-            }
-            else {
+            } else {
                 Box steppedOn = (Box) activeModules.searchModule(nextField);
                 steppedOn.onUse(player);
             }
@@ -657,16 +592,13 @@ public class GameEngine {
 
     }
 
-    /**
-     *
-     */
     public void Animate() {
         Field currentField;
 
         View view = View.getInstance();
         view.Invalidate();
-        for(int i = 1; i <= ySize; i++){
-            for ( int j = 1 ; j <= xSize; j++) {
+        for (int i = 1; i <= ySize; i++) {
+            for (int j = 1; j <= xSize; j++) {
                 currentField = map.getFieldAtPos(i, j);
 
                 view.setFieldImage(currentField);
@@ -677,8 +609,8 @@ public class GameEngine {
                 if (activeModules.findZPM(currentField) != null)
                     view.setZPMImage(activeModules.findZPM(currentField));
 
-                for (Scale scale: scales) {
-                    if (scale == currentField){
+                for (Scale scale : scales) {
+                    if (scale == currentField) {
                         if (scale.getCurrentWeight() > 0) {
                             view.writeScaleWeight(scale);
                         }
@@ -699,7 +631,6 @@ public class GameEngine {
     }
 
     /**
-     *
      * @param thisField
      */
     public void AnimateOneField(Field thisField) {
@@ -718,8 +649,8 @@ public class GameEngine {
         if (activeModules.findZPM(currentField) != null)
             view.setZPMImage(activeModules.findZPM(currentField));
 
-        for (Scale scale: scales) {
-            if (scale == currentField){
+        for (Scale scale : scales) {
+            if (scale == currentField) {
                 view.writeScaleWeight(scale);
             }
         }
@@ -738,10 +669,7 @@ public class GameEngine {
             view.setBulletImage(activeModules.findBullet(currentField));
     }
 
-    /**
-     *
-     */
-    public void moveRandomReplicator(){
+    public void moveRandomReplicator() {
         moveReplicator(replicator.setNewRandomField());
     }
 }
