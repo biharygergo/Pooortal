@@ -23,10 +23,10 @@ public class View extends JFrame {
             public void run() {
                 try {
                     frame = new View();
-
                     frame.addKeyListener(controller);
                     Controller.loadImages();
                     frame.setVisible(true);
+                    frame.setResizable(false);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
