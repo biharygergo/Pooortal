@@ -30,7 +30,7 @@ public class FieldMap {
     /**
      * @return Returns the start field
      */
-    public Field getstartField() {
+    public Field getstartfield() {
         return startField;
     }
 

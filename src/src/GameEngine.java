@@ -154,7 +154,7 @@ public class GameEngine {
 
                 }
 
-            activeModules.initializeModules("res/csv/modules_2.csv", map.getstartField());
+            activeModules.initializeModules("res/csv/modules_2.csv", map.getstartfield());
             JaffaHole.primaryColor=Color.Red;
             JaffaHole.secondaryColor=Color.Red.next();
 
@@ -393,9 +393,11 @@ public class GameEngine {
                 Box box = oNeill.dropBox();
                 activeModules.checkBoxes();
 
-                if (box.getField().getDescription().equals("Scale")) {
-                    Scale scale = (Scale) box.getField();
-                    AnimateOneField(scale.getDoor());
+                if(box!=null) {
+                    if (box.getField().getDescription().equals("Scale")) {
+                        Scale scale = (Scale) box.getField();
+                        AnimateOneField(scale.getDoor());
+                    }
                 }
             }
         }
@@ -425,9 +427,11 @@ public class GameEngine {
                 Box box = Jaffa.dropBox();
                 activeModules.checkBoxes();
 
-                if (box.getField().getDescription().equals("Scale")) {
-                    Scale scale = (Scale) box.getField();
-                    AnimateOneField(scale.getDoor());
+                if(box!=null) {
+                    if (box.getField().getDescription().equals("Scale")) {
+                        Scale scale = (Scale) box.getField();
+                        AnimateOneField(scale.getDoor());
+                    }
                 }
             }
 
