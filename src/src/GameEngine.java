@@ -38,7 +38,7 @@ public class GameEngine {
     }
 
     /**
-     *
+     * Loads the map
      * @param filename
      */
     public void loadMap(String filename) {
@@ -138,9 +138,6 @@ public class GameEngine {
                             first.get(i).setSide(Dir.Down, second.get(i));
                         }
                         second.get(i).setPos(currentRow+1, i+1);
-                        int test = currentRow+1;
-                        int test2 = i+1;
-                       // System.out.println(test + " " + test2);
                         second.get(i).setSides(sides);
                     }
 
@@ -150,23 +147,21 @@ public class GameEngine {
 
                     first.addAll(second);
                     second.clear();
-
-
                 }
 
             activeModules.initializeModules("res/csv/modules_2.csv", map.getstartfield());
-            JaffaHole.primaryColor=Color.Red;
-            JaffaHole.secondaryColor=Color.Red.next();
+            JaffaHole.primaryColor = Color.Red;
+            JaffaHole.secondaryColor = Color.Red.next();
 
-            oNeillHole.primaryColor=Color.Blue;
-            oNeillHole.secondaryColor=Color.Yellow;
+            oNeillHole.primaryColor = Color.Blue;
+            oNeillHole.secondaryColor = Color.Yellow;
 
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         initiatePlayersAndReplicator(first, currentRow);
-        initializeScales("res/csv/scale.csv",  doors);
+        initializeScales("res/csv/scale.csv", doors);
     }
 
     /**
@@ -710,7 +705,6 @@ public class GameEngine {
     public void AnimateOneField(Field thisField) {
 
         View view = View.getInstance();
-        //view.Invalidate();
 
         Field currentField = thisField;
         view.invalidateField(thisField);

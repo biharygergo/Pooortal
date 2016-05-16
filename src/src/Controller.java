@@ -61,19 +61,10 @@ public class Controller implements KeyListener, Runnable {
     public Controller(GameEngine game, String type) {
         engine = game;
         this.type = type;
-        //View.initGui(this);
-        //ourView = View.getInstance();
-       // ourView.addKeyListener(this);
     }
 
     public static void loadImages(){
-
             engine.Animate();
-
-    }
-
-    @Override
-    public void keyTyped(KeyEvent e) {
     }
 
     @Override
@@ -150,6 +141,9 @@ public class Controller implements KeyListener, Runnable {
                 break;
         }
     }
+
+    @Override
+    public void keyTyped(KeyEvent e) {}
 
     @Override
     public void keyReleased(KeyEvent e) {}
