@@ -412,9 +412,11 @@ public class GameEngine {
                     ) {
                 Field nextField = bullet.getNextField();
                 Field oldField = bullet.getField();
-                if(replicator.getField().equals(nextField)) {
-                    replicator.onShoot(bullet);
-                    activeModules.checkBullets();
+                if(replicator.getField().equals(nextField) && replicator.isAlive()) {
+
+                        replicator.onShoot(bullet);
+                        activeModules.checkBullets();
+
 
                 }
                 else {
