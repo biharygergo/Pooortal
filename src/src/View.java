@@ -120,6 +120,7 @@ public class View extends JFrame {
         int y = box.getField().getyPos();
         int x = box.getField().getxPos();
         paintOn(box.getImage(), x, y);
+        getGraphics().drawString(String.valueOf(box.getWeight()),(y-1)*Fheight+11, (x-1)*Fwidth+20);
 
     }
 

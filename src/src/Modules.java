@@ -77,7 +77,7 @@ public class Modules {
 
                 while (line != null) { //végig a sorokon
 
-                    cells = line.split(";");
+                    cells = line.split(",");
 
                     switch (cells[0]){
                         case "Box":

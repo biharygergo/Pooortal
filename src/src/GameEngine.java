@@ -161,7 +161,7 @@ public class GameEngine {
 
                 }
 
-            activeModules.initializeModules("src/modules.csv", map.getstartField());
+            activeModules.initializeModules("src/modules_2.csv", map.getstartField());
             JaffaHole.primaryColor=Color.Red;
             JaffaHole.secondaryColor=Color.Red.next();
 
