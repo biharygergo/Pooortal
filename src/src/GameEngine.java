@@ -171,10 +171,6 @@ public class GameEngine {
             e.printStackTrace();
         }
 
-
-
-
-
         initiatePlayersAndReplicator(first, currentRow);
         initializeScales("src/scale.csv", scales, doors);
     }
@@ -191,6 +187,12 @@ public class GameEngine {
                 scales.get(i).setDoor(doors.get(Integer.parseInt(cells[1])-1));
                 doors.get(Integer.parseInt(cells[1])-1).setScale(scales.get(i));
                 scales.get(i).setMinWeight(Integer.parseInt(cells[2]));
+               // doors.get(i).setRotated(Integer.parseInt(cells[3]) == 1 ? true : false);
+
+                if(cells[3].equals('1')){
+                    doors.get(Integer.parseInt(cells[1])).setRotated(true);
+                }
+
 
                 i++;
                 line = br.readLine();

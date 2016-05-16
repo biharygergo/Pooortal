@@ -15,11 +15,11 @@ public class Door extends Field {
     private Scale scale;
     private boolean playerBlockingDoor;
     BufferedImage opened = null;
-
+    boolean rotated = true;
     /**
      * Status of the door
      */
-    private boolean open;
+    private boolean open = false;
 
     /**
      * Default constructor
@@ -31,6 +31,10 @@ public class Door extends Field {
     /**
      * @return Returns true if the door is open, false otherwise
      */
+
+    public void setRotated(boolean value){
+        rotated = value;
+    }
     public boolean isOpen() {
         return open;
     }
@@ -121,16 +125,27 @@ public class Door extends Field {
             try {
                 image = ImageIO.read(new File("src/door_closed.png"));
                 opened = ImageIO.read(new File("src/door_open.png"));
-                return image;
+
 
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
 
-        if (open)
-            return opened;
-        else
-            return image;
+        if (rotated){
+            if (open)
+               return View.rotate(opened,  View.getAngleFromDir(Dir.Right));
+            else
+               return View.rotate(image,   View.getAngleFromDir(Dir.Right));
+        }
+        else {
+            if (open)
+                return opened;
+            else
+                return image;
+
+        }
+
+
     }
 }
