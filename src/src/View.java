@@ -14,7 +14,7 @@ public class View extends JFrame {
     private JPanel contentPane;
     //private JLabel[][] labels = new JLabel[6][6];
     public static View frame;
-    private int Fwidth = 100, Fheight = 100;
+    private int Fwidth = 50, Fheight = 50;
     //private  Graphics g;
     /**
      * Launch the application.
@@ -45,8 +45,8 @@ public class View extends JFrame {
 
         Graphics g = getGraphics();
         g.setColor(Color.lightGray);
-        g.drawRect(0,0,800,800);
-        g.fillRect(0,0,800,800);
+
+        g.fillRect(0,0,850,850);
 
     }
 
@@ -58,7 +58,7 @@ public class View extends JFrame {
      */
     public View() {
 
-        setSize(800, 800);
+        setSize(850, 850);
 
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -66,7 +66,7 @@ public class View extends JFrame {
        contentPane = new JPanel();
 
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-        contentPane.setSize(800, 800);
+        contentPane.setSize(850, 850);
         contentPane.setBackground(Color.RED);
         setContentPane(contentPane);
         contentPane.setVisible(true);
@@ -93,12 +93,12 @@ public class View extends JFrame {
 
         BufferedImage scaled = null;
         try {
-            scaled = resizeImage(bi, 100, 100,  BufferedImage.TYPE_INT_ARGB);
+            scaled = resizeImage(bi, Fwidth, Fheight,  BufferedImage.TYPE_INT_ARGB);
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        g.drawImage(scaled, y*Fheight, x*Fwidth, null);
+        g.drawImage(scaled, (y-1)*Fheight, (x-1)*Fwidth, null);
 
 
     }

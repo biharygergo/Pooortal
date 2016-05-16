@@ -14,7 +14,7 @@ public class Controller implements KeyListener {
     View ourView;
     long lastUpdated = System.currentTimeMillis()/1000;
     public void run(){
-        engine.loadMap("src/map.csv");
+        engine.loadMap("src/map_2.csv");
         Thread t = new Thread();
         while (!endGame) {
             endGame = engine.endGame();

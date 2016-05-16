@@ -19,6 +19,8 @@ public class GameEngine {
     private Wormhole oNeillHole = new Wormhole();
     private Wormhole JaffaHole = new Wormhole();
 
+    public static int xSize = 17;
+    public static int ySize = 17;
     GameEngine() {
 
     }
@@ -57,8 +59,7 @@ public class GameEngine {
         sides.put(Dir.Left, null);
         sides.put(Dir.Right, null);
 
-        int xSize = 6;
-        int ySize = 6;
+
         int currentRow = 0;
 
         ArrayList<Field> first = new ArrayList<>();
@@ -77,10 +78,12 @@ public class GameEngine {
                 while (currentRow < ySize) { /* végig a sorokon */
 
                     line = br.readLine();
-                    cells = line.split(";");
+                    cells = line.split(",");
 
                     for (int i = 0; i < xSize; i++) { // végig az oszlopokon
+                        System.out.println(cells[i]);
                         switch (cells[i]){
+
                             case "Wall":
                                 current = new Wall();
                                 break;
@@ -155,10 +158,10 @@ public class GameEngine {
                     first.addAll(second);
                     second.clear();
 
-                    initiatePlayersAndReplicator(first, currentRow);
+
                 }
 
-           activeModules.initializeModules("src/modules.csv", map.getstartField());
+            activeModules.initializeModules("src/modules.csv", map.getstartField());
             JaffaHole.primaryColor=Color.Red;
             JaffaHole.secondaryColor=Color.Red.next();
 
@@ -169,6 +172,8 @@ public class GameEngine {
             e.printStackTrace();
         }
 
+        initiatePlayersAndReplicator(first, currentRow);
+
         int i = 0;
         for (Scale scale : scales){
             scale.setDoor(doors.get(i));
@@ -178,13 +183,13 @@ public class GameEngine {
     }
 
     private void initiatePlayersAndReplicator(ArrayList<Field> fieldListInARow, int currentRow) {
-        if (currentRow == 2) {
-            Jaffa = new Player(fieldListInARow.get(1), Dir.Up, 6, Color.Red);
-        } else if(currentRow == 3) {
-            oNeill = new Player(fieldListInARow.get(3), Dir.Up, 5, Color.Blue);
-        } else if (currentRow == 4) {
-            replicator = new Replicator(fieldListInARow.get(1), Dir.Up);
-        }
+
+            Jaffa = new Player(map.getFieldAtPos(2,2), Dir.Up, 6, Color.Red);
+
+            oNeill = new Player(map.getFieldAtPos(16,16), Dir.Up, 5, Color.Blue);
+
+            replicator = new Replicator(map.getFieldAtPos(14,2), Dir.Up);
+
     }
 
     private void run(){
@@ -713,12 +718,11 @@ public class GameEngine {
 
     public void Animate() {
         Field currentField;
-        int maxwidth = 6;
-        int maxheight = 6;
+
         View view = View.getInstance();
         view.Invalidate();
-        for(int i = 1; i<=maxheight; i++){
-            for ( int j = 1 ; j<=maxwidth; j++) {
+        for(int i = 1; i<=ySize; i++){
+            for ( int j = 1 ; j<=xSize; j++) {
                 // System.out.print("\t\t");
                 currentField = map.getFieldAtPos(i, j);
 
@@ -780,7 +784,7 @@ public class GameEngine {
         if (activeModules.findBullet(currentField) != null)
             view.setBulletImage(activeModules.findBullet(currentField));
 
-        System.out.println(oNeill.getBox());
+       // System.out.println(oNeill.getBox());
         // System.out.print("\n");
 
 
