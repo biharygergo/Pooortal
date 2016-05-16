@@ -8,6 +8,7 @@ import java.awt.image.BufferedImage;
 public abstract class Item {
 
     BufferedImage image;
+
     /**
      * The field which the item stands on
      */

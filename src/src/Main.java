@@ -15,6 +15,5 @@ public class Main {
         t.start();
         t2.start();
 
-        //controller.run();
     }
 }

@@ -17,18 +17,28 @@ public class Modules {
 
     private int collectedZPMs = 0;
 
-    public Modules() {
+    public Modules() {}
 
-    }
-
+    /**
+     *
+     * @return
+     */
     public int getCollectedZPMs(){
         return collectedZPMs;
     }
 
+    /**
+     *
+     * @return
+     */
     public ArrayList<ZPM> getZPMs(){
         return  ZPMs;
     }
 
+    /**
+     *
+     * @param startField
+     */
     public void setStartField(Field startField) {
         this.startField = startField;
     }
@@ -55,6 +65,10 @@ public class Modules {
         return null;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean noMoreZPM(){
         if(ZPMs.size()==0)
             return true;
@@ -134,6 +148,7 @@ public class Modules {
         }
         boxes=newList;
     }
+
     /**
      * @param bullet The bullet to be removed
      */
@@ -180,6 +195,11 @@ public class Modules {
         return null;
     }
 
+    /**
+     *
+     * @param what
+     * @return
+     */
     public Bullet findBullet(Field what){
         for (Bullet bullet:bullets) {
             if(bullet.getField().equals(what))
@@ -230,11 +250,15 @@ public class Modules {
         }
     }
 
+    /**
+     *
+     */
     public void clearAll(){
         boxes.clear();
         ZPMs.clear();
         bullets.clear();
     }
+
     /**
      * @param box The box to be removed
      */
@@ -249,32 +273,19 @@ public class Modules {
         return bullets;
     }
 
-    public void listBoxes(){
-        int i = 1;
-        for (Box box: boxes) {
-            System.out.println(i + ". (" + box.field.getxPos() + "," + box.field.getyPos() + ") " + box.getWeight());
-            i++;
-        }
-    }
-    public void listZPM(){
-        int i = 1;
-        for (ZPM zpm: ZPMs) {
-            System.out.println(i + ". (" + zpm.field.getxPos() + "," + zpm.field.getyPos() + ") ");
-            i++;
-        }
-    }
-    public void listBullets(){
-        int i = 1;
-        for (Bullet bullet: bullets) {
-            System.out.println(i + ". (" + bullet.getField().getxPos() + "," + bullet.getField().getyPos() + ") " + bullet.getColor() + " " + bullet.getDir() + " ");
-            i++;
-        }
-    }
-
+    /**
+     *
+     * @param box
+     */
     public void addBox(Box box){
         boxes.add(box);
     }
 
+    /**
+     *
+     * @param index
+     * @return
+     */
     public Box getBox(int index){
         return boxes.get(index);
     }
