@@ -28,32 +28,6 @@ public class Door extends Field {
     }
 
     /**
-     * @return Returns true if the door is open, false otherwise
-     */
-    public boolean isOpen() {
-        return open;
-    }
-
-    /**
-     *
-     * @param value
-     */
-    public void setRotated(boolean value){
-        rotated = value;
-    }
-
-    /**
-     * @param open Status of the door
-     */
-    public void setOpen(boolean open) {
-        if(playerBlockingDoor)
-            this.open = true;
-        else {
-            this.open = open;
-        }
-    }
-
-    /**
      * If open, the player steps on it, and automatically steps on the next field in the given direction
      * @param player the player stepped on the door
      */
@@ -61,29 +35,6 @@ public class Door extends Field {
         playerBlockingDoor=true;
         player.onThisDoor = this;
       //GameEngine beallitja hogy mi legyen, itt ez sima Road-kent funkcional!
-    }
-
-    /**
-     * Returns if there is a player blocking the door
-     * @return
-     */
-    public boolean isPlayerBlockingDoor(){
-        return playerBlockingDoor;
-    }
-
-    /**
-     *
-     */
-    public void reCheckWeightAfterSteppingOff(){
-        scale.reCheckWeights();
-    }
-
-    /**
-     * Set if player is still blocking
-     * @param block
-     */
-    public void setPlayerBlockingDoor(boolean block){
-        playerBlockingDoor = block;
     }
 
     /**
@@ -101,27 +52,12 @@ public class Door extends Field {
 
      */
     public void onShoot(Bullet bullet, Wormhole colonelHole, Wormhole jaffaHole) {
-       if(!open){
-           bullet.setActive(false);
-       }
+        if(!open){
+            bullet.setActive(false);
+        }
         else{
-           bullet.setField(this);
-       }
-    }
-
-    /**
-     * @return Returns the neighbouring fields in a given direction
-     */
-    public void setScale(Scale scale){
-       this.scale = scale;
-   }
-
-    /**
-     *
-     * @return
-     */
-    public Scale getScale(){
-        return scale;
+            bullet.setField(this);
+        }
     }
 
     /**
@@ -130,6 +66,51 @@ public class Door extends Field {
      */
     public void onReplicatorStep(Replicator replicator){
     }
+
+    public void reCheckWeightAfterSteppingOff(){
+        scale.reCheckWeights();
+    }
+
+    /**
+     * @return Returns true if the door is open, false otherwise
+     */
+    public boolean isOpen() {
+        return open;
+    }
+
+    /**
+     * @param open Status of the door
+     */
+    public void setOpen(boolean open) {
+        if(playerBlockingDoor)
+            this.open = true;
+        else {
+            this.open = open;
+        }
+    }
+
+    /**
+     *
+     * @param rotated
+     */
+    public void setRotated(boolean rotated){
+        this.rotated = rotated;
+    }
+
+    /**
+     * Set if player is still blocking
+     * @param block
+     */
+    public void setPlayerBlockingDoor(boolean block){
+        playerBlockingDoor = block;
+    }
+
+    /**
+     * @return Returns the neighbouring fields in a given direction
+     */
+    public void setScale(Scale scale){
+       this.scale = scale;
+   }
 
     /**
      *
