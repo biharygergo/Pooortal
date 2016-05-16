@@ -1,8 +1,6 @@
 package src;
 
 import javax.imageio.ImageIO;
-import javax.swing.*;
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -19,16 +17,14 @@ public class Gap extends Field {
         description = "Gap";
     }
 
-    BufferedImage myImage;
     /**
      * @param player the player who wants to step on the gap
      */
     public void onStep(Player player) {
-        if(player.getField() != this) {
+        if (player.getField() != this) {
             Box currentBox = player.getBox();
             if(currentBox != null)
                 currentBox.setAlive(false);
-            //player.dropBox();
         }
 
         else {//Ha nem alltunk rajta, akkor dobozt raktunk le, ha rajta allunk akkor bizony meghaltunk!
@@ -75,6 +71,10 @@ public class Gap extends Field {
         replicator.setField(replace);
     }
 
+    /**
+     * Returns the image of the gap
+     * @return
+     */
     public BufferedImage getImage() {
         if (image == null) {
             try {
