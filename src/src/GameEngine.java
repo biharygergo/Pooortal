@@ -525,13 +525,15 @@ public class GameEngine {
         if (oNeill.getBox() != null) {
             Field maybeGap = oNeill.getNextField();
             //Kvazi-Ralepunk de a player fieldjet nem allitottuk at!
-            maybeGap.onStep(oNeill);
-            Box box = oNeill.dropBox();
-            activeModules.checkBoxes();
+            if(maybeGap.steppable()) {
+                maybeGap.onStep(oNeill);
+                Box box = oNeill.dropBox();
+                activeModules.checkBoxes();
 
-            if(box.getField().getDescription().equals("Scale")){
-                Scale scale = (Scale) box.getField();
-                AnimateOneField(scale.getDoor());
+                if (box.getField().getDescription().equals("Scale")) {
+                    Scale scale = (Scale) box.getField();
+                    AnimateOneField(scale.getDoor());
+                }
             }
         }
 
@@ -549,13 +551,15 @@ public class GameEngine {
         if (Jaffa.getBox() != null) {
 
             Field maybeGapJaffa = Jaffa.getNextField();
-            maybeGapJaffa.onStep(Jaffa);
-            Box box = Jaffa.dropBox();
-            activeModules.checkBoxes();
+            if(maybeGapJaffa.steppable()) {
+                maybeGapJaffa.onStep(Jaffa);
+                Box box = Jaffa.dropBox();
+                activeModules.checkBoxes();
 
-            if(box.getField().getDescription().equals("Scale")){
-                Scale scale = (Scale) box.getField();
-                AnimateOneField(scale.getDoor());
+                if (box.getField().getDescription().equals("Scale")) {
+                    Scale scale = (Scale) box.getField();
+                    AnimateOneField(scale.getDoor());
+                }
             }
 
         }
