@@ -43,6 +43,14 @@ public class SpecialWall extends Wall {
             return;
         //Megnezzuk, hogy melyik lyukhoz tartozik!
        if(bulletColor==colonelHole.primaryColor || bulletColor == colonelHole.secondaryColor){
+           if(jaffaHole.checkPass()) {
+               if(jaffaHole.getColor1().equals(this)){
+                   jaffaHole.setColor1(null);
+               }
+               if (jaffaHole.getColor2().equals(this)){
+                   jaffaHole.setColor2(null);
+               }
+           }
            if(bulletColor == colonelHole.primaryColor){
                if(colonelHole.getColor2()!= null && colonelHole.getColor2().equals(this)){
                    colonelHole.setColor2(null);
@@ -85,6 +93,14 @@ public class SpecialWall extends Wall {
 
         else {
 
+           if(colonelHole.checkPass()) {
+               if(colonelHole.getColor1().equals(this)){
+                   colonelHole.setColor1(null);
+               }
+               if (colonelHole.getColor2().equals(this)){
+                   colonelHole.setColor2(null);
+               }
+           }
            if(bulletColor == jaffaHole.primaryColor){
                if(jaffaHole.getColor2()!=null && jaffaHole.getColor2().equals(this)) {
                    jaffaHole.setColor2(null);
