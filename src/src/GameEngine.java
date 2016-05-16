@@ -339,13 +339,13 @@ public class GameEngine {
         }
     }
 
-    public void oNeilDropBox() {
-        if (oNeill.getBox() != null) {
-            Field maybeGap = oNeill.getNextField();
+    public void dropBox(Player player) {
+        if (player.getBox() != null) {
+            Field maybeGap = player.getNextField();
             //Kvazi-Ralepunk de a player fieldjet nem allitottuk at!
             if (maybeGap.steppable() || maybeGap.getDescription().equals("Scale")) {
-                maybeGap.onStep(oNeill);
-                Box box = oNeill.dropBox();
+                maybeGap.onStep(player);
+                Box box = player.dropBox();
                 activeModules.checkBoxes();
 
                 if (box != null) {
@@ -354,38 +354,27 @@ public class GameEngine {
                         AnimateOneField(scale.getDoor());
                     }
                 }
+                if (player.getField().getDescription().equals("Scale")) {
+                    Scale scale = (Scale) player.getField();
+                    scale.setCurrentWeight(scale.getCurrentWeight() - box.getWeight());
+                }
             }
         }
 
-        AnimateOneField(oNeill.getField());
-        AnimateOneField(oNeill.getNextField());
+        AnimateOneField(player.getField());
+        AnimateOneField(player.getNextField());
+    }
+
+    public void oNeilDropBox(){
+        dropBox(oNeill);
+    }
+
+    public void jaffaDropBox() {
+        dropBox(Jaffa);
     }
 
     public void oNeilGetBox() {
         setBoxForPlayer(oNeill);
-    }
-
-    public void jaffaDropBox() {
-        if (Jaffa.getBox() != null) {
-
-            Field maybeGapJaffa = Jaffa.getNextField();
-            if (maybeGapJaffa.steppable() || maybeGapJaffa.getDescription().equals("Scale")) {
-                maybeGapJaffa.onStep(Jaffa);
-                Box box = Jaffa.dropBox();
-                activeModules.checkBoxes();
-
-                if (box != null) {
-                    if (box.getField().getDescription().equals("Scale")) {
-                        Scale scale = (Scale) box.getField();
-                        AnimateOneField(scale.getDoor());
-                    }
-                }
-            }
-
-        }
-
-        AnimateOneField(Jaffa.getField());
-        AnimateOneField(Jaffa.getNextField());
     }
 
     public void jaffaGetBox() {
