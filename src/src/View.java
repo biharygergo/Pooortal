@@ -69,22 +69,13 @@ public class View extends JFrame {
 
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //setBounds(100, 100, 310, 350);
-       contentPane = new JPanel();
 
+        contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         contentPane.setSize(850, 850);
         contentPane.setBackground(Color.RED);
         setContentPane(contentPane);
         contentPane.setVisible(true);
-        //contentPane.setLayout(new BorderLayout(0, 0));
-       // g = contentPane.getGraphics();
-/*
-        JPanel gamePanel = new JPanel();
-        contentPane.add(gamePanel, BorderLayout.CENTER);
-        gamePanel.setLayout(new GridLayout(6, 6, 0, 0));*/
-
-
     }
 
     /**
@@ -121,8 +112,6 @@ public class View extends JFrame {
         }
 
         g.drawImage(scaled, (y-1)*Fheight, (x-1)*Fwidth, null);
-
-
     }
 
     /**

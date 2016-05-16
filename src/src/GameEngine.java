@@ -670,16 +670,14 @@ public class GameEngine {
 
         View view = View.getInstance();
         view.Invalidate();
-        for(int i = 1; i<=ySize; i++){
-            for ( int j = 1 ; j<=xSize; j++) {
-                // System.out.print("\t\t");
+        for(int i = 1; i <= ySize; i++){
+            for ( int j = 1 ; j <= xSize; j++) {
                 currentField = map.getFieldAtPos(i, j);
 
                 view.setFieldImage(currentField);
 
                 if (activeModules.findBox(currentField) != null)
                     view.setBoxImage(activeModules.findBox(currentField));
-
 
                 if (activeModules.findZPM(currentField) != null)
                     view.setZPMImage(activeModules.findZPM(currentField));
@@ -692,10 +690,8 @@ public class GameEngine {
                     }
                 }
 
-
                 if (replicator.getField().equals(currentField) && replicator.isAlive())
                     view.setReplicatorImage(replicator);
-
 
                 if (Jaffa.getField().equals(currentField) && Jaffa.isAlive())
                     view.setPlayerImage(Jaffa);
@@ -703,12 +699,8 @@ public class GameEngine {
 
                 if (oNeill.getField().equals(currentField) && oNeill.isAlive())
                     view.setPlayerImage(oNeill);
-
             }
-           // System.out.print("\n");
-            }
-
-
+        }
     }
 
     /**
@@ -720,7 +712,6 @@ public class GameEngine {
         View view = View.getInstance();
         //view.Invalidate();
 
-        // System.out.print("\t\t");
         Field currentField = thisField;
         view.invalidateField(thisField);
 
@@ -751,11 +742,6 @@ public class GameEngine {
 
         if (activeModules.findBullet(currentField) != null)
             view.setBulletImage(activeModules.findBullet(currentField));
-
-       // System.out.println(oNeill.getBox());
-        // System.out.print("\n");
-
-
     }
 
     /**
