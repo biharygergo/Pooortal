@@ -81,7 +81,7 @@ public class GameEngine {
                     cells = line.split(",");
 
                     for (int i = 0; i < xSize; i++) { // végig az oszlopokon
-                        System.out.println(cells[i]);
+                        //System.out.println(cells[i]);
                         switch (cells[i]){
 
                             case "Wall":
@@ -172,7 +172,7 @@ public class GameEngine {
             e.printStackTrace();
         }
 
-        initiatePlayersAndReplicator(first, currentRow);
+
 
         int i = 0;
         for (Scale scale : scales){
@@ -180,6 +180,8 @@ public class GameEngine {
             doors.get(i).setScale(scale);
             i++;
         }
+
+        initiatePlayersAndReplicator(first, currentRow);
     }
 
     private void initiatePlayersAndReplicator(ArrayList<Field> fieldListInARow, int currentRow) {

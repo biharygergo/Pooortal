@@ -138,7 +138,7 @@ public class View extends JFrame {
     public void invalidateField(Field field){
         Graphics g = getGraphics();
         g.setColor(Color.lightGray);
-        g.fillRect(field.getyPos()*Fheight, field.getxPos()*Fwidth, 100, 100);
+        g.fillRect((field.getyPos()-1)*Fheight, (field.getxPos()-1)*Fwidth, Fwidth, Fheight);
 
     }
 
