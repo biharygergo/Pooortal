@@ -671,5 +671,6 @@ public class GameEngine {
 
     public void moveRandomReplicator() {
         moveReplicator(replicator.setNewRandomField());
+        Animate();
     }
 }
