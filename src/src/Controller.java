@@ -8,34 +8,44 @@ import java.io.IOException;
 /**
  * Created by Gergo on 14/05/16.
  */
-public class Controller implements KeyListener {
+public class Controller implements KeyListener,Runnable {
     boolean endGame = false;
     static GameEngine engine = null;
     View ourView;
     long lastUpdated = System.currentTimeMillis()/1000;
-    public void run(){
-        engine.loadMap("src/map_2.csv");
-        Thread t = new Thread();
-        while (!endGame) {
-            endGame = engine.endGame();
-            if (endGame) {
-                engine.exit();
-            }
-            long currentTime = System.currentTimeMillis()/1000;
-            long elapsed = currentTime -lastUpdated;
-            if (currentTime - lastUpdated > 2) {
-                engine.updateBullets();
+    String type = "listener";
+    public void run() {
+        if (type == "listener") {
+            setListener();
+        } else {
+            engine.loadMap("src/map_2.csv");
+            Thread t = new Thread();
+            while (!endGame) {
+                endGame = engine.endGame();
+                if (endGame) {
+                    engine.exit();
+                }
+                long currentTime = System.currentTimeMillis() / 1000;
+                long elapsed = currentTime - lastUpdated;
+                if (currentTime - lastUpdated > 2) {
+                    engine.updateBullets();
 
-                engine.moveRandomReplicator();
-                lastUpdated = currentTime;
+                     engine.moveRandomReplicator();
+                    lastUpdated = currentTime;
 
+                }
             }
         }
     }
 
-    public Controller(GameEngine game) {
-        engine = game;
+
+    public void setListener(){
         View.initGui(this);
+    }
+    public Controller(GameEngine game, String type) {
+        engine = game;
+        this.type = type;
+        //View.initGui(this);
         //ourView = View.getInstance();
        // ourView.addKeyListener(this);
     }
