@@ -444,13 +444,15 @@ public class GameEngine {
         setBoxForPlayer(Jaffa);
     }
 
-    /**
-     *
-     */
-    public void exit() {
-        System.out.println("Megtiszteltetés volt, hogy velünk játszottál!\n" +
-                "Engedd meg, hogy Tóth Beáta Mária Viszlát! című versével búcsúzzunk és köszönjük meg az együtt töltött perceket:\n");
-        System.out.println("Viszlát! Ha menned kell, menj! \n" +
+    public Modules getActiveModules() {
+        return activeModules;
+    }
+
+    public String getExitString() {
+        return "Megtiszteltetés volt, hogy velünk játszottál!\n" +
+                "Engedd meg, hogy Tóth Beáta Mária Viszlát! című versével búcsúzzunk és köszönjük meg az együtt töltött perceket:\n\n" +
+
+                "Viszlát! Ha menned kell, menj! \n" +
                 "De holnap ugyanitt találkozunk \n" +
                 "Reggel újra itt leszel \n" +
                 "S addig mint álom, elém tárul \n" +
@@ -463,7 +465,8 @@ public class GameEngine {
                 "Viszlát! Indulj végre el! \n" +
                 "Úgyis fáj látnom \n" +
                 "Ahogy távolodsz tőlem \n" +
-                "Fáj, és már hiányzol!\n");
+                "Fáj, és már hiányzol!\n\n" +
+                "Kattints az OK gombra a kilépéshez!";
     }
 
     /**

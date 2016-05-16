@@ -1,5 +1,6 @@
 package src;
 
+import javax.swing.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -9,6 +10,7 @@ public class Controller implements KeyListener, Runnable {
     static GameEngine engine = null;
     long lastUpdated = System.currentTimeMillis()/1000;
     long lastUpdatedReplicator = System.currentTimeMillis()/1000;
+    View ourView;
 
     String type = "listener";
 
@@ -20,7 +22,7 @@ public class Controller implements KeyListener, Runnable {
             while (!endGame) {
                 endGame = engine.endGame();
                 if (endGame) {
-                    engine.exit();
+                    exitGameWithStyle();
                 }
                 long currentTime = System.currentTimeMillis() / 1000;
                 if (currentTime - lastUpdatedReplicator > 2) {
@@ -35,6 +37,20 @@ public class Controller implements KeyListener, Runnable {
 
                 }
             }
+        }
+    }
+
+    private void exitGameWithStyle() {
+        String reason;
+        if (engine.getActiveModules().noMoreZPM()) {
+            reason = "Gratulálunk, nyertél!\n\n";
+        } else {
+            reason = "Sajnos vesztettél!\n\n";
+        }
+
+        int result = JOptionPane.showConfirmDialog(ourView, reason + engine.getExitString(), "Játék vége", JOptionPane.CLOSED_OPTION, 1);
+        if (result == 0) {
+            System.exit(0);
         }
     }
 
