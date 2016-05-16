@@ -192,7 +192,6 @@ public class View extends JFrame {
         Graphics g = getGraphics();
         g.setColor(Color.lightGray);
         g.fillRect((field.getyPos()-1)*Fheight, (field.getxPos()-1)*Fwidth, Fwidth, Fheight);
-
     }
 
     /**
