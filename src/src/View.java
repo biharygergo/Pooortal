@@ -136,6 +136,20 @@ public class View extends JFrame {
         paintOn(replicator.getImage(), x, y);
     }
 
+    public void writeScaleWeight(Scale scale){
+        int y = scale.getyPos();
+        int x = scale.getxPos();
+
+
+            Graphics g = getGraphics();
+            g.setColor(Color.BLACK);
+            g.fillRect((y - 1) * Fheight + 14, (x - 1) * Fwidth + 16, 23, 18);
+            g.setColor(Color.WHITE);
+            g.drawString(String.valueOf(scale.getCurrentWeight()), (y - 1) * Fheight + 18, (x - 1) * Fwidth + 29);
+
+
+    }
+
     public void invalidateField(Field field){
         Graphics g = getGraphics();
         g.setColor(Color.lightGray);

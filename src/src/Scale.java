@@ -32,7 +32,7 @@ public class Scale extends Field {
     /**
      * The weight currently on the scale
      */
-    private int currentWeight;
+    private int currentWeight = 0;
 
     /**
      * The player that is currently standing on the Scale

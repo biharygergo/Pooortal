@@ -19,6 +19,8 @@ public class GameEngine {
     private Wormhole oNeillHole = new Wormhole();
     private Wormhole JaffaHole = new Wormhole();
 
+    ArrayList<Scale> scales = new ArrayList<>();
+
     public static int xSize = 17;
     public static int ySize = 17;
     GameEngine() {
@@ -64,7 +66,7 @@ public class GameEngine {
 
         ArrayList<Field> first = new ArrayList<>();
         ArrayList<Field> second = new ArrayList<>();
-        ArrayList<Scale> scales = new ArrayList<>();
+
         ArrayList<Door> doors = new ArrayList<>();
 
         for (int i = 0; i < xSize; i++) {
@@ -172,10 +174,10 @@ public class GameEngine {
         }
 
         initiatePlayersAndReplicator(first, currentRow);
-        initializeScales("src/scale.csv", scales, doors);
+        initializeScales("src/scale.csv",  doors);
     }
 
-    private void initializeScales(String filename, ArrayList<Scale> scales, ArrayList<Door> doors){
+    private void initializeScales(String filename, ArrayList<Door> doors){
         try(
                 BufferedReader br = new BufferedReader(new FileReader(filename))) {
             String line = br.readLine();
@@ -762,6 +764,15 @@ public class GameEngine {
                 if (activeModules.findZPM(currentField) != null)
                     view.setZPMImage(activeModules.findZPM(currentField));
 
+                for (Scale scale: scales) {
+                    if (scale == currentField){
+                        if (scale.getCurrentWeight() > 0) {
+                            view.writeScaleWeight(scale);
+                        }
+                    }
+                }
+
+
                 if (replicator.getField().equals(currentField) && replicator.isAlive())
                     view.setReplicatorImage(replicator);
 
@@ -797,6 +808,12 @@ public class GameEngine {
 
         if (activeModules.findZPM(currentField) != null)
             view.setZPMImage(activeModules.findZPM(currentField));
+
+        for (Scale scale: scales) {
+            if (scale == currentField){
+                view.writeScaleWeight(scale);
+            }
+        }
 
         if (replicator.getField().equals(currentField) && replicator.isAlive())
             view.setReplicatorImage(replicator);
