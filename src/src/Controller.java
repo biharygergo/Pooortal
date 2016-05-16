@@ -13,6 +13,8 @@ public class Controller implements KeyListener,Runnable {
     static GameEngine engine = null;
     View ourView;
     long lastUpdated = System.currentTimeMillis()/1000;
+    long lastUpdatedReplicator = System.currentTimeMillis()/1000;
+
     String type = "listener";
     public void run() {
         if (type == "listener") {
@@ -27,10 +29,14 @@ public class Controller implements KeyListener,Runnable {
                 }
                 long currentTime = System.currentTimeMillis() / 1000;
                 long elapsed = currentTime - lastUpdated;
-                if (currentTime - lastUpdated > 2) {
-                    engine.updateBullets();
+                if (currentTime - lastUpdatedReplicator > 2) {
 
-                     engine.moveRandomReplicator();
+
+                    engine.moveRandomReplicator();
+                    lastUpdatedReplicator = currentTime;
+                }
+                if(currentTime-lastUpdated > 0.2){
+                    engine.updateBullets();
                     lastUpdated = currentTime;
 
                 }
