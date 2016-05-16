@@ -581,7 +581,7 @@ public class GameEngine {
     private void moveReplicatorTowardsHisActualDirIfNoBarrierAhead() {
         Field nextField = replicator.getNextField();
 
-        if (!isBarrierAhead(nextField,null)) {
+        if (!isBarrierAheadReplicator(nextField,replicator)) {
             replicator.setField(nextField);
             nextField.onReplicatorStep(replicator);
         }
@@ -626,6 +626,31 @@ public class GameEngine {
             nextField.onStep(player);
         }
     }
+
+    private boolean isBarrierAheadReplicator(Field nextField, Replicator replicator) {
+        boolean isBarrierAhead = false;
+
+        if (!nextField.steppable() || nextFieldHasActiveBoxReplicator(nextField, replicator)) {
+            isBarrierAhead = true;
+        }
+
+        return isBarrierAhead;
+    }
+
+    private boolean nextFieldHasActiveBoxReplicator(Field nextField, Replicator replicator) {
+        boolean nextFieldHasActiveBox = false;
+
+        Item itemOnNextField = activeModules.findBox(nextField);
+        if (itemOnNextField != null && itemOnNextField instanceof Box) {
+            if (((Box) itemOnNextField).isAlive()) {
+                nextFieldHasActiveBox = true;
+            }
+        }
+
+
+        return nextFieldHasActiveBox;
+    }
+
 
     private boolean isBarrierAhead(Field nextField, Player player) {
         boolean isBarrierAhead = false;
