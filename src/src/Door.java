@@ -142,7 +142,6 @@ public class Door extends Field {
                 image = ImageIO.read(new File("res/img/door_closed.png"));
                 opened = ImageIO.read(new File("res/img/door_open.png"));
 
-
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -161,7 +160,5 @@ public class Door extends Field {
                 return image;
 
         }
-
-
     }
 }
