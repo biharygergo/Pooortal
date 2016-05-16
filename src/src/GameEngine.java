@@ -93,7 +93,6 @@ public class GameEngine {
                             case "Scale":
                                 current = new Scale();
                                 scales.add((Scale) current);
-                                ((Scale) current).setMinWeight(8);
                                 break;
                             case "Gap":
                                 current = new Gap();
@@ -174,14 +173,34 @@ public class GameEngine {
 
 
 
-        int i = 0;
-        for (Scale scale : scales){
-            scale.setDoor(doors.get(i));
-            doors.get(i).setScale(scale);
-            i++;
-        }
+
 
         initiatePlayersAndReplicator(first, currentRow);
+        initializeScales("src/scale.csv", scales, doors);
+    }
+
+    private void initializeScales(String filename, ArrayList<Scale> scales, ArrayList<Door> doors){
+        try(
+                BufferedReader br = new BufferedReader(new FileReader(filename))) {
+            String line = br.readLine();
+            String cells[] = new String[10];
+            int i = 0;
+            while (line != null) { //végig a sorokon
+
+                cells = line.split(",");
+                scales.get(i).setDoor(doors.get(Integer.parseInt(cells[1])-1));
+                doors.get(Integer.parseInt(cells[1])-1).setScale(scales.get(i));
+                scales.get(i).setMinWeight(Integer.parseInt(cells[2]));
+
+                i++;
+                line = br.readLine();
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
     }
 
     private void initiatePlayersAndReplicator(ArrayList<Field> fieldListInARow, int currentRow) {
