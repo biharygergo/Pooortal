@@ -750,6 +750,7 @@ public class GameEngine {
 
                 removal.onUse(player);
                 AnimateOneField(scale.getDoor());
+                AnimateOneField(scale);
             }
             else {
                 Box steppedOn = (Box) activeModules.searchModule(nextField);
