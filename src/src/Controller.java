@@ -17,7 +17,7 @@ public class Controller implements KeyListener,Runnable {
 
     String type = "listener";
     public void run() {
-        if (type == "listener") {
+        if (type.equals("listener")) {
             setListener();
         } else {
             engine.loadMap("src/map_2.csv");
