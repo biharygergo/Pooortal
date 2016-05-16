@@ -26,7 +26,9 @@ public class Controller implements KeyListener {
             if (currentTime - lastUpdated > 2) {
                 engine.updateBullets();
 
+                System.out.println("moving");
                 engine.moveRandomReplicator();
+                System.out.println("movec");
                 lastUpdated = currentTime;
 
             }

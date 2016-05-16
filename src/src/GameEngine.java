@@ -568,7 +568,7 @@ public class GameEngine {
                     Field old = replicator.getField();
                     moveReplicatorTowardsHisActualDirIfNoBarrierAhead();
                     AnimateOneField(old);
-                    AnimateOneField(replicator.getNextField());
+                    AnimateOneField(replicator.getField());
                 } else {
                     replicator.setDir(replicatorMoveDir);
                     AnimateOneField(replicator.getField());

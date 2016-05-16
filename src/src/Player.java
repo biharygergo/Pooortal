@@ -76,19 +76,17 @@ public class Player {
      */
     public Box dropBox() {
         if (dropBoxAllowed) {
-            if (this.getNextField().steppable()) {
                 box.setField(this.getNextField());
                 Box returnvalue = box;
                 weight -= box.getWeight();
                 box = null;
                 return returnvalue;
-            }
+
         } else {
             dropBoxAllowed = true;
             return null;
         }
 
-        return box;
     }
 
     /**
@@ -133,6 +131,7 @@ public class Player {
         if (onThisScale != null) {
             int currentWeight = onThisScale.getCurrentWeight() - weight;
             onThisScale.setCurrentWeight(currentWeight);
+
             if (onThisScale.getCurrentWeight() < onThisScale.getMinWeight()) {
                 onThisScale.getDoor().setOpen(false);
             }
