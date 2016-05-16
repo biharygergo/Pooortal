@@ -12,7 +12,7 @@ import java.io.IOException;
  */
 public class Player {
 
-    public boolean dropBoxAllowed = true;
+    private boolean dropBoxAllowed = true;
     public Door onThisDoor;
 
     BufferedImage image;
@@ -20,6 +20,14 @@ public class Player {
      * The field which the player currently stands on
      */
     private Field field;
+
+    public boolean isDropBoxAllowed(){
+       return dropBoxAllowed;
+    }
+
+    public void setDropBoxAllowed(boolean value){
+        dropBoxAllowed = value;
+    }
 
     /**
      * The direction of the player
@@ -76,6 +84,7 @@ public class Player {
      */
     public Box dropBox() {
         if (dropBoxAllowed) {
+
                 box.setField(this.getNextField());
                 Box returnvalue = box;
                 weight -= box.getWeight();
@@ -86,6 +95,7 @@ public class Player {
             dropBoxAllowed = true;
             return null;
         }
+
 
     }
 
@@ -131,7 +141,6 @@ public class Player {
         if (onThisScale != null) {
             int currentWeight = onThisScale.getCurrentWeight() - weight;
             onThisScale.setCurrentWeight(currentWeight);
-
             if (onThisScale.getCurrentWeight() < onThisScale.getMinWeight()) {
                 onThisScale.getDoor().setOpen(false);
             }
