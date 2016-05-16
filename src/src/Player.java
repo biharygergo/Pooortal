@@ -12,7 +12,7 @@ import java.io.IOException;
  */
 public class Player {
 
-    public boolean dropBoxAllowed = true;
+    private boolean dropBoxAllowed = true;
     public Door onThisDoor;
 
     BufferedImage image;
@@ -20,6 +20,14 @@ public class Player {
      * The field which the player currently stands on
      */
     private Field field;
+
+    public boolean isDropBoxAllowed(){
+       return dropBoxAllowed;
+    }
+
+    public void setDropBoxAllowed(boolean value){
+        dropBoxAllowed = value;
+    }
 
     /**
      * The direction of the player

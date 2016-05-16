@@ -160,7 +160,7 @@ public class SpecialWall extends Wall {
             }
         }
         else{
-            player.dropBoxAllowed=false;
+            player.setDropBoxAllowed(false);
         }
     }
 
