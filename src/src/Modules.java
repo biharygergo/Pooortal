@@ -51,7 +51,6 @@ public class Modules {
 
         for (ZPM zpm : ZPMs) {
             if (zpm.getField().equals(field)) {
-                removeZPM(zpm);
                 return zpm;
             }
         }
@@ -221,32 +220,36 @@ public class Modules {
         return null;
     }
 
-    /** Remove ZPM and add new ZPM if necessary
+    /** Remove ZPM
      * @param zpm The ZPM to be removed
      */
     public void removeZPM(ZPM zpm) {
-       collectedZPMs++;
+        Iterator<ZPM> zpmIterator = ZPMs.iterator();
+
+        while (zpmIterator.hasNext()) {
+            ZPM actualZPM = zpmIterator.next();
+
+            if (actualZPM.equals(zpm)) {
+                zpmIterator.remove();
+            }
+        }
+    }
+
+    /** Add new ZPM if necessary
+     * @param zpm The ZPM to be removed
+     */
+    public void addNewZPMToRandomFieldIfNeccessary(ZPM zpm) {
+        collectedZPMs++;
 
         if((collectedZPMs%2)==0){
-            // TODO Teszt miatt lett kommentezve
             Road newField =  zpm.getField().getRandomRoad(startField);
 
-
-            //Ha benne van vmelyik listában, akkor az nem lesz jó mező!
             while(ZPMisInList(newField) || BoxisInList(newField)){
                 newField = zpm.getField().getRandomRoad(startField);
             }
 
             ZPM newZPM = new ZPM(newField);
-
-            //Field newField = startField.getFixRoad(); // TODO törölni ezt a sort, csak proto miatt kell...
-            //ZPM newZPM = new ZPM(newField); // TODO ez is
             ZPMs.add(newZPM);
-
-            ZPMs.remove(zpm);
-        }
-        else{
-            ZPMs.remove(zpm);
         }
     }
 
