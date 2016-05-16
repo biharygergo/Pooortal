@@ -31,10 +31,7 @@ public class ZPM extends Item {
      */
     public void onStep(Player player) {
        player.collectedZPMs++;
-       player.setField(this.field); //max ennyi
-
-        //Itt még mi történik?
-
+       player.setField(this.field);
     }
 
     /**

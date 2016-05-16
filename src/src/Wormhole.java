@@ -22,7 +22,6 @@ public class Wormhole {
      * Default constructor
      */
     public Wormhole() {
-
     }
 
     /**

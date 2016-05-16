@@ -15,7 +15,6 @@ public class Wall extends Field {
      */
     public Wall() {
         description = "Wall";
-
     }
 
     /**

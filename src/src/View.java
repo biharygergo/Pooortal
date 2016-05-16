@@ -265,4 +265,3 @@ public class View extends JFrame {
         paintOn(bulletImage.getImage(), x, y);
     }
 }
-

@@ -12,11 +12,6 @@ import java.util.*;
 public class Scale extends Field {
 
     /**
-     * The weight of the scale (True or False)
-     */
-    private boolean weight;
-
-    /**
      * Boxes currently stacked
      */
     private ArrayList<Box> boxes = new ArrayList<>();
@@ -32,11 +27,6 @@ public class Scale extends Field {
     private int currentWeight = 0;
 
     /**
-     * The player that is currently standing on the Scale
-     */
-    private Player playerOnScale;
-
-    /**
      * The door which is connected to the scale
      */
     private Door door;
@@ -46,34 +36,6 @@ public class Scale extends Field {
      */
     public Scale() {
         description = "Scale";
-    }
-
-    /**
-     * @return The door which is connected to the scale
-     */
-    public Door getDoor() {
-       return door;
-    }
-
-    /**
-     * @param door The door to be set for the scale
-     */
-    public void setDoor(Door door) {
-        this.door = door;
-    }
-
-    /**
-     * @return Whether there is weight on the scale or not
-     */
-    public boolean getWeight() {
-        return weight;
-    }
-
-    /**
-     * @param weight The weight to be set on the scale
-     */
-    public void setWeight(boolean weight) {
-       this.weight = weight;
     }
 
     /**
@@ -158,15 +120,6 @@ public class Scale extends Field {
      */
     public void onReplicatorStep(Replicator replicator){
         replicator.setField(this);
-
-    }
-
-    /**
-     *
-     * @param num
-     */
-    public void listScale(int num){
-        System.out.println(num + ". (" + xPos + "," + yPos + ") " + "(" + door.xPos + "," + door.yPos + ") " + minWeight + " " + currentWeight + " " + door.isOpen());
     }
 
     /**
@@ -183,6 +136,20 @@ public class Scale extends Field {
      */
     public int getCurrentWeight() {
         return currentWeight;
+    }
+
+    /**
+     * @return The door which is connected to the scale
+     */
+    public Door getDoor() {
+        return door;
+    }
+
+    /**
+     * @param door The door to be set for the scale
+     */
+    public void setDoor(Door door) {
+        this.door = door;
     }
 
     /**
