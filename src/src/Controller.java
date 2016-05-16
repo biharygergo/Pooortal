@@ -8,34 +8,50 @@ import java.io.IOException;
 /**
  * Created by Gergo on 14/05/16.
  */
-public class Controller implements KeyListener {
+public class Controller implements KeyListener,Runnable {
     boolean endGame = false;
     static GameEngine engine = null;
     View ourView;
     long lastUpdated = System.currentTimeMillis()/1000;
-    public void run(){
-        engine.loadMap("src/map_2.csv");
-        Thread t = new Thread();
-        while (!endGame) {
-            endGame = engine.endGame();
-            if (endGame) {
-                engine.exit();
-            }
-            long currentTime = System.currentTimeMillis()/1000;
-            long elapsed = currentTime -lastUpdated;
-            if (currentTime - lastUpdated > 2) {
-                engine.updateBullets();
+    long lastUpdatedReplicator = System.currentTimeMillis()/1000;
 
-                engine.moveRandomReplicator();
-                lastUpdated = currentTime;
+    String type = "listener";
+    public void run() {
+        if (type.equals("listener")) {
+            setListener();
+        } else {
+            engine.loadMap("src/map_2.csv");
+            Thread t = new Thread();
+            while (!endGame) {
+                endGame = engine.endGame();
+                if (endGame) {
+                    engine.exit();
+                }
+                long currentTime = System.currentTimeMillis() / 1000;
+                long elapsed = currentTime - lastUpdated;
+                if (currentTime - lastUpdatedReplicator > 2) {
 
+
+                    engine.moveRandomReplicator();
+                    lastUpdatedReplicator = currentTime;
+                }
+                if(currentTime-lastUpdated > 0.2){
+                    engine.updateBullets();
+                    lastUpdated = currentTime;
+
+                }
             }
         }
     }
 
-    public Controller(GameEngine game) {
-        engine = game;
+
+    public void setListener(){
         View.initGui(this);
+    }
+    public Controller(GameEngine game, String type) {
+        engine = game;
+        this.type = type;
+        //View.initGui(this);
         //ourView = View.getInstance();
        // ourView.addKeyListener(this);
     }
@@ -51,13 +67,7 @@ public class Controller implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-
-    }
-
-    @Override
-    public void keyReleased(KeyEvent e) {
         System.out.println(e.getKeyChar());
-
 
         char typed = e.getKeyChar();
         String command = typed+"";
@@ -65,94 +75,74 @@ public class Controller implements KeyListener {
 
         switch (command) {
 
-
             case "I":
-
                 engine.oNeillMove("I");
                 break;
-            case "J":
 
+            case "J":
                 engine.oNeillMove("J");
                 break;
+
             case "K":
-
                 engine.oNeillMove("K");
-
                 break;
-            case "L":
 
+            case "L":
                 engine.oNeillMove("L");
                 break;
 
             case "A":
-
                 engine.jaffaMove("A");
-
                 break;
+
             case "S":
-
                 engine.jaffaMove("S");
-
                 break;
+
             case "D":
-
                 engine.jaffaMove(command);
-
                 break;
+
             case "W":
-
                 engine.jaffaMove(command);
-
                 break;
 
             case "U":
-
                 engine.oNeillShootBullet("B");
-
-
                 break;
 
             case "O":
-
                 engine.oNeillShootBullet("Y");
-
                 break;
+
             case "Q":
-
                 engine.jaffaShootBullet("R");
-
                 break;
+
             case "E":
-
                 engine.jaffaShootBullet("G");
-
                 break;
 
             case "N":
                 engine.oNeilGetBox();
-
                 break;
-
 
             case "Y":
                 engine.jaffaDropBox();
-
                 break;
 
             case "M":
                 engine.oNeilDropBox();
-
                 break;
 
             case "X":
                 engine.jaffaGetBox();
-
                 break;
 
-        }
-
-
             //engine.Animate();
-
+        }
     }
+
+    @Override
+    public void keyReleased(KeyEvent e) {}
 }
