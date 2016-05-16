@@ -525,7 +525,7 @@ public class GameEngine {
         if (oNeill.getBox() != null) {
             Field maybeGap = oNeill.getNextField();
             //Kvazi-Ralepunk de a player fieldjet nem allitottuk at!
-            if(maybeGap.steppable()) {
+            if(maybeGap.steppable() || maybeGap.getDescription().equals("Scale")) {
                 maybeGap.onStep(oNeill);
                 Box box = oNeill.dropBox();
                 activeModules.checkBoxes();
@@ -551,7 +551,7 @@ public class GameEngine {
         if (Jaffa.getBox() != null) {
 
             Field maybeGapJaffa = Jaffa.getNextField();
-            if(maybeGapJaffa.steppable()) {
+            if(maybeGapJaffa.steppable() || maybeGapJaffa.getDescription().equals("Scale")) {
                 maybeGapJaffa.onStep(Jaffa);
                 Box box = Jaffa.dropBox();
                 activeModules.checkBoxes();
