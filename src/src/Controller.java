@@ -120,7 +120,7 @@ public class Controller implements KeyListener, Runnable {
                 engine.jaffaShootBullet("G");
                 break;
 
-            case "N":
+            case "M":
                 engine.oNeilGetBox();
                 break;
 
@@ -128,7 +128,7 @@ public class Controller implements KeyListener, Runnable {
                 engine.jaffaDropBox();
                 break;
 
-            case "M":
+            case "N":
                 engine.oNeilDropBox();
                 break;
 
