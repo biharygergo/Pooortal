@@ -186,9 +186,9 @@ public class GameEngine {
 
     private void initiatePlayersAndReplicator(ArrayList<Field> fieldListInARow, int currentRow) {
 
-            Jaffa = new Player(map.getFieldAtPos(2,2), Dir.Up, 6, Color.Red);
+            Jaffa = new Player(map.getFieldAtPos(5,2), Dir.Up, 6, Color.Red);
 
-            oNeill = new Player(map.getFieldAtPos(16,16), Dir.Up, 5, Color.Blue);
+            oNeill = new Player(map.getFieldAtPos(12,16), Dir.Up, 5, Color.Blue);
 
             replicator = new Replicator(map.getFieldAtPos(14,2), Dir.Up);
 
@@ -506,18 +506,21 @@ public class GameEngine {
         if (oNeill.getBox() != null) {
             Field maybeGap = oNeill.getNextField();
             //Kvazi-Ralepunk de a player fieldjet nem allitottuk at!
-            maybeGap.onStep(oNeill);
-            Box box = oNeill.dropBox();
-            activeModules.checkBoxes();
+            if (maybeGap.steppable()) {
+                maybeGap.onStep(oNeill);
+                Box box = oNeill.dropBox();
+                activeModules.checkBoxes();
 
-            if(box.getField().getDescription().equals("Scale")){
-                Scale scale = (Scale) box.getField();
-                AnimateOneField(scale.getDoor());
+                if (box.getField().getDescription().equals("Scale")) {
+                    Scale scale = (Scale) box.getField();
+                    AnimateOneField(scale.getDoor());
+                }
+
+
+                AnimateOneField(oNeill.getField());
+                AnimateOneField(oNeill.getNextField());
             }
         }
-
-        AnimateOneField(oNeill.getField());
-        AnimateOneField(oNeill.getNextField());
     }
 
     public void oNeilGetBox(){
@@ -529,20 +532,22 @@ public class GameEngine {
     public void jaffaDropBox(){
         if (Jaffa.getBox() != null) {
 
-            Field maybeGapJaffa = Jaffa.getField();
-            maybeGapJaffa.onStep(Jaffa);
-            Box box = Jaffa.dropBox();
-            activeModules.checkBoxes();
+            Field maybeGapJaffa = Jaffa.getNextField();
+            if (maybeGapJaffa.steppable()) {
+                maybeGapJaffa.onStep(Jaffa);
+                Box box = Jaffa.dropBox();
+                activeModules.checkBoxes();
 
-            if(box.getField().getDescription().equals("Scale")){
-                Scale scale = (Scale) box.getField();
-                AnimateOneField(scale.getDoor());
+                if (box.getField().getDescription().equals("Scale")) {
+                    Scale scale = (Scale) box.getField();
+                    AnimateOneField(scale.getDoor());
+                }
+
+
+                AnimateOneField(Jaffa.getField());
+                AnimateOneField(Jaffa.getNextField());
             }
-
         }
-
-        AnimateOneField(Jaffa.getField());
-        AnimateOneField(Jaffa.getNextField());
     }
 
     public void jaffaGetBox(){
