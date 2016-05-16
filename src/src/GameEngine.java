@@ -548,7 +548,7 @@ public class GameEngine {
     public void jaffaDropBox(){
         if (Jaffa.getBox() != null) {
 
-            Field maybeGapJaffa = Jaffa.getField();
+            Field maybeGapJaffa = Jaffa.getNextField();
             maybeGapJaffa.onStep(Jaffa);
             Box box = Jaffa.dropBox();
             activeModules.checkBoxes();
