@@ -84,19 +84,19 @@ public class Player {
      */
     public Box dropBox() {
         if (dropBoxAllowed) {
-            if (this.getNextField().steppable()) {
+
                 box.setField(this.getNextField());
                 Box returnvalue = box;
                 weight -= box.getWeight();
                 box = null;
                 return returnvalue;
-            }
+
         } else {
             dropBoxAllowed = true;
             return null;
         }
 
-        return box;
+
     }
 
     /**
