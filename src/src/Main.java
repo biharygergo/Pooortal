@@ -6,8 +6,15 @@ package src;
 public class Main {
 
     private static GameEngine gameEngine = new GameEngine();
-    private static Controller controller = new Controller(gameEngine);
+    private static Controller controller = new Controller(gameEngine,"listener");
+    private static Controller controllerOnNewThread = new Controller(gameEngine,"updater");
     public static void main (String[] args){
-        controller.run();
+
+        Thread t = new Thread(controller);
+        Thread t2 = new Thread(controllerOnNewThread);
+        t.start();
+        t2.start();
+
+        //controller.run();
     }
 }
