@@ -61,7 +61,7 @@ public class Controller implements KeyListener,Runnable {
 
     @Override
     public void keyPressed(KeyEvent e) {
-        System.out.println(e.getKeyChar());
+       // System.out.println(e.getKeyChar());
 
         char typed = e.getKeyChar();
         String command = typed+"";
