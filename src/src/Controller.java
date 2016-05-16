@@ -67,13 +67,7 @@ public class Controller implements KeyListener,Runnable {
 
     @Override
     public void keyPressed(KeyEvent e) {
-
-    }
-
-    @Override
-    public void keyReleased(KeyEvent e) {
         System.out.println(e.getKeyChar());
-
 
         char typed = e.getKeyChar();
         String command = typed+"";
@@ -81,94 +75,74 @@ public class Controller implements KeyListener,Runnable {
 
         switch (command) {
 
-
             case "I":
-
                 engine.oNeillMove("I");
                 break;
-            case "J":
 
+            case "J":
                 engine.oNeillMove("J");
                 break;
+
             case "K":
-
                 engine.oNeillMove("K");
-
                 break;
-            case "L":
 
+            case "L":
                 engine.oNeillMove("L");
                 break;
 
             case "A":
-
                 engine.jaffaMove("A");
-
                 break;
+
             case "S":
-
                 engine.jaffaMove("S");
-
                 break;
+
             case "D":
-
                 engine.jaffaMove(command);
-
                 break;
+
             case "W":
-
                 engine.jaffaMove(command);
-
                 break;
 
             case "U":
-
                 engine.oNeillShootBullet("B");
-
-
                 break;
 
             case "O":
-
                 engine.oNeillShootBullet("Y");
-
                 break;
+
             case "Q":
-
                 engine.jaffaShootBullet("R");
-
                 break;
+
             case "E":
-
                 engine.jaffaShootBullet("G");
-
                 break;
 
             case "N":
                 engine.oNeilGetBox();
-
                 break;
-
 
             case "Y":
                 engine.jaffaDropBox();
-
                 break;
 
             case "M":
                 engine.oNeilDropBox();
-
                 break;
 
             case "X":
                 engine.jaffaGetBox();
-
                 break;
 
-        }
-
-
             //engine.Animate();
-
+        }
     }
+
+    @Override
+    public void keyReleased(KeyEvent e) {}
 }
