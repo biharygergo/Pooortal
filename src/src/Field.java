@@ -73,7 +73,6 @@ public abstract class Field {
      * @param map the neighbours of the door in the specified direction* @param map
      */
     public void setSides(Map<Dir, Field> map) {
-       //sides = map;
         sides.put(Dir.Up, map.get(Dir.Up));
         sides.put(Dir.Down, map.get(Dir.Down));
         sides.put(Dir.Left, map.get(Dir.Left));
