@@ -20,27 +20,46 @@ public class Modules {
     public Modules() {}
 
     /**
-     *
-     * @return
+     * @param filename String for initialization
+     * @param startField The player starts from this field
      */
-    public int getCollectedZPMs(){
-        return collectedZPMs;
-    }
+    public void initializeModules(String filename, Field startField) {
+        Field current;
+        int x;
+        int y;
+        int weight;
+        try(
+                BufferedReader br = new BufferedReader(new FileReader(filename))) {
+            String line = br.readLine();
+            String cells[] = new String[10];
 
-    /**
-     *
-     * @return
-     */
-    public ArrayList<ZPM> getZPMs(){
-        return  ZPMs;
-    }
+            while (line != null) { //végig a sorokon
 
-    /**
-     *
-     * @param startField
-     */
-    public void setStartField(Field startField) {
-        this.startField = startField;
+                cells = line.split(",");
+
+                switch (cells[0]){
+                    case "Box":
+                        x = Integer.parseInt(cells[1]);
+                        y = Integer.parseInt(cells[2]);
+                        weight = Integer.parseInt(cells[3]);
+                        current = startField.getFieldAtPos(x,y);
+                        boxes.add(new Box(current, weight));
+                        break;
+                    case "ZPM":
+                        x = Integer.parseInt(cells[1]);
+                        y = Integer.parseInt(cells[2]);
+
+                        current = startField.getFieldAtPos(x,y);
+                        ZPMs.add(new ZPM(current));
+                        break;
+                }
+
+                line = br.readLine();
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -72,49 +91,6 @@ public class Modules {
         if(ZPMs.size()==0)
             return true;
         return false;
-    }
-
-    /**
-     * @param filename String for initialization
-     * @param startField The player starts from this field
-     */
-    public void initializeModules(String filename, Field startField) {
-        Field current;
-        int x;
-        int y;
-        int weight;
-        try(
-                BufferedReader br = new BufferedReader(new FileReader(filename))) {
-                String line = br.readLine();
-                String cells[] = new String[10];
-
-                while (line != null) { //végig a sorokon
-
-                    cells = line.split(",");
-
-                    switch (cells[0]){
-                        case "Box":
-                            x = Integer.parseInt(cells[1]);
-                            y = Integer.parseInt(cells[2]);
-                            weight = Integer.parseInt(cells[3]);
-                            current = startField.getFieldAtPos(x,y);
-                            boxes.add(new Box(current, weight));
-                            break;
-                        case "ZPM":
-                            x = Integer.parseInt(cells[1]);
-                            y = Integer.parseInt(cells[2]);
-
-                            current = startField.getFieldAtPos(x,y);
-                            ZPMs.add(new ZPM(current));
-                            break;
-                    }
-
-                    line = br.readLine();
-                }
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     /**
@@ -270,13 +246,6 @@ public class Modules {
     }
 
     /**
-     * @return The list of bullets
-     */
-    public List<Bullet> getBullets() {
-        return bullets;
-    }
-
-    /**
      *
      * @param box
      */
@@ -286,11 +255,32 @@ public class Modules {
 
     /**
      *
-     * @param index
      * @return
      */
-    public Box getBox(int index){
-        return boxes.get(index);
+    public int getCollectedZPMs(){
+        return collectedZPMs;
     }
 
+    /**
+     *
+     * @return
+     */
+    public ArrayList<ZPM> getZPMs(){
+        return  ZPMs;
+    }
+
+    /**
+     * @return The list of bullets
+     */
+    public List<Bullet> getBullets() {
+        return bullets;
+    }
+
+    /**
+     *
+     * @param startField
+     */
+    public void setStartField(Field startField) {
+        this.startField = startField;
+    }
 }

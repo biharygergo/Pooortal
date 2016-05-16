@@ -22,35 +22,26 @@ public class Box extends Item {
     }
 
     /**
+     * Handles the pick up and drop of the box
+     * @param player the player who wants to use the box
+     */
+    public void onUse(Player player) {
+        if(player.getBox()!=null) {
+            return;
+        }
+
+        player.setBox(this);
+        this.field = player.getField();
+
+        player.weight+=this.weight;
+    }
+
+    /**
      *
      * @return
      */
     public int getWeight() {
         return weight;
-    }
-
-    /**
-     *
-     * @param weight
-     */
-    public void setWeight(int weight) {
-        this.weight = weight;
-    }
-
-    /**
-      * Handles the pick up and drop of the box
-      * @param player the player who wants to use the box
-     */
-    public void onUse(Player player) {
-        if(player.getBox()!=null)
-            return;
-
-        player.setBox(this);
-        this.field = player.getField();
-
-        //Hozzaadjuk a player sulyahoz a box sulyat?
-        player.weight+=this.weight;
-
     }
 
     /**

@@ -21,22 +21,6 @@ public class Player {
     private Field field;
 
     /**
-     *
-     * @return
-     */
-    public boolean isDropBoxAllowed(){
-       return dropBoxAllowed;
-    }
-
-    /**
-     *
-     * @param value
-     */
-    public void setDropBoxAllowed(boolean value){
-        dropBoxAllowed = value;
-    }
-
-    /**
      * The direction of the player
      */
     private Dir dir;
@@ -170,6 +154,14 @@ public class Player {
         if (box != null)
             box.setField(field);
         this.field = field;
+    }
+
+    /**
+     *
+     * @param value
+     */
+    public void setDropBoxAllowed(boolean value){
+        dropBoxAllowed = value;
     }
 
     /**

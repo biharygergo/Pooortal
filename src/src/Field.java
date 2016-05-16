@@ -43,20 +43,12 @@ public abstract class Field {
     public abstract void onShoot(Bullet bullet, Wormhole colonelHole, Wormhole jaffaHole);
 
     /**
-     * @return Returns the neighbouring fields in a given direction
-     */
-    public Map<Dir, Field> getSides() {
-        return sides;
-    }
-
-    /**
      *
      * @param dir
      * @return
      */
     public Field getSide(Dir dir){
         return sides.get(dir);
-
     }
 
     /**
@@ -115,14 +107,6 @@ public abstract class Field {
 
     /**
      *
-     * @param num
-     */
-    public void listField(int num){
-        System.out.println(num +". (" + xPos + ","+ yPos + ") " + description);
-    }
-
-    /**
-     *
      * @return
      */
     public String getDescription() {
@@ -151,7 +135,6 @@ public abstract class Field {
      * @param yPos
      */
     public void setPos(int xPos, int yPos) {
-
         this.xPos = xPos;
         this.yPos = yPos;
     }

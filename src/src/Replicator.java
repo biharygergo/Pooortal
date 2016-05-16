@@ -40,6 +40,34 @@ public class Replicator {
     }
 
     /**
+     *
+     * @return
+     */
+    public Dir setNewRandomField(){
+        Random r = new Random();
+
+        int newDirInt = r.nextInt(4);
+        Dir newDir = Dir.Right;
+        switch (newDirInt){
+            case 0:
+                newDir = Dir.Up;
+                break;
+            case 1:
+                newDir = Dir.Down;
+                break;
+            case 2:
+                newDir = Dir.Left;
+                break;
+            case 3:
+                newDir = Dir.Right;
+                break;
+        }
+
+        this.dir = newDir;
+        return newDir;
+    }
+
+    /**
      * @return The field which the player currently stands on
      */
     public Field getField() {
@@ -58,38 +86,6 @@ public class Replicator {
      */
     public Dir getDir() {
         return dir;
-    }
-
-    /**
-     *
-     * @return
-     */
-    public Dir setNewRandomField(){
-        Random r = new Random();
-
-
-        int newDirInt = r.nextInt(4);
-        Dir newDir = Dir.Right;
-        switch (newDirInt){
-            case 0:
-                newDir = Dir.Up;
-                break;
-            case 1:
-                newDir = Dir.Down;
-                break;
-            case 2:
-                newDir = Dir.Left;
-                break;
-            case 3:
-                newDir = Dir.Right;
-                break;
-
-        }
-
-        this.dir = newDir;
-        return newDir;
-
-
     }
 
     /**
