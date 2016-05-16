@@ -356,7 +356,8 @@ public class GameEngine {
                 }
                 if (player.getField().getDescription().equals("Scale")) {
                     Scale scale = (Scale) player.getField();
-                    scale.setCurrentWeight(scale.getCurrentWeight() - box.getWeight());
+                    int newWeight = scale.getCurrentWeight() - box.getWeight();
+                    scale.setCurrentWeight(newWeight);
                 }
             }
         }

@@ -127,7 +127,11 @@ public class Scale extends Field {
      * @param currentWeight
      */
     public void setCurrentWeight(int currentWeight) {
-        this.currentWeight = currentWeight;
+        if (currentWeight < 0) {
+            this.currentWeight = 0;
+        } else {
+            this.currentWeight = currentWeight;
+        }
     }
 
     /**
