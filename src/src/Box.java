@@ -14,7 +14,6 @@ public class Box extends Item {
 
     private int weight;
     private boolean alive;
-    private BufferedImage myImage;
 
     public Box(Field f, int w) {
         field = f;
@@ -22,10 +21,18 @@ public class Box extends Item {
         alive = true;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getWeight() {
         return weight;
     }
 
+    /**
+     *
+     * @param weight
+     */
     public void setWeight(int weight) {
         this.weight = weight;
     }
@@ -69,14 +76,26 @@ public class Box extends Item {
      this.field=field;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isAlive(){
         return alive;
     }
 
+    /**
+     *
+     * @param life
+     */
     public void setAlive(boolean life){
         alive=life;
     }
 
+    /**
+     *
+     * @return
+     */
     public BufferedImage getImage() {
         if (image == null) {
             try {

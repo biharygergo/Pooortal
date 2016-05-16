@@ -9,12 +9,13 @@ import java.io.IOException;
  * Represents a bullet in a given color
  */
 public class Bullet{
+
     BufferedImage red, blue, green, yellow;
+
     /**
      * Color of the bullet
      */
     private Color color;
-
 
     /**
      * Direction of the bullet
@@ -93,12 +94,19 @@ public class Bullet{
         this.active=active;
     }
 
+    /**
+     *
+     * @return
+     */
     public Field getNextField(){
         Field nextField = field.getSide(dir);
         return nextField;
     }
 
-
+    /**
+     *
+     * @return
+     */
     public BufferedImage getImage() {
         if (blue == null || green == null || red == null || yellow == null) {
             try {
