@@ -7,7 +7,6 @@ public class Controller implements KeyListener, Runnable {
 
     boolean endGame = false;
     static GameEngine engine = null;
-    View ourView;
     long lastUpdated = System.currentTimeMillis()/1000;
     long lastUpdatedReplicator = System.currentTimeMillis()/1000;
 
@@ -18,14 +17,12 @@ public class Controller implements KeyListener, Runnable {
             setListener();
         } else {
             engine.loadMap("res/csv/map_2.csv");
-            Thread t = new Thread();
             while (!endGame) {
                 endGame = engine.endGame();
                 if (endGame) {
                     engine.exit();
                 }
                 long currentTime = System.currentTimeMillis() / 1000;
-                long elapsed = currentTime - lastUpdated;
                 if (currentTime - lastUpdatedReplicator > 2) {
 
 
@@ -41,10 +38,10 @@ public class Controller implements KeyListener, Runnable {
         }
     }
 
-
     public void setListener(){
         View.initGui(this);
     }
+
     public Controller(GameEngine game, String type) {
         engine = game;
         this.type = type;
@@ -58,16 +55,16 @@ public class Controller implements KeyListener, Runnable {
             engine.Animate();
 
     }
+
     @Override
     public void keyTyped(KeyEvent e) {
     }
 
     @Override
     public void keyPressed(KeyEvent e) {
-       // System.out.println(e.getKeyChar());
 
         char typed = e.getKeyChar();
-        String command = typed+"";
+        String command = typed + "";
         command = command.toUpperCase();
 
         switch (command) {
@@ -135,8 +132,6 @@ public class Controller implements KeyListener, Runnable {
             case "X":
                 engine.jaffaGetBox();
                 break;
-
-            //engine.Animate();
         }
     }
 
