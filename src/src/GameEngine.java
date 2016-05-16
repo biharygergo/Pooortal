@@ -417,8 +417,26 @@ public class GameEngine {
                 }
                 else {
 
+                    Field oldWall = JaffaHole.getColor1();
+                    Field oldWall2 = JaffaHole.getColor2();
+                    Field oldWall3 = oNeillHole.getColor1();
+                    Field oldWall4 = oNeillHole.getColor2();
+
                     nextField.onShoot(bullet,oNeillHole,JaffaHole);
                     activeModules.checkBullets();
+
+                    if(oldWall!=null){
+                        AnimateOneField(oldWall);
+                    }
+                    if(oldWall2!=null){
+                        AnimateOneField(oldWall2);
+                    }
+                    if(oldWall3!=null){
+                        AnimateOneField(oldWall3);
+                    }
+                    if(oldWall4!=null){
+                        AnimateOneField(oldWall4);
+                    }
 
                 }
 
@@ -489,6 +507,7 @@ public class GameEngine {
             case "B":
                 shot = oNeill.shootColor1();
                 activeModules.addBullet(shot);
+
 
                 break;
             case "Y":
