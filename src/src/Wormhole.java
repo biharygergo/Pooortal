@@ -67,4 +67,5 @@ public class Wormhole {
     public void setColor2(SpecialWall specWall) {
         color2Portal = specWall;
     }
+
 }

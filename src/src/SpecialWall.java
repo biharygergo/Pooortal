@@ -156,7 +156,7 @@ public class SpecialWall extends Wall {
      * @return The boolean whether the special wall is steppable or not
      */
     public boolean steppable() {
-        if(wormHole==null)
+        if(wormHole==null || color==Color.Empty)
             return false;
 
         return wormHole.checkPass();
@@ -170,7 +170,7 @@ public class SpecialWall extends Wall {
         if(player.getField().equals(this)) {
             if (color == wormHole.primaryColor)
                 player.setField(wormHole.getColor2());
-            else {
+            else if (color == wormHole.secondaryColor){
                 player.setField(wormHole.getColor1());
             }
         }
