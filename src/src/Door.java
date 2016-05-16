@@ -1,8 +1,6 @@
 package src;
 
 import javax.imageio.ImageIO;
-import javax.swing.*;
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -16,6 +14,7 @@ public class Door extends Field {
     private boolean playerBlockingDoor;
     BufferedImage opened = null;
     boolean rotated = true;
+
     /**
      * Status of the door
      */
@@ -31,12 +30,16 @@ public class Door extends Field {
     /**
      * @return Returns true if the door is open, false otherwise
      */
-
-    public void setRotated(boolean value){
-        rotated = value;
-    }
     public boolean isOpen() {
         return open;
+    }
+
+    /**
+     *
+     * @param value
+     */
+    public void setRotated(boolean value){
+        rotated = value;
     }
 
     /**
@@ -68,9 +71,13 @@ public class Door extends Field {
         return playerBlockingDoor;
     }
 
+    /**
+     *
+     */
     public void reCheckWeightAfterSteppingOff(){
         scale.reCheckWeights();
     }
+
     /**
      * Set if player is still blocking
      * @param block
@@ -78,6 +85,7 @@ public class Door extends Field {
     public void setPlayerBlockingDoor(boolean block){
         playerBlockingDoor = block;
     }
+
     /**
      * @return Returns true if open, false otherwise
      */
@@ -104,14 +112,18 @@ public class Door extends Field {
     /**
      * @return Returns the neighbouring fields in a given direction
      */
-
-   public void setScale(Scale scale){
+    public void setScale(Scale scale){
        this.scale = scale;
    }
 
+    /**
+     *
+     * @return
+     */
     public Scale getScale(){
         return scale;
     }
+
     /**
      * What happens on replicator step
      * @param replicator this is the replicator that stepped on the door
@@ -119,6 +131,10 @@ public class Door extends Field {
     public void onReplicatorStep(Replicator replicator){
     }
 
+    /**
+     *
+     * @return
+     */
     public BufferedImage getImage() {
 
         if (image == null || opened == null) {
