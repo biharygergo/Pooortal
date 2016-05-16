@@ -67,9 +67,4 @@ public class Wormhole {
     public void setColor2(SpecialWall specWall) {
         color2Portal = specWall;
     }
-
-    public void listWormhole(int num){
-        System.out.println(num +"." + (color1Portal == null ? " null Empty" : ("(" + color1Portal.getxPos() + "," + color1Portal.getyPos() + ") " + color1Portal.getColor().name())) +
-                (color2Portal == null ? " null Empty" : (" (" + color2Portal.getxPos() + "," + color2Portal.getyPos() + ") "  + color2Portal.getColor().name())));
-    }
 }

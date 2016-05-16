@@ -1,8 +1,6 @@
 package src;
 
 import javax.imageio.ImageIO;
-import javax.swing.*;
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -15,9 +13,6 @@ public class Wall extends Field {
     /**
      * Default constructor
      */
-
-    BufferedImage myImage;
-
     public Wall() {
         description = "Wall";
 
@@ -56,6 +51,10 @@ public class Wall extends Field {
         //Ez sem hivodik meg sosem!
     }
 
+    /**
+     *
+     * @return
+     */
     public BufferedImage getImage() {
         if (image == null) {
             try {

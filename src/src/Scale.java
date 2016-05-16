@@ -1,8 +1,6 @@
 package src;
 
 import javax.imageio.ImageIO;
-import javax.swing.*;
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -13,7 +11,6 @@ import java.util.*;
  */
 public class Scale extends Field {
 
-    BufferedImage myImage=null;
     /**
      * The weight of the scale (True or False)
      */
@@ -90,6 +87,9 @@ public class Scale extends Field {
         return false;
     }
 
+    /**
+     *
+     */
     public void reCheckWeights(){
         if(currentWeight<minWeight){
             door.setOpen(false);
@@ -98,6 +98,7 @@ public class Scale extends Field {
             door.setOpen(true);
         }
     }
+
     /**
      * @param player the player who wants to step on the field where the scale is
      */
@@ -123,15 +124,25 @@ public class Scale extends Field {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public Box getBoxOnTop(){
         return boxes.get(boxes.size()-1);
     }
+
+    /**
+     *
+     * @param box
+     */
     public void removeBox(Box box){
         int boxweight = box.getWeight();
         currentWeight-=boxweight;
         boxes.remove(box);
         reCheckWeights();
     }
+
     /**
      * What happens when the player shoots on the scale
      * @param bullet The bullet which the player shoots on the scale
@@ -150,26 +161,50 @@ public class Scale extends Field {
 
     }
 
+    /**
+     *
+     * @param num
+     */
     public void listScale(int num){
         System.out.println(num + ". (" + xPos + "," + yPos + ") " + "(" + door.xPos + "," + door.yPos + ") " + minWeight + " " + currentWeight + " " + door.isOpen());
     }
 
+    /**
+     *
+     * @param currentWeight
+     */
     public void setCurrentWeight(int currentWeight) {
         this.currentWeight = currentWeight;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getCurrentWeight() {
         return currentWeight;
     }
 
+    /**
+     *
+     * @param minWeight
+     */
     public void setMinWeight(int minWeight) {
         this.minWeight = minWeight;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getMinWeight() {
         return minWeight;
     }
 
+    /**
+     *
+     * @return
+     */
     public BufferedImage getImage() {
         if (image == null) {
             try {

@@ -1,8 +1,6 @@
 package src;
 
 import javax.imageio.ImageIO;
-import javax.swing.*;
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -11,7 +9,6 @@ import java.io.IOException;
  * Represents a ZPM on a given field (road)
  */
 public class ZPM extends Item {
-
 
     /**
      * Default constructor
@@ -56,6 +53,10 @@ public class ZPM extends Item {
        this.field = field;
     }
 
+    /**
+     *
+     * @return
+     */
     public BufferedImage getImage() {
         if (image == null) {
             try {

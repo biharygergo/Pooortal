@@ -1,8 +1,6 @@
 package src;
 
 import javax.imageio.ImageIO;
-import javax.swing.*;
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -12,6 +10,7 @@ import java.io.IOException;
  */
 public class SpecialWall extends Wall {
     BufferedImage red, blue, green, yellow;
+
     /**
      * The color of the special wall when there is a portal on it
      */
@@ -185,10 +184,18 @@ public class SpecialWall extends Wall {
 
     }
 
+    /**
+     *
+     * @param num
+     */
     public void listSpecialWall(int num){
         System.out.println(num +". (" + xPos + ","+ yPos + ") " + color);
     }
 
+    /**
+     *
+     * @return
+     */
     public BufferedImage getImage() {
         if (blue == null || green == null || red == null || yellow == null || image == null) {
            try {
