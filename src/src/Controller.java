@@ -1,14 +1,10 @@
 package src;
 
-import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.io.IOException;
 
-/**
- * Created by Gergo on 14/05/16.
- */
-public class Controller implements KeyListener,Runnable {
+public class Controller implements KeyListener, Runnable {
+
     boolean endGame = false;
     static GameEngine engine = null;
     View ourView;
@@ -16,6 +12,7 @@ public class Controller implements KeyListener,Runnable {
     long lastUpdatedReplicator = System.currentTimeMillis()/1000;
 
     String type = "listener";
+
     public void run() {
         if (type.equals("listener")) {
             setListener();
