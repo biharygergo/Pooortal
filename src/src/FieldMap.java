@@ -43,6 +43,9 @@ public class FieldMap {
 
     }
 
+    /**
+     * List all fields
+     */
     public void listFields(){
         Field current = startField, first = startField; //current: actual field, first: first field of current row
         int number = 1;
@@ -50,7 +53,6 @@ public class FieldMap {
         for (int i = 0; i < ySize; i++) {
 
             for (int j = 0; j < xSize ; j++) {
-                //System.out.println(current.getSides());
                 current.listField(number);
                 current = current.getSide(Dir.Right);
                 number++;
@@ -62,6 +64,9 @@ public class FieldMap {
 
     }
 
+    /**
+     * List all scales and doors
+     */
     public void listScalesDoors(){
         Field current = startField, first = startField; //current: actual field, first: first field of current row
         int number = 1;
@@ -82,6 +87,9 @@ public class FieldMap {
         }
     }
 
+    /**
+     * List all special walls
+     */
     public void listSpecialWalls(){
         Field current = startField, first = startField; //current: actual field, first: first field of current row
         int number = 1;
@@ -102,6 +110,12 @@ public class FieldMap {
         }
     }
 
+    /**
+     * Get field at the given position (x, y)
+     * @param x
+     * @param y
+     * @return
+     */
     public Field getFieldAtPos(int x, int y){
         Field current = startField;
         for (int i = 0; i < x-1; i++) {
