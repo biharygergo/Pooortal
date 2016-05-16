@@ -1,8 +1,6 @@
 package src;
 
 import javax.imageio.ImageIO;
-import javax.swing.*;
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -16,15 +14,24 @@ public class Player {
     public Door onThisDoor;
 
     BufferedImage image;
+
     /**
      * The field which the player currently stands on
      */
     private Field field;
 
+    /**
+     *
+     * @return
+     */
     public boolean isDropBoxAllowed(){
        return dropBoxAllowed;
     }
 
+    /**
+     *
+     * @param value
+     */
     public void setDropBoxAllowed(boolean value){
         dropBoxAllowed = value;
     }
@@ -71,6 +78,13 @@ public class Player {
         field = new Road();
     }
 
+    /**
+     * Parameterized constructor
+     * @param field
+     * @param dir
+     * @param weight
+     * @param primaryColor
+     */
     public Player(Field field, Dir dir, int weight, Color primaryColor) {
         this.field = field;
         this.dir = dir;
@@ -209,21 +223,26 @@ public class Player {
         return nextField;
     }
 
-    public void listPlayer(int num, String playerName) {
-        System.out.println(num + ". " + playerName + " (" + field.getxPos() + "," + field.getyPos() + ") " + dir.name() +
-                (box == null ? " null " : ("(" + box.getField().getxPos() + "," + box.getField().getyPos() + ") ")) +
-                ((Boolean) alive).toString() + " " + collectedZPMs + " " + weight + " " + primaryColor);
-    }
-
+    /**
+     *
+     * @return
+     */
     public int getX() {
         return field.getxPos();
     }
 
+    /**
+     *
+     * @return
+     */
     public int getY() {
         return field.getyPos();
     }
 
-
+    /**
+     *
+     * @return
+     */
     public BufferedImage getImage() {
         if (image == null) {
             try {

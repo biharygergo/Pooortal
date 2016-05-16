@@ -1,8 +1,6 @@
 package src;
 
 import javax.imageio.ImageIO;
-import javax.swing.*;
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -12,7 +10,6 @@ import java.io.IOException;
  */
 public class Road extends Field {
 
-    BufferedImage myImage = null;
     /**
      * Default constructor
      */
@@ -52,7 +49,10 @@ public class Road extends Field {
         replicator.setField(this);
     }
 
-
+    /**
+     *
+     * @return
+     */
     public BufferedImage getImage() {
         if (image == null) {
             try {

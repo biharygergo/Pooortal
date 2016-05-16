@@ -1,8 +1,6 @@
 package src;
 
 import javax.imageio.ImageIO;
-import javax.swing.*;
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -12,13 +10,14 @@ import java.util.Random;
  * Represents the replicator on the map
  */
 public class Replicator {
+
     /**
      * The current field of the replicator
      */
     private Field field;
 
-
     BufferedImage image;
+
     /**
      * The current direction of the replicator
      */
@@ -29,6 +28,11 @@ public class Replicator {
      */
     private boolean alive;
 
+    /**
+     * Parameterized constructor
+     * @param field
+     * @param dir
+     */
     Replicator(Field field, Dir dir) {
         this.field = field;
         this.dir = dir;
@@ -56,6 +60,10 @@ public class Replicator {
         return dir;
     }
 
+    /**
+     *
+     * @return
+     */
     public Dir setNewRandomField(){
         Random r = new Random();
 
@@ -83,6 +91,7 @@ public class Replicator {
 
 
     }
+
     /**
      * @param dir The direction to be set for the replicator
      */
@@ -122,10 +131,10 @@ public class Replicator {
         bullet.setActive(false);
     }
 
-    public void listReplicator(int num){
-        System.out.println(num + "."  + " (" + field.getxPos() + "," + field.getyPos() + ") " + dir.name() + " " + ((Boolean) alive).toString());
-    }
-
+    /**
+     *
+     * @return
+     */
     public BufferedImage getImage() {
 
         if (image == null) {
