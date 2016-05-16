@@ -40,6 +40,9 @@ public class View extends JFrame {
      */
     public void paint(Graphics g){}
 
+    /**
+     *
+     */
     public void Invalidate(){
 
         Graphics g = getGraphics();
@@ -49,9 +52,14 @@ public class View extends JFrame {
 
     }
 
+    /**
+     *
+     * @return
+     */
     public static View getInstance(){
         return frame;
     }
+
     /**
      * Create the frame.
      */
